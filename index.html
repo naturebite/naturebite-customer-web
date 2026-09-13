@@ -1,13 +1,697 @@
+```html
 <!DOCTYPE html>
 <html lang="bn">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NatureBite</title>
+
+  <title>NatureBite | Healthy Food</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f6ef;
+      color: #183b2b;
+    }
+
+    header {
+      background: #ffffff;
+      padding: 16px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    .logo {
+      font-size: 27px;
+      font-weight: 800;
+      color: #174c32;
+      white-space: nowrap;
+    }
+
+    .search {
+      flex: 1;
+      max-width: 520px;
+    }
+
+    .search input {
+      width: 100%;
+      padding: 13px 18px;
+      border: 1px solid #d8dfd7;
+      border-radius: 30px;
+      outline: none;
+      font-size: 15px;
+      background: #f7f8f5;
+    }
+
+    .header-buttons {
+      display: flex;
+      gap: 8px;
+    }
+
+    .header-btn {
+      border: none;
+      background: #edf4ed;
+      color: #174c32;
+      padding: 11px 15px;
+      border-radius: 22px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .hero {
+      margin: 25px auto;
+      width: 90%;
+      max-width: 1200px;
+      background: #dfeadd;
+      border-radius: 25px;
+      padding: 55px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .hero-text {
+      max-width: 620px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      line-height: 1.1;
+      margin-bottom: 18px;
+      color: #174c32;
+    }
+
+    .hero p {
+      color: #496354;
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    .shop-btn {
+      background: #174c32;
+      color: white;
+      border: none;
+      padding: 14px 25px;
+      border-radius: 28px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .hero-icon {
+      font-size: 130px;
+    }
+
+    section {
+      width: 90%;
+      max-width: 1200px;
+      margin: 45px auto;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .section-title h2 {
+      font-size: 27px;
+    }
+
+    .view-all {
+      color: #277044;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .category {
+      background: white;
+      border-radius: 18px;
+      padding: 25px 15px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .category:hover {
+      transform: translateY(-4px);
+    }
+
+    .category-icon {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .category h3 {
+      font-size: 16px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .product {
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .product-image {
+      height: 190px;
+      background: #edf2e8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 65px;
+    }
+
+    .product-info {
+      padding: 17px;
+    }
+
+    .product-info h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .product-info p {
+      color: #718077;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .price {
+      font-size: 19px;
+      font-weight: 800;
+      color: #174c32;
+    }
+
+    .add-cart {
+      width: 100%;
+      margin-top: 13px;
+      padding: 11px;
+      border: none;
+      border-radius: 10px;
+      background: #174c32;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .offer {
+      background: #174c32;
+      color: white;
+      border-radius: 22px;
+      padding: 35px;
+      text-align: center;
+    }
+
+    .offer h2 {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .offer p {
+      margin-bottom: 20px;
+      opacity: 0.9;
+    }
+
+    footer {
+      margin-top: 60px;
+      background: #123525;
+      color: white;
+      padding: 40px 6%;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand h2 {
+      margin-bottom: 10px;
+    }
+
+    .footer-brand p {
+      color: #c7d6cc;
+      max-width: 350px;
+      line-height: 1.6;
+    }
+
+    .footer-links h3 {
+      margin-bottom: 12px;
+    }
+
+    .footer-links p {
+      color: #c7d6cc;
+      margin: 7px 0;
+      cursor: pointer;
+    }
+
+    @media (max-width: 850px) {
+      header {
+        flex-wrap: wrap;
+      }
+
+      .search {
+        order: 3;
+        flex-basis: 100%;
+        max-width: none;
+      }
+
+      .hero {
+        padding: 40px 7%;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero-icon {
+        font-size: 90px;
+      }
+
+      .categories,
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .logo {
+        font-size: 23px;
+      }
+
+      .header-btn {
+        padding: 9px 11px;
+        font-size: 13px;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero-icon {
+        font-size: 75px;
+      }
+
+      .categories,
+      .products {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .category {
+        padding: 18px 8px;
+      }
+
+      .category-icon {
+        font-size: 34px;
+      }
+
+      .product-image {
+        height: 145px;
+      }
+
+      .product-info {
+        padding: 12px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <h1>NatureBite</h1>
-  <p>Healthy food, delivered to your door.</p>
+
+  <!-- HEADER -->
+  <header>
+
+    <div class="logo">
+      NatureBite
+    </div>
+
+    <div class="search">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search products..."
+        onkeyup="searchProducts()"
+      >
+    </div>
+
+    <div class="header-buttons">
+      <button class="header-btn" onclick="openLogin()">
+        Login
+      </button>
+
+      <button class="header-btn" onclick="openCart()">
+        🛒 Cart
+      </button>
+    </div>
+
+  </header>
+
+
+  <!-- HERO -->
+  <div class="hero">
+
+    <div class="hero-text">
+
+      <h1>
+        Eat Better.<br>
+        Live Naturally.
+      </h1>
+
+      <p>
+        Healthy, delicious and carefully selected foods
+        for you and your family.
+      </p>
+
+      <button class="shop-btn" onclick="scrollToProducts()">
+        Shop Now
+      </button>
+
+    </div>
+
+    <div class="hero-icon">
+      🌿
+    </div>
+
+  </div>
+
+
+  <!-- CATEGORIES -->
+  <section>
+
+    <div class="section-title">
+      <h2>Shop by Category</h2>
+      <span class="view-all">View All</span>
+    </div>
+
+    <div class="categories">
+
+      <div class="category">
+        <div class="category-icon">🥜</div>
+        <h3>Healthy Snacks</h3>
+      </div>
+
+      <div class="category">
+        <div class="category-icon">🍎</div>
+        <h3>Kids Special Foods</h3>
+      </div>
+
+      <div class="category">
+        <div class="category-icon">🥗</div>
+        <h3>Diabetic / Keto</h3>
+      </div>
+
+      <div class="category">
+        <div class="category-icon">🥣</div>
+        <h3>Instant Mix Items</h3>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PRODUCTS -->
+  <section id="productsSection">
+
+    <div class="section-title">
+      <h2>Featured Products</h2>
+      <span class="view-all">View All</span>
+    </div>
+
+    <div class="products" id="productList">
+
+      <div class="product">
+
+        <div class="product-image">
+          🌾
+        </div>
+
+        <div class="product-info">
+
+          <h3>NutriBite Granola Bar</h3>
+
+          <p>
+            Healthy snack with oats, nuts & dates
+          </p>
+
+          <div class="price">
+            ৳ 49
+          </div>
+
+          <button class="add-cart" onclick="addToCart('NutriBite Granola Bar')">
+            Add to Cart
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="product">
+
+        <div class="product-image">
+          🥣
+        </div>
+
+        <div class="product-info">
+
+          <h3>NatureMix Instant Porridge</h3>
+
+          <p>
+            Nutritious instant food for busy days
+          </p>
+
+          <div class="price">
+            ৳ 299
+          </div>
+
+          <button class="add-cart" onclick="addToCart('NatureMix Instant Porridge')">
+            Add to Cart
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="product">
+
+        <div class="product-image">
+          🥜
+        </div>
+
+        <div class="product-info">
+
+          <h3>DiabCare Roasted Snacks</h3>
+
+          <p>
+            Low sugar & low carb snack mix
+          </p>
+
+          <div class="price">
+            ৳ 349
+          </div>
+
+          <button class="add-cart" onclick="addToCart('DiabCare Roasted Snacks')">
+            Add to Cart
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="product">
+
+        <div class="product-image">
+          🍯
+        </div>
+
+        <div class="product-info">
+
+          <h3>Peanut Energy Bite</h3>
+
+          <p>
+            Tasty energy bites for everyday life
+          </p>
+
+          <div class="price">
+            ৳ 99
+          </div>
+
+          <button class="add-cart" onclick="addToCart('Peanut Energy Bite')">
+            Add to Cart
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- OFFER -->
+  <section>
+
+    <div class="offer">
+
+      <h2>Special Offer</h2>
+
+      <p>
+        Discover NatureBite's latest offers and healthy food deals.
+      </p>
+
+      <button class="shop-btn" onclick="scrollToProducts()">
+        Explore Products
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="footer-content">
+
+      <div class="footer-brand">
+
+        <h2>NatureBite</h2>
+
+        <p>
+          Healthy food made for everyday life.
+          Eat better. Live naturally.
+        </p>
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <h3>Customer Service</h3>
+
+        <p>My Orders</p>
+        <p>Support</p>
+        <p>Refund Policy</p>
+        <p>Privacy Policy</p>
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <h3>NatureBite</h3>
+
+        <p>About Us</p>
+        <p>Offers</p>
+        <p>Contact</p>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+  <script>
+
+    function addToCart(productName) {
+      alert(productName + " added to cart!");
+    }
+
+
+    function openLogin() {
+      alert("Customer Login will be connected in the next step.");
+    }
+
+
+    function openCart() {
+      alert("Cart system will be connected in the next step.");
+    }
+
+
+    function scrollToProducts() {
+      document
+        .getElementById("productsSection")
+        .scrollIntoView({
+          behavior: "smooth"
+        });
+    }
+
+
+    function searchProducts() {
+
+      const search =
+        document
+          .getElementById("searchInput")
+          .value
+          .toLowerCase();
+
+      const products =
+        document.querySelectorAll(".product");
+
+      products.forEach(product => {
+
+        const name =
+          product
+            .querySelector("h3")
+            .innerText
+            .toLowerCase();
+
+        if (name.includes(search)) {
+          product.style.display = "";
+        } else {
+          product.style.display = "none";
+        }
+
+      });
+
+    }
+
+  </script>
+
 </body>
 </html>
+```

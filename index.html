@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="bn">
 <head>
@@ -16,128 +15,136 @@
 
     body {
       font-family: Arial, sans-serif;
-      background: #f8f6ef;
-      color: #183b2b;
+      background: #f7f7f2;
+      color: #173d2b;
     }
 
+    button,
+    input {
+      font-family: inherit;
+    }
+
+    /* HEADER */
+
     header {
-      background: #ffffff;
-      padding: 16px 5%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
       position: sticky;
       top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      z-index: 1000;
+      background: white;
+      box-shadow: 0 2px 12px rgba(0,0,0,.07);
+    }
+
+    .header-main {
+      max-width: 1200px;
+      margin: auto;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
     }
 
     .logo {
-      font-size: 27px;
+      font-size: 28px;
       font-weight: 800;
-      color: #174c32;
+      color: #17613b;
       white-space: nowrap;
     }
 
-    .search {
+    .search-box {
       flex: 1;
-      max-width: 520px;
     }
 
-    .search input {
+    .search-box input {
       width: 100%;
       padding: 13px 18px;
-      border: 1px solid #d8dfd7;
+      border: 1px solid #dce3dc;
       border-radius: 30px;
       outline: none;
+      background: #f6f8f5;
       font-size: 15px;
-      background: #f7f8f5;
     }
 
-    .header-buttons {
+    .header-actions {
       display: flex;
       gap: 8px;
     }
 
     .header-btn {
       border: none;
-      background: #edf4ed;
-      color: #174c32;
+      background: #edf5ee;
+      color: #17613b;
       padding: 11px 15px;
       border-radius: 22px;
       cursor: pointer;
-      font-weight: 600;
+      font-weight: 700;
     }
 
+    /* HERO */
+
     .hero {
-      margin: 25px auto;
-      width: 90%;
       max-width: 1200px;
-      background: #dfeadd;
-      border-radius: 25px;
+      margin: 25px auto;
       padding: 55px 7%;
+      border-radius: 28px;
+      background: #dfeadd;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       gap: 30px;
     }
 
     .hero-text {
-      max-width: 620px;
+      max-width: 650px;
     }
 
     .hero h1 {
       font-size: 48px;
       line-height: 1.1;
       margin-bottom: 18px;
-      color: #174c32;
     }
 
     .hero p {
-      color: #496354;
+      color: #53675a;
       font-size: 18px;
       line-height: 1.6;
       margin-bottom: 25px;
     }
 
-    .shop-btn {
-      background: #174c32;
-      color: white;
+    .primary-btn {
       border: none;
-      padding: 14px 25px;
+      background: #17613b;
+      color: white;
+      padding: 14px 24px;
       border-radius: 28px;
-      font-size: 16px;
       cursor: pointer;
       font-weight: 700;
+      font-size: 15px;
     }
 
     .hero-icon {
-      font-size: 130px;
+      font-size: 120px;
     }
 
-    section {
-      width: 90%;
+    /* SECTIONS */
+
+    .section {
       max-width: 1200px;
       margin: 45px auto;
+      padding: 0 20px;
     }
 
-    .section-title {
+    .section-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 20px;
     }
 
-    .section-title h2 {
+    .section-header h2 {
       font-size: 27px;
     }
 
-    .view-all {
-      color: #277044;
-      font-weight: 600;
-      cursor: pointer;
-    }
+    /* CATEGORY */
 
     .categories {
       display: grid;
@@ -148,25 +155,30 @@
     .category {
       background: white;
       border-radius: 18px;
-      padding: 25px 15px;
+      padding: 25px 12px;
       text-align: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
       cursor: pointer;
-      transition: 0.2s;
+      border: 2px solid transparent;
+      transition: .2s;
+      box-shadow: 0 4px 15px rgba(0,0,0,.04);
     }
 
-    .category:hover {
-      transform: translateY(-4px);
+    .category:hover,
+    .category.active {
+      border-color: #17613b;
+      transform: translateY(-3px);
     }
 
     .category-icon {
-      font-size: 42px;
+      font-size: 40px;
       margin-bottom: 10px;
     }
 
     .category h3 {
-      font-size: 16px;
+      font-size: 15px;
     }
+
+    /* PRODUCTS */
 
     .products {
       display: grid;
@@ -178,16 +190,21 @@
       background: white;
       border-radius: 18px;
       overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 15px rgba(0,0,0,.05);
+      transition: .2s;
+    }
+
+    .product:hover {
+      transform: translateY(-4px);
     }
 
     .product-image {
       height: 190px;
       background: #edf2e8;
       display: flex;
-      align-items: center;
       justify-content: center;
-      font-size: 65px;
+      align-items: center;
+      font-size: 70px;
     }
 
     .product-info {
@@ -196,19 +213,61 @@
 
     .product-info h3 {
       font-size: 18px;
-      margin-bottom: 8px;
+      margin-bottom: 7px;
     }
 
-    .product-info p {
-      color: #718077;
-      font-size: 14px;
-      margin-bottom: 12px;
+    .product-description {
+      color: #718078;
+      font-size: 13px;
+      line-height: 1.5;
+      min-height: 40px;
+    }
+
+    .variant-label {
+      display: block;
+      margin-top: 12px;
+      margin-bottom: 5px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .variant-select {
+      width: 100%;
+      padding: 9px;
+      border: 1px solid #d8dfd8;
+      border-radius: 8px;
+      background: white;
+      outline: none;
+    }
+
+    .product-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 13px;
     }
 
     .price {
-      font-size: 19px;
+      font-size: 20px;
       font-weight: 800;
-      color: #174c32;
+      color: #17613b;
+    }
+
+    .stock {
+      font-size: 11px;
+      margin-top: 5px;
+    }
+
+    .stock.available {
+      color: #2b7b49;
+    }
+
+    .stock.low {
+      color: #c77700;
+    }
+
+    .stock.out {
+      color: #c0392b;
     }
 
     .add-cart {
@@ -217,17 +276,26 @@
       padding: 11px;
       border: none;
       border-radius: 10px;
-      background: #174c32;
+      background: #17613b;
       color: white;
-      font-weight: 700;
       cursor: pointer;
+      font-weight: 700;
     }
 
+    .add-cart:disabled {
+      background: #b9c0bb;
+      cursor: not-allowed;
+    }
+
+    /* OFFER */
+
     .offer {
-      background: #174c32;
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 40px 20px;
+      background: #17613b;
       color: white;
-      border-radius: 22px;
-      padding: 35px;
+      border-radius: 24px;
       text-align: center;
     }
 
@@ -238,14 +306,48 @@
 
     .offer p {
       margin-bottom: 20px;
-      opacity: 0.9;
+      opacity: .9;
     }
 
-    footer {
-      margin-top: 60px;
-      background: #123525;
+    .offer .primary-btn {
+      background: white;
+      color: #17613b;
+    }
+
+    /* LOADING */
+
+    .loading {
+      text-align: center;
+      padding: 40px;
+      color: #637267;
+    }
+
+    .error {
+      background: #fff0ef;
+      color: #a52b21;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    /* CART */
+
+    .cart-badge {
+      background: #17613b;
       color: white;
-      padding: 40px 6%;
+      padding: 2px 7px;
+      border-radius: 20px;
+      font-size: 11px;
+      margin-left: 3px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #123d29;
+      color: white;
+      padding: 45px 20px;
+      margin-top: 60px;
     }
 
     .footer-content {
@@ -257,66 +359,51 @@
       flex-wrap: wrap;
     }
 
-    .footer-brand h2 {
-      margin-bottom: 10px;
+    .footer-content p {
+      color: #cbd9d0;
+      margin-top: 8px;
     }
 
-    .footer-brand p {
-      color: #c7d6cc;
-      max-width: 350px;
-      line-height: 1.6;
-    }
+    /* MOBILE */
 
-    .footer-links h3 {
-      margin-bottom: 12px;
-    }
+    @media (max-width: 900px) {
 
-    .footer-links p {
-      color: #c7d6cc;
-      margin: 7px 0;
-      cursor: pointer;
-    }
-
-    @media (max-width: 850px) {
-      header {
-        flex-wrap: wrap;
+      .products {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .search {
-        order: 3;
-        flex-basis: 100%;
-        max-width: none;
-      }
-
-      .hero {
-        padding: 40px 7%;
+      .categories {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .hero h1 {
         font-size: 38px;
       }
-
-      .hero-icon {
-        font-size: 90px;
-      }
-
-      .categories,
-      .products {
-        grid-template-columns: repeat(2, 1fr);
-      }
     }
 
-    @media (max-width: 520px) {
+    @media (max-width: 600px) {
+
+      .header-main {
+        flex-wrap: wrap;
+      }
+
       .logo {
         font-size: 23px;
       }
 
+      .search-box {
+        order: 3;
+        flex-basis: 100%;
+      }
+
       .header-btn {
         padding: 9px 11px;
-        font-size: 13px;
+        font-size: 12px;
       }
 
       .hero {
+        margin: 15px;
+        padding: 40px 25px;
         flex-direction: column;
         text-align: center;
       }
@@ -329,26 +416,34 @@
         font-size: 75px;
       }
 
-      .categories,
       .products {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 10px;
       }
 
-      .category {
-        padding: 18px 8px;
-      }
-
-      .category-icon {
-        font-size: 34px;
-      }
-
       .product-image {
-        height: 145px;
+        height: 140px;
+        font-size: 55px;
       }
 
       .product-info {
         padding: 12px;
+      }
+
+      .product-info h3 {
+        font-size: 15px;
+      }
+
+      .categories {
+        gap: 10px;
+      }
+
+      .category {
+        padding: 18px 7px;
+      }
+
+      .section {
+        margin: 35px auto;
       }
     }
   </style>
@@ -356,342 +451,1086 @@
 
 <body>
 
-  <!-- HEADER -->
-  <header>
+<header>
+
+  <div class="header-main">
 
     <div class="logo">
       NatureBite
     </div>
 
-    <div class="search">
+    <div class="search-box">
       <input
-        type="text"
         id="searchInput"
-        placeholder="Search products..."
-        onkeyup="searchProducts()"
+        type="search"
+        placeholder="Search NatureBite products..."
       >
     </div>
 
-    <div class="header-buttons">
-      <button class="header-btn" onclick="openLogin()">
+    <div class="header-actions">
+
+      <button class="header-btn" id="loginButton">
         Login
       </button>
 
-      <button class="header-btn" onclick="openCart()">
+      <button class="header-btn" id="cartButton">
         🛒 Cart
-      </button>
-    </div>
-
-  </header>
-
-
-  <!-- HERO -->
-  <div class="hero">
-
-    <div class="hero-text">
-
-      <h1>
-        Eat Better.<br>
-        Live Naturally.
-      </h1>
-
-      <p>
-        Healthy, delicious and carefully selected foods
-        for you and your family.
-      </p>
-
-      <button class="shop-btn" onclick="scrollToProducts()">
-        Shop Now
+        <span class="cart-badge" id="cartCount">0</span>
       </button>
 
-    </div>
-
-    <div class="hero-icon">
-      🌿
     </div>
 
   </div>
 
+</header>
 
-  <!-- CATEGORIES -->
-  <section>
 
-    <div class="section-title">
-      <h2>Shop by Category</h2>
-      <span class="view-all">View All</span>
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="hero-text">
+
+    <h1>
+      Eat Better.<br>
+      Live Naturally.
+    </h1>
+
+    <p>
+      Healthy, delicious and carefully selected foods
+      for you and your family.
+    </p>
+
+    <button class="primary-btn" id="shopButton">
+      Shop Now
+    </button>
+
+  </div>
+
+  <div class="hero-icon">
+    🌿
+  </div>
+
+</section>
+
+
+<!-- CATEGORIES -->
+
+<section class="section">
+
+  <div class="section-header">
+    <h2>Shop by Category</h2>
+  </div>
+
+  <div class="categories">
+
+    <div class="category" data-category="Healthy Snacks">
+      <div class="category-icon">🥜</div>
+      <h3>Healthy Snacks</h3>
     </div>
 
-    <div class="categories">
-
-      <div class="category">
-        <div class="category-icon">🥜</div>
-        <h3>Healthy Snacks</h3>
-      </div>
-
-      <div class="category">
-        <div class="category-icon">🍎</div>
-        <h3>Kids Special Foods</h3>
-      </div>
-
-      <div class="category">
-        <div class="category-icon">🥗</div>
-        <h3>Diabetic / Keto</h3>
-      </div>
-
-      <div class="category">
-        <div class="category-icon">🥣</div>
-        <h3>Instant Mix Items</h3>
-      </div>
-
+    <div class="category" data-category="Kids Special Foods">
+      <div class="category-icon">🍎</div>
+      <h3>Kids Special Foods</h3>
     </div>
 
-  </section>
-
-
-  <!-- PRODUCTS -->
-  <section id="productsSection">
-
-    <div class="section-title">
-      <h2>Featured Products</h2>
-      <span class="view-all">View All</span>
+    <div class="category" data-category="Diabetic/Keto-Friendly Products">
+      <div class="category-icon">🥗</div>
+      <h3>Diabetic / Keto</h3>
     </div>
 
-    <div class="products" id="productList">
-
-      <div class="product">
-
-        <div class="product-image">
-          🌾
-        </div>
-
-        <div class="product-info">
-
-          <h3>NutriBite Granola Bar</h3>
-
-          <p>
-            Healthy snack with oats, nuts & dates
-          </p>
-
-          <div class="price">
-            ৳ 49
-          </div>
-
-          <button class="add-cart" onclick="addToCart('NutriBite Granola Bar')">
-            Add to Cart
-          </button>
-
-        </div>
-
-      </div>
-
-
-      <div class="product">
-
-        <div class="product-image">
-          🥣
-        </div>
-
-        <div class="product-info">
-
-          <h3>NatureMix Instant Porridge</h3>
-
-          <p>
-            Nutritious instant food for busy days
-          </p>
-
-          <div class="price">
-            ৳ 299
-          </div>
-
-          <button class="add-cart" onclick="addToCart('NatureMix Instant Porridge')">
-            Add to Cart
-          </button>
-
-        </div>
-
-      </div>
-
-
-      <div class="product">
-
-        <div class="product-image">
-          🥜
-        </div>
-
-        <div class="product-info">
-
-          <h3>DiabCare Roasted Snacks</h3>
-
-          <p>
-            Low sugar & low carb snack mix
-          </p>
-
-          <div class="price">
-            ৳ 349
-          </div>
-
-          <button class="add-cart" onclick="addToCart('DiabCare Roasted Snacks')">
-            Add to Cart
-          </button>
-
-        </div>
-
-      </div>
-
-
-      <div class="product">
-
-        <div class="product-image">
-          🍯
-        </div>
-
-        <div class="product-info">
-
-          <h3>Peanut Energy Bite</h3>
-
-          <p>
-            Tasty energy bites for everyday life
-          </p>
-
-          <div class="price">
-            ৳ 99
-          </div>
-
-          <button class="add-cart" onclick="addToCart('Peanut Energy Bite')">
-            Add to Cart
-          </button>
-
-        </div>
-
-      </div>
-
+    <div class="category" data-category="Instant Mix Items">
+      <div class="category-icon">🥣</div>
+      <h3>Instant Mix Items</h3>
     </div>
 
-  </section>
+  </div>
+
+</section>
 
 
-  <!-- OFFER -->
-  <section>
+<!-- PRODUCTS -->
 
-    <div class="offer">
+<section class="section" id="productsSection">
 
-      <h2>Special Offer</h2>
+  <div class="section-header">
+    <h2>Our Products</h2>
+  </div>
 
-      <p>
-        Discover NatureBite's latest offers and healthy food deals.
-      </p>
+  <div id="productList">
 
-      <button class="shop-btn" onclick="scrollToProducts()">
-        Explore Products
-      </button>
-
+    <div class="loading">
+      Loading NatureBite products...
     </div>
 
-  </section>
+  </div>
+
+</section>
 
 
-  <!-- FOOTER -->
-  <footer>
+<!-- OFFER -->
 
-    <div class="footer-content">
+<section class="offer">
 
-      <div class="footer-brand">
+  <h2>NatureBite Special Offers</h2>
 
-        <h2>NatureBite</h2>
+  <p>
+    Healthy choices, delicious taste.
+  </p>
 
-        <p>
-          Healthy food made for everyday life.
-          Eat better. Live naturally.
-        </p>
+  <button class="primary-btn" id="offerButton">
+    Explore Products
+  </button>
 
-      </div>
-
-
-      <div class="footer-links">
-
-        <h3>Customer Service</h3>
-
-        <p>My Orders</p>
-        <p>Support</p>
-        <p>Refund Policy</p>
-        <p>Privacy Policy</p>
-
-      </div>
+</section>
 
 
-      <div class="footer-links">
+<footer>
 
-        <h3>NatureBite</h3>
+  <div class="footer-content">
 
-        <p>About Us</p>
-        <p>Offers</p>
-        <p>Contact</p>
-
-      </div>
-
+    <div>
+      <h2>NatureBite</h2>
+      <p>Healthy food for everyday life.</p>
     </div>
 
-  </footer>
+    <div>
+      <h3>Customer Support</h3>
+      <p>Orders</p>
+      <p>Support</p>
+      <p>Refund</p>
+    </div>
+
+    <div>
+      <h3>NatureBite</h3>
+      <p>About Us</p>
+      <p>Offers</p>
+      <p>Contact</p>
+    </div>
+
+  </div>
+
+</footer>
 
 
-  <!-- JAVASCRIPT -->
-  <script>
+<script type="module">
 
-    function addToCart(productName) {
-      alert(productName + " added to cart!");
+  /* =========================================
+     FIREBASE
+  ========================================= */
+
+  import { initializeApp }
+    from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+
+  import {
+    getFirestore,
+    collection,
+    getDocs
+  }
+  from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+
+  const firebaseConfig = {
+
+    apiKey: "AIzaSyCBaUWZflbj0RVfdyl1vZCB3SYD42vkI_0",
+
+    authDomain:
+      "naturebite-c5d88.firebaseapp.com",
+
+    projectId:
+      "naturebite-c5d88",
+
+    storageBucket:
+      "naturebite-c5d88.firebasestorage.app",
+
+    messagingSenderId:
+      "467003957826",
+
+    appId:
+      "1:467003957826:web:483a261d12ac396dca43db"
+
+  };
+
+
+  const app = initializeApp(firebaseConfig);
+
+  const db = getFirestore(app);
+
+
+  /* =========================================
+     GLOBAL DATA
+  ========================================= */
+
+  let allProducts = [];
+
+  let allVariants = [];
+
+  let selectedCategory = null;
+
+  let cart = JSON.parse(
+    localStorage.getItem("naturebite_cart") || "[]"
+  );
+
+
+  /* =========================================
+     LOAD PRODUCTS
+  ========================================= */
+
+  async function loadProducts() {
+
+    const productList =
+      document.getElementById("productList");
+
+    try {
+
+      const productSnapshot =
+        await getDocs(
+          collection(db, "products")
+        );
+
+      const variantSnapshot =
+        await getDocs(
+          collection(db, "product_variants")
+        );
+
+
+      allProducts =
+        productSnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+
+
+      allVariants =
+        variantSnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+
+
+      console.log(
+        "Products loaded:",
+        allProducts
+      );
+
+      console.log(
+        "Variants loaded:",
+        allVariants
+      );
+
+
+      renderProducts();
+
+    } catch (error) {
+
+      console.error(
+        "Firebase error:",
+        error
+      );
+
+      productList.innerHTML = `
+        <div class="error">
+          <strong>Products load করা যাচ্ছে না।</strong>
+          <br><br>
+          Firebase Firestore Rules এবং collection name
+          চেক করতে হবে।
+        </div>
+      `;
+
+    }
+
+  }
+
+
+  /* =========================================
+     GET PRODUCT VARIANTS
+  ========================================= */
+
+  function getProductVariants(productId) {
+
+    return allVariants.filter(
+      variant =>
+        variant.productId === productId
+    );
+
+  }
+
+
+  /* =========================================
+     PRODUCT ICON
+  ========================================= */
+
+  function getProductIcon(product) {
+
+    const category =
+      product.category || "";
+
+    if (
+      category === "Healthy Snacks"
+    ) {
+      return "🥜";
+    }
+
+    if (
+      category === "Kids Special Foods"
+    ) {
+      return "🍎";
+    }
+
+    if (
+      category ===
+      "Diabetic/Keto-Friendly Products"
+    ) {
+      return "🥗";
+    }
+
+    if (
+      category === "Instant Mix Items"
+    ) {
+      return "🥣";
+    }
+
+    return "🌿";
+
+  }
+
+
+  /* =========================================
+     RENDER PRODUCTS
+  ========================================= */
+
+  function renderProducts() {
+
+    const productList =
+      document.getElementById("productList");
+
+
+    let products =
+      [...allProducts];
+
+
+    if (selectedCategory) {
+
+      products =
+        products.filter(
+          product =>
+            product.category ===
+            selectedCategory
+        );
+
     }
 
 
-    function openLogin() {
-      alert("Customer Login will be connected in the next step.");
-    }
-
-
-    function openCart() {
-      alert("Cart system will be connected in the next step.");
-    }
-
-
-    function scrollToProducts() {
+    const searchValue =
       document
-        .getElementById("productsSection")
-        .scrollIntoView({
-          behavior: "smooth"
+        .getElementById("searchInput")
+        .value
+        .trim()
+        .toLowerCase();
+
+
+    if (searchValue) {
+
+      products =
+        products.filter(product => {
+
+          const name =
+            (product.name || "")
+              .toLowerCase();
+
+          const category =
+            (product.category || "")
+              .toLowerCase();
+
+          const description =
+            (product.description || "")
+              .toLowerCase();
+
+          return (
+            name.includes(searchValue) ||
+            category.includes(searchValue) ||
+            description.includes(searchValue)
+          );
+
         });
+
     }
 
 
-    function searchProducts() {
+    if (products.length === 0) {
 
-      const search =
-        document
-          .getElementById("searchInput")
-          .value
-          .toLowerCase();
+      productList.innerHTML = `
+        <div class="loading">
+          কোনো Product পাওয়া যায়নি।
+        </div>
+      `;
 
-      const products =
-        document.querySelectorAll(".product");
+      return;
 
-      products.forEach(product => {
+    }
 
-        const name =
-          product
-            .querySelector("h3")
-            .innerText
-            .toLowerCase();
 
-        if (name.includes(search)) {
-          product.style.display = "";
-        } else {
-          product.style.display = "none";
-        }
+    productList.innerHTML = `
+
+      <div class="products">
+
+        ${products.map(product => {
+
+          const variants =
+            getProductVariants(product.id);
+
+
+          if (variants.length === 0) {
+
+            return `
+              <div class="product">
+
+                <div class="product-image">
+                  ${getProductIcon(product)}
+                </div>
+
+                <div class="product-info">
+
+                  <h3>
+                    ${escapeHTML(product.name)}
+                  </h3>
+
+                  <p class="product-description">
+                    ${escapeHTML(
+                      product.description || ""
+                    )}
+                  </p>
+
+                  <p class="stock out">
+                    Variant unavailable
+                  </p>
+
+                </div>
+
+              </div>
+            `;
+
+          }
+
+
+          const firstVariant =
+            variants[0];
+
+
+          const available =
+            Number(firstVariant.stock || 0) > 0;
+
+
+          return `
+
+            <div
+              class="product"
+              data-product-id="${escapeHTML(product.id)}"
+            >
+
+              <div class="product-image">
+
+                ${getProductIcon(product)}
+
+              </div>
+
+
+              <div class="product-info">
+
+                <h3>
+                  ${escapeHTML(product.name)}
+                </h3>
+
+
+                <p class="product-description">
+
+                  ${escapeHTML(
+                    product.description || ""
+                  )}
+
+                </p>
+
+
+                <label class="variant-label">
+                  Select Variant
+                </label>
+
+
+                <select
+                  class="variant-select"
+                  data-product-id="${escapeHTML(product.id)}"
+                >
+
+                  ${variants.map(variant => `
+
+                    <option
+                      value="${escapeHTML(variant.id)}"
+                    >
+
+                      ${escapeHTML(
+                        variant.weight || "Variant"
+                      )}
+                      — ৳${Number(
+                        variant.price || 0
+                      )}
+
+                    </option>
+
+                  `).join("")}
+
+                </select>
+
+
+                <div class="product-bottom">
+
+                  <div>
+
+                    <div
+                      class="price"
+                      id="price-${safeId(product.id)}"
+                    >
+                      ৳${Number(
+                        firstVariant.price || 0
+                      )}
+                    </div>
+
+                    <div
+                      class="stock ${
+                        Number(firstVariant.stock || 0) <= 0
+                          ? "out"
+                          : Number(firstVariant.stock || 0) <= 10
+                            ? "low"
+                            : "available"
+                      }"
+                      id="stock-${safeId(product.id)}"
+                    >
+
+                      ${
+                        Number(firstVariant.stock || 0) <= 0
+                          ? "Out of Stock"
+                          : Number(firstVariant.stock || 0) <= 10
+                            ? `Only ${Number(firstVariant.stock)} left`
+                            : `In Stock: ${Number(firstVariant.stock)}`
+                      }
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <button
+                  class="add-cart"
+                  data-product-id="${escapeHTML(product.id)}"
+                  ${available ? "" : "disabled"}
+                >
+
+                  ${
+                    available
+                      ? "Add to Cart"
+                      : "Out of Stock"
+                  }
+
+                </button>
+
+              </div>
+
+            </div>
+
+          `;
+
+        }).join("")}
+
+      </div>
+
+    `;
+
+
+    setupVariantEvents();
+
+  }
+
+
+  /* =========================================
+     VARIANT EVENTS
+  ========================================= */
+
+  function setupVariantEvents() {
+
+    document
+      .querySelectorAll(".variant-select")
+      .forEach(select => {
+
+        select.addEventListener(
+          "change",
+          function() {
+
+            const productId =
+              this.dataset.productId;
+
+            const variantId =
+              this.value;
+
+
+            const variant =
+              allVariants.find(
+                item =>
+                  item.id === variantId
+              );
+
+
+            if (!variant) return;
+
+
+            const priceElement =
+              document.getElementById(
+                "price-" +
+                safeId(productId)
+              );
+
+
+            const stockElement =
+              document.getElementById(
+                "stock-" +
+                safeId(productId)
+              );
+
+
+            const cartButton =
+              document.querySelector(
+                `.add-cart[data-product-id="${CSS.escape(productId)}"]`
+              );
+
+
+            const stock =
+              Number(variant.stock || 0);
+
+
+            priceElement.textContent =
+              `৳${Number(
+                variant.price || 0
+              )}`;
+
+
+            if (stock <= 0) {
+
+              stockElement.textContent =
+                "Out of Stock";
+
+              stockElement.className =
+                "stock out";
+
+              cartButton.disabled =
+                true;
+
+              cartButton.textContent =
+                "Out of Stock";
+
+            } else {
+
+              if (stock <= 10) {
+
+                stockElement.textContent =
+                  `Only ${stock} left`;
+
+                stockElement.className =
+                  "stock low";
+
+              } else {
+
+                stockElement.textContent =
+                  `In Stock: ${stock}`;
+
+                stockElement.className =
+                  "stock available";
+
+              }
+
+
+              cartButton.disabled =
+                false;
+
+              cartButton.textContent =
+                "Add to Cart";
+
+            }
+
+          }
+        );
+
+      });
+
+
+    document
+      .querySelectorAll(".add-cart")
+      .forEach(button => {
+
+        button.addEventListener(
+          "click",
+          function() {
+
+            const productId =
+              this.dataset.productId;
+
+
+            const card =
+              this.closest(".product");
+
+
+            const select =
+              card.querySelector(
+                ".variant-select"
+              );
+
+
+            const variantId =
+              select.value;
+
+
+            addToCart(
+              productId,
+              variantId
+            );
+
+          }
+        );
+
+      });
+
+  }
+
+
+  /* =========================================
+     ADD TO CART
+  ========================================= */
+
+  function addToCart(
+    productId,
+    variantId
+  ) {
+
+    const product =
+      allProducts.find(
+        item =>
+          item.id === productId
+      );
+
+
+    const variant =
+      allVariants.find(
+        item =>
+          item.id === variantId
+      );
+
+
+    if (!product || !variant) {
+
+      alert(
+        "Product information পাওয়া যায়নি।"
+      );
+
+      return;
+
+    }
+
+
+    if (
+      Number(variant.stock || 0) <= 0
+    ) {
+
+      alert(
+        "এই Variant বর্তমানে Out of Stock."
+      );
+
+      return;
+
+    }
+
+
+    const existing =
+      cart.find(
+        item =>
+          item.variantId === variantId
+      );
+
+
+    if (existing) {
+
+      existing.quantity += 1;
+
+    } else {
+
+      cart.push({
+
+        productId:
+          productId,
+
+        productName:
+          product.name,
+
+        variantId:
+          variantId,
+
+        variantName:
+          variant.weight,
+
+        price:
+          Number(variant.price || 0),
+
+        quantity:
+          1
 
       });
 
     }
 
-  </script>
+
+    saveCart();
+
+
+    alert(
+      `${product.name} cart-এ যোগ হয়েছে।`
+    );
+
+  }
+
+
+  /* =========================================
+     SAVE CART
+  ========================================= */
+
+  function saveCart() {
+
+    localStorage.setItem(
+      "naturebite_cart",
+      JSON.stringify(cart)
+    );
+
+
+    updateCartCount();
+
+  }
+
+
+  /* =========================================
+     CART COUNT
+  ========================================= */
+
+  function updateCartCount() {
+
+    const count =
+      cart.reduce(
+        (total, item) =>
+          total + Number(item.quantity || 0),
+        0
+      );
+
+
+    document.getElementById(
+      "cartCount"
+    ).textContent = count;
+
+  }
+
+
+  /* =========================================
+     CATEGORY FILTER
+  ========================================= */
+
+  document
+    .querySelectorAll(".category")
+    .forEach(category => {
+
+      category.addEventListener(
+        "click",
+        function() {
+
+          const value =
+            this.dataset.category;
+
+
+          if (
+            selectedCategory === value
+          ) {
+
+            selectedCategory = null;
+
+            this.classList.remove(
+              "active"
+            );
+
+          } else {
+
+            document
+              .querySelectorAll(".category")
+              .forEach(item =>
+                item.classList.remove(
+                  "active"
+                )
+              );
+
+
+            selectedCategory = value;
+
+            this.classList.add(
+              "active"
+            );
+
+          }
+
+
+          renderProducts();
+
+
+          document
+            .getElementById(
+              "productsSection"
+            )
+            .scrollIntoView({
+              behavior: "smooth"
+            });
+
+        }
+      );
+
+    });
+
+
+  /* =========================================
+     SEARCH
+  ========================================= */
+
+  document
+    .getElementById("searchInput")
+    .addEventListener(
+      "input",
+      renderProducts
+    );
+
+
+  /* =========================================
+     BUTTONS
+  ========================================= */
+
+  document
+    .getElementById("shopButton")
+    .addEventListener(
+      "click",
+      function() {
+
+        document
+          .getElementById(
+            "productsSection"
+          )
+          .scrollIntoView({
+            behavior: "smooth"
+          });
+
+      }
+    );
+
+
+  document
+    .getElementById("offerButton")
+    .addEventListener(
+      "click",
+      function() {
+
+        document
+          .getElementById(
+            "productsSection"
+          )
+          .scrollIntoView({
+            behavior: "smooth"
+          });
+
+      }
+    );
+
+
+  document
+    .getElementById("loginButton")
+    .addEventListener(
+      "click",
+      function() {
+
+        alert(
+          "Customer Login আমরা পরের ধাপে Firebase Authentication দিয়ে তৈরি করব।"
+        );
+
+      }
+    );
+
+
+  document
+    .getElementById("cartButton")
+    .addEventListener(
+      "click",
+      function() {
+
+        if (cart.length === 0) {
+
+          alert(
+            "আপনার Cart এখনো খালি।"
+          );
+
+          return;
+
+        }
+
+
+        let message =
+          "আপনার Cart:\n\n";
+
+
+        cart.forEach(item => {
+
+          message +=
+            `${item.productName} - ${item.variantName} × ${item.quantity} = ৳${item.price * item.quantity}\n`;
+
+        });
+
+
+        alert(message);
+
+      }
+    );
+
+
+  /* =========================================
+     SECURITY / HTML HELPERS
+  ========================================= */
+
+  function escapeHTML(value) {
+
+    return String(value || "")
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+
+  }
+
+
+  function safeId(value) {
+
+    return String(value)
+      .replace(/[^a-zA-Z0-9_-]/g, "_");
+
+  }
+
+
+  /* =========================================
+     START
+  ========================================= */
+
+  updateCartCount();
+
+  loadProducts();
+
+</script>
 
 </body>
 </html>
-```

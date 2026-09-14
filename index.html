@@ -1,10 +1,10 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NatureBite — Healthy Food</title>
+
+<title>NatureBite</title>
 
 <style>
 *{
@@ -15,25 +15,20 @@
 
 body{
   font-family:Arial,sans-serif;
-  background:#f7f4ec;
-  color:#26382b;
+  background:#f7f4ed;
+  color:#183c2b;
 }
 
 header{
-  background:#234d32;
+  background:#183c2b;
   color:white;
-  padding:15px;
+  padding:16px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
   position:sticky;
   top:0;
-  z-index:100;
-}
-
-.header-inner{
-  max-width:1100px;
-  margin:auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+  z-index:20;
 }
 
 .logo{
@@ -41,20 +36,19 @@ header{
   font-weight:bold;
 }
 
-.cart-btn{
-  border:none;
-  background:white;
-  color:#234d32;
-  padding:10px 16px;
-  border-radius:25px;
+.cartBtn{
+  background:#fff;
+  color:#183c2b;
+  border:0;
+  padding:10px 15px;
+  border-radius:20px;
   font-weight:bold;
-  cursor:pointer;
 }
 
 .hero{
+  padding:35px 20px;
   text-align:center;
-  padding:40px 15px;
-  background:#e8eadc;
+  background:#e9dfc9;
 }
 
 .hero h1{
@@ -63,456 +57,283 @@ header{
 }
 
 .hero p{
-  color:#5d6b60;
+  color:#496352;
 }
 
 .controls{
-  max-width:1100px;
-  margin:20px auto;
-  padding:0 15px;
+  padding:18px;
+  max-width:1000px;
+  margin:auto;
+}
+
+.search{
+  width:100%;
+  padding:13px;
+  border:1px solid #ccc;
+  border-radius:10px;
+  margin-bottom:12px;
+  font-size:16px;
+}
+
+.categories{
   display:flex;
-  gap:10px;
-  flex-wrap:wrap;
+  gap:8px;
+  overflow-x:auto;
 }
 
-#search{
-  flex:1;
-  min-width:200px;
-  padding:12px;
-  border:1px solid #ccd3c8;
-  border-radius:10px;
-  font-size:15px;
+.categories button{
+  white-space:nowrap;
+  padding:9px 14px;
+  border:0;
+  border-radius:20px;
+  background:#dce8dd;
+  color:#183c2b;
 }
 
-#category{
-  padding:12px;
-  border:1px solid #ccd3c8;
-  border-radius:10px;
-  background:white;
+.categories button.active{
+  background:#183c2b;
+  color:white;
 }
 
 .products{
-  max-width:1100px;
-  margin:20px auto;
-  padding:0 15px 50px;
+  max-width:1000px;
+  margin:auto;
+  padding:10px 18px 40px;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:18px;
 }
 
-.product-card{
+.product{
   background:white;
-  border-radius:16px;
-  overflow:hidden;
-  box-shadow:0 4px 15px rgba(0,0,0,.08);
-}
-
-.product-image{
-  height:180px;
-  background:#e5e0d3;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  color:#667568;
-}
-
-.product-content{
+  border-radius:15px;
   padding:15px;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
 }
 
-.product-content h3{
-  font-size:18px;
+.productImage{
+  width:100%;
+  height:180px;
+  background:#eee8d8;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:50px;
+  margin-bottom:12px;
+}
+
+.product h3{
   margin-bottom:7px;
-}
-
-.category-name{
-  font-size:12px;
-  color:#718071;
-  margin-bottom:8px;
 }
 
 .description{
   font-size:13px;
-  color:#68736a;
-  min-height:40px;
-  margin-bottom:12px;
+  color:#68756c;
+  min-height:35px;
 }
 
-.variants{
+.variantButtons{
   display:flex;
   flex-wrap:wrap;
   gap:7px;
-  margin-bottom:12px;
+  margin:12px 0;
 }
 
-.variant-btn{
-  padding:7px 11px;
+.variantBtn{
+  border:1px solid #183c2b;
   background:white;
-  border:1px solid #b7c5b8;
+  color:#183c2b;
+  padding:7px 10px;
   border-radius:8px;
-  cursor:pointer;
 }
 
-.variant-btn.active{
-  background:#234d32;
+.variantBtn.selected{
+  background:#183c2b;
   color:white;
-  border-color:#234d32;
 }
 
 .price{
-  font-size:21px;
-  font-weight:bold;
-  margin-bottom:7px;
-}
-
-.stock{
-  font-size:12px;
-  margin-bottom:10px;
-}
-
-.stock.available{
-  color:#27723d;
-}
-
-.stock.out{
-  color:#b52b2b;
-}
-
-.add-btn{
-  width:100%;
-  padding:12px;
-  background:#234d32;
-  color:white;
-  border:none;
-  border-radius:10px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-.add-btn:disabled{
-  background:#aaa;
-}
-
-/* CART */
-
-.cart-overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.45);
-  z-index:150;
-  display:none;
-}
-
-.cart-overlay.show{
-  display:block;
-}
-
-.cart-panel{
-  position:fixed;
-  top:0;
-  right:-430px;
-  width:min(430px,100%);
-  height:100vh;
-  background:white;
-  z-index:200;
-  box-shadow:-5px 0 20px rgba(0,0,0,.2);
-  transition:right .3s ease;
-  display:flex;
-  flex-direction:column;
-}
-
-.cart-panel.open{
-  right:0;
-}
-
-.cart-header{
-  background:#234d32;
-  color:white;
-  padding:17px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.close-cart{
-  background:transparent;
-  border:none;
-  color:white;
-  font-size:28px;
-  cursor:pointer;
-}
-
-.cart-items{
-  flex:1;
-  overflow-y:auto;
-  padding:15px;
-}
-
-.cart-item{
-  border-bottom:1px solid #ddd;
-  padding:14px 0;
-}
-
-.cart-item-title{
+  font-size:20px;
   font-weight:bold;
   margin-bottom:5px;
 }
 
-.cart-item-info{
-  color:#68736a;
+.stock{
   font-size:13px;
+  color:#69766d;
+  margin-bottom:10px;
 }
 
-.quantity{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  margin-top:8px;
-}
-
-.quantity button{
-  width:32px;
-  height:32px;
-  border:1px solid #c8cec9;
-  background:white;
-  border-radius:7px;
-  font-size:18px;
-  cursor:pointer;
-}
-
-.quantity strong{
-  min-width:25px;
-  text-align:center;
-}
-
-.remove-btn{
-  border:none!important;
-  background:transparent!important;
-  color:#b52b2b;
-  margin-left:8px;
-  width:auto!important;
-  font-size:13px!important;
-}
-
-.item-total{
-  margin-top:8px;
-  font-weight:bold;
-}
-
-.cart-footer{
-  border-top:1px solid #ddd;
-  padding:15px;
-}
-
-.total{
-  display:flex;
-  justify-content:space-between;
-  font-size:20px;
-  font-weight:bold;
-  margin-bottom:12px;
-}
-
-.checkout-btn{
+.addBtn{
   width:100%;
-  padding:13px;
-  background:#234d32;
+  padding:11px;
+  background:#183c2b;
   color:white;
-  border:none;
-  border-radius:10px;
+  border:0;
+  border-radius:9px;
   font-weight:bold;
-  cursor:pointer;
 }
 
-/* CHECKOUT */
+.addBtn:disabled{
+  background:#aaa;
+}
 
-.checkout-overlay{
+.overlay{
+  display:none;
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.5);
-  z-index:300;
-  display:none;
+  background:rgba(0,0,0,.55);
+  z-index:50;
   overflow-y:auto;
+}
+
+.panel{
+  background:#fff;
+  width:94%;
+  max-width:600px;
+  margin:30px auto;
+  border-radius:16px;
   padding:20px;
 }
 
-.checkout-overlay.show{
-  display:block;
-}
-
-.checkout-box{
-  max-width:650px;
-  margin:20px auto;
-  background:white;
-  border-radius:16px;
-  overflow:hidden;
-}
-
-.checkout-header{
-  background:#234d32;
-  color:white;
-  padding:18px;
+.panelHeader{
   display:flex;
   justify-content:space-between;
   align-items:center;
-}
-
-.checkout-close{
-  border:none;
-  background:transparent;
-  color:white;
-  font-size:28px;
-  cursor:pointer;
-}
-
-.checkout-body{
-  padding:20px;
-}
-
-.form-group{
   margin-bottom:15px;
 }
 
-.form-group label{
-  display:block;
-  font-size:14px;
-  font-weight:bold;
-  margin-bottom:6px;
+.close{
+  border:0;
+  background:#eee;
+  width:35px;
+  height:35px;
+  border-radius:50%;
+  font-size:20px;
 }
 
-.form-group input,
-.form-group textarea,
-.form-group select{
-  width:100%;
-  padding:12px;
-  border:1px solid #ccd3c8;
-  border-radius:9px;
-  font-size:14px;
-  outline:none;
-}
-
-.form-group textarea{
-  min-height:80px;
-  resize:vertical;
-}
-
-.order-summary{
-  background:#f5f5ef;
-  border-radius:12px;
-  padding:15px;
-  margin:20px 0;
-}
-
-.summary-title{
-  font-size:18px;
-  font-weight:bold;
-  margin-bottom:12px;
-}
-
-.summary-row{
+.cartItem{
   display:flex;
   justify-content:space-between;
   gap:10px;
-  padding:6px 0;
+  padding:12px 0;
+  border-bottom:1px solid #eee;
+}
+
+.qty{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.qty button{
+  width:28px;
+  height:28px;
+  border:0;
+  border-radius:6px;
+  background:#dce8dd;
+}
+
+.remove{
+  color:#b3261e;
+  border:0;
+  background:none;
+}
+
+.total{
+  margin-top:15px;
+  font-size:19px;
+  font-weight:bold;
+}
+
+.checkoutBtn{
+  width:100%;
+  padding:13px;
+  background:#183c2b;
+  color:white;
+  border:0;
+  border-radius:10px;
+  margin-top:15px;
+  font-weight:bold;
+}
+
+.formGroup{
+  margin-bottom:14px;
+}
+
+.formGroup label{
+  display:block;
+  margin-bottom:6px;
+  font-weight:bold;
   font-size:14px;
 }
 
-.summary-total{
-  border-top:1px solid #ccc;
-  margin-top:8px;
-  padding-top:10px;
-  font-size:18px;
-  font-weight:bold;
-}
-
-.payment-options{
-  display:grid;
-  grid-template-columns:1fr 1fr 1fr;
-  gap:8px;
-  margin-top:8px;
-}
-
-.payment-option{
-  border:1px solid #ccd3c8;
-  padding:12px 5px;
-  border-radius:9px;
-  text-align:center;
-  cursor:pointer;
-  font-size:13px;
-}
-
-.payment-option.selected{
-  background:#234d32;
-  color:white;
-  border-color:#234d32;
-}
-
-.place-order-btn{
+.formGroup input,
+.formGroup textarea,
+.formGroup select{
   width:100%;
-  padding:14px;
-  background:#234d32;
-  color:white;
-  border:none;
-  border-radius:10px;
-  font-size:16px;
-  font-weight:bold;
-  cursor:pointer;
+  padding:12px;
+  border:1px solid #ccc;
+  border-radius:9px;
+  font-size:15px;
 }
 
-.note{
-  font-size:12px;
-  color:#68736a;
-  margin-top:8px;
+textarea{
+  min-height:80px;
+}
+
+.paymentBox{
+  display:grid;
+  gap:8px;
+}
+
+.paymentOption{
+  border:1px solid #ddd;
+  padding:12px;
+  border-radius:9px;
+}
+
+.summary{
+  background:#f7f4ed;
+  padding:14px;
+  border-radius:10px;
+  margin-top:15px;
+}
+
+.summaryRow{
+  display:flex;
+  justify-content:space-between;
+  margin:7px 0;
+}
+
+.success{
+  text-align:center;
+  padding:20px;
+}
+
+.success h2{
+  color:#183c2b;
+  margin-bottom:10px;
+}
+
+.orderId{
+  background:#e9f0e8;
+  padding:12px;
+  border-radius:8px;
+  word-break:break-all;
+  margin:15px 0;
+}
+
+.loading{
+  text-align:center;
+  padding:30px;
 }
 
 .empty{
-  grid-column:1/-1;
   text-align:center;
-  padding:40px;
+  padding:30px;
   color:#777;
-}
-
-@media(max-width:600px){
-
-  .hero h1{
-    font-size:27px;
-  }
-
-  .products{
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-  }
-
-  .product-image{
-    height:125px;
-  }
-
-  .product-content{
-    padding:10px;
-  }
-
-  .product-content h3{
-    font-size:16px;
-  }
-
-  .description{
-    font-size:12px;
-  }
-
-  .price{
-    font-size:18px;
-  }
-
-  .payment-options{
-    grid-template-columns:1fr;
-  }
-
-  .checkout-overlay{
-    padding:8px;
-  }
-
-  .checkout-box{
-    margin:5px auto;
-  }
 }
 </style>
 </head>
@@ -520,118 +341,97 @@ header{
 <body>
 
 <header>
-  <div class="header-inner">
+  <div class="logo">NatureBite</div>
 
-    <div class="logo">
-      NatureBite
-    </div>
-
-    <button
-      type="button"
-      class="cart-btn"
-      id="openCartButton"
-    >
-      🛒 Cart (<span id="cartCount">0</span>)
-    </button>
-
-  </div>
+  <button class="cartBtn" onclick="openCart()">
+    🛒 Cart (<span id="cartCount">0</span>)
+  </button>
 </header>
 
-
 <section class="hero">
+  <h1>Healthy Food, Naturally</h1>
+  <p>Healthy snacks & nutritious food for everyday life.</p>
+</section>
 
-  <h1>
-    Healthy Food, Naturally Better
-  </h1>
+<section class="controls">
 
-  <p>
-    Healthy snacks and nutritious food for everyday life.
-  </p>
+  <input
+    id="searchInput"
+    class="search"
+    type="text"
+    placeholder="Search products..."
+    oninput="renderProducts()"
+  >
+
+  <div class="categories">
+    <button
+      class="active"
+      onclick="selectCategory('All',this)"
+    >
+      All
+    </button>
+
+    <button
+      onclick="selectCategory('Healthy Snacks',this)"
+    >
+      Healthy Snacks
+    </button>
+
+    <button
+      onclick="selectCategory('Kids Special Foods',this)"
+    >
+      Kids Special Foods
+    </button>
+
+    <button
+      onclick="selectCategory('Diabetic/Keto-Friendly Products',this)"
+    >
+      Diabetic/Keto
+    </button>
+
+    <button
+      onclick="selectCategory('Instant Mix Items',this)"
+    >
+      Instant Mix
+    </button>
+  </div>
 
 </section>
 
-
-<div class="controls">
-
-  <input
-    id="search"
-    type="search"
-    placeholder="Search products..."
-  >
-
-  <select id="category">
-    <option value="all">
-      All Categories
-    </option>
-  </select>
-
-</div>
-
-
-<div
-  id="products"
-  class="products"
->
-  <div class="empty">
+<section id="products" class="products">
+  <div class="loading">
     Loading products...
   </div>
-</div>
+</section>
 
 
 <!-- CART -->
 
-<div
-  id="cartOverlay"
-  class="cart-overlay"
-></div>
+<div id="cartOverlay" class="overlay">
 
+  <div class="panel">
 
-<div
-  id="cartPanel"
-  class="cart-panel"
->
+    <div class="panelHeader">
+      <h2>Your Cart</h2>
 
-  <div class="cart-header">
+      <button
+        class="close"
+        onclick="closeCart()"
+      >
+        ×
+      </button>
+    </div>
 
-    <h2>
-      Your Cart
-    </h2>
-
-    <button
-      type="button"
-      class="close-cart"
-      id="closeCartButton"
-    >
-      ×
-    </button>
-
-  </div>
-
-
-  <div
-    id="cartItems"
-    class="cart-items"
-  ></div>
-
-
-  <div class="cart-footer">
+    <div id="cartItems"></div>
 
     <div class="total">
-
-      <span>
-        Total
-      </span>
-
-      <span>
-        ৳<span id="cartTotal">0</span>
-      </span>
-
+      Product Total:
+      ৳<span id="cartTotal">0</span>
     </div>
 
     <button
-      type="button"
-      class="checkout-btn"
-      id="checkoutButton"
+      class="checkoutBtn"
+      onclick="openCheckout()"
     >
       Proceed to Checkout
     </button>
@@ -643,23 +443,17 @@ header{
 
 <!-- CHECKOUT -->
 
-<div
-  id="checkoutOverlay"
-  class="checkout-overlay"
->
+<div id="checkoutOverlay" class="overlay">
 
-  <div class="checkout-box">
+  <div class="panel">
 
-    <div class="checkout-header">
+    <div class="panelHeader">
 
-      <h2>
-        Checkout
-      </h2>
+      <h2>Checkout</h2>
 
       <button
-        type="button"
-        class="checkout-close"
-        id="closeCheckoutButton"
+        class="close"
+        onclick="closeCheckout()"
       >
         ×
       </button>
@@ -667,273 +461,236 @@ header{
     </div>
 
 
-    <div class="checkout-body">
+    <div class="formGroup">
 
+      <label>Full Name</label>
 
-      <!-- CUSTOMER -->
-
-      <h3 style="margin-bottom:15px;">
-        Delivery Information
-      </h3>
-
-
-      <div class="form-group">
-
-        <label>
-          Full Name *
-        </label>
-
-        <input
-          id="customerName"
-          type="text"
-          placeholder="Enter your full name"
-        >
-
-      </div>
-
-
-      <div class="form-group">
-
-        <label>
-          Mobile Number *
-        </label>
-
-        <input
-          id="customerPhone"
-          type="tel"
-          inputmode="numeric"
-          placeholder="01XXXXXXXXX"
-        >
-
-      </div>
-
-
-      <div class="form-group">
-
-        <label>
-          District *
-        </label>
-
-        <select id="district">
-
-          <option value="">
-            Select District
-          </option>
-
-          <option>
-            Chattogram
-          </option>
-
-          <option>
-            Dhaka
-          </option>
-
-          <option>
-            Cumilla
-          </option>
-
-          <option>
-            Cox's Bazar
-          </option>
-
-          <option>
-            Feni
-          </option>
-
-          <option>
-            Noakhali
-          </option>
-
-        </select>
-
-      </div>
-
-
-      <div class="form-group">
-
-        <label>
-          Delivery Address *
-        </label>
-
-        <textarea
-          id="address"
-          placeholder="House / Road / Area / Thana"
-        ></textarea>
-
-      </div>
-
-
-      <!-- DELIVERY -->
-
-      <div class="form-group">
-
-        <label>
-          Delivery Charge
-        </label>
-
-        <select id="deliveryCharge">
-
-          <option value="60">
-            Standard Delivery — ৳60
-          </option>
-
-          <option value="80">
-            Express Delivery — ৳80
-          </option>
-
-          <option value="0">
-            Free Delivery — ৳0
-          </option>
-
-        </select>
-
-        <div class="note">
-          ভবিষ্যতে Admin panel থেকে এই charge পরিবর্তন করা যাবে।
-        </div>
-
-      </div>
-
-
-      <!-- PAYMENT -->
-
-      <div class="form-group">
-
-        <label>
-          Payment Method *
-        </label>
-
-
-        <div class="payment-options">
-
-          <div
-            class="payment-option selected"
-            data-payment="COD"
-          >
-            💵<br>
-            Cash on Delivery
-          </div>
-
-
-          <div
-            class="payment-option"
-            data-payment="bKash"
-          >
-            📱<br>
-            bKash
-          </div>
-
-
-          <div
-            class="payment-option"
-            data-payment="Nagad"
-          >
-            📱<br>
-            Nagad
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- SUMMARY -->
-
-      <div class="order-summary">
-
-        <div class="summary-title">
-          Order Summary
-        </div>
-
-        <div id="checkoutItems"></div>
-
-
-        <div class="summary-row">
-
-          <span>
-            Product Total
-          </span>
-
-          <strong>
-            ৳<span id="checkoutProductTotal">
-              0
-            </span>
-          </strong>
-
-        </div>
-
-
-        <div class="summary-row">
-
-          <span>
-            Delivery
-          </span>
-
-          <strong>
-            ৳<span id="checkoutDelivery">
-              60
-            </span>
-          </strong>
-
-        </div>
-
-
-        <div class="summary-row summary-total">
-
-          <span>
-            Grand Total
-          </span>
-
-          <strong>
-            ৳<span id="checkoutGrandTotal">
-              0
-            </span>
-          </strong>
-
-        </div>
-
-      </div>
-
-
-      <button
-        type="button"
-        class="place-order-btn"
-        id="placeOrderButton"
+      <input
+        id="customerName"
+        type="text"
+        placeholder="Enter your name"
       >
-        Confirm Order
-      </button>
-
 
     </div>
+
+
+    <div class="formGroup">
+
+      <label>Mobile Number</label>
+
+      <input
+        id="customerPhone"
+        type="tel"
+        placeholder="01XXXXXXXXX"
+      >
+
+    </div>
+
+
+    <div class="formGroup">
+
+      <label>District</label>
+
+      <select id="district">
+
+        <option value="">
+          Select District
+        </option>
+
+        <option>Chattogram</option>
+        <option>Dhaka</option>
+        <option>Cumilla</option>
+        <option>Cox's Bazar</option>
+        <option>Feni</option>
+        <option>Noakhali</option>
+
+      </select>
+
+    </div>
+
+
+    <div class="formGroup">
+
+      <label>Delivery Address</label>
+
+      <textarea
+        id="deliveryAddress"
+        placeholder="House, road, area..."
+      ></textarea>
+
+    </div>
+
+
+    <div class="formGroup">
+
+      <label>Delivery Charge</label>
+
+      <select
+        id="deliveryCharge"
+        onchange="updateCheckoutTotal()"
+      >
+
+        <option value="60">
+          Standard Delivery — ৳60
+        </option>
+
+        <option value="80">
+          Express Delivery — ৳80
+        </option>
+
+        <option value="0">
+          Free Delivery — ৳0
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <div class="formGroup">
+
+      <label>Payment Method</label>
+
+      <div class="paymentBox">
+
+        <label class="paymentOption">
+          <input
+            type="radio"
+            name="payment"
+            value="COD"
+            checked
+            onchange="updateCheckoutTotal()"
+          >
+          Cash on Delivery
+        </label>
+
+        <label class="paymentOption">
+          <input
+            type="radio"
+            name="payment"
+            value="bKash"
+            onchange="updateCheckoutTotal()"
+          >
+          bKash
+        </label>
+
+        <label class="paymentOption">
+          <input
+            type="radio"
+            name="payment"
+            value="Nagad"
+            onchange="updateCheckoutTotal()"
+          >
+          Nagad
+        </label>
+
+      </div>
+
+    </div>
+
+
+    <div class="summary">
+
+      <div class="summaryRow">
+        <span>Products</span>
+        <span>
+          ৳<span id="checkoutProductTotal">0</span>
+        </span>
+      </div>
+
+      <div class="summaryRow">
+        <span>Delivery</span>
+        <span>
+          ৳<span id="checkoutDelivery">60</span>
+        </span>
+      </div>
+
+      <hr>
+
+      <div class="summaryRow">
+        <strong>Total</strong>
+        <strong>
+          ৳<span id="checkoutGrandTotal">0</span>
+        </strong>
+      </div>
+
+    </div>
+
+
+    <button
+      class="checkoutBtn"
+      onclick="confirmOrder()"
+    >
+      Confirm Order
+    </button>
 
   </div>
 
 </div>
 
 
+<!-- ORDER SUCCESS -->
+
+<div id="successOverlay" class="overlay">
+
+  <div class="panel success">
+
+    <h2>🎉 Order Successful!</h2>
+
+    <p>
+      আপনার অর্ডার সফলভাবে গ্রহণ করা হয়েছে।
+    </p>
+
+    <div class="orderId">
+
+      <strong>Order ID</strong>
+
+      <br>
+
+      <span id="successOrderId"></span>
+
+    </div>
+
+    <p>
+      আপনার Order Status:
+      <strong>Pending</strong>
+    </p>
+
+    <button
+      class="checkoutBtn"
+      onclick="closeSuccess()"
+    >
+      Done
+    </button>
+
+  </div>
+
+</div>
+
 
 <script type="module">
 
-
-/* FIREBASE */
-
 import {
   initializeApp
-} from
-"https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
-
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
 
 import {
   getFirestore,
   collection,
-  getDocs
-} from
-"https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+  getDocs,
+  addDoc,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
+
+/* =========================
+   FIREBASE CONFIG
+========================= */
 
 const firebaseConfig = {
 
   apiKey:
-  "AIzaSyCBaUWZflbj0RVfdyl1vZCB3SYD42db", 
+  "AIzaSyCBaUWZflbj0RVfdyl1vZCB3SYD42vkI_0",
 
   authDomain:
   "naturebite-c5d88.firebaseapp.com",
@@ -953,590 +710,393 @@ const firebaseConfig = {
 };
 
 
-const app =
-  initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
 
 
-const db =
-  getFirestore(app);
-
-
-
-/* DATA */
+/* =========================
+   GLOBAL DATA
+========================= */
 
 let products = [];
-
 let variants = [];
 
 let cart =
   JSON.parse(
-    localStorage.getItem(
-      "naturebite_cart"
-    )
+    localStorage.getItem("naturebite_cart")
   ) || [];
 
-let selectedPayment =
-  "COD";
+let selectedCategory = "All";
 
 
+/* =========================
+   LOAD PRODUCTS
+========================= */
 
-/* DOM */
-
-const productsContainer =
-  document.getElementById(
-    "products"
-  );
-
-const searchInput =
-  document.getElementById(
-    "search"
-  );
-
-const categorySelect =
-  document.getElementById(
-    "category"
-  );
-
-const cartPanel =
-  document.getElementById(
-    "cartPanel"
-  );
-
-const cartOverlay =
-  document.getElementById(
-    "cartOverlay"
-  );
-
-const cartItems =
-  document.getElementById(
-    "cartItems"
-  );
-
-const cartTotal =
-  document.getElementById(
-    "cartTotal"
-  );
-
-const cartCount =
-  document.getElementById(
-    "cartCount"
-  );
-
-const checkoutOverlay =
-  document.getElementById(
-    "checkoutOverlay"
-  );
-
-
-
-/* LOAD DATA */
-
-async function loadData(){
+async function loadProducts(){
 
   try{
 
-    const productsSnapshot =
+    const productSnapshot =
       await getDocs(
-        collection(
-          db,
-          "products"
-        )
+        collection(db,"products")
       );
 
+    products = [];
 
-    const variantsSnapshot =
+    productSnapshot.forEach(doc => {
+
+      products.push({
+        id:doc.id,
+        ...doc.data()
+      });
+
+    });
+
+
+    const variantSnapshot =
       await getDocs(
-        collection(
-          db,
-          "product_variants"
-        )
+        collection(db,"product_variants")
       );
 
+    variants = [];
 
-    products =
-      productsSnapshot.docs.map(
-        doc => ({
-          id:doc.id,
-          ...doc.data()
-        })
-      );
+    variantSnapshot.forEach(doc => {
 
+      variants.push({
+        id:doc.id,
+        ...doc.data()
+      });
 
-    variants =
-      variantsSnapshot.docs.map(
-        doc => ({
-          id:doc.id,
-          ...doc.data()
-        })
-      );
+    });
 
-
-    buildCategories();
 
     renderProducts();
 
-    renderCart();
+    updateCartUI();
 
-  }
-
-  catch(error){
+  }catch(error){
 
     console.error(error);
 
-    productsContainer.innerHTML = `
-
+    document.getElementById("products").innerHTML =
+      `
       <div class="empty">
-
-        <h3>
-          Products load করা যাচ্ছে না
-        </h3>
-
-        <br>
-
-        <p>
-          ${error.code || ""}
-        </p>
-
-        <br>
-
-        <p>
-          ${error.message || ""}
-        </p>
-
+        Products load করা যায়নি।
+        <br><br>
+        Firebase Rules check করুন।
       </div>
-
-    `;
+      `;
 
   }
 
 }
 
 
+/* =========================
+   CATEGORY
+========================= */
 
-/* CATEGORY */
+window.selectCategory =
+function(category,button){
 
-function buildCategories(){
+  selectedCategory = category;
 
-  const categories = [
+  document
+    .querySelectorAll(".categories button")
+    .forEach(btn =>
+      btn.classList.remove("active")
+    );
 
-    ...new Set(
+  button.classList.add("active");
 
-      products
-        .map(
-          p => p.category
-        )
-        .filter(Boolean)
+  renderProducts();
 
-    )
-
-  ];
-
-
-  categories.forEach(
-    category => {
-
-      const option =
-        document.createElement(
-          "option"
-        );
-
-      option.value =
-        category;
-
-      option.textContent =
-        category;
-
-      categorySelect.appendChild(
-        option
-      );
-
-    }
-  );
-
-}
+};
 
 
+/* =========================
+   RENDER PRODUCTS
+========================= */
 
-/* PRODUCTS */
+window.renderProducts =
+function(){
 
-function renderProducts(){
+  const container =
+    document.getElementById("products");
 
   const search =
-    searchInput.value
+    document
+      .getElementById("searchInput")
+      .value
       .toLowerCase()
       .trim();
 
 
-  const selectedCategory =
-    categorySelect.value;
+  let filtered =
+    products.filter(product => {
 
+      const categoryMatch =
+        selectedCategory === "All" ||
+        product.category === selectedCategory;
 
-  const filtered =
-    products.filter(
-      product => {
+      const searchMatch =
+        product.name
+          .toLowerCase()
+          .includes(search);
 
-        const name =
-          String(
-            product.name || ""
-          ).toLowerCase();
+      return categoryMatch && searchMatch;
 
-
-        const description =
-          String(
-            product.description || ""
-          ).toLowerCase();
-
-
-        const searchMatch =
-          name.includes(search) ||
-          description.includes(search);
-
-
-        const categoryMatch =
-          selectedCategory === "all" ||
-          product.category ===
-          selectedCategory;
-
-
-        return (
-          searchMatch &&
-          categoryMatch
-        );
-
-      }
-    );
-
-
-  productsContainer.innerHTML = "";
+    });
 
 
   if(filtered.length === 0){
 
-    productsContainer.innerHTML = `
-
+    container.innerHTML =
+      `
       <div class="empty">
         No products found.
       </div>
-
-    `;
-
-    return;
-
-  }
-
-
-  filtered.forEach(
-    product => {
-
-      createProductCard(
-        product
-      );
-
-    }
-  );
-
-}
-
-
-
-/* PRODUCT CARD */
-
-function createProductCard(
-  product
-){
-
-  const productVariants =
-    variants.filter(
-      variant =>
-        String(
-          variant.productId
-        ) ===
-        String(
-          product.id
-        )
-    );
-
-
-  const card =
-    document.createElement(
-      "div"
-    );
-
-
-  card.className =
-    "product-card";
-
-
-  if(
-    productVariants.length ===
-    0
-  ){
-
-    card.innerHTML = `
-
-      <div class="product-image">
-        NatureBite
-      </div>
-
-      <div class="product-content">
-
-        <h3>
-          ${product.name || ""}
-        </h3>
-
-        <div class="description">
-          ${product.description || ""}
-        </div>
-
-        <div class="stock out">
-          Variant unavailable
-        </div>
-
-      </div>
-
-    `;
-
-    productsContainer.appendChild(
-      card
-    );
+      `;
 
     return;
 
   }
 
 
-  let selectedVariant =
-    productVariants[0];
+  container.innerHTML =
+    filtered.map(product => {
 
-
-  card.innerHTML = `
-
-    <div class="product-image">
-      NatureBite
-    </div>
-
-    <div class="product-content">
-
-      <h3>
-        ${product.name || ""}
-      </h3>
-
-      <div class="category-name">
-        ${product.category || ""}
-      </div>
-
-      <div class="description">
-        ${product.description || ""}
-      </div>
-
-      <div class="variants"></div>
-
-      <div class="price">
-        ৳<span class="price-value">
-          ${selectedVariant.price}
-        </span>
-      </div>
-
-      <div class="stock">
-        Stock:
-        <span class="stock-value">
-          ${selectedVariant.stock}
-        </span>
-      </div>
-
-      <button
-        type="button"
-        class="add-btn"
-      >
-        Add to Cart
-      </button>
-
-    </div>
-
-  `;
-
-
-  const variantContainer =
-    card.querySelector(
-      ".variants"
-    );
-
-  const priceValue =
-    card.querySelector(
-      ".price-value"
-    );
-
-  const stockValue =
-    card.querySelector(
-      ".stock-value"
-    );
-
-  const stockContainer =
-    card.querySelector(
-      ".stock"
-    );
-
-  const addButton =
-    card.querySelector(
-      ".add-btn"
-    );
-
-
-  productVariants.forEach(
-    variant => {
-
-      const button =
-        document.createElement(
-          "button"
+      const productVariants =
+        variants.filter(
+          v =>
+          v.productId === product.id &&
+          v.status === "available"
         );
 
 
-      button.type =
-        "button";
+      const firstVariant =
+        productVariants[0];
 
 
-      button.className =
-        "variant-btn";
+      if(!firstVariant){
 
-
-      button.textContent =
-        variant.weight;
-
-
-      if(
-        variant.id ===
-        selectedVariant.id
-      ){
-
-        button.classList.add(
-          "active"
-        );
+        return "";
 
       }
 
 
-      button.addEventListener(
-        "click",
-        () => {
+      return `
 
-          selectedVariant =
-            variant;
+      <div class="product">
+
+        <div class="productImage">
+          🌿
+        </div>
+
+        <h3>
+          ${escapeHTML(product.name)}
+        </h3>
+
+        <div class="description">
+          ${escapeHTML(product.description || "")}
+        </div>
 
 
-          variantContainer
-            .querySelectorAll(
-              ".variant-btn"
+        <div class="variantButtons">
+
+          ${
+            productVariants.map((v,index)=>`
+
+              <button
+                class="variantBtn ${index===0 ? "selected":""}"
+                onclick="selectVariant(
+                  '${product.id}',
+                  '${v.id}',
+                  this
+                )"
+              >
+                ${escapeHTML(v.weight)}
+              </button>
+
+            `).join("")
+          }
+
+        </div>
+
+
+        <div class="price">
+
+          ৳<span
+            id="price-${safeId(product.id)}"
+          >
+            ${firstVariant.price}
+          </span>
+
+        </div>
+
+
+        <div class="stock">
+
+          Stock:
+          <span
+            id="stock-${safeId(product.id)}"
+          >
+            ${firstVariant.stock}
+          </span>
+
+        </div>
+
+
+        <button
+          class="addBtn"
+          id="add-${safeId(product.id)}"
+          onclick="
+            addToCart(
+              '${product.id}',
+              '${firstVariant.id}'
             )
-            .forEach(
-              btn =>
-                btn.classList.remove(
-                  "active"
-                )
-            );
+          "
+          ${firstVariant.stock <= 0 ? "disabled":""}
+        >
+          Add to Cart
+        </button>
+
+      </div>
+
+      `;
+
+    }).join("");
+
+};
 
 
-          button.classList.add(
-            "active"
+/* =========================
+   SELECT VARIANT
+========================= */
+
+window.selectVariant =
+function(productId,variantId,button){
+
+  const productVariants =
+    variants.filter(
+      v =>
+      v.productId === productId &&
+      v.status === "available"
+    );
+
+
+  const selected =
+    productVariants.find(
+      v => v.id === variantId
+    );
+
+
+  if(!selected) return;
+
+
+  document
+    .querySelectorAll(
+      `.variantButtons`
+    )
+    .forEach(group => {
+
+      if(
+        group
+        .parentElement
+        .querySelector("h3")
+        ?.textContent
+        === productId
+      ){
+        group
+          .querySelectorAll("button")
+          .forEach(b =>
+            b.classList.remove("selected")
           );
+      }
+
+    });
 
 
-          priceValue.textContent =
-            selectedVariant.price;
+  const card =
+    button.closest(".product");
 
 
-          stockValue.textContent =
-            selectedVariant.stock;
+  card
+    .querySelectorAll(".variantBtn")
+    .forEach(b =>
+      b.classList.remove("selected")
+    );
 
 
-          updateStock();
+  button.classList.add("selected");
 
-        }
+
+  card
+    .querySelector(".price span")
+    .textContent =
+      selected.price;
+
+
+  card
+    .querySelector(".stock span")
+    .textContent =
+      selected.stock;
+
+
+  const addButton =
+    card.querySelector(".addBtn");
+
+
+  addButton.onclick =
+    () =>
+      addToCart(
+        productId,
+        variantId
       );
 
 
-      variantContainer.appendChild(
-        button
-      );
+  addButton.disabled =
+    selected.stock <= 0;
 
-    }
-  );
+};
 
 
-  function updateStock(){
+/* =========================
+   ADD CART
+========================= */
 
-    const stock =
-      Number(
-        selectedVariant.stock
-      );
+window.addToCart =
+function(productId,variantId){
+
+  const product =
+    products.find(
+      p => p.id === productId
+    );
+
+  const variant =
+    variants.find(
+      v => v.id === variantId
+    );
 
 
-    if(stock <= 0){
+  if(!product || !variant) return;
 
-      stockContainer.className =
-        "stock out";
 
-      addButton.disabled =
-        true;
+  if(variant.stock <= 0){
 
-      addButton.textContent =
-        "Out of Stock";
+    alert("এই variant বর্তমানে stock out.");
 
-    }
-
-    else{
-
-      stockContainer.className =
-        "stock available";
-
-      addButton.disabled =
-        false;
-
-      addButton.textContent =
-        "Add to Cart";
-
-    }
+    return;
 
   }
 
 
-  updateStock();
-
-
-  addButton.addEventListener(
-    "click",
-    () => {
-
-      addToCart(
-        product,
-        selectedVariant
-      );
-
-    }
-  );
-
-
-  productsContainer.appendChild(
-    card
-  );
-
-}
-
-
-
-/* ADD CART */
-
-function addToCart(
-  product,
-  variant
-){
-
   const existing =
     cart.find(
       item =>
-        item.productId ===
-        product.id &&
-        item.variantId ===
-        variant.id
+      item.variantId === variantId
     );
 
 
@@ -1544,23 +1104,18 @@ function addToCart(
 
     if(
       existing.quantity >=
-      Number(variant.stock)
+      variant.stock
     ){
 
-      alert(
-        "Available stock এর বেশি নেওয়া যাবে না।"
-      );
+      alert("আর stock নেই.");
 
       return;
 
     }
 
-
     existing.quantity++;
 
-  }
-
-  else{
+  }else{
 
     cart.push({
 
@@ -1579,6 +1134,9 @@ function addToCart(
       price:
         Number(variant.price),
 
+      stock:
+        Number(variant.stock),
+
       quantity:1
 
     });
@@ -1588,15 +1146,16 @@ function addToCart(
 
   saveCart();
 
-  renderCart();
+  updateCartUI();
 
-  openCart();
+  alert("Cart-এ যোগ হয়েছে।");
 
-}
+};
 
 
-
-/* SAVE CART */
+/* =========================
+   CART UI
+========================= */
 
 function saveCart(){
 
@@ -1608,290 +1167,219 @@ function saveCart(){
 }
 
 
+function updateCartUI(){
 
-/* RENDER CART */
+  const count =
+    cart.reduce(
+      (sum,item) =>
+        sum + item.quantity,
+      0
+    );
 
-function renderCart(){
 
-  cartItems.innerHTML = "";
+  document.getElementById(
+    "cartCount"
+  ).textContent = count;
 
-  let total = 0;
 
-  let count = 0;
+  const container =
+    document.getElementById(
+      "cartItems"
+    );
 
 
   if(cart.length === 0){
 
-    cartItems.innerHTML = `
-
+    container.innerHTML =
+      `
       <div class="empty">
         Your cart is empty.
       </div>
+      `;
 
-    `;
+  }else{
 
-    cartTotal.textContent =
-      "0";
+    container.innerHTML =
+      cart.map(
+        (item,index)=>`
 
-    cartCount.textContent =
-      "0";
+        <div class="cartItem">
 
-    return;
+          <div>
+
+            <strong>
+              ${escapeHTML(item.productName)}
+            </strong>
+
+            <br>
+
+            <small>
+              ${escapeHTML(item.weight)}
+            </small>
+
+            <br>
+
+            ৳${item.price}
+
+          </div>
+
+
+          <div>
+
+            <div class="qty">
+
+              <button
+                onclick="changeQty(${index},-1)"
+              >
+                −
+              </button>
+
+              <strong>
+                ${item.quantity}
+              </strong>
+
+              <button
+                onclick="changeQty(${index},1)"
+              >
+                +
+              </button>
+
+            </div>
+
+            <button
+              class="remove"
+              onclick="removeCart(${index})"
+            >
+              Remove
+            </button>
+
+          </div>
+
+        </div>
+
+        `
+      ).join("");
 
   }
 
 
-  cart.forEach(
-    (item,index) => {
-
-      const quantity =
-        Number(item.quantity) || 1;
-
-      const price =
-        Number(item.price) || 0;
-
-      const itemTotal =
-        quantity * price;
-
-
-      total +=
-        itemTotal;
-
-      count +=
-        quantity;
-
-
-      const div =
-        document.createElement(
-          "div"
-        );
-
-
-      div.className =
-        "cart-item";
-
-
-      div.innerHTML = `
-
-        <div class="cart-item-title">
-          ${item.productName}
-        </div>
-
-        <div class="cart-item-info">
-          ${item.weight}
-          ×
-          ৳${price}
-        </div>
-
-        <div class="quantity">
-
-          <button
-            type="button"
-            class="minus-btn"
-          >
-            −
-          </button>
-
-          <strong>
-            ${quantity}
-          </strong>
-
-          <button
-            type="button"
-            class="plus-btn"
-          >
-            +
-          </button>
-
-          <button
-            type="button"
-            class="remove-btn"
-          >
-            Remove
-          </button>
-
-        </div>
-
-        <div class="item-total">
-          ৳${itemTotal}
-        </div>
-
-      `;
-
-
-      div.querySelector(
-        ".minus-btn"
-      ).addEventListener(
-        "click",
-        () =>
-          changeQuantity(
-            index,
-            -1
-          )
-      );
-
-
-      div.querySelector(
-        ".plus-btn"
-      ).addEventListener(
-        "click",
-        () =>
-          changeQuantity(
-            index,
-            1
-          )
-      );
-
-
-      div.querySelector(
-        ".remove-btn"
-      ).addEventListener(
-        "click",
-        () =>
-          removeItem(index)
-      );
-
-
-      cartItems.appendChild(
-        div
-      );
-
-    }
-  );
-
-
-  cartTotal.textContent =
-    total;
-
-  cartCount.textContent =
-    count;
+  document.getElementById(
+    "cartTotal"
+  ).textContent =
+    getProductTotal();
 
 }
 
 
+function getProductTotal(){
 
-/* QUANTITY */
+  return cart.reduce(
+    (sum,item) =>
+      sum +
+      item.price *
+      item.quantity,
+    0
+  );
 
-function changeQuantity(
-  index,
-  amount
-){
+}
 
-  if(!cart[index])
-    return;
 
+/* =========================
+   QUANTITY
+========================= */
+
+window.changeQty =
+function(index,change){
 
   const item =
     cart[index];
 
 
-  const newQuantity =
-    Number(item.quantity) +
-    Number(amount);
+  if(!item) return;
 
 
-  if(
-    newQuantity < 1
+  const newQty =
+    item.quantity + change;
+
+
+  if(newQty <= 0){
+
+    cart.splice(index,1);
+
+  }else if(
+    newQty <= item.stock
   ){
+
+    item.quantity = newQty;
+
+  }else{
+
+    alert("এই product-এর আর stock নেই.");
 
     return;
 
   }
 
 
-  const variant =
-    variants.find(
-      v =>
-        String(v.id) ===
-        String(item.variantId)
-    );
+  saveCart();
+
+  updateCartUI();
+
+  updateCheckoutTotal();
+
+};
 
 
-  if(
-    variant &&
-    newQuantity >
-    Number(variant.stock)
-  ){
+window.removeCart =
+function(index){
 
-    alert(
-      `শুধু ${variant.stock} টি stock available আছে।`
-    );
-
-    return;
-
-  }
-
-
-  item.quantity =
-    newQuantity;
-
+  cart.splice(index,1);
 
   saveCart();
 
-  renderCart();
+  updateCartUI();
 
-}
+  updateCheckoutTotal();
 
-
-
-/* REMOVE */
-
-function removeItem(index){
-
-  cart.splice(
-    index,
-    1
-  );
-
-  saveCart();
-
-  renderCart();
-
-}
+};
 
 
+/* =========================
+   OPEN CART
+========================= */
 
-/* OPEN CART */
+window.openCart =
+function(){
 
-function openCart(){
+  updateCartUI();
 
-  cartPanel.classList.add(
-    "open"
-  );
+  document.getElementById(
+    "cartOverlay"
+  ).style.display = "block";
 
-  cartOverlay.classList.add(
-    "show"
-  );
-
-}
-
-
-
-/* CLOSE CART */
-
-function closeCart(){
-
-  cartPanel.classList.remove(
-    "open"
-  );
-
-  cartOverlay.classList.remove(
-    "show"
-  );
-
-}
+};
 
 
+window.closeCart =
+function(){
 
-/* CHECKOUT OPEN */
+  document.getElementById(
+    "cartOverlay"
+  ).style.display = "none";
 
-function openCheckout(){
+};
+
+
+/* =========================
+   CHECKOUT
+========================= */
+
+window.openCheckout =
+function(){
 
   if(cart.length === 0){
 
-    alert(
-      "আপনার Cart খালি।"
-    );
+    alert("আপনার Cart খালি।");
 
     return;
 
@@ -1900,117 +1388,34 @@ function openCheckout(){
 
   closeCart();
 
-  renderCheckout();
-
-  checkoutOverlay.classList.add(
-    "show"
-  );
-
-}
-
-
-
-/* CHECKOUT CLOSE */
-
-function closeCheckout(){
-
-  checkoutOverlay.classList.remove(
-    "show"
-  );
-
-}
-
-
-
-/* CHECKOUT SUMMARY */
-
-function renderCheckout(){
-
-  const container =
-    document.getElementById(
-      "checkoutItems"
-    );
-
-
-  container.innerHTML = "";
-
-
-  let productTotal = 0;
-
-
-  cart.forEach(
-    item => {
-
-      const itemTotal =
-        Number(item.price) *
-        Number(item.quantity);
-
-
-      productTotal +=
-        itemTotal;
-
-
-      const row =
-        document.createElement(
-          "div"
-        );
-
-
-      row.className =
-        "summary-row";
-
-
-      row.innerHTML = `
-
-        <span>
-          ${item.productName}
-          (${item.weight})
-          × ${item.quantity}
-        </span>
-
-        <strong>
-          ৳${itemTotal}
-        </strong>
-
-      `;
-
-
-      container.appendChild(
-        row
-      );
-
-    }
-  );
-
-
-  document.getElementById(
-    "checkoutProductTotal"
-  ).textContent =
-    productTotal;
-
-
   updateCheckoutTotal();
 
-}
+  document.getElementById(
+    "checkoutOverlay"
+  ).style.display = "block";
+
+};
 
 
+window.closeCheckout =
+function(){
 
-/* CHECKOUT TOTAL */
+  document.getElementById(
+    "checkoutOverlay"
+  ).style.display = "none";
 
-function updateCheckoutTotal(){
-
-  let productTotal = 0;
+};
 
 
-  cart.forEach(
-    item => {
+/* =========================
+   CHECKOUT TOTAL
+========================= */
 
-      productTotal +=
-        Number(item.price) *
-        Number(item.quantity);
+window.updateCheckoutTotal =
+function(){
 
-    }
-  );
+  const productTotal =
+    getProductTotal();
 
 
   const delivery =
@@ -2019,6 +1424,12 @@ function updateCheckoutTotal(){
         "deliveryCharge"
       ).value
     );
+
+
+  document.getElementById(
+    "checkoutProductTotal"
+  ).textContent =
+    productTotal;
 
 
   document.getElementById(
@@ -2032,283 +1443,291 @@ function updateCheckoutTotal(){
   ).textContent =
     productTotal + delivery;
 
+};
+
+
+/* =========================
+   CONFIRM ORDER
+========================= */
+
+window.confirmOrder =
+async function(){
+
+  const name =
+    document
+      .getElementById("customerName")
+      .value
+      .trim();
+
+
+  const phone =
+    document
+      .getElementById("customerPhone")
+      .value
+      .trim();
+
+
+  const district =
+    document
+      .getElementById("district")
+      .value;
+
+
+  const address =
+    document
+      .getElementById("deliveryAddress")
+      .value
+      .trim();
+
+
+  const delivery =
+    Number(
+      document
+        .getElementById("deliveryCharge")
+        .value
+    );
+
+
+  const paymentMethod =
+    document.querySelector(
+      'input[name="payment"]:checked'
+    )?.value;
+
+
+  if(
+    !name ||
+    !phone ||
+    !district ||
+    !address ||
+    !paymentMethod
+  ){
+
+    alert(
+      "অনুগ্রহ করে সব তথ্য পূরণ করুন।"
+    );
+
+    return;
+
+  }
+
+
+  if(cart.length === 0){
+
+    alert("আপনার Cart খালি।");
+
+    return;
+
+  }
+
+
+  if(
+    !/^01[3-9]\d{8}$/.test(phone)
+  ){
+
+    alert(
+      "সঠিক ১১ সংখ্যার Mobile Number দিন।"
+    );
+
+    return;
+
+  }
+
+
+  const productTotal =
+    getProductTotal();
+
+
+  const grandTotal =
+    productTotal +
+    delivery;
+
+
+  const orderItems =
+    cart.map(item => ({
+
+      productId:
+        item.productId,
+
+      productName:
+        item.productName,
+
+      variantId:
+        item.variantId,
+
+      weight:
+        item.weight,
+
+      price:
+        Number(item.price),
+
+      quantity:
+        Number(item.quantity)
+
+    }));
+
+
+  try{
+
+    const orderRef =
+      await addDoc(
+        collection(db,"orders"),
+        {
+
+          customerName:
+            name,
+
+          customerPhone:
+            phone,
+
+          district:
+            district,
+
+          address:
+            address,
+
+          items:
+            orderItems,
+
+          productTotal:
+            productTotal,
+
+          deliveryCharge:
+            delivery,
+
+          grandTotal:
+            grandTotal,
+
+          paymentMethod:
+            paymentMethod,
+
+          paymentStatus:
+            paymentMethod === "COD"
+              ? "cod_pending"
+              : "pending",
+
+          orderStatus:
+            "pending",
+
+          createdAt:
+            serverTimestamp()
+
+        }
+      );
+
+
+    document.getElementById(
+      "successOrderId"
+    ).textContent =
+      orderRef.id;
+
+
+    cart = [];
+
+    saveCart();
+
+    updateCartUI();
+
+
+    document.getElementById(
+      "checkoutOverlay"
+    ).style.display =
+      "none";
+
+
+    document.getElementById(
+      "successOverlay"
+    ).style.display =
+      "block";
+
+
+    // Reset form
+
+    document.getElementById(
+      "customerName"
+    ).value = "";
+
+    document.getElementById(
+      "customerPhone"
+    ).value = "";
+
+    document.getElementById(
+      "district"
+    ).value = "";
+
+    document.getElementById(
+      "deliveryAddress"
+    ).value = "";
+
+
+    document.querySelector(
+      'input[value="COD"]'
+    ).checked = true;
+
+
+  }catch(error){
+
+    console.error(
+      "Order Error:",
+      error
+    );
+
+
+    alert(
+      "Order তৈরি করা যায়নি।\n\n" +
+      "Firebase Rules এবং Internet connection check করুন।"
+    );
+
+  }
+
+};
+
+
+/* =========================
+   SUCCESS
+========================= */
+
+window.closeSuccess =
+function(){
+
+  document.getElementById(
+    "successOverlay"
+  ).style.display =
+    "none";
+
+};
+
+
+/* =========================
+   HELPERS
+========================= */
+
+function safeId(text){
+
+  return String(text)
+    .replace(/[^a-zA-Z0-9]/g,"_");
+
 }
 
 
+function escapeHTML(value){
 
-/* PAYMENT */
+  return String(value || "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 
-document
-  .querySelectorAll(
-    ".payment-option"
-  )
-  .forEach(
-    option => {
+}
 
-      option.addEventListener(
-        "click",
-        () => {
 
-          document
-            .querySelectorAll(
-              ".payment-option"
-            )
-            .forEach(
-              item =>
-                item.classList.remove(
-                  "selected"
-                )
-            );
+/* =========================
+   START
+========================= */
 
-
-          option.classList.add(
-            "selected"
-          );
-
-
-          selectedPayment =
-            option.dataset.payment;
-
-        }
-      );
-
-    }
-  );
-
-
-
-/* DELIVERY CHANGE */
-
-document
-  .getElementById(
-    "deliveryCharge"
-  )
-  .addEventListener(
-    "change",
-    updateCheckoutTotal
-  );
-
-
-
-/* PLACE ORDER */
-
-document
-  .getElementById(
-    "placeOrderButton"
-  )
-  .addEventListener(
-    "click",
-    () => {
-
-      const name =
-        document.getElementById(
-          "customerName"
-        ).value.trim();
-
-
-      const phone =
-        document.getElementById(
-          "customerPhone"
-        ).value.trim();
-
-
-      const district =
-        document.getElementById(
-          "district"
-        ).value;
-
-
-      const address =
-        document.getElementById(
-          "address"
-        ).value.trim();
-
-
-      if(!name){
-
-        alert(
-          "আপনার নাম দিন।"
-        );
-
-        return;
-
-      }
-
-
-      if(!phone){
-
-        alert(
-          "আপনার মোবাইল নম্বর দিন।"
-        );
-
-        return;
-
-      }
-
-
-      if(
-        !/^01[0-9]{9}$/.test(phone)
-      ){
-
-        alert(
-          "সঠিক 11 সংখ্যার বাংলাদেশি মোবাইল নম্বর দিন।"
-        );
-
-        return;
-
-      }
-
-
-      if(!district){
-
-        alert(
-          "District নির্বাচন করুন।"
-        );
-
-        return;
-
-      }
-
-
-      if(!address){
-
-        alert(
-          "Delivery address দিন।"
-        );
-
-        return;
-
-      }
-
-
-      let productTotal = 0;
-
-
-      cart.forEach(
-        item => {
-
-          productTotal +=
-            Number(item.price) *
-            Number(item.quantity);
-
-        }
-      );
-
-
-      const delivery =
-        Number(
-          document.getElementById(
-            "deliveryCharge"
-          ).value
-        );
-
-
-      const grandTotal =
-        productTotal +
-        delivery;
-
-
-      alert(
-
-        "Checkout information ঠিক আছে।\n\n" +
-
-        "Customer: " +
-        name + "\n" +
-
-        "Phone: " +
-        phone + "\n\n" +
-
-        "Payment: " +
-        selectedPayment + "\n" +
-
-        "Product Total: ৳" +
-        productTotal + "\n" +
-
-        "Delivery: ৳" +
-        delivery + "\n" +
-
-        "Grand Total: ৳" +
-        grandTotal +
-
-        "\n\nপরের ধাপে এই order Firebase-এ save করা হবে।"
-
-      );
-
-    }
-  );
-
-
-
-/* BUTTONS */
-
-document
-  .getElementById(
-    "openCartButton"
-  )
-  .addEventListener(
-    "click",
-    openCart
-  );
-
-
-document
-  .getElementById(
-    "closeCartButton"
-  )
-  .addEventListener(
-    "click",
-    closeCart
-  );
-
-
-cartOverlay.addEventListener(
-  "click",
-  closeCart
-);
-
-
-document
-  .getElementById(
-    "checkoutButton"
-  )
-  .addEventListener(
-    "click",
-    openCheckout
-  );
-
-
-document
-  .getElementById(
-    "closeCheckoutButton"
-  )
-  .addEventListener(
-    "click",
-    closeCheckout
-  );
-
-
-/* SEARCH */
-
-searchInput.addEventListener(
-  "input",
-  renderProducts
-);
-
-
-/* CATEGORY */
-
-categorySelect.addEventListener(
-  "change",
-  renderProducts
-);
-
-
-/* START */
-
-loadData();
+loadProducts();
 
 </script>
 
 </body>
 </html>
-```

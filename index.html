@@ -2,3224 +2,2857 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>NatureBite</title>
 
 <style>
-:root{
-  --green:#1f5d3a;
-  --green2:#2f7d50;
-  --cream:#f6f1e4;
-  --bg:#fafbf8;
-  --text:#173326;
-  --muted:#718078;
-  --border:#e2e7e2;
-  --danger:#c62828;
-  --white:#fff;
-  --shadow:0 8px 25px rgba(20,60,40,.08);
-}
-
 *{box-sizing:border-box}
-
 body{
   margin:0;
-  font-family:Arial,"Noto Sans Bengali",sans-serif;
-  background:var(--bg);
-  color:var(--text);
+  font-family:Arial,sans-serif;
+  background:#f7f5ef;
+  color:#183c2b;
 }
-
-button,input,select,textarea{
-  font:inherit;
-}
-
-button{
-  cursor:pointer;
-}
-
-.hidden{
-  display:none!important;
-}
-
-header{
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+.header{
   position:sticky;
   top:0;
-  z-index:50;
+  z-index:100;
   background:#fff;
-  border-bottom:1px solid var(--border);
+  border-bottom:1px solid #ddd;
 }
-
 .nav{
-  max-width:1150px;
+  max-width:1100px;
   margin:auto;
-  padding:12px 16px;
-  display:flex;
-  align-items:center;
-  gap:9px;
-}
-
-.logo{
-  font-size:23px;
-  font-weight:800;
-  color:var(--green);
-  white-space:nowrap;
-}
-
-.spacer{
-  flex:1;
-}
-
-.navBtn{
-  position:relative;
-  background:var(--cream);
-  color:var(--green);
-  border:0;
-  border-radius:11px;
-  padding:10px 12px;
-}
-
-.badge{
-  position:absolute;
-  right:-4px;
-  top:-5px;
-  background:#d32f2f;
-  color:#fff;
-  min-width:18px;
-  height:18px;
-  border-radius:50%;
-  font-size:10px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-
-.hero{
-  background:linear-gradient(135deg,#edf6ea,#fff);
-  padding:42px 16px;
-}
-
-.heroInner{
-  max-width:1150px;
-  margin:auto;
-}
-
-.hero h1{
-  font-size:40px;
-  margin:0 0 10px;
-}
-
-.hero p{
-  color:var(--muted);
-  max-width:700px;
-  line-height:1.7;
-}
-
-.searchBox{
-  max-width:720px;
-  display:flex;
-  gap:8px;
-}
-
-.searchBox input{
-  flex:1;
-}
-
-main{
-  max-width:1150px;
-  margin:auto;
-  padding:25px 16px 70px;
-}
-
-.section{
-  margin-bottom:30px;
-}
-
-.sectionHead{
+  padding:12px 15px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  margin-bottom:13px;
+  gap:10px;
 }
-
-.sectionHead h2{
-  margin:0;
+.logo{
+  font-size:25px;
+  font-weight:bold;
+  color:#17643c;
 }
+.navBtns{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+}
+.navBtn,.primary,.secondary,.danger{
+  border:0;
+  border-radius:10px;
+  padding:10px 13px;
+}
+.navBtn{background:#eef5ef;color:#175b39}
+.primary{background:#17643c;color:#fff}
+.secondary{background:#e8eee9;color:#175b39}
+.danger{background:#ffe5e5;color:#a40000}
 
-.categoryBar{
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:20px 15px 80px;
+}
+.hero{
+  background:#e8f0e8;
+  padding:28px;
+  border-radius:18px;
+  margin-bottom:20px;
+}
+.hero h1{margin:0 0 8px;font-size:32px}
+.search{
+  width:100%;
+  padding:13px;
+  border:1px solid #ccc;
+  border-radius:12px;
+  margin:15px 0;
+}
+.categories{
   display:flex;
   gap:8px;
   overflow-x:auto;
-  padding-bottom:5px;
+  padding-bottom:8px;
 }
-
-.chip{
-  background:#fff;
-  border:1px solid var(--border);
-  padding:9px 14px;
-  border-radius:30px;
+.cat{
   white-space:nowrap;
+  border:1px solid #bdd0c0;
+  background:#fff;
+  padding:9px 13px;
+  border-radius:20px;
 }
-
-.chip.active{
-  background:var(--green);
+.cat.active{
+  background:#17643c;
   color:#fff;
 }
-
-.productGrid{
+.grid{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:16px;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:15px;
 }
-
 .card{
   background:#fff;
-  border:1px solid var(--border);
   border-radius:16px;
-  overflow:hidden;
-  box-shadow:var(--shadow);
+  padding:13px;
+  box-shadow:0 3px 12px #0000000d;
 }
-
-.productImage{
-  height:190px;
+.productImg{
+  width:100%;
+  height:180px;
+  border-radius:12px;
+  object-fit:cover;
+  background:#edf2ed;
   display:flex;
-  justify-content:center;
   align-items:center;
-  background:var(--cream);
+  justify-content:center;
   font-size:55px;
 }
-
-.productImage img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-.cardBody{
-  padding:14px;
-}
-
-.cardBody h3{
-  margin:0 0 5px;
-  font-size:17px;
-}
-
-.muted{
-  color:var(--muted);
-  font-size:13px;
-}
-
-.price{
-  color:var(--green);
-  font-weight:800;
-  font-size:20px;
-  margin:9px 0;
-}
-
-.btn{
-  background:var(--green);
-  color:#fff;
-  border:0;
-  border-radius:10px;
-  padding:11px 14px;
-}
-
-.btn.secondary{
-  background:var(--cream);
-  color:var(--green);
-}
-
-.btn.danger{
-  background:#fff0ef;
-  color:var(--danger);
-}
-
-.btn:disabled{
-  opacity:.5;
-  cursor:not-allowed;
-}
-
-.full{
-  width:100%;
-}
-
+.card h3{margin:10px 0 5px}
+.price{font-weight:bold;color:#17643c;font-size:18px}
+.stock{font-size:13px;color:#777}
 .row{
   display:flex;
-  gap:8px;
   align-items:center;
+  justify-content:space-between;
+  gap:8px;
 }
-
-.row>*{
-  flex:1;
+.actions{
+  display:flex;
+  gap:7px;
+  margin-top:10px;
 }
+.actions button{flex:1}
 
-.overlay{
+.modal{
   position:fixed;
   inset:0;
-  z-index:100;
-  background:rgba(0,0,0,.45);
-  display:flex;
-  justify-content:flex-end;
-}
-
-.overlay.center{
-  justify-content:center;
+  background:#0008;
+  z-index:500;
+  display:none;
   align-items:center;
+  justify-content:center;
+  padding:15px;
 }
-
-.panel{
-  width:min(540px,100%);
-  height:100%;
-  overflow-y:auto;
+.modal.show{display:flex}
+.modalBox{
   background:#fff;
-  padding:20px;
-}
-
-.center .panel{
-  height:auto;
+  width:min(650px,100%);
   max-height:92vh;
+  overflow:auto;
   border-radius:18px;
+  padding:20px;
+  position:relative;
 }
-
-.closeBtn{
-  float:right;
-  width:34px;
-  height:34px;
+.close{
+  position:absolute;
+  right:12px;
+  top:10px;
   border:0;
-  border-radius:50%;
   background:#eee;
+  border-radius:50%;
+  width:36px;
+  height:36px;
   font-size:20px;
 }
-
-.formGrid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-}
-
-.formGrid .full{
-  grid-column:1/-1;
-}
-
-input,select,textarea{
-  width:100%;
-  padding:12px;
-  border:1px solid #d9ded9;
-  border-radius:10px;
-  background:#fff;
-  outline:none;
-}
-
-label{
+.field{margin:12px 0}
+.field label{
   display:block;
-  margin-bottom:5px;
-  font-size:13px;
+  margin-bottom:6px;
   font-weight:bold;
 }
-
-.item{
-  padding:13px 0;
-  border-bottom:1px solid var(--border);
+.field input,.field select,.field textarea{
+  width:100%;
+  padding:12px;
+  border:1px solid #ccc;
+  border-radius:10px;
 }
-
+.variant{
+  border:1px solid #ccc;
+  padding:9px;
+  border-radius:9px;
+  margin:5px 0;
+  background:#fff;
+}
+.variant.selected{
+  border:2px solid #17643c;
+  background:#eef7ef;
+}
+.cartItem{
+  border-bottom:1px solid #ddd;
+  padding:12px 0;
+}
 .qty{
   display:flex;
   align-items:center;
-  gap:7px;
+  gap:8px;
 }
-
 .qty button{
-  width:31px;
-  height:31px;
+  width:32px;
+  height:32px;
   border:0;
   border-radius:8px;
-  background:var(--cream);
-  color:var(--green);
+  background:#e5eee7;
 }
-
-.status{
-  display:inline-block;
-  padding:5px 8px;
-  border-radius:8px;
-  background:#edf7ef;
-  color:var(--green);
-  font-size:12px;
+.totalBox{
+  background:#f0f5f1;
+  padding:15px;
+  border-radius:12px;
+  margin-top:15px;
 }
-
+.line{
+  display:flex;
+  justify-content:space-between;
+  margin:8px 0;
+}
 .notice{
+  background:#fff6d9;
   padding:12px;
-  background:#fff7dc;
   border-radius:10px;
   margin:10px 0;
 }
-
 .success{
+  background:#e4f6e8;
   padding:12px;
-  background:#edf8ef;
-  color:#245d39;
   border-radius:10px;
 }
-
 .error{
+  background:#ffe7e7;
+  color:#a00000;
   padding:12px;
-  background:#fff0ef;
-  color:#a5221c;
   border-radius:10px;
+  margin:10px 0;
 }
-
-.tabs{
-  display:flex;
-  gap:6px;
-  overflow-x:auto;
+.empty{
+  text-align:center;
+  padding:35px;
+  color:#777;
 }
-
-.tab{
-  padding:8px 10px;
-  background:#f0f2ef;
-  border-radius:8px;
-  white-space:nowrap;
+.order{
+  background:#fff;
+  border-radius:12px;
+  padding:14px;
+  margin:10px 0;
+}
+.badge{
+  display:inline-block;
+  padding:5px 9px;
+  border-radius:15px;
+  background:#e5eee7;
   font-size:12px;
 }
-
-.tab.active{
-  background:var(--green);
-  color:#fff;
-}
-
 footer{
   text-align:center;
   padding:30px;
-  border-top:1px solid var(--border);
-  color:var(--muted);
+  color:#777;
 }
+.hidden{display:none!important}
 
-@media(max-width:900px){
-  .productGrid{
-    grid-template-columns:repeat(3,1fr);
-  }
-}
-
-@media(max-width:650px){
-  .logo{
-    font-size:19px;
-  }
-
-  .navBtn{
-    padding:9px;
-    font-size:12px;
-  }
-
-  .hero h1{
-    font-size:30px;
-  }
-
-  .productGrid{
-    grid-template-columns:repeat(2,1fr);
-    gap:10px;
-  }
-
-  .productImage{
-    height:150px;
-  }
-
-  .formGrid{
-    grid-template-columns:1fr;
-  }
-
-  .formGrid .full{
-    grid-column:auto;
-  }
+@media(max-width:600px){
+  .hero h1{font-size:26px}
+  .nav{align-items:flex-start}
+  .logo{font-size:21px}
+  .navBtns{justify-content:flex-end}
+  .navBtn{padding:8px;font-size:13px}
 }
 </style>
 </head>
 
 <body>
 
-<header>
-<div class="nav">
+<header class="header">
+  <div class="nav">
+    <div class="logo">🌿 NatureBite</div>
 
-<div class="logo">🌿 NatureBite</div>
-
-<div class="spacer"></div>
-
-<button class="navBtn" onclick="openWishlist()">♡ Wishlist</button>
-
-<button class="navBtn" onclick="openOrders()">📦 Orders</button>
-
-<button class="navBtn" onclick="openAccount()">👤 Account</button>
-
-<button class="navBtn" onclick="openCart()">
-🛒 Cart
-<span id="cartBadge" class="badge">0</span>
-</button>
-
-</div>
+    <div class="navBtns">
+      <button class="navBtn" onclick="goHome()">Home</button>
+      <button class="navBtn" onclick="openCart()">🛒 Cart <span id="cartCount">0</span></button>
+      <button class="navBtn" onclick="openAccount()">Account</button>
+    </div>
+  </div>
 </header>
 
+<main class="container">
 
-<div class="hero">
+<section id="homeSection">
+  <div class="hero">
+    <h1>Healthy food, naturally better.</h1>
+    <p>Healthy Snacks • Kids Foods • Diabetic/Keto • Instant Mix</p>
 
-<div class="heroInner">
+    <input
+      id="searchInput"
+      class="search"
+      placeholder="Search products..."
+      oninput="renderProducts()"
+    >
 
-<h1>Healthy food, naturally.</h1>
+    <div id="categories" class="categories"></div>
+  </div>
 
-<p>
-Healthy Snacks, Kids Special Foods,
-Diabetic/Keto-Friendly Products এবং
-Instant Mix Items — সবকিছু সহজে অর্ডার করুন।
-</p>
+  <h2>Our Products</h2>
+  <div id="products" class="grid">
+    <div class="empty">Loading products...</div>
+  </div>
+</section>
 
-<div class="searchBox">
-
-<input
-id="searchInput"
-placeholder="পণ্য খুঁজুন..."
-oninput="renderProducts()"
->
-
-<button class="btn" onclick="openOffers()">
-🎁 Offers
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-
-<main>
-
-<div class="section">
-
-<div class="sectionHead">
-<h2>Categories</h2>
-</div>
-
-<div id="categories" class="categoryBar"></div>
-
-</div>
-
-
-<div class="section">
-
-<div class="sectionHead">
-
-<h2>Products</h2>
-
-<span id="productCount" class="muted"></span>
-
-</div>
-
-<div id="products" class="productGrid"></div>
-
-</div>
-
-
-<div class="section">
-
-<div class="sectionHead">
-<h2>Quick Access</h2>
-</div>
-
-<div class="row">
-
-<button class="btn secondary" onclick="openOffers()">
-🎁 Offers
-</button>
-
-<button class="btn secondary" onclick="openSupport()">
-💬 Support
-</button>
-
-<button class="btn secondary" onclick="openWheel()">
-🎡 Lucky Wheel
-</button>
-
-</div>
-
-</div>
+<footer>
+  © NatureBite — Healthy Food Brand
+</footer>
 
 </main>
 
-
-<footer>
-© <span id="year"></span> NatureBite
-</footer>
-
-
-<div id="overlay" class="overlay hidden">
-
-<div id="panel" class="panel"></div>
-
+<!-- PRODUCT MODAL -->
+<div id="productModal" class="modal" onclick="outsideClose(event,'productModal')">
+  <div class="modalBox">
+    <button class="close" onclick="closeModal('productModal')">×</button>
+    <div id="productDetails"></div>
+  </div>
 </div>
 
+<!-- CART MODAL -->
+<div id="cartModal" class="modal" onclick="outsideClose(event,'cartModal')">
+  <div class="modalBox">
+    <button class="close" onclick="closeModal('cartModal')">×</button>
+    <h2>🛒 Your Cart</h2>
+    <div id="cartItems"></div>
+    <div id="cartSummary"></div>
+  </div>
+</div>
+
+<!-- CHECKOUT -->
+<div id="checkoutModal" class="modal" onclick="outsideClose(event,'checkoutModal')">
+  <div class="modalBox">
+    <button class="close" onclick="closeModal('checkoutModal')">×</button>
+
+    <h2>Checkout</h2>
+
+    <div id="checkoutError"></div>
+
+    <div class="field">
+      <label>Full Name</label>
+      <input id="fullName">
+    </div>
+
+    <div class="field">
+      <label>Mobile Number</label>
+      <input id="checkoutMobile" type="tel" readonly>
+    </div>
+
+    <div class="field">
+      <label>District</label>
+      <select id="district">
+        <option>Chattogram</option>
+        <option>Dhaka</option>
+        <option>Cumilla</option>
+        <option>Cox's Bazar</option>
+        <option>Feni</option>
+        <option>Noakhali</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Delivery Type</label>
+      <select id="deliveryType" onchange="updateCheckoutTotal()">
+        <option value="standard">Standard Delivery — ৳60</option>
+        <option value="express">Express Delivery — ৳80</option>
+        <option value="free">Free Delivery — ৳0</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Payment Method</label>
+      <select id="paymentMethod" onchange="updatePaymentFields()">
+        <option value="cod">Cash on Delivery</option>
+        <option value="bkash">bKash</option>
+        <option value="nagad">Nagad</option>
+      </select>
+    </div>
+
+    <div id="onlinePaymentBox" class="notice hidden">
+      <b>Product payment</b><br>
+      Online payment option selected.<br>
+      <small>এই demo version-এ transaction ID customer-এর দেওয়া তথ্য হিসেবে রাখা হবে।</small>
+
+      <div class="field">
+        <label>Transaction ID</label>
+        <input id="productTransactionId" placeholder="Transaction ID">
+      </div>
+    </div>
+
+    <div id="deliveryPaymentBox" class="notice">
+      <b>Delivery Charge Prepayment Required</b>
+      <p>
+        Order confirm করার আগে delivery charge পরিশোধ করতে হবে।
+      </p>
+
+      <p>
+        <b>Delivery Charge: <span id="deliveryChargeText">৳60</span></b>
+      </p>
+
+      <div class="field">
+        <label>Delivery Charge Payment Method</label>
+        <select id="deliveryPaymentMethod">
+          <option value="bkash">bKash</option>
+          <option value="nagad">Nagad</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Delivery Charge Transaction ID</label>
+        <input
+          id="deliveryTransactionId"
+          placeholder="Delivery payment transaction ID"
+        >
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Delivery Address</label>
+      <textarea id="address" rows="3" placeholder="House, road, area..."></textarea>
+    </div>
+
+    <div class="field">
+      <label>Coupon</label>
+      <div class="row">
+        <input id="couponCode" placeholder="Coupon code">
+        <button class="secondary" onclick="applyCoupon()">Apply</button>
+      </div>
+      <div id="couponMessage"></div>
+    </div>
+
+    <div id="checkoutTotal"></div>
+
+    <button class="primary" style="width:100%;margin-top:15px" onclick="placeOrder()">
+      Confirm Order
+    </button>
+
+  </div>
+</div>
+
+<!-- LOGIN -->
+<div id="loginModal" class="modal">
+  <div class="modalBox">
+    <button class="close" onclick="closeModal('loginModal')">×</button>
+
+    <h2 id="loginTitle">Customer Login</h2>
+
+    <div id="loginError"></div>
+
+    <!-- PHONE PASSWORD LOGIN -->
+    <div id="passwordLoginBox">
+
+      <div class="field">
+        <label>Mobile Number</label>
+        <input id="loginPhone" type="tel" placeholder="01XXXXXXXXX">
+      </div>
+
+      <div class="field">
+        <label>Password</label>
+        <input id="loginPassword" type="password" placeholder="Password">
+      </div>
+
+      <button class="primary" style="width:100%" onclick="passwordLogin()">
+        Login
+      </button>
+
+      <button
+        class="secondary"
+        style="width:100%;margin-top:8px"
+        onclick="startOtpFlow('new')">
+        First time? OTP দিয়ে Account তৈরি
+      </button>
+
+      <button
+        class="secondary"
+        style="width:100%;margin-top:8px"
+        onclick="startOtpFlow('forgot')">
+        Forgot Password
+      </button>
+
+    </div>
+
+    <!-- OTP -->
+    <div id="otpBox" class="hidden">
+
+      <div class="notice">
+        আপনার mobile number-এ OTP পাঠানো হবে।
+      </div>
+
+      <div class="field">
+        <label>Mobile Number</label>
+        <input id="otpPhone" type="tel">
+      </div>
+
+      <div id="recaptcha-container"></div>
+
+      <button
+        id="sendOtpBtn"
+        class="primary"
+        style="width:100%"
+        onclick="sendOTP()">
+        Send OTP
+      </button>
+
+      <div id="otpVerifyBox" class="hidden">
+
+        <div class="field">
+          <label>OTP</label>
+          <input id="otpCode" maxlength="6" placeholder="6 digit OTP">
+        </div>
+
+        <button
+          class="primary"
+          style="width:100%"
+          onclick="verifyOTP()">
+          Verify OTP
+        </button>
+
+      </div>
+
+      <button
+        class="secondary"
+        style="width:100%;margin-top:8px"
+        onclick="showPasswordLogin()">
+        Back to Login
+      </button>
+
+    </div>
+
+    <!-- PASSWORD SET -->
+    <div id="passwordSetBox" class="hidden">
+
+      <div class="success">
+        OTP successfully verified।
+        এখন আপনার account-এর password সেট করুন।
+      </div>
+
+      <div class="field">
+        <label>New Password</label>
+        <input id="newPassword" type="password">
+      </div>
+
+      <div class="field">
+        <label>Confirm Password</label>
+        <input id="confirmPassword" type="password">
+      </div>
+
+      <button class="primary" style="width:100%" onclick="setNewPassword()">
+        Create Password
+      </button>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- ACCOUNT -->
+<div id="accountModal" class="modal">
+  <div class="modalBox">
+    <button class="close" onclick="closeModal('accountModal')">×</button>
+
+    <div id="accountContent"></div>
+
+  </div>
+</div>
+
+<!-- ORDERS -->
+<div id="ordersModal" class="modal">
+  <div class="modalBox">
+    <button class="close" onclick="closeModal('ordersModal')">×</button>
+
+    <h2>📦 My Orders</h2>
+
+    <div id="ordersContent">
+      Loading...
+    </div>
+
+  </div>
+</div>
 
 <script type="module">
 
 import {
-initializeApp
-}
-from
-"https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 
 import {
-getFirestore,
-collection,
-getDocs,
-getDoc,
-doc,
-setDoc,
-addDoc,
-query,
-where,
-limit,
-serverTimestamp
-}
-from
-"https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+  getAuth,
+  RecaptchaVerifier,
+  signInWithPhoneNumber,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  updatePassword,
+  onAuthStateChanged,
+  signOut
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
 
 import {
-getAuth,
-onAuthStateChanged,
-signInWithPhoneNumber,
-RecaptchaVerifier,
-signOut
-}
-from
-"https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+  getFirestore,
+  collection,
+  getDocs,
+  getDoc,
+  doc,
+  addDoc,
+  setDoc,
+  query,
+  where,
+  orderBy,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
 
-const firebaseConfig={
+/* =========================
+   FIREBASE
+========================= */
 
-apiKey:"AIzaSyCBaUWZflbj0RVfdyl1vZCB3SYD42vkI_0",
+const firebaseConfig = {
+  apiKey: "AIzaSyCBaUWZflbj0RVfdyl1vZCB3SYD42vkI_0",
+  authDomain: "naturebite-c5d88.firebaseapp.com",
+  projectId: "naturebite-c5d88",
+  storageBucket: "naturebite-c5d88.firebasestorage.app",
+  messagingSenderId: "467003957826",
+  appId: "1:467003957826:web:483a261d12ac396dca43db"
+};
 
-authDomain:"naturebite-c5d88.firebaseapp.com",
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
 
-projectId:"naturebite-c5d88",
 
-storageBucket:"naturebite-c5d88.firebasestorage.app",
+/* =========================
+   GLOBAL STATE
+========================= */
 
-messagingSenderId:"467003957826",
+let products = [];
+let variants = [];
+let categories = [];
 
-appId:"1:467003957826:web:483a261d12ac396dca43db"
+let cart = JSON.parse(localStorage.getItem("naturebite_cart") || "[]");
 
+let selectedCategory = "All";
+let currentProduct = null;
+let currentVariant = null;
+
+let confirmationResult = null;
+let otpMode = "new";
+
+let couponDiscount = 0;
+let couponData = null;
+
+let platformCharge = 0;
+let platformChargeType = "fixed";
+
+let deliverySettings = {
+  standard: 60,
+  express: 80,
+  free: 0,
+  prepaidRequired: true
 };
 
 
-const app=initializeApp(firebaseConfig);
+/* =========================
+   HELPERS
+========================= */
 
-const db=getFirestore(app);
-
-const auth=getAuth(app);
-
-
-let products=[];
-let variants=[];
-let categories=[];
-let user=null;
-
-let cart=
-JSON.parse(
-localStorage.getItem("naturebite_cart") || "[]"
-);
-
-let selectedCategory="all";
-let wishlist=[];
-let appliedCoupon=null;
-
-let delivery={
-type:"standard",
-fee:60
+window.goHome = function(){
+  closeAllModals();
+  window.scrollTo({top:0,behavior:"smooth"});
 };
 
+window.closeModal = function(id){
+  const el = document.getElementById(id);
+  if(el) el.classList.remove("show");
+};
 
-const $=id=>document.getElementById(id);
+window.openModal = function(id){
+  const el = document.getElementById(id);
+  el.classList.add("show");
+};
 
+window.outsideClose = function(e,id){
+  if(e.target.id === id){
+    closeModal(id);
+  }
+};
 
-function escapeHTML(value){
+window.closeAllModals = function(){
+  document.querySelectorAll(".modal").forEach(x=>{
+    x.classList.remove("show");
+  });
+};
 
-return String(value ?? "")
-.replace(/&/g,"&amp;")
-.replace(/</g,"&lt;")
-.replace(/>/g,"&gt;")
-.replace(/"/g,"&quot;")
-.replace(/'/g,"&#039;");
-
+function money(n){
+  return "৳" + Number(n || 0).toFixed(0);
 }
-
-
-function money(value){
-
-return "৳"+Number(value||0).toFixed(0);
-
-}
-
 
 function saveCart(){
+  localStorage.setItem("naturebite_cart",JSON.stringify(cart));
+  updateCartCount();
+}
 
-localStorage.setItem(
-"naturebite_cart",
-JSON.stringify(cart)
-);
+function updateCartCount(){
+  const count = cart.reduce((a,b)=>a+b.qty,0);
+  document.getElementById("cartCount").textContent = count;
+}
 
-updateCartBadge();
+function normalizePhone(phone){
+  phone = phone.trim();
 
+  if(phone.startsWith("+880")){
+    return phone;
+  }
+
+  if(phone.startsWith("880")){
+    return "+" + phone;
+  }
+
+  if(phone.startsWith("01")){
+    return "+88" + phone;
+  }
+
+  return phone;
+}
+
+/*
+  Firebase Email/Password ব্যবহার করার জন্য
+  phone number থেকে একটি internal email তৈরি করা হচ্ছে।
+  Customer UI-তে email দেখানো হবে না।
+*/
+function phoneToEmail(phone){
+  const clean = phone.replace(/\D/g,"");
+  return clean + "@customer.naturebite.app";
+}
+
+function showError(id,msg){
+  document.getElementById(id).innerHTML =
+    `<div class="error">${msg}</div>`;
+}
+
+function clearError(id){
+  document.getElementById(id).innerHTML="";
 }
 
 
-function updateCartBadge(){
-
-$("cartBadge").textContent=
-cart.reduce((sum,item)=>sum+item.qty,0);
-
-}
-
-
-function showPanel(html,center=false){
-
-$("panel").innerHTML=html;
-
-$("overlay").classList.remove("hidden");
-
-$("overlay").classList.toggle("center",center);
-
-}
-
-
-function closePanel(){
-
-$("overlay").classList.add("hidden");
-
-$("overlay").classList.remove("center");
-
-}
-
-
-$("overlay").addEventListener("click",e=>{
-
-if(e.target===$("overlay")){
-closePanel();
-}
-
-});
-
+/* =========================
+   FIREBASE DATA
+========================= */
 
 async function loadData(){
 
-try{
+  try{
 
-const [p,v,c]=await Promise.all([
+    const pSnap = await getDocs(collection(db,"products"));
 
-getDocs(collection(db,"products")),
-
-getDocs(collection(db,"product_variants")),
-
-getDocs(collection(db,"categories"))
-
-]);
+    products = pSnap.docs.map(d=>({
+      id:d.id,
+      ...d.data()
+    })).filter(p=>p.status !== "inactive");
 
 
-products=p.docs.map(d=>({
-id:d.id,
-...d.data()
-}));
+    const vSnap = await getDocs(collection(db,"product_variants"));
+
+    variants = vSnap.docs.map(d=>({
+      id:d.id,
+      ...d.data()
+    }));
 
 
-variants=v.docs.map(d=>({
-id:d.id,
-...d.data()
-}));
+    const cSnap = await getDocs(collection(db,"categories"));
+
+    categories = cSnap.docs.map(d=>({
+      id:d.id,
+      ...d.data()
+    })).filter(c=>c.status !== "inactive");
 
 
-categories=c.docs.map(d=>({
-id:d.id,
-...d.data()
-}));
+    await loadSettings();
 
+    renderCategories();
+    renderProducts();
 
-renderCategories();
+  }catch(error){
 
-renderProducts();
+    console.error(error);
 
-updateCartBadge();
-
-}catch(error){
-
-console.error(error);
-
-$("products").innerHTML=
-`<div class="error">
-Products load করা যায়নি।
-</div>`;
+    document.getElementById("products").innerHTML =
+      `<div class="error">
+        Products load করতে সমস্যা হয়েছে।<br>
+        ${error.message}
+      </div>`;
+  }
 
 }
 
+
+/* =========================
+   SETTINGS
+========================= */
+
+async function loadSettings(){
+
+  try{
+
+    const ref = doc(db,"settings","platform");
+    const snap = await getDoc(ref);
+
+    if(snap.exists()){
+
+      const data = snap.data();
+
+      platformCharge = Number(data.platformCharge || 0);
+      platformChargeType = data.platformChargeType || "fixed";
+
+      if(data.standardDelivery !== undefined)
+        deliverySettings.standard = Number(data.standardDelivery);
+
+      if(data.expressDelivery !== undefined)
+        deliverySettings.express = Number(data.expressDelivery);
+
+      if(data.freeDelivery !== undefined)
+        deliverySettings.free = Number(data.freeDelivery);
+
+      if(data.deliveryPrepaidRequired !== undefined)
+        deliverySettings.prepaidRequired =
+          data.deliveryPrepaidRequired;
+
+    }
+
+  }catch(e){
+    console.log("Settings not found, demo defaults used.");
+  }
+
 }
 
+
+/* =========================
+   CATEGORIES
+========================= */
 
 function renderCategories(){
 
-const list=[
-{
-id:"all",
-name:"All"
-},
-...categories
-.filter(c=>c.status!=="inactive")
-.sort(
-(a,b)=>(a.sortOrder||0)-(b.sortOrder||0)
-)
-];
+  const box = document.getElementById("categories");
+
+  box.innerHTML = "";
+
+  const all = document.createElement("button");
+
+  all.className = "cat " +
+    (selectedCategory==="All" ? "active" : "");
+
+  all.textContent = "All";
+
+  all.onclick = ()=>{
+    selectedCategory = "All";
+    renderCategories();
+    renderProducts();
+  };
+
+  box.appendChild(all);
 
 
-$("categories").innerHTML=
+  categories
+    .sort((a,b)=>(a.sortOrder||0)-(b.sortOrder||0))
+    .forEach(c=>{
 
-list.map(c=>`
+      const btn = document.createElement("button");
 
-<button
-class="chip ${selectedCategory===c.id?"active":""}"
-onclick="selectCategory('${escapeHTML(c.id)}')"
->
-${escapeHTML(c.name)}
-</button>
+      btn.className =
+        "cat " +
+        (selectedCategory===c.name ? "active" : "");
 
-`).join("");
+      btn.textContent = c.name;
 
-}
+      btn.onclick=()=>{
+        selectedCategory=c.name;
+        renderCategories();
+        renderProducts();
+      };
 
+      box.appendChild(btn);
 
-window.selectCategory=function(id){
-
-selectedCategory=id;
-
-renderCategories();
-
-renderProducts();
-
-};
-
-
-window.renderProducts=function(){
-
-const search=
-$("searchInput")
-.value
-.trim()
-.toLowerCase();
-
-
-let list=
-products.filter(
-p=>p.status!=="inactive"
-);
-
-
-if(selectedCategory!=="all"){
-
-const category=
-categories.find(
-c=>c.id===selectedCategory
-);
-
-
-list=list.filter(
-p=>
-p.category===selectedCategory ||
-p.category===category?.name
-);
+    });
 
 }
 
 
-if(search){
+/* =========================
+   PRODUCTS
+========================= */
 
-list=list.filter(p=>
+window.renderProducts = function(){
 
-(p.name||"")
-.toLowerCase()
-.includes(search)
+  const search =
+    document.getElementById("searchInput")
+      .value
+      .toLowerCase()
+      .trim();
 
-||
+  const box = document.getElementById("products");
 
-(p.description||"")
-.toLowerCase()
-.includes(search)
+  let list = products.filter(p=>{
 
-||
+    const categoryOk =
+      selectedCategory==="All" ||
+      p.category===selectedCategory;
 
-(p.category||"")
-.toLowerCase()
-.includes(search)
+    const searchOk =
+      !search ||
+      (p.name||"").toLowerCase().includes(search) ||
+      (p.description||"").toLowerCase().includes(search);
 
-);
+    return categoryOk && searchOk;
+
+  });
+
+
+  if(!list.length){
+
+    box.innerHTML =
+      `<div class="empty">
+        No products found.
+      </div>`;
+
+    return;
+  }
+
+
+  box.innerHTML="";
+
+
+  list.forEach(p=>{
+
+    const pVars =
+      variants.filter(v=>v.productId===p.id);
+
+    const cheapest =
+      pVars.length
+      ? Math.min(...pVars.map(v=>Number(v.price||0)))
+      : 0;
+
+    const card=document.createElement("div");
+
+    card.className="card";
+
+    card.innerHTML=`
+
+      <div class="productImg">
+        ${
+          p.imageUrl
+          ? `<img src="${p.imageUrl}"
+               style="width:100%;height:100%;object-fit:cover;border-radius:12px">`
+          : "🌿"
+        }
+      </div>
+
+      <h3>${p.name}</h3>
+
+      <p>${p.description||""}</p>
+
+      <div class="price">
+        ${cheapest ? "From "+money(cheapest) : "Price unavailable"}
+      </div>
+
+      <div class="actions">
+        <button class="secondary"
+          onclick="openProduct('${escapeQuotes(p.id)}')">
+          View
+        </button>
+
+        <button class="primary"
+          onclick="quickAdd('${escapeQuotes(p.id)}')">
+          Add
+        </button>
+      </div>
+    `;
+
+    box.appendChild(card);
+
+  });
+
+};
+
+function escapeQuotes(x){
+  return String(x).replace(/\\/g,"\\\\").replace(/'/g,"\\'");
+}
+
+
+/* =========================
+   PRODUCT DETAILS
+========================= */
+
+window.openProduct = function(productId){
+
+  const p = products.find(x=>x.id===productId);
+
+  if(!p) return;
+
+  currentProduct=p;
+
+  const pVars =
+    variants.filter(v=>v.productId===productId);
+
+  currentVariant = pVars[0] || null;
+
+  const box=document.getElementById("productDetails");
+
+  box.innerHTML=`
+
+    <div class="productImg">
+      ${
+        p.imageUrl
+        ? `<img src="${p.imageUrl}"
+             style="width:100%;height:100%;object-fit:cover;border-radius:12px">`
+        : "🌿"
+      }
+    </div>
+
+    <h2>${p.name}</h2>
+
+    <p>${p.description||""}</p>
+
+    <h3>Choose Size</h3>
+
+    <div id="variantList"></div>
+
+    <div id="selectedPrice"></div>
+
+    <button class="primary"
+      style="width:100%;margin-top:15px"
+      onclick="addCurrentToCart()">
+      Add to Cart
+    </button>
+
+  `;
+
+  renderVariants();
+
+  openModal("productModal");
+
+};
+
+
+function renderVariants(){
+
+  const box=document.getElementById("variantList");
+
+  box.innerHTML="";
+
+  const pVars =
+    variants.filter(v=>v.productId===currentProduct.id);
+
+
+  if(!pVars.length){
+
+    box.innerHTML="<p>No variant available.</p>";
+
+    return;
+  }
+
+
+  pVars.forEach(v=>{
+
+    const btn=document.createElement("button");
+
+    btn.className =
+      "variant " +
+      (currentVariant?.id===v.id ? "selected":"");
+
+    btn.style.width="100%";
+
+    btn.innerHTML=`
+      <div class="row">
+        <span>${v.weight||"Standard"}</span>
+        <b>${money(v.price)}</b>
+      </div>
+      <small>
+        ${
+          Number(v.stock||0)>0
+          ? "Stock: "+v.stock
+          : "Out of stock"
+        }
+      </small>
+    `;
+
+    btn.onclick=()=>{
+
+      currentVariant=v;
+
+      renderVariants();
+
+      renderSelectedPrice();
+
+    };
+
+    box.appendChild(btn);
+
+  });
+
+  renderSelectedPrice();
 
 }
 
 
-$("productCount").textContent=
-list.length+"টি";
+function renderSelectedPrice(){
 
+  const box=document.getElementById("selectedPrice");
 
-if(!list.length){
+  if(!currentVariant){
+    box.innerHTML="";
+    return;
+  }
 
-$("products").innerHTML=
-`<div class="notice">
-কোনো পণ্য পাওয়া যায়নি।
-</div>`;
+  box.innerHTML=`
+    <div class="totalBox">
+      <div class="line">
+        <span>Selected</span>
+        <b>${currentVariant.weight}</b>
+      </div>
 
-return;
+      <div class="line">
+        <span>Price</span>
+        <b>${money(currentVariant.price)}</b>
+      </div>
+
+      <div>
+        ${
+          Number(currentVariant.stock)>0
+          ? `<span class="badge">Available</span>`
+          : `<span class="badge">Out of stock</span>`
+        }
+      </div>
+    </div>
+  `;
 
 }
 
 
-$("products").innerHTML=
+window.addCurrentToCart = function(){
 
-list.map(p=>{
+  if(!currentVariant){
+    alert("Please select a variant.");
+    return;
+  }
 
-const vs=
-variants.filter(
-v=>
-v.productId===p.id &&
-v.status!=="inactive"
-);
+  if(Number(currentVariant.stock||0)<=0){
+    alert("এই variant বর্তমানে stock-এ নেই।");
+    return;
+  }
 
+  addToCart(currentVariant);
 
-const minPrice=
-vs.length
-?
-Math.min(...vs.map(v=>Number(v.price||0)))
-:
-0;
+  closeModal("productModal");
 
-
-return `
-
-<div class="card">
-
-<div class="productImage">
-
-${
-p.imageUrl
-?
-`<img
-src="${escapeHTML(p.imageUrl)}"
-alt="${escapeHTML(p.name)}"
->`
-:
-"🌿"
-}
-
-</div>
-
-
-<div class="cardBody">
-
-<h3>
-${escapeHTML(p.name)}
-</h3>
-
-<div class="muted">
-${escapeHTML(p.category||"")}
-</div>
-
-<div class="price">
-${money(minPrice)}
-${vs.length?" থেকে":""}
-</div>
-
-
-<button
-class="btn full"
-onclick="openProduct('${escapeHTML(p.id)}')"
->
-View Product
-</button>
-
-</div>
-
-</div>
-
-`;
-
-}).join("");
+  openCart();
 
 };
 
 
-window.openProduct=function(productId){
+window.quickAdd = function(productId){
 
-const product=
-products.find(p=>p.id===productId);
+  const pVars =
+    variants.filter(v=>v.productId===productId);
 
-if(!product)return;
+  if(!pVars.length){
+    alert("Variant পাওয়া যায়নি।");
+    return;
+  }
 
+  const v =
+    pVars.find(x=>Number(x.stock||0)>0);
 
-const vs=
-variants.filter(
-v=>
-v.productId===productId &&
-v.status!=="inactive"
-);
+  if(!v){
+    alert("Product out of stock.");
+    return;
+  }
 
+  addToCart(v);
 
-showPanel(`
-
-<button class="closeBtn" onclick="closePanel()">×</button>
-
-<h2>${escapeHTML(product.name)}</h2>
-
-<div
-class="productImage"
-style="height:230px"
->
-
-${
-product.imageUrl
-?
-`<img src="${escapeHTML(product.imageUrl)}">`
-:
-"🌿"
-}
-
-</div>
-
-
-<p class="muted">
-${escapeHTML(product.description||"")}
-</p>
-
-
-<div class="formGrid">
-
-<div class="full">
-
-<label>Variant নির্বাচন করুন</label>
-
-<select id="variantSelect"
-onchange="updateVariant()">
-
-${vs.map(v=>`
-
-<option value="${escapeHTML(v.id)}">
-
-${escapeHTML(v.weight)}
-—
-${money(v.price)}
-—
-Stock ${Number(v.stock||0)}
-
-</option>
-
-`).join("")}
-
-</select>
-
-</div>
-
-
-<div
-id="variantInfo"
-class="full"
-></div>
-
-
-<div class="row full">
-
-<button
-class="btn"
-onclick="addSelectedToCart('${escapeHTML(productId)}')"
->
-Add to Cart
-</button>
-
-<button
-class="btn secondary"
-onclick="addWishlist('${escapeHTML(productId)}')"
->
-♡ Wishlist
-</button>
-
-</div>
-
-</div>
-
-`);
-
-updateVariant();
+  openCart();
 
 };
 
 
-window.updateVariant=function(){
+function addToCart(v){
 
-const select=$("variantSelect");
+  const found =
+    cart.find(x=>x.variantId===v.id);
 
-if(!select)return;
+  if(found){
 
+    if(found.qty >= Number(v.stock||0)){
+      alert("Maximum available stock reached.");
+      return;
+    }
 
-const variant=
-variants.find(
-v=>v.id===select.value
-);
+    found.qty++;
 
+  }else{
 
-if(!variant)return;
+    cart.push({
+      variantId:v.id,
+      productId:v.productId,
+      productName:v.productName,
+      weight:v.weight,
+      price:Number(v.price||0),
+      qty:1
+    });
 
+  }
 
-$("variantInfo").innerHTML=
-
-Number(variant.stock||0)>0
-
-?
-
-`<div class="success">
-<b>${money(variant.price)}</b>
-· ${escapeHTML(variant.weight)}
-· Stock ${Number(variant.stock)}
-</div>`
-
-:
-
-`<div class="error">
-এই variant বর্তমানে Out of Stock.
-</div>`;
-
-};
-
-
-window.addSelectedToCart=function(productId){
-
-const variant=
-variants.find(
-v=>v.id===$("variantSelect").value
-);
-
-
-if(!variant)return;
-
-
-if(Number(variant.stock||0)<=0){
-
-alert("এই variant বর্তমানে stock-এ নেই।");
-
-return;
+  saveCart();
 
 }
 
 
-const existing=
-cart.find(
-i=>i.variantId===variant.id
-);
+/* =========================
+   CART
+========================= */
+
+window.openCart = function(){
+
+  renderCart();
+
+  openModal("cartModal");
+
+};
 
 
-if(existing){
+function renderCart(){
 
-existing.qty=
-Math.min(
-existing.qty+1,
-Number(variant.stock)
-);
+  const box=document.getElementById("cartItems");
+  const summary=document.getElementById("cartSummary");
 
-}else{
+  if(!cart.length){
 
-cart.push({
+    box.innerHTML=`
+      <div class="empty">
+        <h3>Your cart is empty</h3>
+        <button class="primary" onclick="closeModal('cartModal')">
+          Continue Shopping
+        </button>
+      </div>
+    `;
 
-productId,
+    summary.innerHTML="";
 
-variantId:variant.id,
+    return;
+  }
 
-qty:1
 
-});
+  box.innerHTML="";
+
+
+  cart.forEach((item,index)=>{
+
+    const row=document.createElement("div");
+
+    row.className="cartItem";
+
+    row.innerHTML=`
+
+      <div class="row">
+        <div>
+          <b>${item.productName}</b>
+          <div>${item.weight}</div>
+          <div class="price">${money(item.price)}</div>
+        </div>
+
+        <button
+          class="danger"
+          onclick="removeCartItem(${index})">
+          Remove
+        </button>
+      </div>
+
+      <div class="qty" style="margin-top:10px">
+
+        <button onclick="changeQty(${index},-1)">−</button>
+
+        <b>${item.qty}</b>
+
+        <button onclick="changeQty(${index},1)">+</button>
+
+        <span>
+          = ${money(item.price*item.qty)}
+        </span>
+
+      </div>
+
+    `;
+
+    box.appendChild(row);
+
+  });
+
+
+  const subtotal =
+    cart.reduce((a,b)=>a+b.price*b.qty,0);
+
+  summary.innerHTML=`
+
+    <div class="totalBox">
+
+      <div class="line">
+        <span>Subtotal</span>
+        <b>${money(subtotal)}</b>
+      </div>
+
+      <button
+        class="primary"
+        style="width:100%;margin-top:10px"
+        onclick="startCheckout()">
+        Proceed to Checkout
+      </button>
+
+    </div>
+
+  `;
 
 }
 
 
-saveCart();
+window.changeQty=function(index,change){
 
-alert("Cart-এ যোগ হয়েছে।");
+  if(!cart[index]) return;
+
+  const variant =
+    variants.find(v=>v.id===cart[index].variantId);
+
+  if(!variant) return;
+
+
+  const newQty =
+    cart[index].qty + change;
+
+
+  if(newQty<=0){
+
+    cart.splice(index,1);
+
+  }else if(newQty>Number(variant.stock||0)){
+
+    alert("Available stock: "+variant.stock);
+    return;
+
+  }else{
+
+    cart[index].qty=newQty;
+
+  }
+
+  saveCart();
+
+  renderCart();
 
 };
 
 
-window.openCart=function(){
+window.removeCartItem=function(index){
 
-const items=getCartItems();
+  if(!cart[index]) return;
+
+  cart.splice(index,1);
+
+  saveCart();
+
+  renderCart();
+
+};
 
 
-const subtotal=
-items.reduce(
-(sum,i)=>
-sum+
-Number(i.variant.price)*i.qty,
-0
-);
+/* =========================
+   CHECKOUT
+========================= */
+
+window.startCheckout=function(){
+
+  if(!cart.length){
+    alert("Cart is empty.");
+    return;
+  }
 
 
-showPanel(`
+  if(!auth.currentUser){
 
-<button class="closeBtn" onclick="closePanel()">×</button>
+    closeModal("cartModal");
 
-<h2>🛒 Shopping Cart</h2>
+    openLogin();
 
-${
-items.length
-?
+    return;
+  }
 
-items.map(i=>`
 
-<div class="item">
+  document.getElementById("checkoutMobile").value =
+    auth.currentUser.phoneNumber || "";
 
-<b>
-${escapeHTML(i.product.name)}
-</b>
+  document.getElementById("fullName").value="";
 
-<div class="muted">
-${escapeHTML(i.variant.weight)}
-· ${money(i.variant.price)}
-</div>
+  document.getElementById("address").value="";
 
-<div
-class="row"
-style="margin-top:8px"
->
+  document.getElementById("couponCode").value="";
 
-<div class="qty">
+  document.getElementById("couponMessage").innerHTML="";
 
-<button
-onclick="changeQty('${escapeHTML(i.variant.id)}',-1)"
->
-−
-</button>
+  couponDiscount=0;
 
-<b>${i.qty}</b>
+  couponData=null;
 
-<button
-onclick="changeQty('${escapeHTML(i.variant.id)}',1)"
->
-+
-</button>
+  updateCheckoutTotal();
 
-</div>
+  closeModal("cartModal");
 
-<b>
-${money(i.variant.price*i.qty)}
-</b>
+  openModal("checkoutModal");
 
-<button
-class="btn danger"
-onclick="removeFromCart('${escapeHTML(i.variant.id)}')"
->
-Remove
-</button>
+};
 
-</div>
 
-</div>
+function getDeliveryCharge(){
 
-`).join("")
+  const type =
+    document.getElementById("deliveryType").value;
 
-:
-
-`<div class="notice">
-আপনার Cart বর্তমানে খালি।
-</div>`
+  return Number(deliverySettings[type]||0);
 
 }
 
 
-<div class="item">
+function getSubtotal(){
 
-<b>
-Subtotal: ${money(subtotal)}
-</b>
-
-</div>
-
-
-<button
-class="btn full"
-${items.length?"":"disabled"}
-onclick="openCheckout()"
->
-Checkout
-</button>
-
-`);
-
-};
-
-
-function getCartItems(){
-
-return cart.map(item=>{
-
-const variant=
-variants.find(
-v=>v.id===item.variantId
-);
-
-const product=
-products.find(
-p=>p.id===item.productId
-);
-
-
-if(!variant||!product)return null;
-
-
-return {
-...item,
-variant,
-product
-};
-
-}).filter(Boolean);
+  return cart.reduce(
+    (sum,item)=>sum+(Number(item.price)*Number(item.qty)),
+    0
+  );
 
 }
 
 
-window.changeQty=function(id,direction){
+function calculatePlatformCharge(subtotal){
 
-const item=
-cart.find(
-i=>i.variantId===id
-);
+  if(platformChargeType==="percent"){
 
-const variant=
-variants.find(
-v=>v.id===id
-);
+    return subtotal *
+      (Number(platformCharge)/100);
 
+  }
 
-if(!item)return;
-
-
-item.qty=
-Math.max(
-1,
-Math.min(
-item.qty+direction,
-Number(variant?.stock||99)
-)
-);
-
-
-saveCart();
-
-openCart();
-
-};
-
-
-window.removeFromCart=function(id){
-
-cart=
-cart.filter(
-i=>i.variantId!==id
-);
-
-saveCart();
-
-openCart();
-
-};
-
-
-window.openCheckout=function(){
-
-if(!user){
-
-openLogin(
-"Order করতে Customer login করুন।"
-);
-
-return;
+  return Number(platformCharge||0);
 
 }
 
 
-const items=getCartItems();
+window.updateCheckoutTotal=function(){
 
-if(!items.length)return;
+  const subtotal=getSubtotal();
 
+  const delivery=getDeliveryCharge();
 
-showPanel(`
+  const platform=
+    calculatePlatformCharge(subtotal);
 
-<button class="closeBtn" onclick="closePanel()">×</button>
+  const total=
+    Math.max(0,
+      subtotal+
+      delivery+
+      platform-
+      couponDiscount
+    );
 
-<h2>Checkout</h2>
 
+  document.getElementById("deliveryChargeText")
+    .textContent=money(delivery);
 
-<form
-onsubmit="placeOrder(event)"
->
 
-<div class="formGrid">
+  document.getElementById("checkoutTotal").innerHTML=`
 
+    <div class="totalBox">
 
-<div>
+      <div class="line">
+        <span>Product Subtotal</span>
+        <b>${money(subtotal)}</b>
+      </div>
 
-<label>Full Name</label>
+      <div class="line">
+        <span>Delivery Charge</span>
+        <b>${money(delivery)}</b>
+      </div>
 
-<input
-id="fullName"
-required
-placeholder="আপনার নাম"
->
+      <div class="line">
+        <span>Platform Charge</span>
+        <b>${money(platform)}</b>
+      </div>
 
-</div>
+      ${
+        couponDiscount>0
+        ? `
+          <div class="line">
+            <span>Coupon Discount</span>
+            <b>-${money(couponDiscount)}</b>
+          </div>
+        `
+        : ""
+      }
 
+      <hr>
 
-<div>
+      <div class="line">
+        <strong>Total</strong>
+        <strong>${money(total)}</strong>
+      </div>
 
-<label>Mobile Number</label>
+    </div>
 
-<input
-id="mobile"
-required
-value="${escapeHTML(user.phoneNumber||"")}"
->
+  `;
 
-</div>
 
+  /*
+    Free delivery হলে delivery prepaid box লাগবে না।
+  */
 
-<div>
+  const prepaid =
+    deliverySettings.prepaidRequired &&
+    delivery>0;
 
-<label>District</label>
 
-<select id="district">
-
-<option>Chattogram</option>
-<option>Dhaka</option>
-<option>Cumilla</option>
-<option>Cox's Bazar</option>
-<option>Feni</option>
-<option>Noakhali</option>
-
-</select>
-
-</div>
-
-
-<div>
-
-<label>Delivery Type</label>
-
-<select
-id="deliveryType"
-onchange="calculateCheckout()"
->
-
-<option value="standard">
-Standard — ৳60
-</option>
-
-<option value="express">
-Express — ৳80
-</option>
-
-<option value="free">
-Free Delivery — ৳0
-</option>
-
-</select>
-
-</div>
-
-
-<div class="full">
-
-<label>Delivery Address</label>
-
-<textarea
-id="address"
-rows="4"
-required
-placeholder="সম্পূর্ণ ঠিকানা"
-></textarea>
-
-</div>
-
-
-<div>
-
-<label>Payment Method</label>
-
-<select
-id="paymentMethod"
-onchange="paymentFields()"
->
-
-<option value="cod">
-Cash on Delivery
-</option>
-
-<option value="bkash">
-bKash
-</option>
-
-<option value="nagad">
-Nagad
-</option>
-
-</select>
-
-</div>
-
-
-<div id="transactionBox" class="hidden">
-
-<label>Transaction ID</label>
-
-<input
-id="transactionId"
-placeholder="Online payment হলে Transaction ID দিন"
->
-
-</div>
-
-
-<div class="full">
-
-<label>Coupon Code</label>
-
-<div class="row">
-
-<input
-id="couponCode"
-placeholder="NATURE10"
->
-
-<button
-type="button"
-class="btn secondary"
-onclick="applyCoupon()"
->
-Apply
-</button>
-
-</div>
-
-<div
-id="couponMessage"
-class="muted"
-style="margin-top:5px"
-></div>
-
-</div>
-
-
-</div>
-
-
-<div
-id="checkoutSummary"
-class="notice"
-style="margin-top:15px"
-></div>
-
-
-<button
-class="btn full"
-type="submit"
->
-Confirm Order
-</button>
-
-
-</form>
-
-`);
-
-calculateCheckout();
+  document.getElementById("deliveryPaymentBox")
+    .classList.toggle("hidden",!prepaid);
 
 };
 
 
-window.calculateCheckout=function(){
+window.updatePaymentFields=function(){
 
-const type=
-$("deliveryType")?.value ||
-"standard";
+  const method =
+    document.getElementById("paymentMethod").value;
 
+  /*
+    COD হলে product payment transaction ID লাগবে না।
+  */
 
-delivery.type=type;
-
-delivery.fee=
-type==="express"
-?
-80
-:
-type==="free"
-?
-0
-:
-60;
-
-
-updateCheckoutSummary();
+  document.getElementById("onlinePaymentBox")
+    .classList.toggle(
+      "hidden",
+      method==="cod"
+    );
 
 };
-
-
-window.paymentFields=function(){
-
-const method=
-$("paymentMethod").value;
-
-
-$("transactionBox")
-.classList.toggle(
-"hidden",
-method==="cod"
-);
-
-};
-
-
-function updateCheckoutSummary(){
-
-if(!$("checkoutSummary"))return;
-
-
-const subtotal=
-getCartItems()
-.reduce(
-(sum,i)=>
-sum+
-Number(i.variant.price)*i.qty,
-0
-);
-
-
-const discount=
-appliedCoupon
-?
-Math.min(
-Number(appliedCoupon.discount||0),
-subtotal
-)
-:
-0;
-
-
-const total=
-Math.max(
-0,
-subtotal-discount
-)
-+
-delivery.fee;
-
-
-$("checkoutSummary").innerHTML=`
-
-Subtotal:
-${money(subtotal)}
-<br>
-
-Discount:
--${money(discount)}
-<br>
-
-Delivery:
-${money(delivery.fee)}
-<br>
-
-<b>
-Total:
-${money(total)}
-</b>
-
-`;
-
-}
 
 
 window.applyCoupon=async function(){
 
-const code=
-$("couponCode")
-.value
-.trim()
-.toUpperCase();
+  const code =
+    document.getElementById("couponCode")
+      .value
+      .trim()
+      .toUpperCase();
 
 
-if(!code)return;
+  if(!code){
+    alert("Coupon code দিন।");
+    return;
+  }
 
 
-let coupon=null;
+  const subtotal=getSubtotal();
 
 
-try{
+  /*
+    Firebase coupon
+  */
 
-const q=query(
-collection(db,"coupons"),
-where("code","==",code),
-limit(1)
-);
+  try{
 
+    const ref=doc(db,"coupons",code);
+    const snap=await getDoc(ref);
 
-const result=
-await getDocs(q);
+    if(snap.exists()){
 
+      const c=snap.data();
 
-if(!result.empty){
+      if(c.status==="inactive"){
+        throw new Error("Coupon inactive.");
+      }
 
-coupon={
-id:result.docs[0].id,
-...result.docs[0].data()
-};
+      if(c.minOrder &&
+         subtotal < Number(c.minOrder)){
 
-}
+        throw new Error(
+          `Minimum order ${money(c.minOrder)}`
+        );
 
-}catch(error){
-
-console.error(error);
-
-}
+      }
 
 
-if(!coupon){
+      let discount=0;
 
-const demoCoupons={
+      if(c.type==="percent"){
 
-NATURE10:{
-type:"percent",
-value:10,
-minOrder:300,
-active:true
-},
+        discount=
+          subtotal *
+          Number(c.value||0)/100;
 
-WELCOME50:{
-type:"fixed",
-value:50,
-minOrder:500,
-active:true
-}
+      }else{
 
-};
+        discount=Number(c.value||0);
+
+      }
 
 
-coupon=demoCoupons[code];
-
-}
-
-
-const subtotal=
-getCartItems()
-.reduce(
-(sum,i)=>
-sum+
-Number(i.variant.price)*i.qty,
-0
-);
+      discount=
+        Math.min(discount,subtotal);
 
 
-if(!coupon){
-
-$("couponMessage").textContent=
-"Coupon পাওয়া যায়নি।";
-
-return;
-
-}
+      couponDiscount=discount;
+      couponData={
+        code,
+        ...c
+      };
 
 
-if(coupon.active===false){
-
-$("couponMessage").textContent=
-"Coupon inactive।";
-
-return;
-
-}
+      document.getElementById("couponMessage")
+        .innerHTML=
+        `<div class="success">
+          Coupon applied: ${money(discount)} discount
+        </div>`;
 
 
-if(
-coupon.expiresAt &&
-coupon.expiresAt.seconds &&
-Date.now() >
-coupon.expiresAt.seconds*1000
-){
+      updateCheckoutTotal();
 
-$("couponMessage").textContent=
-"Coupon expired।";
+      return;
 
-return;
+    }
 
-}
+  }catch(e){
+
+    console.log(e);
+
+  }
 
 
-if(
-subtotal <
-Number(coupon.minOrder||0)
-){
+  /*
+    Demo fallback coupons
+  */
 
-$("couponMessage").textContent=
-`Minimum order ${money(coupon.minOrder)} লাগবে।`;
+  if(code==="NATURE10" && subtotal>=300){
 
-return;
+    couponDiscount=subtotal*0.10;
 
-}
+    couponData={
+      code,
+      type:"percent",
+      value:10
+    };
 
+    document.getElementById("couponMessage")
+      .innerHTML=
+      `<div class="success">
+        NATURE10 applied — 10% discount
+      </div>`;
 
-let discount=0;
+    updateCheckoutTotal();
 
-
-if(coupon.type==="percent"){
-
-discount=
-subtotal*
-Number(coupon.value||0)/
-100;
-
-}else{
-
-discount=
-Number(coupon.value||0);
-
-}
+    return;
+  }
 
 
-appliedCoupon={
-...coupon,
-code,
-discount
-};
+  if(code==="WELCOME50" && subtotal>=500){
+
+    couponDiscount=50;
+
+    couponData={
+      code,
+      type:"fixed",
+      value:50
+    };
+
+    document.getElementById("couponMessage")
+      .innerHTML=
+      `<div class="success">
+        WELCOME50 applied — ৳50 discount
+      </div>`;
+
+    updateCheckoutTotal();
+
+    return;
+  }
 
 
-$("couponMessage").textContent=
-`Coupon applied: ${code} (-${money(discount)})`;
+  couponDiscount=0;
+  couponData=null;
 
+  document.getElementById("couponMessage")
+    .innerHTML=
+    `<div class="error">
+      Invalid coupon.
+    </div>`;
 
-updateCheckoutSummary();
+  updateCheckoutTotal();
 
 };
 
 
-window.placeOrder=async function(event){
+/* =========================
+   PLACE ORDER
+========================= */
 
-event.preventDefault();
+window.placeOrder=async function(){
 
-
-if(!user)return;
-
-
-const items=
-getCartItems();
+  clearError("checkoutError");
 
 
-if(!items.length){
+  if(!auth.currentUser){
 
-alert("Cart খালি।");
+    showError(
+      "checkoutError",
+      "Order করতে login করতে হবে।"
+    );
 
-return;
-
-}
-
-
-for(const item of items){
-
-if(
-item.qty >
-Number(item.variant.stock||0)
-){
-
-alert(
-item.product.name+
-" এর পর্যাপ্ত stock নেই।"
-);
-
-return;
-
-}
-
-}
+    return;
+  }
 
 
-const subtotal=
-items.reduce(
-(sum,i)=>
-sum+
-Number(i.variant.price)*i.qty,
-0
-);
+  if(!cart.length){
+
+    showError(
+      "checkoutError",
+      "Cart empty."
+    );
+
+    return;
+  }
 
 
-const discount=
-appliedCoupon
-?
-Math.min(
-Number(appliedCoupon.discount||0),
-subtotal
-)
-:
-0;
+  const fullName =
+    document.getElementById("fullName").value.trim();
+
+  const mobile =
+    document.getElementById("checkoutMobile").value.trim();
+
+  const district =
+    document.getElementById("district").value;
+
+  const address =
+    document.getElementById("address").value.trim();
+
+  const deliveryType =
+    document.getElementById("deliveryType").value;
+
+  const paymentMethod =
+    document.getElementById("paymentMethod").value;
+
+  const deliveryCharge =
+    getDeliveryCharge();
 
 
-const total=
-Math.max(
-0,
-subtotal-discount
-)
-+
-delivery.fee;
+  if(!fullName){
+
+    showError(
+      "checkoutError",
+      "Full Name দিন।"
+    );
+
+    return;
+  }
 
 
-const paymentMethod=
-$("paymentMethod").value;
+  if(!address){
+
+    showError(
+      "checkoutError",
+      "Delivery Address দিন।"
+    );
+
+    return;
+  }
 
 
-const transactionId=
-$("transactionId")?.value.trim() ||
-"";
+  /*
+    MANDATORY DELIVERY CHARGE
+  */
+
+  if(
+    deliverySettings.prepaidRequired &&
+    deliveryCharge>0
+  ){
+
+    const transaction =
+      document.getElementById(
+        "deliveryTransactionId"
+      ).value.trim();
 
 
-if(
-paymentMethod!=="cod" &&
-!transactionId
-){
+    if(!transaction){
 
-alert(
-"Online payment-এর Transaction ID দিন।"
-);
+      showError(
+        "checkoutError",
+        "Order confirm করার আগে Delivery Charge-এর Transaction ID দিতে হবে।"
+      );
 
-return;
+      return;
+    }
 
-}
+  }
 
 
-try{
+  /*
+    Online product payment
+  */
 
-const order={
+  let productTransactionId="";
 
-customerUid:user.uid,
+  if(paymentMethod!=="cod"){
 
-customerName:
-$("fullName").value.trim(),
+    productTransactionId =
+      document.getElementById(
+        "productTransactionId"
+      ).value.trim();
 
-mobile:
-$("mobile").value.trim(),
 
-district:
-$("district").value,
+    if(!productTransactionId){
 
-address:
-$("address").value.trim(),
+      showError(
+        "checkoutError",
+        "Online payment-এর Transaction ID দিন।"
+      );
 
-items:items.map(i=>({
+      return;
+    }
 
-productId:i.product.id,
+  }
 
-productName:i.product.name,
 
-variantId:i.variant.id,
+  /*
+    Recalculate from current Firestore variants.
+    Client cart-এর পুরোনো price-এর উপর blind trust করা হচ্ছে না।
+  */
 
-weight:i.variant.weight,
+  let orderItems=[];
+  let subtotal=0;
 
-qty:i.qty,
 
-price:Number(i.variant.price)
+  for(const item of cart){
 
-})),
+    const ref =
+      doc(db,"product_variants",item.variantId);
 
-subtotal,
+    const snap =
+      await getDoc(ref);
 
-discount,
 
-couponCode:
-appliedCoupon?.code||null,
+    if(!snap.exists()){
 
-deliveryType:
-delivery.type,
+      showError(
+        "checkoutError",
+        `${item.productName} বর্তমানে unavailable.`
+      );
 
-deliveryFee:
-delivery.fee,
+      return;
+    }
 
-total,
 
-paymentMethod,
+    const v=snap.data();
 
-paymentTransactionId:
-transactionId,
+    const stock=
+      Number(v.stock||0);
 
-paymentStatus:
-paymentMethod==="cod"
-?
-"cod_pending"
-:
-"pending_verification",
+    const price=
+      Number(v.price||0);
 
-status:"pending",
 
-createdAt:
-serverTimestamp()
+    if(v.status==="inactive" || stock<item.qty){
+
+      showError(
+        "checkoutError",
+        `${item.productName} এর পর্যাপ্ত stock নেই।`
+      );
+
+      return;
+    }
+
+
+    subtotal += price*item.qty;
+
+
+    orderItems.push({
+
+      variantId:item.variantId,
+
+      productId:item.productId,
+
+      productName:v.productName||item.productName,
+
+      weight:v.weight||item.weight,
+
+      price,
+
+      qty:item.qty,
+
+      lineTotal:price*item.qty
+
+    });
+
+  }
+
+
+  const platform =
+    calculatePlatformCharge(subtotal);
+
+
+  const total =
+    Math.max(
+      0,
+      subtotal+
+      deliveryCharge+
+      platform-
+      couponDiscount
+    );
+
+
+  const deliveryTransaction =
+    document.getElementById(
+      "deliveryTransactionId"
+    )?.value.trim() || "";
+
+
+  const deliveryPaymentMethod =
+    document.getElementById(
+      "deliveryPaymentMethod"
+    )?.value || "";
+
+
+  const orderData={
+
+    customerUid:auth.currentUser.uid,
+
+    customerPhone:
+      mobile ||
+      auth.currentUser.phoneNumber ||
+      "",
+
+    customerName:fullName,
+
+    district,
+
+    address,
+
+    items:orderItems,
+
+    subtotal,
+
+    deliveryType,
+
+    deliveryCharge,
+
+    platformCharge:platform,
+
+    platformChargeType,
+
+    couponCode:couponData?.code || "",
+
+    couponDiscount,
+
+    total,
+
+    paymentMethod,
+
+    productPaymentTransactionId:
+      productTransactionId,
+
+    deliveryPayment:{
+      required:
+        deliverySettings.prepaidRequired &&
+        deliveryCharge>0,
+
+      method:
+        deliveryPaymentMethod,
+
+      transactionId:
+        deliveryTransaction,
+
+      status:
+        deliveryCharge>0
+        ? "submitted"
+        : "not_required"
+    },
+
+    paymentStatus:
+      paymentMethod==="cod"
+      ? "cod"
+      : "submitted",
+
+    deliveryPaymentStatus:
+      deliveryCharge>0
+      ? "submitted"
+      : "not_required",
+
+    orderStatus:"pending",
+
+    trackingStatus:"Order Placed",
+
+    createdAt:serverTimestamp()
+
+  };
+
+
+  try{
+
+    const orderRef =
+      await addDoc(
+        collection(db,"orders"),
+        orderData
+      );
+
+
+    /*
+      Customer profile
+    */
+
+    await setDoc(
+      doc(
+        db,
+        "users",
+        auth.currentUser.uid
+      ),
+      {
+        uid:auth.currentUser.uid,
+        phone:
+          auth.currentUser.phoneNumber||mobile,
+        name:fullName,
+        district,
+        address,
+        updatedAt:serverTimestamp()
+      },
+      {merge:true}
+    );
+
+
+    cart=[];
+
+    saveCart();
+
+    closeModal("checkoutModal");
+
+
+    alert(
+      "Order successfully placed!\n\nOrder ID: "+
+      orderRef.id
+    );
+
+
+    openOrders();
+
+
+  }catch(error){
+
+    console.error(error);
+
+    showError(
+      "checkoutError",
+      "Order create করতে সমস্যা হয়েছে:<br>"+
+      error.message
+    );
+
+  }
 
 };
 
 
-const orderRef=
-await addDoc(
-collection(db,"orders"),
-order
-);
+/* =========================
+   AUTH UI
+========================= */
 
+window.openLogin=function(){
 
-cart=[];
+  clearError("loginError");
 
-appliedCoupon=null;
+  showPasswordLogin();
 
-saveCart();
-
-
-showPanel(`
-
-<div class="success">
-
-<h2>
-🎉 Order Successful
-</h2>
-
-<p>
-আপনার Order সফলভাবে নেওয়া হয়েছে।
-</p>
-
-<p>
-Order ID:
-<b>${escapeHTML(orderRef.id)}</b>
-</p>
-
-<button
-class="btn"
-onclick="openOrders()"
->
-My Orders
-</button>
-
-</div>
-
-`,true);
-
-
-}catch(error){
-
-console.error(error);
-
-alert(
-"Order save করা যায়নি। Firestore Rules পরীক্ষা করুন।"
-);
-
-}
+  openModal("loginModal");
 
 };
 
 
-window.openOrders=async function(){
+window.showPasswordLogin=function(){
 
-if(!user){
+  document.getElementById(
+    "passwordLoginBox"
+  ).classList.remove("hidden");
 
-openLogin(
-"Orders দেখতে login করুন।"
-);
+  document.getElementById(
+    "otpBox"
+  ).classList.add("hidden");
 
-return;
+  document.getElementById(
+    "passwordSetBox"
+  ).classList.add("hidden");
 
-}
-
-
-showPanel(`
-
-<button
-class="closeBtn"
-onclick="closePanel()"
->
-×
-</button>
-
-<h2>📦 My Orders</h2>
-
-<div id="ordersList">
-Loading...
-</div>
-
-`);
-
-
-try{
-
-const q=query(
-collection(db,"orders"),
-where("customerUid","==",user.uid),
-limit(50)
-);
-
-
-const result=
-await getDocs(q);
-
-
-const orders=
-result.docs
-.map(d=>({
-id:d.id,
-...d.data()
-}))
-.sort(
-(a,b)=>
-(b.createdAt?.seconds||0)-
-(a.createdAt?.seconds||0)
-);
-
-
-if(!orders.length){
-
-$("ordersList").innerHTML=
-`<div class="notice">
-আপনার কোনো Order নেই।
-</div>`;
-
-return;
-
-}
-
-
-$("ordersList").innerHTML=
-
-orders.map(order=>`
-
-<div class="item">
-
-<div>
-
-<b>
-#${escapeHTML(order.id.slice(0,10))}
-</b>
-
-<span class="status">
-${escapeHTML(order.status||"pending")}
-</span>
-
-</div>
-
-<div class="muted">
-
-${order.createdAt?.seconds
-?
-new Date(
-order.createdAt.seconds*1000
-).toLocaleString()
-:
-""}
-
-</div>
-
-<div style="margin:7px 0">
-
-Total:
-<b>
-${money(order.total)}
-</b>
-
-</div>
-
-
-<button
-class="btn secondary"
-onclick="openOrderDetails('${escapeHTML(order.id)}')"
->
-Details & Tracking
-</button>
-
-</div>
-
-`).join("");
-
-
-}catch(error){
-
-console.error(error);
-
-$("ordersList").innerHTML=
-`<div class="error">
-Orders load করা যায়নি।
-</div>`;
-
-}
+  document.getElementById(
+    "loginTitle"
+  ).textContent="Customer Login";
 
 };
 
 
-window.openOrderDetails=async function(orderId){
+window.startOtpFlow=function(mode){
 
-try{
+  otpMode=mode;
 
-const snap=
-await getDoc(
-doc(db,"orders",orderId)
-);
+  document.getElementById(
+    "passwordLoginBox"
+  ).classList.add("hidden");
 
+  document.getElementById(
+    "otpBox"
+  ).classList.remove("hidden");
 
-if(!snap.exists())return;
+  document.getElementById(
+    "passwordSetBox"
+  ).classList.add("hidden");
 
+  document.getElementById(
+    "otpVerifyBox"
+  ).classList.add("hidden");
 
-const order={
-id:snap.id,
-...snap.data()
-};
+  document.getElementById(
+    "loginTitle"
+  ).textContent =
+    mode==="new"
+    ? "Create Customer Account"
+    : "Reset Password";
 
-
-if(order.customerUid!==user?.uid){
-
-alert("Access denied.");
-
-return;
-
-}
-
-
-const statuses=[
-"pending",
-"confirmed",
-"processing",
-"shipped",
-"delivered"
-];
-
-
-const currentIndex=
-statuses.indexOf(
-order.status
-);
-
-
-showPanel(`
-
-<button
-class="closeBtn"
-onclick="openOrders()"
->
-×
-</button>
-
-<h2>
-Order Tracking
-</h2>
-
-
-<p>
-Order ID:
-<b>
-${escapeHTML(order.id)}
-</b>
-</p>
-
-
-<p>
-Status:
-<span class="status">
-${escapeHTML(order.status||"pending")}
-</span>
-</p>
-
-
-<div class="item">
-
-<b>Order Progress</b>
-
-<div
-class="tabs"
-style="margin-top:10px"
->
-
-${statuses.map(
-(status,index)=>`
-
-<span
-class="tab ${
-index<=currentIndex
-?
-"active"
-:
-""
-}"
->
-${status}
-</span>
-
-`
-).join("")}
-
-</div>
-
-</div>
-
-
-<div class="item">
-
-<b>Products</b>
-
-<br><br>
-
-${(order.items||[]).map(
-item=>
-`${escapeHTML(item.productName)}
-· ${escapeHTML(item.weight)}
-× ${item.qty}
-= ${money(item.price*item.qty)}`
-).join("<br>")}
-
-</div>
-
-
-<div class="item">
-
-Subtotal:
-${money(order.subtotal)}
-<br>
-
-Discount:
--${money(order.discount)}
-<br>
-
-Delivery:
-${money(order.deliveryFee)}
-<br>
-
-<b>
-Total:
-${money(order.total)}
-</b>
-
-</div>
-
-
-<div class="notice">
-
-Payment:
-${escapeHTML(order.paymentMethod||"")}
-<br>
-
-Payment Status:
-${escapeHTML(order.paymentStatus||"")}
-
-</div>
-
-`);
-
-}catch(error){
-
-console.error(error);
-
-}
+  clearError("loginError");
 
 };
 
 
-window.openWishlist=async function(){
+/* =========================
+   PASSWORD LOGIN
+========================= */
 
-if(!user){
+window.passwordLogin=async function(){
 
-openLogin(
-"Wishlist দেখতে login করুন।"
-);
-
-return;
-
-}
+  clearError("loginError");
 
 
-showPanel(`
-
-<button
-class="closeBtn"
-onclick="closePanel()"
->
-×
-</button>
-
-<h2>♡ Wishlist</h2>
-
-<div id="wishlistList">
-Loading...
-</div>
-
-`);
+  const phone =
+    normalizePhone(
+      document.getElementById("loginPhone")
+        .value
+    );
 
 
-try{
-
-const snap=
-await getDoc(
-doc(db,"wishlists",user.uid)
-);
+  const password =
+    document.getElementById("loginPassword")
+      .value;
 
 
-wishlist=
-snap.exists()
-?
-snap.data().productIds||[]
-:
-[];
+  if(!phone || !password){
+
+    showError(
+      "loginError",
+      "Mobile number এবং password দিন।"
+    );
+
+    return;
+  }
 
 
-const items=
-wishlist
-.map(id=>
-products.find(p=>p.id===id)
-)
-.filter(Boolean);
+  try{
+
+    await signInWithEmailAndPassword(
+      auth,
+      phoneToEmail(phone),
+      password
+    );
 
 
-$("wishlistList").innerHTML=
+    closeModal("loginModal");
 
-items.length
+    alert("Login successful.");
 
-?
+  }catch(error){
 
-items.map(product=>`
+    console.error(error);
 
-<div class="item">
+    let msg="Login failed.";
 
-<b>
-${escapeHTML(product.name)}
-</b>
+    if(
+      error.code==="auth/invalid-credential" ||
+      error.code==="auth/wrong-password" ||
+      error.code==="auth/user-not-found"
+    ){
 
-<div class="muted">
-${escapeHTML(product.category||"")}
-</div>
+      msg=
+        "Mobile number অথবা password ভুল।";
 
-<button
-class="btn"
-onclick="openProduct('${escapeHTML(product.id)}')"
->
-View Product
-</button>
+    }
 
-</div>
+    showError("loginError",msg);
 
-`).join("")
-
-:
-
-`<div class="notice">
-Wishlist খালি।
-</div>`;
-
-}catch(error){
-
-$("wishlistList").innerHTML=
-`<div class="error">
-Wishlist load করা যায়নি।
-</div>`;
-
-}
+  }
 
 };
 
 
-window.addWishlist=async function(productId){
+/* =========================
+   RECAPTCHA
+========================= */
 
-if(!user){
-
-openLogin(
-"Wishlist ব্যবহার করতে login করুন।"
-);
-
-return;
-
-}
-
-
-try{
-
-const ref=
-doc(db,"wishlists",user.uid);
-
-
-const snap=
-await getDoc(ref);
-
-
-let ids=
-snap.exists()
-?
-snap.data().productIds||[]
-:
-[];
-
-
-if(ids.includes(productId)){
-
-ids=
-ids.filter(id=>id!==productId);
-
-alert("Wishlist থেকে remove হয়েছে।");
-
-}else{
-
-ids.push(productId);
-
-alert("Wishlist-এ যোগ হয়েছে।");
-
-}
-
-
-await setDoc(
-ref,
-{
-productIds:ids,
-updatedAt:serverTimestamp()
-},
-{
-merge:true
-}
-);
-
-
-wishlist=ids;
-
-}catch(error){
-
-console.error(error);
-
-alert("Wishlist update করা যায়নি।");
-
-}
-
-};
-
-
-window.openAccount=function(){
-
-if(!user){
-
-openLogin();
-
-return;
-
-}
-
-
-showPanel(`
-
-<button
-class="closeBtn"
-onclick="closePanel()"
->
-×
-</button>
-
-<h2>👤 My Account</h2>
-
-
-<div class="item">
-
-<b>Mobile Number</b>
-
-<br>
-
-${escapeHTML(user.phoneNumber||"")}
-
-</div>
-
-
-<div class="row">
-
-<button
-class="btn secondary"
-onclick="openOrders()"
->
-📦 Orders
-</button>
-
-<button
-class="btn secondary"
-onclick="openWishlist()"
->
-♡ Wishlist
-</button>
-
-</div>
-
-
-<div style="margin-top:15px">
-
-<button
-class="btn danger full"
-onclick="logoutCustomer()"
->
-Logout
-</button>
-
-</div>
-
-`);
-
-};
-
-
-window.logoutCustomer=function(){
-
-signOut(auth);
-
-closePanel();
-
-};
-
-
-let confirmationResult=null;
 let recaptchaVerifier=null;
 
+function setupRecaptcha(){
 
-window.openLogin=function(message=""){
+  try{
 
-showPanel(`
+    if(recaptchaVerifier){
+      recaptchaVerifier.clear();
+    }
 
-<button
-class="closeBtn"
-onclick="closePanel()"
->
-×
-</button>
+    recaptchaVerifier =
+      new RecaptchaVerifier(
+        auth,
+        "recaptcha-container",
+        {
+          size:"normal"
+        }
+      );
 
-<h2>Customer Login</h2>
+  }catch(error){
 
-${message
-?
-`<div class="notice">
-${escapeHTML(message)}
-</div>`
-:
-""}
+    console.error(error);
 
-
-<p class="muted">
-
-Mobile Number + OTP দিয়ে Customer Login করুন।
-
-</p>
-
-
-<label>
-Mobile Number
-</label>
-
-<input
-id="loginPhone"
-placeholder="+8801XXXXXXXXX"
->
-
-
-<div id="recaptcha-container"></div>
-
-
-<button
-class="btn full"
-style="margin-top:10px"
-onclick="sendOTP()"
->
-Send OTP
-</button>
-
-
-<div
-id="otpSection"
-class="hidden"
-style="margin-top:15px"
->
-
-<label>
-OTP
-</label>
-
-<input
-id="otpCode"
-placeholder="OTP লিখুন"
->
-
-
-<button
-class="btn full"
-style="margin-top:8px"
-onclick="verifyOTP()"
->
-Verify OTP
-</button>
-
-</div>
-
-`);
-
-
-try{
-
-recaptchaVerifier=
-new RecaptchaVerifier(
-auth,
-"recaptcha-container",
-{
-size:"normal"
-}
-);
-
-}catch(error){
-
-console.error(error);
+  }
 
 }
 
-};
 
+/* =========================
+   SEND OTP
+========================= */
 
 window.sendOTP=async function(){
 
-const phone=
-$("loginPhone")
-.value
-.trim();
+  clearError("loginError");
 
 
-if(!phone){
-
-alert("Mobile number দিন।");
-
-return;
-
-}
+  const phone =
+    normalizePhone(
+      document.getElementById("otpPhone")
+        .value
+    );
 
 
-try{
+  if(!phone){
 
-confirmationResult=
-await signInWithPhoneNumber(
-auth,
-phone,
-recaptchaVerifier
-);
+    showError(
+      "loginError",
+      "Valid mobile number দিন।"
+    );
 
-
-$("otpSection")
-.classList.remove("hidden");
+    return;
+  }
 
 
-}catch(error){
+  try{
 
-console.error(error);
+    setupRecaptcha();
 
-alert(
-"OTP পাঠানো যায়নি। Firebase Phone Authentication এবং test number settings পরীক্ষা করুন।"
-);
 
-}
+    confirmationResult =
+      await signInWithPhoneNumber(
+        auth,
+        phone,
+        recaptchaVerifier
+      );
+
+
+    document.getElementById(
+      "otpVerifyBox"
+    ).classList.remove("hidden");
+
+
+    document.getElementById(
+      "sendOtpBtn"
+    ).textContent="OTP Sent";
+
+
+  }catch(error){
+
+    console.error(error);
+
+    showError(
+      "loginError",
+      "OTP পাঠানো যায়নি:<br>"+
+      error.message
+    );
+
+  }
 
 };
 
+
+/* =========================
+   VERIFY OTP
+========================= */
 
 window.verifyOTP=async function(){
 
-const otp=
-$("otpCode")
-.value
-.trim();
+  clearError("loginError");
 
 
-if(!otp){
+  if(!confirmationResult){
 
-alert("OTP দিন।");
+    showError(
+      "loginError",
+      "আগে OTP send করুন।"
+    );
 
-return;
-
-}
-
-
-try{
-
-await confirmationResult.confirm(otp);
-
-closePanel();
-
-}catch(error){
-
-console.error(error);
-
-alert("OTP সঠিক নয়।");
-
-}
-
-};
+    return;
+  }
 
 
-window.openSupport=function(){
-
-if(!user){
-
-openLogin(
-"Support Ticket খুলতে login করুন।"
-);
-
-return;
-
-}
+  const code =
+    document.getElementById("otpCode")
+      .value.trim();
 
 
-showPanel(`
+  if(code.length!==6){
 
-<button
-class="closeBtn"
-onclick="closePanel()"
->
-×
-</button>
+    showError(
+      "loginError",
+      "6 digit OTP দিন।"
+    );
 
-<h2>💬 Customer Support</h2>
-
-
-<form
-onsubmit="submitSupport(event)"
->
-
-<label>
-Support Category
-</label>
-
-<select id="supportCategory">
-
-<option>General</option>
-<option>Order</option>
-<option>Payment</option>
-<option>Delivery</option>
-<option>Cancel</option>
-<option>Refund</option>
-<option>Damaged</option>
-<option>Wrong Product</option>
-
-</select>
+    return;
+  }
 
 
-<label style="margin-top:10px">
-Message
-</label>
+  try{
 
-<textarea
-id="supportMessage"
-rows="5"
-required
-placeholder="আপনার সমস্যাটি লিখুন..."
-></textarea>
+    const result =
+      await confirmationResult.confirm(code);
 
 
-<button
-class="btn full"
-style="margin-top:10px"
->
-Submit Ticket
-</button>
+    const user=result.user;
 
-</form>
+    const phone=
+      user.phoneNumber;
 
 
-<hr>
+    /*
+      নতুন account হলে password set করতে হবে।
+    */
 
-<h3>My Tickets</h3>
+    if(otpMode==="new"){
 
-<div id="tickets">
-Loading...
-</div>
+      document.getElementById(
+        "otpBox"
+      ).classList.add("hidden");
 
-`);
+      document.getElementById(
+        "passwordSetBox"
+      ).classList.remove("hidden");
+
+      document.getElementById(
+        "loginTitle"
+      ).textContent=
+        "Set Your Password";
+
+      return;
+
+    }
 
 
-loadTickets();
+    /*
+      Forgot password:
+      Phone OTP verify হওয়ার পরে নতুন password
+    */
+
+    if(otpMode==="forgot"){
+
+      document.getElementById(
+        "otpBox"
+      ).classList.add("hidden");
+
+      document.getElementById(
+        "passwordSetBox"
+      ).classList.remove("hidden");
+
+      document.getElementById(
+        "loginTitle"
+      ).textContent=
+        "Create New Password";
+
+    }
+
+  }catch(error){
+
+    console.error(error);
+
+    showError(
+      "loginError",
+      "OTP verification failed:<br>"+
+      error.message
+    );
+
+  }
 
 };
 
 
-async function loadTickets(){
+/* =========================
+   SET PASSWORD
+========================= */
 
-try{
+window.setNewPassword=async function(){
 
-const q=query(
-collection(db,"supportTickets"),
-where("customerUid","==",user.uid),
-limit(30)
-);
+  clearError("loginError");
 
 
-const result=
-await getDocs(q);
+  const p1 =
+    document.getElementById(
+      "newPassword"
+    ).value;
+
+  const p2 =
+    document.getElementById(
+      "confirmPassword"
+    ).value;
 
 
-$("tickets").innerHTML=
+  if(!p1 || !p2){
 
-result.docs.length
+    showError(
+      "loginError",
+      "Password দুটো দিন।"
+    );
 
-?
-
-result.docs.map(d=>{
-
-const t=d.data();
-
-return `
-
-<div class="item">
-
-<b>
-#${escapeHTML(d.id.slice(0,8))}
-</b>
-
-<span class="status">
-${escapeHTML(t.status||"open")}
-</span>
-
-<br>
-
-<div class="muted">
-${escapeHTML(t.category||"")}
-</div>
-
-<p>
-${escapeHTML(t.message||"")}
-</p>
-
-</div>
-
-`;
-
-}).join("")
-
-:
-
-`<div class="muted">
-কোনো ticket নেই।
-</div>`;
-
-}catch(error){
-
-$("tickets").innerHTML=
-`<div class="error">
-Tickets load করা যায়নি।
-</div>`;
-
-}
-
-}
+    return;
+  }
 
 
-window.submitSupport=async function(event){
+  if(p1.length<6){
 
-event.preventDefault();
+    showError(
+      "loginError",
+      "Password কমপক্ষে 6 characters হতে হবে।"
+    );
 
-
-try{
-
-await addDoc(
-collection(db,"supportTickets"),
-{
-
-customerUid:user.uid,
-
-category:
-$("supportCategory").value,
-
-message:
-$("supportMessage").value.trim(),
-
-status:"open",
-
-createdAt:
-serverTimestamp()
-
-}
-);
+    return;
+  }
 
 
-alert("Support Ticket submitted হয়েছে।");
+  if(p1!==p2){
 
-openSupport();
+    showError(
+      "loginError",
+      "Password match করছে না।"
+    );
 
-}catch(error){
+    return;
+  }
 
-console.error(error);
 
-alert("Ticket submit করা যায়নি।");
+  try{
 
-}
+    /*
+      Current phone-auth user-এর password update.
+      নতুন account-এর জন্য internal email/password
+      credential create করার চেষ্টা।
+    */
+
+    const user=auth.currentUser;
+
+    if(!user){
+
+      throw new Error(
+        "OTP verification session expired. আবার OTP দিন।"
+      );
+
+    }
+
+
+    const phone =
+      user.phoneNumber;
+
+
+    /*
+      Phone-auth account-এ প্রথম password set.
+    */
+
+    await updatePassword(user,p1);
+
+
+    /*
+      User profile Firestore
+    */
+
+    await setDoc(
+      doc(db,"users",user.uid),
+      {
+        uid:user.uid,
+        phone,
+        passwordLoginEnabled:true,
+        createdAt:serverTimestamp()
+      },
+      {merge:true}
+    );
+
+
+    /*
+      IMPORTANT:
+      Firebase Phone user-এ email/password credential
+      link করার জন্য Firebase client SDK-এর linkWithCredential
+      দরকার।
+
+      নিচের dynamic import ব্যবহার করে credential তৈরি।
+    */
+
+    const {
+      EmailAuthProvider,
+      linkWithCredential
+    } = await import(
+      "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js"
+    );
+
+
+    const credential =
+      EmailAuthProvider.credential(
+        phoneToEmail(phone),
+        p1
+      );
+
+
+    try{
+
+      await linkWithCredential(
+        user,
+        credential
+      );
+
+    }catch(linkError){
+
+      /*
+        যদি account আগে থেকেই linked থাকে,
+        password update-ই যথেষ্ট হতে পারে।
+      */
+
+      console.log(
+        "Email credential link:",
+        linkError
+      );
+
+    }
+
+
+    closeModal("loginModal");
+
+    alert(
+      "Account successfully created.\nএখন থেকে Mobile + Password দিয়ে login করতে পারবেন।"
+    );
+
+
+  }catch(error){
+
+    console.error(error);
+
+    showError(
+      "loginError",
+      "Password set করতে সমস্যা হয়েছে:<br>"+
+      error.message
+    );
+
+  }
 
 };
 
 
-window.openOffers=async function(){
+/* =========================
+   ACCOUNT
+========================= */
 
-showPanel(`
+window.openAccount=async function(){
 
-<button
-class="closeBtn"
-onclick="closePanel()"
->
-×
-</button>
+  if(!auth.currentUser){
 
-<h2>🎁 Offers & Deals</h2>
+    openLogin();
 
-<div id="offersList">
-Loading...
-</div>
-
-`);
+    return;
+  }
 
 
-try{
+  const user=auth.currentUser;
 
-const result=
-await getDocs(
-collection(db,"offers")
-);
-
-
-const offers=
-result.docs
-.map(d=>({
-id:d.id,
-...d.data()
-}))
-.filter(
-o=>o.active!==false
-);
+  const box=
+    document.getElementById(
+      "accountContent"
+    );
 
 
-$("offersList").innerHTML=
+  box.innerHTML=`
+    <h2>👤 My Account</h2>
 
-offers.length
+    <div class="totalBox">
 
-?
+      <p>
+        <b>Mobile:</b>
+        ${user.phoneNumber||""}
+      </p>
 
-offers.map(o=>`
+      <button
+        class="primary"
+        style="width:100%"
+        onclick="openOrders()">
+        📦 My Orders
+      </button>
 
-<div class="item">
+      <button
+        class="secondary"
+        style="width:100%;margin-top:8px"
+        onclick="openCart()">
+        🛒 My Cart
+      </button>
 
-<h3>
-${escapeHTML(o.title||o.name||"Special Offer")}
-</h3>
+      <button
+        class="danger"
+        style="width:100%;margin-top:8px"
+        onclick="logout()">
+        Logout
+      </button>
 
-<p>
-${escapeHTML(
-o.description||
-"NatureBite Special Offer"
-)}
-</p>
+    </div>
+  `;
 
-${
-o.code
-?
-`<div class="notice">
-Coupon:
-<b>
-${escapeHTML(o.code)}
-</b>
-</div>`
-:
-""
-}
 
-</div>
-
-`).join("")
-
-:
-
-`<div class="notice">
-এই মুহূর্তে কোনো active offer নেই।
-</div>`;
-
-}catch(error){
-
-console.error(error);
-
-$("offersList").innerHTML=
-`<div class="notice">
-এই মুহূর্তে কোনো offer পাওয়া যায়নি।
-</div>`;
-
-}
+  openModal("accountModal");
 
 };
 
 
-window.openWheel=function(){
+window.logout=async function(){
 
-if(!user){
+  await signOut(auth);
 
-openLogin(
-"Lucky Wheel ব্যবহার করতে login করুন।"
-);
+  closeAllModals();
 
-return;
-
-}
-
-
-showPanel(`
-
-<button
-class="closeBtn"
-onclick="closePanel()"
->
-×
-</button>
-
-<h2>🎡 Lucky Wheel</h2>
-
-<p class="muted">
-
-Spin করে NatureBite reward জিতে নিন।
-
-</p>
-
-
-<button
-class="btn full"
-onclick="spinWheel()"
->
-🎡 SPIN NOW
-</button>
-
-
-<div
-id="wheelResult"
-style="margin-top:15px"
-></div>
-
-`);
+  alert("Logged out.");
 
 };
 
 
-window.spinWheel=async function(){
+/* =========================
+   ORDERS
+========================= */
 
-const rewards=[
+window.openOrders=async function(){
 
-"5% OFF",
+  if(!auth.currentUser){
 
-"10% OFF",
+    openLogin();
 
-"৳20 OFF",
-
-"Free Delivery",
-
-"Try Again"
-
-];
+    return;
+  }
 
 
-const reward=
-rewards[
-Math.floor(
-Math.random()*rewards.length
-)
-];
+  closeModal("accountModal");
+
+  openModal("ordersModal");
 
 
-try{
-
-await addDoc(
-collection(db,"wheelSpins"),
-{
-
-customerUid:user.uid,
-
-reward,
-
-createdAt:
-serverTimestamp()
-
-}
-);
+  const box=
+    document.getElementById(
+      "ordersContent"
+    );
 
 
-$("wheelResult").innerHTML=`
+  box.innerHTML="Loading orders...";
 
-<div class="success">
 
-<h3>
-🎉 ${escapeHTML(reward)}
-</h3>
+  try{
 
-<p>
-Reward record করা হয়েছে।
-</p>
+    const q=query(
+      collection(db,"orders"),
+      where(
+        "customerUid",
+        "==",
+        auth.currentUser.uid
+      ),
+      orderBy("createdAt","desc")
+    );
 
-</div>
 
-`;
+    const snap=await getDocs(q);
 
-}catch(error){
 
-console.error(error);
+    if(snap.empty){
 
-$("wheelResult").innerHTML=
-`<div class="error">
-Reward save করা যায়নি।
-</div>`;
+      box.innerHTML=
+        `<div class="empty">
+          এখনো কোনো order নেই।
+        </div>`;
 
-}
+      return;
+    }
+
+
+    box.innerHTML="";
+
+
+    snap.forEach(d=>{
+
+      const o=d.data();
+
+      const div=
+        document.createElement("div");
+
+      div.className="order";
+
+
+      let date="";
+
+      if(o.createdAt?.toDate){
+        date=
+          o.createdAt.toDate()
+          .toLocaleString("en-BD");
+      }
+
+
+      div.innerHTML=`
+
+        <div class="row">
+          <b>Order #${d.id.slice(0,8)}</b>
+          <span class="badge">
+            ${o.orderStatus||"pending"}
+          </span>
+        </div>
+
+        <p>
+          <b>Total:</b> ${money(o.total)}
+        </p>
+
+        <p>
+          <b>Delivery:</b>
+          ${o.deliveryType||""}
+        </p>
+
+        <p>
+          <b>Tracking:</b>
+          ${o.trackingStatus||"Order Placed"}
+        </p>
+
+        <p>
+          <small>${date}</small>
+        </p>
+
+      `;
+
+
+      box.appendChild(div);
+
+    });
+
+
+  }catch(error){
+
+    console.error(error);
+
+    /*
+      Firestore index না থাকলে orderBy-এর কারণে
+      error হতে পারে। fallback query।
+    */
+
+    try{
+
+      const q=query(
+        collection(db,"orders"),
+        where(
+          "customerUid",
+          "==",
+          auth.currentUser.uid
+        )
+      );
+
+      const snap=await getDocs(q);
+
+      box.innerHTML="";
+
+      if(snap.empty){
+
+        box.innerHTML=
+          `<div class="empty">
+            এখনো কোনো order নেই।
+          </div>`;
+
+        return;
+
+      }
+
+
+      snap.forEach(d=>{
+
+        const o=d.data();
+
+        const div=
+          document.createElement("div");
+
+        div.className="order";
+
+        div.innerHTML=`
+          <b>Order #${d.id.slice(0,8)}</b>
+          <p>Total: ${money(o.total)}</p>
+          <p>Status: ${o.orderStatus||"pending"}</p>
+          <p>Tracking: ${o.trackingStatus||"Order Placed"}</p>
+        `;
+
+        box.appendChild(div);
+
+      });
+
+    }catch(e){
+
+      box.innerHTML=
+        `<div class="error">
+          Orders load করতে সমস্যা হয়েছে:<br>
+          ${e.message}
+        </div>`;
+
+    }
+
+  }
 
 };
 
 
-onAuthStateChanged(
-auth,
-async currentUser=>{
+/* =========================
+   AUTH STATE
+========================= */
 
-user=currentUser;
+onAuthStateChanged(auth,async user=>{
 
+  updateCartCount();
 
-if(user){
+  if(user){
 
-try{
+    console.log(
+      "Customer logged in:",
+      user.uid
+    );
 
-const ref=
-doc(db,"users",user.uid);
+    /*
+      এখানে admin কোনো UI নেই।
+      শুধু customer account state।
+    */
 
-
-const snap=
-await getDoc(ref);
-
-
-if(!snap.exists()){
-
-await setDoc(
-ref,
-{
-
-uid:user.uid,
-
-phone:
-user.phoneNumber||"",
-
-createdAt:
-serverTimestamp()
-
-}
-);
-
-}
-
-}catch(error){
-
-console.error(error);
-
-}
-
-}
+  }
 
 });
 
 
-$("year").textContent=
-new Date().getFullYear();
+/* =========================
+   INIT
+========================= */
 
+updateCartCount();
 
 loadData();
 

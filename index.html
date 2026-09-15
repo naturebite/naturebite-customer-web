@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
 <title>NatureBite</title>
 
+<meta name="theme-color" content="#234d32">
+
 <style>
+
 *{
   box-sizing:border-box;
   margin:0;
@@ -14,11 +20,14 @@
 
 body{
   font-family:Arial,Helvetica,sans-serif;
-  background:#f7f4ed;
-  color:#183b2a;
+  background:#f7f5ef;
+  color:#26352a;
 }
 
-button,input,select,textarea{
+button,
+input,
+select,
+textarea{
   font:inherit;
 }
 
@@ -26,253 +35,208 @@ button{
   cursor:pointer;
 }
 
-header{
+.header{
   position:sticky;
   top:0;
-  z-index:100;
-  background:#fffdf8;
-  border-bottom:1px solid #ddd6c8;
+  z-index:50;
+  background:#fff;
+  border-bottom:1px solid #e6e1d7;
 }
 
 .nav{
   max-width:1200px;
   margin:auto;
-  min-height:70px;
+  padding:14px 18px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:10px 18px;
-  gap:12px;
+  gap:15px;
 }
 
 .logo{
   font-size:25px;
   font-weight:800;
-  color:#174b2d;
+  color:#245333;
 }
 
 .logo span{
-  color:#8a6a35;
+  color:#8a6a3d;
 }
 
-.nav-buttons{
+.nav-actions{
   display:flex;
   gap:8px;
-  flex-wrap:wrap;
 }
 
 .nav-btn{
-  border:1px solid #d9d2c5;
-  background:#fff;
-  color:#174b2d;
-  border-radius:10px;
+  border:0;
+  background:#f1f5ef;
+  color:#245333;
+  border-radius:12px;
   padding:9px 12px;
 }
 
 .nav-btn:hover{
-  background:#edf4ed;
+  background:#e4eee3;
 }
 
-.badge{
-  display:inline-flex;
-  min-width:20px;
-  height:20px;
-  align-items:center;
-  justify-content:center;
-  border-radius:50%;
-  background:#174b2d;
-  color:#fff;
-  font-size:11px;
-  margin-left:4px;
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:20px;
 }
 
 .hero{
-  max-width:1200px;
-  margin:auto;
-  padding:30px 18px 15px;
-}
-
-.hero-box{
-  background:#e9efe4;
-  border-radius:20px;
-  padding:30px;
-  border:1px solid #d7dfd0;
+  background:linear-gradient(
+    135deg,
+    #e9f0e4,
+    #f8f1df
+  );
+  border-radius:25px;
+  padding:40px 25px;
+  margin-bottom:25px;
 }
 
 .hero h1{
+  color:#234d32;
   font-size:36px;
   margin-bottom:10px;
 }
 
 .hero p{
-  color:#526256;
-  max-width:650px;
+  color:#566257;
+  max-width:600px;
   line-height:1.6;
 }
 
-.search-area{
-  max-width:1200px;
-  margin:auto;
-  padding:10px 18px;
+.search-box{
+  display:flex;
+  gap:10px;
+  margin-bottom:20px;
 }
 
-.search{
-  width:100%;
-  border:1px solid #d8d0c1;
-  background:#fff;
-  padding:14px 16px;
-  border-radius:12px;
+.search-box input{
+  flex:1;
+  padding:14px;
+  border:1px solid #ddd7ca;
+  border-radius:13px;
   outline:none;
+  background:white;
 }
 
 .categories{
-  max-width:1200px;
-  margin:auto;
-  padding:10px 18px 20px;
   display:flex;
   gap:8px;
   overflow-x:auto;
+  padding-bottom:8px;
+  margin-bottom:22px;
 }
 
-.cat-btn{
+.category-btn{
   white-space:nowrap;
-  border:1px solid #d6d0c5;
-  background:#fff;
-  color:#31543d;
+  border:1px solid #cbd7c7;
+  background:white;
+  color:#31563b;
   padding:9px 14px;
-  border-radius:999px;
+  border-radius:20px;
 }
 
-.cat-btn.active{
-  background:#174b2d;
-  color:#fff;
-  border-color:#174b2d;
-}
-
-.section{
-  max-width:1200px;
-  margin:auto;
-  padding:0 18px 30px;
+.category-btn.active{
+  background:#285936;
+  color:white;
 }
 
 .section-title{
   font-size:24px;
-  margin:10px 0 16px;
+  color:#284c31;
+  margin-bottom:15px;
 }
 
-.products{
+.product-grid{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:
+    repeat(auto-fill,minmax(210px,1fr));
   gap:16px;
 }
 
-.card{
+.product-card{
   background:#fff;
-  border:1px solid #e0d9cd;
-  border-radius:16px;
+  border:1px solid #e7e2d9;
+  border-radius:18px;
   overflow:hidden;
-  box-shadow:0 3px 12px rgba(0,0,0,.04);
+  box-shadow:0 5px 18px rgba(0,0,0,.04);
 }
 
 .product-image{
-  width:100%;
-  height:210px;
-  object-fit:cover;
-  background:#ece8df;
-}
-
-.no-image{
-  height:210px;
+  height:190px;
+  background:#eee8dc;
   display:flex;
   align-items:center;
   justify-content:center;
-  background:#e9e4d8;
-  color:#7c7b70;
-  text-align:center;
-  padding:15px;
+  font-size:50px;
 }
 
-.card-body{
+.product-body{
   padding:15px;
 }
 
 .product-name{
   font-weight:700;
   font-size:17px;
-  margin-bottom:6px;
+  margin-bottom:7px;
 }
 
-.product-cat{
-  font-size:12px;
+.product-category{
   color:#718070;
-  margin-bottom:9px;
-}
-
-.product-desc{
   font-size:13px;
-  color:#687268;
-  line-height:1.5;
-  min-height:40px;
+  margin-bottom:8px;
 }
 
-.price{
-  margin:12px 0;
+.product-price{
   font-size:19px;
   font-weight:800;
-  color:#174b2d;
+  color:#245333;
 }
 
-.card-actions{
-  display:flex;
-  gap:8px;
+.product-card button{
+  width:100%;
+  margin-top:12px;
 }
 
-.primary{
-  background:#174b2d;
+.primary-btn{
+  background:#285936;
   color:white;
   border:0;
-  border-radius:10px;
-  padding:11px 13px;
-  flex:1;
+  border-radius:11px;
+  padding:12px 15px;
 }
 
-.secondary{
-  background:#f0eee8;
-  color:#174b2d;
-  border:1px solid #ddd7cc;
-  border-radius:10px;
-  padding:11px 13px;
+.primary-btn:hover{
+  background:#1e462a;
 }
 
-.primary:hover{
-  background:#103a21;
+.secondary-btn{
+  background:#edf3eb;
+  color:#285936;
+  border:0;
+  border-radius:11px;
+  padding:11px 15px;
 }
 
-.secondary:hover{
-  background:#e5e1d8;
-}
-
-.loading{
-  padding:30px;
-  text-align:center;
-  color:#687268;
-}
-
-.empty{
-  padding:35px;
-  text-align:center;
-  background:#fff;
-  border-radius:15px;
-  border:1px dashed #d5cec0;
-  color:#687268;
+.danger-btn{
+  background:#fbeaea;
+  color:#a32929;
+  border:0;
+  border-radius:11px;
+  padding:10px 14px;
 }
 
 .modal{
   display:none;
   position:fixed;
   inset:0;
-  z-index:500;
-  background:rgba(0,0,0,.55);
+  background:rgba(0,0,0,.48);
+  z-index:100;
   padding:15px;
   overflow:auto;
 }
@@ -285,187 +249,66 @@ header{
 
 .modal-box{
   width:100%;
-  max-width:650px;
-  background:#fffdf8;
-  border-radius:18px;
-  padding:20px;
+  max-width:560px;
   max-height:92vh;
   overflow:auto;
+  background:white;
+  border-radius:20px;
+  padding:22px;
   position:relative;
-}
-
-.modal-large{
-  max-width:900px;
 }
 
 .close{
   position:absolute;
-  top:10px;
-  right:10px;
-  width:38px;
-  height:38px;
-  border-radius:50%;
+  top:12px;
+  right:15px;
   border:0;
-  background:#eee9df;
-  color:#183b2a;
-  font-size:20px;
+  background:#f3f3f3;
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  font-size:22px;
 }
 
 .modal-title{
-  font-size:23px;
+  color:#285936;
   margin-bottom:18px;
-  padding-right:45px;
-}
-
-.detail-image{
-  width:100%;
-  max-height:350px;
-  object-fit:contain;
-  border-radius:14px;
-  background:#eeeae0;
-  margin-bottom:15px;
-}
-
-.variant-list{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin:12px 0;
-}
-
-.variant-btn{
-  border:1px solid #cfc8bb;
-  background:#fff;
-  padding:9px 13px;
-  border-radius:9px;
-}
-
-.variant-btn.selected{
-  background:#174b2d;
-  color:#fff;
-  border-color:#174b2d;
-}
-
-.qty{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin:15px 0;
-}
-
-.qty button{
-  width:35px;
-  height:35px;
-  border:0;
-  border-radius:8px;
-  background:#e8e4da;
 }
 
 .form-group{
-  margin-bottom:13px;
+  margin-bottom:14px;
 }
 
 .form-group label{
   display:block;
   margin-bottom:6px;
-  font-weight:600;
   font-size:14px;
+  font-weight:600;
 }
 
 .form-group input,
 .form-group select,
-.form-group textarea{
+.form-group textarea,
+.login-step input{
   width:100%;
   padding:12px;
-  border:1px solid #d5cec1;
-  border-radius:9px;
-  background:#fff;
+  border:1px solid #d9d4ca;
+  border-radius:10px;
   outline:none;
+  background:#fff;
 }
 
 .form-group textarea{
-  min-height:80px;
+  min-height:90px;
   resize:vertical;
 }
 
-.radio-list{
-  display:grid;
-  gap:8px;
-}
-
-.radio-item{
-  border:1px solid #ddd6ca;
-  border-radius:10px;
-  padding:12px;
-  background:#fff;
-}
-
-.summary{
-  border-top:1px solid #ddd6ca;
-  margin-top:15px;
-  padding-top:15px;
-}
-
-.summary-row{
-  display:flex;
-  justify-content:space-between;
-  gap:15px;
-  margin:9px 0;
-}
-
-.summary-row.total{
-  font-size:20px;
-  font-weight:800;
-  padding-top:10px;
-  border-top:1px solid #ddd6ca;
-}
-
-.cart-item{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:12px 0;
-  border-bottom:1px solid #e4ded3;
-}
-
-.cart-item-info{
-  flex:1;
-}
-
-.cart-item-name{
-  font-weight:700;
-}
-
-.cart-item-small{
-  font-size:13px;
-  color:#6d746c;
-  margin-top:4px;
-}
-
-.cart-controls{
-  display:flex;
-  align-items:center;
-  gap:7px;
-}
-
-.cart-controls button{
-  width:30px;
-  height:30px;
-  border:0;
-  background:#e8e5dd;
-  border-radius:7px;
-}
-
-.cart-remove{
-  color:#a33;
-  background:#f5e9e9!important;
-}
-
 .alert{
-  padding:11px 13px;
-  border-radius:9px;
-  margin:10px 0;
   display:none;
+  padding:10px 12px;
+  border-radius:10px;
+  margin-bottom:12px;
+  font-size:14px;
 }
 
 .alert.show{
@@ -473,76 +316,178 @@ header{
 }
 
 .alert.error{
-  background:#fbeaea;
-  color:#9a2929;
+  background:#fdecec;
+  color:#9b2525;
 }
 
 .alert.success{
-  background:#e9f5e9;
-  color:#286331;
+  background:#eaf7eb;
+  color:#24612c;
+}
+
+.login-step{
+  padding-top:8px;
+}
+
+.login-step h3{
+  color:#285936;
+  margin-bottom:8px;
+}
+
+.login-step p{
+  color:#667066;
+  line-height:1.5;
+  margin-bottom:15px;
+}
+
+.login-step input{
+  margin-bottom:10px;
+}
+
+.login-actions{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:8px;
+}
+
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  padding:13px 0;
+  border-bottom:1px solid #eee;
+}
+
+.cart-info{
+  flex:1;
+}
+
+.cart-name{
+  font-weight:700;
+}
+
+.cart-variant{
+  font-size:13px;
+  color:#777;
+  margin-top:4px;
+}
+
+.qty-controls{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  margin-top:8px;
+}
+
+.qty-controls button{
+  width:28px;
+  height:28px;
+  border:0;
+  border-radius:8px;
+  background:#edf2ea;
+}
+
+.summary{
+  background:#f6f7f3;
+  padding:15px;
+  border-radius:13px;
+  margin-top:15px;
+}
+
+.summary-row{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:8px;
+}
+
+.summary-row.total{
+  font-size:19px;
+  font-weight:800;
+  border-top:1px solid #ddd;
+  padding-top:10px;
+  margin-top:10px;
+}
+
+.variant-list{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:12px 0;
+}
+
+.variant-btn{
+  border:1px solid #cfd8cc;
+  background:white;
+  border-radius:10px;
+  padding:8px 12px;
+}
+
+.variant-btn.active{
+  background:#285936;
+  color:white;
 }
 
 .order-card{
-  border:1px solid #ded8ce;
-  background:#fff;
-  border-radius:12px;
+  border:1px solid #e5e1d8;
+  border-radius:14px;
   padding:14px;
   margin-bottom:12px;
 }
 
-.status{
-  display:inline-block;
-  background:#e8f1e8;
-  color:#20572f;
-  border-radius:999px;
-  padding:5px 9px;
-  font-size:12px;
-  font-weight:700;
+.order-header{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:10px;
 }
 
-footer{
-  background:#183b2a;
+.status{
+  padding:5px 9px;
+  background:#e9f4e9;
+  color:#285936;
+  border-radius:15px;
+  font-size:12px;
+}
+
+.empty{
+  text-align:center;
+  padding:35px 10px;
+  color:#7b817a;
+}
+
+.footer{
+  margin-top:50px;
+  background:#244b30;
   color:#fff;
   text-align:center;
-  padding:30px 18px;
-  margin-top:20px;
+  padding:30px 20px;
 }
 
-@media(max-width:900px){
-  .products{
-    grid-template-columns:repeat(3,1fr);
-  }
+#recaptcha-container{
+  min-height:1px;
 }
 
-@media(max-width:650px){
-  .nav{
-    align-items:flex-start;
-    flex-direction:column;
-  }
+.hidden{
+  display:none!important;
+}
 
-  .nav-buttons{
-    width:100%;
-  }
-
-  .nav-btn{
-    flex:1;
-  }
+@media(max-width:600px){
 
   .hero h1{
     font-size:29px;
   }
 
-  .products{
-    grid-template-columns:repeat(2,1fr);
-    gap:10px;
+  .product-grid{
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
   }
 
-  .product-image,
-  .no-image{
-    height:165px;
+  .product-image{
+    height:145px;
   }
 
-  .card-body{
+  .product-body{
     padding:11px;
   }
 
@@ -550,139 +495,139 @@ footer{
     font-size:15px;
   }
 
-  .card-actions{
-    flex-direction:column;
+  .product-price{
+    font-size:17px;
   }
 
-  .primary,
-  .secondary{
-    width:100%;
+  .modal-box{
+    padding:18px;
   }
 }
 
-@media(max-width:400px){
-  .products{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .product-image,
-  .no-image{
-    height:140px;
-  }
-
-  .hero-box{
-    padding:20px;
-  }
-}
 </style>
+
 </head>
 
 <body>
 
-<header>
+<header class="header">
+
   <div class="nav">
 
     <div class="logo">
       Nature<span>Bite</span>
     </div>
 
-    <div class="nav-buttons">
-      <button class="nav-btn" onclick="openCart()">
-        🛒 Cart <span class="badge" id="cartCount">0</span>
+    <div class="nav-actions">
+
+      <button
+        class="nav-btn"
+        onclick="openCart()">
+        🛒 Cart
+        <span id="cartCount">0</span>
       </button>
 
-      <button class="nav-btn" onclick="openOrders()">
+      <button
+        class="nav-btn"
+        onclick="openOrders()">
         📦 Orders
       </button>
 
-      <button class="nav-btn" onclick="openAccount()">
+      <button
+        class="nav-btn"
+        onclick="openAccount()">
         👤 Account
       </button>
+
     </div>
 
   </div>
+
 </header>
 
-<main>
 
-<section class="hero">
-  <div class="hero-box">
-    <h1>Healthy food, naturally.</h1>
+<main class="container">
+
+  <section class="hero">
+
+    <h1>
+      Healthy food, naturally.
+    </h1>
+
     <p>
-      Discover tasty, convenient and health-focused foods from NatureBite.
-      Shop healthy snacks, instant mixes and more.
+      Discover delicious and healthy food products
+      from NatureBite.
     </p>
-  </div>
-</section>
 
-<section class="search-area">
-  <input
-    id="searchInput"
-    class="search"
-    type="text"
-    placeholder="Search NatureBite products..."
-    oninput="renderProducts()"
-  >
-</section>
+  </section>
 
-<div id="categories" class="categories">
-  <button class="cat-btn active" onclick="selectCategory('all',this)">
-    All
-  </button>
-</div>
 
-<section class="section">
+  <div class="search-box">
 
-  <h2 class="section-title">Our Products</h2>
+    <input
+      id="searchInput"
+      type="search"
+      placeholder="Search products..."
+      oninput="filterProducts()">
 
-  <div id="products" class="products">
-    <div class="loading">Loading products...</div>
   </div>
 
-</section>
+
+  <div
+    id="categoryList"
+    class="categories">
+
+  </div>
+
+
+  <h2 class="section-title">
+    Our Products
+  </h2>
+
+
+  <div
+    id="productGrid"
+    class="product-grid">
+
+  </div>
 
 </main>
 
-<footer>
+
+<footer class="footer">
+
   <h3>NatureBite</h3>
+
   <p style="margin-top:8px;">
     Healthy choices. Better everyday.
   </p>
+
 </footer>
 
 
 <!-- PRODUCT MODAL -->
 
-<div id="productModal" class="modal">
+<div
+  id="productModal"
+  class="modal">
 
   <div class="modal-box">
 
-    <button class="close" onclick="closeProduct()">×</button>
-
-    <h2 id="detailName" class="modal-title"></h2>
-
-    <div id="detailImageBox"></div>
-
-    <p id="detailDescription"></p>
-
-    <div style="margin-top:15px;">
-      <strong>Select Variant</strong>
-      <div id="variantList" class="variant-list"></div>
-    </div>
-
-    <div id="detailPrice" class="price">৳0</div>
-
-    <div id="detailStock"></div>
-
-    <div class="qty">
-      <button onclick="changeDetailQty(-1)">−</button>
-      <strong id="detailQty">1</strong>
-      <button onclick="changeDetailQty(1)">+</button>
-    </div>
-
-    <button class="primary" onclick="addDetailToCart()">
-      Add to Cart
+    <button
+      class="close"
+      onclick="closeModal('productModal')">
+      ×
     </button>
+
+    <h2
+      id="productModalTitle"
+      class="modal-title">
+      Product
+    </h2>
+
+    <div
+      id="productModalContent">
+    </div>
 
   </div>
 
@@ -691,26 +636,23 @@ footer{
 
 <!-- CART MODAL -->
 
-<div id="cartModal" class="modal">
+<div
+  id="cartModal"
+  class="modal">
 
   <div class="modal-box">
 
-    <button class="close" onclick="closeCart()">×</button>
-
-    <h2 class="modal-title">Your Cart</h2>
-
-    <div id="cartItems"></div>
-
-    <div id="cartSummary"></div>
-
     <button
-      id="checkoutButton"
-      class="primary"
-      style="margin-top:15px;"
-      onclick="startCheckout()"
-    >
-      Proceed to Checkout
+      class="close"
+      onclick="closeModal('cartModal')">
+      ×
     </button>
+
+    <h2 class="modal-title">
+      Your Cart
+    </h2>
+
+    <div id="cartContent"></div>
 
   </div>
 
@@ -719,209 +661,28 @@ footer{
 
 <!-- CHECKOUT MODAL -->
 
-<div id="checkoutModal" class="modal">
+<div
+  id="checkoutModal"
+  class="modal">
 
-  <div class="modal-box modal-large">
-
-    <button class="close" onclick="closeCheckout()">×</button>
-
-    <h2 class="modal-title">Checkout</h2>
-
-    <div id="checkoutAlert" class="alert"></div>
-
-    <div class="form-group">
-      <label>Full Name</label>
-      <input id="checkoutName" type="text" placeholder="Enter your full name">
-    </div>
-
-    <div class="form-group">
-      <label>Mobile Number</label>
-      <input id="checkoutMobile" type="tel" placeholder="01XXXXXXXXX">
-    </div>
-
-    <div class="form-group">
-      <label>District</label>
-
-      <select id="checkoutDistrict">
-        <option value="">Select District</option>
-        <option>Chattogram</option>
-        <option>Dhaka</option>
-        <option>Cumilla</option>
-        <option>Cox's Bazar</option>
-        <option>Feni</option>
-        <option>Noakhali</option>
-      </select>
-
-    </div>
-
-    <div class="form-group">
-      <label>Full Delivery Address</label>
-      <textarea
-        id="checkoutAddress"
-        placeholder="House, road, area..."
-      ></textarea>
-    </div>
-
-
-    <div class="form-group">
-
-      <label>Delivery Option</label>
-
-      <div class="radio-list">
-
-        <label class="radio-item">
-          <input
-            type="radio"
-            name="delivery"
-            value="standard"
-            checked
-            onchange="updateCheckoutSummary()"
-          >
-          Standard Delivery — <strong id="standardDeliveryText">৳60</strong>
-        </label>
-
-        <label class="radio-item">
-          <input
-            type="radio"
-            name="delivery"
-            value="express"
-            onchange="updateCheckoutSummary()"
-          >
-          Express Delivery — <strong id="expressDeliveryText">৳80</strong>
-        </label>
-
-        <label class="radio-item">
-          <input
-            type="radio"
-            name="delivery"
-            value="free"
-            onchange="updateCheckoutSummary()"
-          >
-          Free Delivery — <strong id="freeDeliveryText">৳0</strong>
-        </label>
-
-      </div>
-
-    </div>
-
-
-    <div id="deliveryPaymentBox" class="form-group">
-
-      <label>
-        Delivery Charge Payment
-      </label>
-
-      <select id="deliveryPaymentMethod">
-        <option value="">Select Payment Method</option>
-        <option value="bKash">bKash</option>
-        <option value="Nagad">Nagad</option>
-      </select>
-
-      <input
-        id="deliveryTransactionId"
-        style="margin-top:8px;"
-        type="text"
-        placeholder="Delivery charge transaction ID"
-      >
-
-      <small style="display:block;margin-top:6px;color:#6d746c;">
-        Delivery charge must be paid first unless free delivery is selected
-        or this requirement is disabled.
-      </small>
-
-    </div>
-
-
-    <div class="form-group">
-
-      <label>Product Payment</label>
-
-      <div class="radio-list">
-
-        <label class="radio-item">
-          <input
-            type="radio"
-            name="payment"
-            value="COD"
-            checked
-            onchange="toggleOnlinePayment()"
-          >
-          Cash on Delivery
-        </label>
-
-        <label class="radio-item">
-          <input
-            type="radio"
-            name="payment"
-            value="bKash"
-            onchange="toggleOnlinePayment()"
-          >
-          bKash
-        </label>
-
-        <label class="radio-item">
-          <input
-            type="radio"
-            name="payment"
-            value="Nagad"
-            onchange="toggleOnlinePayment()"
-          >
-          Nagad
-        </label>
-
-      </div>
-
-    </div>
-
-
-    <div id="onlinePaymentBox" class="form-group" style="display:none;">
-
-      <label>Product Payment Transaction ID</label>
-
-      <input
-        id="productTransactionId"
-        type="text"
-        placeholder="Enter transaction ID"
-      >
-
-    </div>
-
-
-    <div class="form-group">
-
-      <label>Coupon Code</label>
-
-      <div style="display:flex;gap:8px;">
-
-        <input
-          id="couponInput"
-          type="text"
-          placeholder="Enter coupon"
-        >
-
-        <button
-          class="secondary"
-          onclick="applyCoupon()"
-        >
-          Apply
-        </button>
-
-      </div>
-
-      <div id="couponMessage" style="margin-top:6px;font-size:13px;"></div>
-
-    </div>
-
-
-    <div id="checkoutSummary" class="summary"></div>
+  <div class="modal-box">
 
     <button
-      class="primary"
-      style="margin-top:15px;"
-      onclick="placeOrder()"
-    >
-      Confirm Order
+      class="close"
+      onclick="closeModal('checkoutModal')">
+      ×
     </button>
+
+    <h2 class="modal-title">
+      Checkout
+    </h2>
+
+    <div
+      id="checkoutAlert"
+      class="alert">
+    </div>
+
+    <div id="checkoutContent"></div>
 
   </div>
 
@@ -930,13 +691,21 @@ footer{
 
 <!-- ACCOUNT MODAL -->
 
-<div id="accountModal" class="modal">
+<div
+  id="accountModal"
+  class="modal">
 
   <div class="modal-box">
 
-    <button class="close" onclick="closeAccount()">×</button>
+    <button
+      class="close"
+      onclick="closeModal('accountModal')">
+      ×
+    </button>
 
-    <h2 class="modal-title">My Account</h2>
+    <h2 class="modal-title">
+      My Account
+    </h2>
 
     <div id="accountContent"></div>
 
@@ -947,13 +716,21 @@ footer{
 
 <!-- ORDERS MODAL -->
 
-<div id="ordersModal" class="modal">
+<div
+  id="ordersModal"
+  class="modal">
 
   <div class="modal-box">
 
-    <button class="close" onclick="closeOrders()">×</button>
+    <button
+      class="close"
+      onclick="closeModal('ordersModal')">
+      ×
+    </button>
 
-    <h2 class="modal-title">My Orders</h2>
+    <h2 class="modal-title">
+      My Orders
+    </h2>
 
     <div id="ordersContent"></div>
 
@@ -964,20 +741,36 @@ footer{
 
 <!-- LOGIN MODAL -->
 
-<div id="loginModal" class="modal">
+<div
+  id="loginModal"
+  class="modal">
 
   <div class="modal-box">
 
-    <button class="close" onclick="closeLogin()">×</button>
+    <button
+      class="close"
+      onclick="closeLogin()">
+      ×
+    </button>
 
-    <h2 class="modal-title">Login</h2>
+    <h2 class="modal-title">
+      Login
+    </h2>
 
-    <div id="loginAlert" class="alert"></div>
+    <div
+      id="loginAlert"
+      class="alert">
+    </div>
 
     <div id="loginContent"></div>
 
+    <!-- IMPORTANT:
+         This element must stay EMPTY.
+         Firebase reCAPTCHA uses this container.
+    -->
+
     <div id="recaptcha-container"></div>
-    
+
   </div>
 
 </div>
@@ -987,7 +780,9 @@ footer{
 
 import {
   initializeApp
-} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+} from
+"https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+
 
 import {
   getAuth,
@@ -998,7 +793,9 @@ import {
   EmailAuthProvider,
   signOut,
   onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+} from
+"https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+
 
 import {
   getFirestore,
@@ -1006,395 +803,301 @@ import {
   getDocs,
   getDoc,
   doc,
-  addDoc,
   setDoc,
+  addDoc,
   query,
   where,
   orderBy,
   serverTimestamp
-} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+} from
+"https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
 
-/* =========================
+/* =========================================================
    FIREBASE
-========================= */
+========================================================= */
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCBaUWZflbj0RVfdyl1vZCB3SYD42vkI_0",
-  authDomain: "naturebite-c5d88.firebaseapp.com",
-  projectId: "naturebite-c5d88",
-  storageBucket: "naturebite-c5d88.firebasestorage.app",
-  messagingSenderId: "467003957826",
-  appId: "1:467003957826:web:483a261d12ac396dca43db"
+
+  apiKey:
+    "AIzaSyCBaUWZflbj0RVfdyl1vZCB3SYD42vkI0",
+
+  authDomain:
+    "naturebite-c5d88.firebaseapp.com",
+
+  projectId:
+    "naturebite-c5d88",
+
+  storageBucket:
+    "naturebite-c5d88.firebasestorage.app",
+
+  messagingSenderId:
+    "467003957826",
+
+  appId:
+    "1:467003957826:web:483a261d12ac396dca43db"
+
 };
 
-const app = initializeApp(firebaseConfig);
 
-const auth = getAuth(app);
-const db = getFirestore(app);
+const app =
+  initializeApp(firebaseConfig);
 
 
-/* =========================
-   GLOBAL DATA
-========================= */
+const auth =
+  getAuth(app);
 
-let products = [];
-let variants = [];
-let categories = [];
 
-let cart = JSON.parse(localStorage.getItem("naturebite_cart") || "[]");
+const db =
+  getFirestore(app);
 
-let selectedCategory = "all";
 
-let currentProduct = null;
-let currentVariants = [];
-let selectedVariant = null;
-let detailQty = 1;
+/* =========================================================
+   GLOBAL VARIABLES
+========================================================= */
 
 let currentUser = null;
 
-let appliedCoupon = null;
+let products = [];
 
-let platformCharge = 5;
-let platformChargeType = "fixed";
+let variants = [];
 
-let standardDelivery = 60;
-let expressDelivery = 80;
-let freeDelivery = 0;
+let categories = [];
 
-let deliveryPrepaidRequired = true;
+let cart = [];
+
+let selectedCategory = "All";
+
+let selectedProduct = null;
+
+let selectedVariant = null;
+
+let recaptchaVerifier = null;
+
+let confirmationResult = null;
+
+let pendingCheckout = false;
+
+let settings = {
+
+  platformCharge: 5,
+
+  platformChargeType: "fixed",
+
+  standardDelivery: 60,
+
+  expressDelivery: 80,
+
+  freeDelivery: 0,
+
+  deliveryPrepaidRequired: true
+
+};
 
 
-/* =========================
-   MONEY
-========================= */
+/* =========================================================
+   HELPERS
+========================================================= */
 
 function money(value){
 
-  const number = Number(value);
-
-  if(!Number.isFinite(number)){
-    return "৳0";
-  }
-
-  return "৳" + number.toLocaleString("en-BD",{
-    maximumFractionDigits:2
-  });
-}
-
-window.money = money;
-
-
-/* =========================
-   MODALS
-========================= */
-
-function showModal(id){
-
-  const el = document.getElementById(id);
-
-  if(el){
-    el.classList.add("show");
-    document.body.style.overflow = "hidden";
-  }
-
-}
-
-function hideModal(id){
-
-  const el = document.getElementById(id);
-
-  if(el){
-    el.classList.remove("show");
-  }
-
-  if(!document.querySelector(".modal.show")){
-    document.body.style.overflow = "";
-  }
+  return "৳" +
+    Number(value || 0)
+      .toLocaleString("en-BD", {
+        maximumFractionDigits: 2
+      });
 
 }
 
 
-/* PRODUCT */
+function normalizePhone(phone){
 
-window.openProduct = function(id){
+  let value =
+    String(phone || "")
+      .trim()
+      .replace(/\s+/g,"");
 
-  const product = products.find(p => p.id === id);
+  if(value.startsWith("01")){
 
-  if(!product) return;
+    return "+880" + value.substring(1);
 
-  currentProduct = product;
+  }
 
-  currentVariants = variants.filter(
-    v => v.productId === product.id
-  );
+  if(value.startsWith("8801")){
 
-  selectedVariant =
-    currentVariants.find(v => Number(v.stock || 0) > 0)
-    || currentVariants[0]
-    || null;
+    return "+" + value;
 
-  detailQty = 1;
+  }
 
-  renderProductDetails();
+  if(value.startsWith("+880")){
 
-  showModal("productModal");
+    return value;
+
+  }
+
+  return value;
+
+}
+
+
+function phoneToEmail(phone){
+
+  const digits =
+    normalizePhone(phone)
+      .replace(/\D/g,"");
+
+  return "user_" +
+    digits +
+    "@naturebite.customer";
+
+}
+
+
+function showLoginAlert(message,type="error"){
+
+  const alert =
+    document.getElementById("loginAlert");
+
+  alert.textContent = message;
+
+  alert.className =
+    "alert show " + type;
+
+}
+
+
+function showCheckoutAlert(message,type="error"){
+
+  const alert =
+    document.getElementById("checkoutAlert");
+
+  alert.textContent = message;
+
+  alert.className =
+    "alert show " + type;
+
+}
+
+
+function getFirebaseError(error){
+
+  const code = error?.code || "";
+
+  const messages = {
+
+    "auth/invalid-phone-number":
+      "সঠিক mobile number দিন।",
+
+    "auth/invalid-verification-code":
+      "OTP সঠিক নয়।",
+
+    "auth/code-expired":
+      "OTP-এর সময় শেষ হয়েছে। আবার OTP নিন।",
+
+    "auth/too-many-requests":
+      "অনেকবার চেষ্টা করা হয়েছে। কিছুক্ষণ পরে আবার চেষ্টা করুন।",
+
+    "auth/invalid-credential":
+      "Mobile number বা password সঠিক নয়।",
+
+    "auth/wrong-password":
+      "Password সঠিক নয়।",
+
+    "auth/user-not-found":
+      "এই account পাওয়া যায়নি।",
+
+    "auth/email-already-in-use":
+      "এই account-এর password আগে থেকেই আছে।",
+
+    "auth/provider-already-linked":
+      "এই account-এ password আগে থেকেই যুক্ত আছে।",
+
+    "auth/weak-password":
+      "Password কমপক্ষে ৬ অক্ষরের হতে হবে।",
+
+    "auth/network-request-failed":
+      "Internet connection সমস্যা হয়েছে।",
+
+    "auth/quota-exceeded":
+      "OTP service limit অতিক্রম করেছে। পরে আবার চেষ্টা করুন।"
+
+  };
+
+  return messages[code] ||
+    error?.message ||
+    "কিছু সমস্যা হয়েছে। আবার চেষ্টা করুন।";
+
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+window.closeModal = function(id){
+
+  document
+    .getElementById(id)
+    .classList.remove("show");
+
 };
 
 
-window.closeProduct = function(){
-  hideModal("productModal");
-};
+function openModal(id){
+
+  document
+    .getElementById(id)
+    .classList.add("show");
+
+}
 
 
-/* CART */
-
-window.openCart = function(){
-
-  renderCart();
-
-  showModal("cartModal");
-
-};
-
-
-window.closeCart = function(){
-
-  hideModal("cartModal");
-
-};
-
-
-/* CHECKOUT */
-
-window.closeCheckout = function(){
-
-  hideModal("checkoutModal");
-
-};
-
-
-/* ACCOUNT */
-
-window.openAccount = function(){
-
-  renderAccount();
-
-  showModal("accountModal");
-
-};
-
-
-window.closeAccount = function(){
-
-  hideModal("accountModal");
-
-};
-
-
-/* ORDERS */
-
-window.openOrders = async function(){
-
-  showModal("ordersModal");
-
-  await renderOrders();
-
-};
-
-
-window.closeOrders = function(){
-
-  hideModal("ordersModal");
-
-};
-
-
-/* LOGIN */
-
-window.closeLogin = function(){
-
-  hideModal("loginModal");
-
-};
-
-
-/* =========================
-   LOAD SETTINGS
-========================= */
+/* =========================================================
+   SETTINGS
+========================================================= */
 
 async function loadSettings(){
 
   try{
 
-    const ref = doc(db,"settings","platform");
-
-    const snap = await getDoc(ref);
+    const snap =
+      await getDoc(
+        doc(db,"settings","platform")
+      );
 
     if(snap.exists()){
 
-      const data = snap.data();
-
-      platformCharge =
-        Number(data.platformCharge ?? 5);
-
-      platformChargeType =
-        data.platformChargeType || "fixed";
-
-      standardDelivery =
-        Number(data.standardDelivery ?? 60);
-
-      expressDelivery =
-        Number(data.expressDelivery ?? 80);
-
-      freeDelivery =
-        Number(data.freeDelivery ?? 0);
-
-      deliveryPrepaidRequired =
-        data.deliveryPrepaidRequired !== false;
+      settings = {
+        ...settings,
+        ...snap.data()
+      };
 
     }
 
   }catch(error){
 
-    console.log(
-      "Settings could not be loaded. Using default customer settings.",
+    console.error(
+      "Settings error:",
       error
     );
 
-    platformCharge = 5;
-    platformChargeType = "fixed";
-
-  }
-
-  document.getElementById("standardDeliveryText").textContent =
-    money(standardDelivery);
-
-  document.getElementById("expressDeliveryText").textContent =
-    money(expressDelivery);
-
-  document.getElementById("freeDeliveryText").textContent =
-    money(freeDelivery);
-
-}
-
-
-/* =========================
-   LOAD CATEGORIES
-========================= */
-
-async function loadCategories(){
-
-  try{
-
-    const snap = await getDocs(
-      collection(db,"categories")
-    );
-
-    categories = [];
-
-    snap.forEach(item => {
-
-      const data = item.data();
-
-      if(data.status === "active"){
-
-        categories.push({
-          id:item.id,
-          ...data
-        });
-
-      }
-
-    });
-
-    categories.sort(
-      (a,b) =>
-        Number(a.sortOrder || 0)
-        -
-        Number(b.sortOrder || 0)
-    );
-
-    renderCategories();
-
-  }catch(error){
-
-    console.error(error);
-
   }
 
 }
 
 
-function renderCategories(){
-
-  const box =
-    document.getElementById("categories");
-
-  box.innerHTML = `
-    <button
-      class="cat-btn ${selectedCategory==="all" ? "active":""}"
-      onclick="selectCategory('all',this)"
-    >
-      All
-    </button>
-  `;
-
-  categories.forEach(cat => {
-
-    const button =
-      document.createElement("button");
-
-    button.className =
-      "cat-btn " +
-      (selectedCategory === cat.name ? "active":"");
-
-    button.textContent = cat.name;
-
-    button.onclick = () =>
-      selectCategory(cat.name,button);
-
-    box.appendChild(button);
-
-  });
-
-}
-
-
-window.selectCategory = function(category,button){
-
-  selectedCategory = category;
-
-  document.querySelectorAll(".cat-btn")
-    .forEach(btn =>
-      btn.classList.remove("active")
-    );
-
-  if(button){
-    button.classList.add("active");
-  }
-
-  renderProducts();
-
-};
-
-
-/* =========================
-   LOAD PRODUCTS
-========================= */
+/* =========================================================
+   PRODUCTS
+========================================================= */
 
 async function loadProducts(){
-
-  const container =
-    document.getElementById("products");
-
-  container.innerHTML =
-    `<div class="loading">Loading products...</div>`;
 
   try{
 
     const snap =
-      await getDocs(collection(db,"products"));
+      await getDocs(
+        collection(db,"products")
+      );
 
     products = [];
 
@@ -1402,36 +1105,27 @@ async function loadProducts(){
 
       const data = item.data();
 
-      if(data.status === "active"){
+      if(data.status !== "inactive"){
 
         products.push({
+
           id:item.id,
           ...data
+
         });
 
       }
 
     });
 
-    renderProducts();
-
   }catch(error){
 
     console.error(error);
-
-    container.innerHTML =
-      `<div class="empty">
-        Unable to load products.
-      </div>`;
 
   }
 
 }
 
-
-/* =========================
-   LOAD VARIANTS
-========================= */
 
 async function loadVariants(){
 
@@ -1447,8 +1141,10 @@ async function loadVariants(){
     snap.forEach(item => {
 
       variants.push({
+
         id:item.id,
         ...item.data()
+
       });
 
     });
@@ -1462,378 +1158,484 @@ async function loadVariants(){
 }
 
 
-/* =========================
-   RENDER PRODUCTS
-========================= */
+async function loadCategories(){
 
-function renderProducts(){
+  try{
 
-  const container =
-    document.getElementById("products");
+    const snap =
+      await getDocs(
+        collection(db,"categories")
+      );
+
+    categories = [];
+
+    snap.forEach(item => {
+
+      const data = item.data();
+
+      if(data.status !== "inactive"){
+
+        categories.push({
+
+          id:item.id,
+          ...data
+
+        });
+
+      }
+
+    });
+
+    categories.sort(
+      (a,b) =>
+        Number(a.sortOrder || 0) -
+        Number(b.sortOrder || 0)
+    );
+
+  }catch(error){
+
+    console.error(error);
+
+  }
+
+}
+
+
+/* =========================================================
+   CATEGORY UI
+========================================================= */
+
+function renderCategories(){
+
+  const box =
+    document.getElementById(
+      "categoryList"
+    );
+
+  box.innerHTML = "";
+
+  const all =
+    document.createElement("button");
+
+  all.className =
+    "category-btn " +
+    (
+      selectedCategory === "All"
+        ? "active"
+        : ""
+    );
+
+  all.textContent = "All";
+
+  all.onclick = () => {
+
+    selectedCategory = "All";
+
+    renderCategories();
+
+    filterProducts();
+
+  };
+
+  box.appendChild(all);
+
+
+  categories.forEach(category => {
+
+    const btn =
+      document.createElement("button");
+
+    btn.className =
+      "category-btn " +
+      (
+        selectedCategory === category.name
+          ? "active"
+          : ""
+      );
+
+    btn.textContent =
+      category.name;
+
+    btn.onclick = () => {
+
+      selectedCategory =
+        category.name;
+
+      renderCategories();
+
+      filterProducts();
+
+    };
+
+    box.appendChild(btn);
+
+  });
+
+}
+
+
+/* =========================================================
+   PRODUCT UI
+========================================================= */
+
+window.filterProducts = function(){
 
   const search =
-    document.getElementById("searchInput")
+    document
+      .getElementById("searchInput")
       .value
       .trim()
       .toLowerCase();
 
-  let list = products.filter(product => {
 
-    const matchesCategory =
-      selectedCategory === "all"
-      ||
-      product.category === selectedCategory;
+  const filtered =
+    products.filter(product => {
 
-    const matchesSearch =
-      !search
-      ||
-      String(product.name || "")
-        .toLowerCase()
-        .includes(search)
-      ||
-      String(product.description || "")
-        .toLowerCase()
-        .includes(search);
+      const matchCategory =
+        selectedCategory === "All" ||
+        product.category === selectedCategory;
 
-    return matchesCategory && matchesSearch;
 
-  });
+      const matchSearch =
+        !search ||
+        String(product.name || "")
+          .toLowerCase()
+          .includes(search) ||
+        String(product.description || "")
+          .toLowerCase()
+          .includes(search);
+
+
+      return matchCategory &&
+             matchSearch;
+
+    });
+
+
+  renderProducts(filtered);
+
+};
+
+
+function getProductVariants(productId){
+
+  return variants.filter(
+    variant =>
+      variant.productId === productId &&
+      variant.status !== "inactive"
+  );
+
+}
+
+
+function renderProducts(list){
+
+  const grid =
+    document.getElementById(
+      "productGrid"
+    );
+
+  grid.innerHTML = "";
 
 
   if(!list.length){
 
-    container.innerHTML =
-      `<div class="empty">
+    grid.innerHTML = `
+      <div class="empty">
         No products found.
-      </div>`;
+      </div>
+    `;
 
     return;
 
   }
-
-
-  container.innerHTML = "";
 
 
   list.forEach(product => {
 
     const productVariants =
-      variants.filter(
-        v => v.productId === product.id
-      );
-
-    const available =
-      productVariants.filter(
-        v => Number(v.stock || 0) > 0
-      );
+      getProductVariants(product.id);
 
     const first =
-      available[0] || productVariants[0];
-
-    let priceText = "Price unavailable";
-
-    if(first){
-
-      priceText = money(first.price);
-
-    }
-
-
-    const image =
-      product.image
-      ||
-      product.imageUrl
-      ||
-      "";
+      productVariants[0];
 
 
     const card =
       document.createElement("div");
 
-    card.className = "card";
+    card.className =
+      "product-card";
 
 
     card.innerHTML = `
 
-      ${
-        image
-        ?
-        `<img
-          class="product-image"
-          src="${escapeHtml(image)}"
-          alt="${escapeHtml(product.name || "")}"
-          onerror="this.outerHTML='<div class=\\'no-image\\'>NatureBite</div>'"
-        >`
-        :
-        `<div class="no-image">
-          NatureBite<br>
-          Product Image
-        </div>`
-      }
+      <div class="product-image">
+        ${product.emoji || "🌿"}
+      </div>
 
-      <div class="card-body">
+      <div class="product-body">
 
         <div class="product-name">
-          ${escapeHtml(product.name || "")}
+          ${escapeHtml(product.name)}
         </div>
 
-        <div class="product-cat">
+        <div class="product-category">
           ${escapeHtml(product.category || "")}
         </div>
 
-        <div class="product-desc">
-          ${escapeHtml(product.description || "")}
+        <div class="product-price">
+          ${
+            first
+              ? money(first.price)
+              : "Price unavailable"
+          }
         </div>
 
-        <div class="price">
-          ${priceText}
-        </div>
+        <button
+          class="primary-btn"
+          onclick="openProduct('${escapeAttr(product.id)}')">
 
-        <div class="card-actions">
+          View Product
 
-          <button
-            class="secondary"
-            onclick="openProduct('${escapeJs(product.id)}')"
-          >
-            View
-          </button>
-
-          <button
-            class="primary"
-            onclick="quickAdd('${escapeJs(product.id)}')"
-          >
-            Add
-          </button>
-
-        </div>
+        </button>
 
       </div>
+
     `;
 
-    container.appendChild(card);
+
+    grid.appendChild(card);
 
   });
 
 }
 
 
-/* =========================
+function escapeHtml(value){
+
+  return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+function escapeAttr(value){
+
+  return String(value ?? "")
+    .replace(/\\/g,"\\\\")
+    .replace(/'/g,"\\'");
+
+}
+
+
+/* =========================================================
    PRODUCT DETAILS
-========================= */
+========================================================= */
 
-function renderProductDetails(){
+window.openProduct = function(productId){
 
-  if(!currentProduct) return;
-
-  document.getElementById("detailName").textContent =
-    currentProduct.name || "";
-
-  document.getElementById("detailDescription").textContent =
-    currentProduct.description || "";
-
-
-  const image =
-    currentProduct.image
-    ||
-    currentProduct.imageUrl
-    ||
-    "";
-
-
-  document.getElementById("detailImageBox").innerHTML =
-    image
-    ?
-    `<img
-      class="detail-image"
-      src="${escapeHtml(image)}"
-      alt=""
-      onerror="this.style.display='none'"
-    >`
-    :
-    `<div class="no-image" style="margin-bottom:15px;">
-      NatureBite
-    </div>`;
-
-
-  renderVariants();
-
-  updateDetailPrice();
-
-}
-
-
-function renderVariants(){
-
-  const box =
-    document.getElementById("variantList");
-
-  box.innerHTML = "";
-
-
-  if(!currentVariants.length){
-
-    box.innerHTML =
-      `<div class="empty" style="width:100%;">
-        No variant available.
-      </div>`;
-
-    return;
-
-  }
-
-
-  currentVariants.forEach(variant => {
-
-    const button =
-      document.createElement("button");
-
-    button.className =
-      "variant-btn " +
-      (
-        selectedVariant &&
-        selectedVariant.id === variant.id
-        ?
-        "selected"
-        :
-        ""
-      );
-
-
-    button.innerHTML =
-      `${escapeHtml(variant.weight || "Variant")}
-       — ${money(variant.price)}`;
-
-
-    button.onclick = function(){
-
-      selectedVariant = variant;
-
-      detailQty = 1;
-
-      renderVariants();
-
-      updateDetailPrice();
-
-    };
-
-
-    box.appendChild(button);
-
-  });
-
-}
-
-
-function updateDetailPrice(){
-
-  if(!selectedVariant){
-
-    document.getElementById("detailPrice").textContent =
-      "Price unavailable";
-
-    document.getElementById("detailStock").textContent =
-      "";
-
-    return;
-
-  }
-
-
-  document.getElementById("detailPrice").textContent =
-    money(selectedVariant.price);
-
-
-  const stock =
-    Number(selectedVariant.stock || 0);
-
-
-  document.getElementById("detailStock").textContent =
-    stock > 0
-    ?
-    `Stock available: ${stock}`
-    :
-    "Out of stock";
-
-}
-
-
-window.changeDetailQty = function(amount){
-
-  if(!selectedVariant) return;
-
-  const stock =
-    Number(selectedVariant.stock || 0);
-
-  detailQty += amount;
-
-  if(detailQty < 1){
-    detailQty = 1;
-  }
-
-  if(stock > 0 && detailQty > stock){
-    detailQty = stock;
-  }
-
-  document.getElementById("detailQty").textContent =
-    detailQty;
-
-};
-
-
-window.addDetailToCart = function(){
-
-  if(!selectedVariant){
-
-    alert("Please select a variant.");
-
-    return;
-
-  }
-
-  if(Number(selectedVariant.stock || 0) <= 0){
-
-    alert("This variant is out of stock.");
-
-    return;
-
-  }
-
-
-  addToCart(
-    currentProduct,
-    selectedVariant,
-    detailQty
-  );
-
-  closeProduct();
-
-  openCart();
-
-};
-
-
-window.quickAdd = function(productId){
-
-  const product =
+  selectedProduct =
     products.find(
       p => p.id === productId
     );
 
-  if(!product) return;
+  if(!selectedProduct){
+    return;
+  }
 
 
-  const list =
-    variants.filter(
-      v =>
-        v.productId === product.id
-        &&
-        Number(v.stock || 0) > 0
+  const productVariants =
+    getProductVariants(productId);
+
+
+  selectedVariant =
+    productVariants[0] || null;
+
+
+  document
+    .getElementById(
+      "productModalTitle"
+    )
+    .textContent =
+      selectedProduct.name;
+
+
+  renderProductDetails();
+
+  openModal("productModal");
+
+};
+
+
+function renderProductDetails(){
+
+  const box =
+    document.getElementById(
+      "productModalContent"
     );
 
 
-  if(!list.length){
+  const productVariants =
+    getProductVariants(
+      selectedProduct.id
+    );
 
-    alert("This product is out of stock.");
+
+  box.innerHTML = `
+
+    <div
+      style="
+        background:#eee8dc;
+        height:220px;
+        border-radius:15px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-size:65px;
+        margin-bottom:15px;
+      ">
+
+      ${selectedProduct.emoji || "🌿"}
+
+    </div>
+
+
+    <p style="
+      color:#666;
+      line-height:1.6;
+      margin-bottom:15px;
+    ">
+
+      ${escapeHtml(
+        selectedProduct.description || ""
+      )}
+
+    </p>
+
+
+    <h4>
+      Choose variant
+    </h4>
+
+
+    <div class="variant-list">
+
+      ${
+        productVariants.length
+          ? productVariants.map(
+              variant => `
+
+                <button
+                  class="
+                    variant-btn
+                    ${
+                      selectedVariant?.id === variant.id
+                        ? "active"
+                        : ""
+                    }
+                  "
+                  onclick="
+                    selectVariant('${escapeAttr(variant.id)}')
+                  ">
+
+                  ${escapeHtml(
+                    variant.weight || ""
+                  )}
+
+                  -
+                  ${money(variant.price)}
+
+                </button>
+
+              `
+            ).join("")
+          : "<p>No variant available.</p>"
+      }
+
+    </div>
+
+
+    ${
+      selectedVariant
+        ? `
+
+          <div class="summary">
+
+            <div class="summary-row">
+
+              <span>Price</span>
+
+              <strong>
+                ${money(
+                  selectedVariant.price
+                )}
+              </strong>
+
+            </div>
+
+            <div class="summary-row">
+
+              <span>Stock</span>
+
+              <span>
+                ${Number(
+                  selectedVariant.stock || 0
+                )}
+              </span>
+
+            </div>
+
+          </div>
+
+          <button
+            class="primary-btn"
+            style="width:100%;margin-top:12px;"
+            onclick="addSelectedToCart()">
+
+            Add to Cart
+
+          </button>
+
+        `
+        : ""
+    }
+
+  `;
+
+}
+
+
+window.selectVariant = function(variantId){
+
+  selectedVariant =
+    variants.find(
+      v => v.id === variantId
+    ) || null;
+
+  renderProductDetails();
+
+};
+
+
+window.addSelectedToCart = function(){
+
+  if(!selectedProduct ||
+     !selectedVariant){
+
+    return;
+
+  }
+
+
+  if(
+    Number(selectedVariant.stock || 0) <= 0
+  ){
+
+    alert("এই variant বর্তমানে stock out.");
 
     return;
 
@@ -1841,19 +1643,59 @@ window.quickAdd = function(productId){
 
 
   addToCart(
-    product,
-    list[0],
-    1
+    selectedProduct,
+    selectedVariant
   );
 
-  updateCartCount();
+  closeModal("productModal");
 
 };
 
 
-/* =========================
+function addToCart(product,variant){
+
+  const existing =
+    cart.find(
+      item =>
+        item.variantId === variant.id
+    );
+
+
+  if(existing){
+
+    existing.qty += 1;
+
+  }else{
+
+    cart.push({
+
+      productId:product.id,
+
+      productName:product.name,
+
+      variantId:variant.id,
+
+      weight:variant.weight || "",
+
+      price:Number(variant.price || 0),
+
+      qty:1
+
+    });
+
+  }
+
+
+  saveCart();
+
+  updateCartCount();
+
+}
+
+
+/* =========================================================
    CART
-========================= */
+========================================================= */
 
 function saveCart(){
 
@@ -1862,7 +1704,31 @@ function saveCart(){
     JSON.stringify(cart)
   );
 
-  updateCartCount();
+}
+
+
+function loadCart(){
+
+  try{
+
+    cart =
+      JSON.parse(
+        localStorage.getItem(
+          "naturebite_cart"
+        ) || "[]"
+      );
+
+    if(!Array.isArray(cart)){
+
+      cart = [];
+
+    }
+
+  }catch{
+
+    cart = [];
+
+  }
 
 }
 
@@ -1876,295 +1742,200 @@ function updateCartCount(){
       0
     );
 
-  document.getElementById("cartCount")
+
+  document
+    .getElementById("cartCount")
     .textContent = count;
 
 }
 
 
-function addToCart(product,variant,qty){
+window.openCart = function(){
 
-  const existing =
-    cart.find(
-      item =>
-        item.variantId === variant.id
+  renderCart();
+
+  openModal("cartModal");
+
+};
+
+
+function renderCart(){
+
+  const box =
+    document.getElementById(
+      "cartContent"
     );
 
 
-  if(existing){
+  if(!cart.length){
 
-    existing.qty += qty;
+    box.innerHTML = `
+      <div class="empty">
+        Your cart is empty.
+      </div>
+    `;
 
-  }else{
-
-    cart.push({
-
-      productId:product.id,
-
-      productName:
-        product.name,
-
-      variantId:
-        variant.id,
-
-      weight:
-        variant.weight || "",
-
-      price:
-        Number(variant.price || 0),
-
-      qty:
-        Number(qty || 1)
-
-    });
+    return;
 
   }
 
-  saveCart();
+
+  let subtotal = 0;
+
+
+  const items =
+    cart.map((item,index) => {
+
+      const total =
+        Number(item.price || 0) *
+        Number(item.qty || 0);
+
+      subtotal += total;
+
+
+      return `
+
+        <div class="cart-item">
+
+          <div class="cart-info">
+
+            <div class="cart-name">
+              ${escapeHtml(item.productName)}
+            </div>
+
+            <div class="cart-variant">
+              ${escapeHtml(item.weight)}
+              · ${money(item.price)}
+            </div>
+
+            <div class="qty-controls">
+
+              <button
+                onclick="changeQty(${index},-1)">
+                −
+              </button>
+
+              <strong>
+                ${item.qty}
+              </strong>
+
+              <button
+                onclick="changeQty(${index},1)">
+                +
+              </button>
+
+              <button
+                class="danger-btn"
+                onclick="removeCartItem(${index})">
+                Remove
+              </button>
+
+            </div>
+
+          </div>
+
+          <strong>
+            ${money(total)}
+          </strong>
+
+        </div>
+
+      `;
+
+    }).join("");
+
+
+  box.innerHTML = `
+
+    ${items}
+
+    <div class="summary">
+
+      <div class="summary-row">
+
+        <span>Subtotal</span>
+
+        <strong>
+          ${money(subtotal)}
+        </strong>
+
+      </div>
+
+      <button
+        class="primary-btn"
+        style="width:100%;margin-top:10px;"
+        onclick="startCheckout()">
+
+        Proceed to Checkout
+
+      </button>
+
+    </div>
+
+  `;
 
 }
 
 
-window.changeCartQty = function(variantId,change){
+window.changeQty = function(index,change){
 
-  const item =
-    cart.find(
-      x => x.variantId === variantId
-    );
-
-  if(!item) return;
-
-
-  const variant =
-    variants.find(
-      v => v.id === variantId
-    );
-
-
-  const stock =
-    variant
-    ?
-    Number(variant.stock || 0)
-    :
-    999999;
-
-
-  item.qty += change;
-
-
-  if(item.qty < 1){
-
-    cart =
-      cart.filter(
-        x => x.variantId !== variantId
-      );
-
+  if(!cart[index]){
+    return;
   }
 
 
-  if(item.qty > stock){
+  cart[index].qty += change;
 
-    item.qty = stock;
 
-    alert("Maximum available stock reached.");
+  if(cart[index].qty <= 0){
+
+    cart.splice(index,1);
 
   }
 
 
   saveCart();
 
+  updateCartCount();
+
   renderCart();
 
 };
 
 
-window.removeCartItem = function(variantId){
+window.removeCartItem = function(index){
 
-  cart =
-    cart.filter(
-      item =>
-        item.variantId !== variantId
-    );
+  cart.splice(index,1);
 
   saveCart();
 
+  updateCartCount();
+
   renderCart();
 
 };
 
+
+/* =========================================================
+   CHECKOUT
+========================================================= */
 
 function cartSubtotal(){
 
   return cart.reduce(
     (sum,item) =>
       sum +
-      (
-        Number(item.price || 0)
-        *
-        Number(item.qty || 0)
-      ),
+      Number(item.price || 0) *
+      Number(item.qty || 0),
     0
   );
 
 }
 
 
-function renderCart(){
-
-  const box =
-    document.getElementById("cartItems");
-
-  const summary =
-    document.getElementById("cartSummary");
-
-
-  if(!cart.length){
-
-    box.innerHTML =
-      `<div class="empty">
-        Your cart is empty.
-      </div>`;
-
-    summary.innerHTML = "";
-
-    document.getElementById("checkoutButton")
-      .style.display = "none";
-
-    return;
-
-  }
-
-
-  document.getElementById("checkoutButton")
-    .style.display = "block";
-
-
-  box.innerHTML = "";
-
-
-  cart.forEach(item => {
-
-    const row =
-      document.createElement("div");
-
-    row.className = "cart-item";
-
-
-    row.innerHTML = `
-
-      <div class="cart-item-info">
-
-        <div class="cart-item-name">
-          ${escapeHtml(item.productName)}
-        </div>
-
-        <div class="cart-item-small">
-          ${escapeHtml(item.weight)}
-          ·
-          ${money(item.price)}
-        </div>
-
-        <div style="margin-top:5px;font-weight:700;">
-          ${money(item.price * item.qty)}
-        </div>
-
-      </div>
-
-      <div class="cart-controls">
-
-        <button
-          onclick="changeCartQty('${escapeJs(item.variantId)}',-1)"
-        >
-          −
-        </button>
-
-        <strong>${item.qty}</strong>
-
-        <button
-          onclick="changeCartQty('${escapeJs(item.variantId)}',1)"
-        >
-          +
-        </button>
-
-        <button
-          class="cart-remove"
-          onclick="removeCartItem('${escapeJs(item.variantId)}')"
-        >
-          ×
-        </button>
-
-      </div>
-    `;
-
-
-    box.appendChild(row);
-
-  });
-
-
-  const subtotal =
-    cartSubtotal();
-
-
-  summary.innerHTML = `
-
-    <div class="summary-row">
-      <span>Subtotal</span>
-      <strong>${money(subtotal)}</strong>
-    </div>
-
-    <div class="summary-row">
-      <span>Platform Charge</span>
-      <strong>
-        ${money(calculatePlatformCharge(subtotal))}
-      </strong>
-    </div>
-
-    <div class="summary-row total">
-      <span>Before Delivery</span>
-      <strong>
-        ${money(
-          subtotal +
-          calculatePlatformCharge(subtotal)
-        )}
-      </strong>
-    </div>
-  `;
-
-}
-
-
-/* =========================
-   PLATFORM CHARGE
-========================= */
-
-function calculatePlatformCharge(subtotal){
-
-  const amount =
-    Number(platformCharge || 0);
-
-  if(
-    platformChargeType === "percent"
-  ){
-
-    return subtotal * amount / 100;
-
-  }
-
-  return amount;
-
-}
-
-
-/* =========================
-   CHECKOUT
-========================= */
-
 window.startCheckout = function(){
 
   if(!cart.length){
-
-    alert("Your cart is empty.");
 
     return;
 
@@ -2173,374 +1944,390 @@ window.startCheckout = function(){
 
   if(!currentUser){
 
-    closeCart();
+    pendingCheckout = true;
 
-    openLogin("checkout");
+    closeModal("cartModal");
+
+    openLogin();
 
     return;
 
   }
 
 
-  closeCart();
+  closeModal("cartModal");
 
-  loadUserCheckoutData();
-
-  updateCheckoutSummary();
-
-  showModal("checkoutModal");
+  openCheckout();
 
 };
 
 
-function loadUserCheckoutData(){
+window.openCheckout = function(){
 
-  if(!currentUser) return;
+  if(!currentUser){
 
+    pendingCheckout = true;
 
-  const mobile =
-    currentUser.phoneNumber || "";
+    openLogin();
 
-
-  document.getElementById("checkoutMobile")
-    .value = mobile;
-
-
-  loadUserProfile();
-
-}
-
-
-async function loadUserProfile(){
-
-  if(!currentUser) return;
-
-
-  try{
-
-    const snap =
-      await getDoc(
-        doc(
-          db,
-          "users",
-          currentUser.uid
-        )
-      );
-
-
-    if(snap.exists()){
-
-      const data = snap.data();
-
-
-      if(data.fullName){
-
-        document.getElementById("checkoutName")
-          .value = data.fullName;
-
-      }
-
-    }
-
-  }catch(error){
-
-    console.log(error);
+    return;
 
   }
 
-}
+
+  renderCheckout();
+
+  openModal("checkoutModal");
+
+};
 
 
-window.updateCheckoutSummary =
-function(){
+function renderCheckout(){
+
+  const box =
+    document.getElementById(
+      "checkoutContent"
+    );
+
 
   const subtotal =
     cartSubtotal();
 
 
-  const platform =
-    calculatePlatformCharge(subtotal);
-
-
-  const deliveryType =
-    document.querySelector(
-      'input[name="delivery"]:checked'
-    )?.value
-    ||
-    "standard";
-
-
-  let delivery = 0;
-
-
-  if(deliveryType === "standard"){
-
-    delivery = standardDelivery;
-
-  }
-
-  if(deliveryType === "express"){
-
-    delivery = expressDelivery;
-
-  }
-
-  if(deliveryType === "free"){
-
-    delivery = freeDelivery;
-
-  }
-
-
-  const discount =
-    appliedCoupon
-    ?
-    Number(appliedCoupon.discount || 0)
-    :
-    0;
-
-
-  const total =
-    Math.max(
-      0,
-      subtotal +
-      platform +
-      delivery -
-      discount
+  const standard =
+    Number(
+      settings.standardDelivery || 60
     );
 
 
-  document.getElementById("checkoutSummary")
-    .innerHTML = `
+  const express =
+    Number(
+      settings.expressDelivery || 80
+    );
 
-      <div class="summary-row">
-        <span>Subtotal</span>
-        <strong>${money(subtotal)}</strong>
+
+  const free =
+    Number(
+      settings.freeDelivery || 0
+    );
+
+
+  box.innerHTML = `
+
+    <div class="form-group">
+
+      <label>
+        Full Name
+      </label>
+
+      <input
+        id="checkoutName"
+        placeholder="Your name">
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>
+        Mobile
+      </label>
+
+      <input
+        value="${escapeHtml(
+          currentUser?.phoneNumber || ""
+        )}"
+        readonly>
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>
+        Delivery Address
+      </label>
+
+      <textarea
+        id="checkoutAddress"
+        placeholder="Full delivery address">
+      </textarea>
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>
+        Delivery Type
+      </label>
+
+      <select
+        id="deliveryType"
+        onchange="updateCheckoutSummary()">
+
+        <option value="standard">
+          Standard - ${money(standard)}
+        </option>
+
+        <option value="express">
+          Express - ${money(express)}
+        </option>
+
+        <option value="free">
+          Free Delivery - ${money(free)}
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>
+        Payment Method
+      </label>
+
+      <select
+        id="paymentMethod"
+        onchange="togglePaymentInfo()">
+
+        <option value="cod">
+          Cash on Delivery
+        </option>
+
+        <option value="bkash">
+          bKash
+        </option>
+
+        <option value="nagad">
+          Nagad
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <div
+      id="onlinePaymentBox"
+      class="hidden">
+
+      <div class="form-group">
+
+        <label>
+          Transaction ID
+        </label>
+
+        <input
+          id="transactionId"
+          placeholder="Enter transaction ID">
+
       </div>
 
-      <div class="summary-row">
-        <span>Platform Charge</span>
-        <strong>${money(platform)}</strong>
-      </div>
+      <p style="
+        font-size:13px;
+        color:#777;
+        margin-bottom:10px;
+      ">
 
-      <div class="summary-row">
-        <span>Delivery</span>
-        <strong>${money(delivery)}</strong>
-      </div>
+        Payment number/admin payment details
+        will be connected from the Admin system later.
 
-      <div class="summary-row">
-        <span>Coupon Discount</span>
-        <strong>− ${money(discount)}</strong>
-      </div>
+      </p>
 
-      <div class="summary-row total">
-        <span>Total</span>
-        <strong>${money(total)}</strong>
-      </div>
-
-    `;
+    </div>
 
 
-  const deliveryBox =
+    <div
+      id="checkoutSummary"
+      class="summary">
+    </div>
+
+
+    <button
+      class="primary-btn"
+      style="width:100%;margin-top:15px;"
+      onclick="placeOrder()">
+
+      Confirm Order
+
+    </button>
+
+  `;
+
+
+  updateCheckoutSummary();
+
+}
+
+
+window.togglePaymentInfo = function(){
+
+  const method =
     document.getElementById(
-      "deliveryPaymentBox"
+      "paymentMethod"
+    ).value;
+
+
+  const box =
+    document.getElementById(
+      "onlinePaymentBox"
     );
 
 
   if(
-    deliveryPrepaidRequired
-    &&
-    delivery > 0
+    method === "bkash" ||
+    method === "nagad"
   ){
 
-    deliveryBox.style.display = "block";
+    box.classList.remove("hidden");
 
   }else{
 
-    deliveryBox.style.display = "none";
+    box.classList.add("hidden");
 
   }
 
 };
 
 
-window.toggleOnlinePayment =
-function(){
+window.updateCheckoutSummary = function(){
 
-  const method =
-    document.querySelector(
-      'input[name="payment"]:checked'
-    )?.value;
-
-
-  document.getElementById(
-    "onlinePaymentBox"
-  ).style.display =
-    method === "bKash"
-    ||
-    method === "Nagad"
-    ?
-    "block"
-    :
-    "none";
-
-};
+  const delivery =
+    document.getElementById(
+      "deliveryType"
+    )?.value || "standard";
 
 
-/* =========================
-   COUPON
-========================= */
-
-window.applyCoupon = async function(){
-
-  const code =
-    document.getElementById("couponInput")
-      .value
-      .trim()
-      .toUpperCase();
+  const subtotal =
+    cartSubtotal();
 
 
-  const message =
-    document.getElementById("couponMessage");
+  let deliveryCharge =
+    Number(settings.standardDelivery || 60);
 
 
-  if(!code){
+  if(delivery === "express"){
 
-    message.textContent =
-      "Enter a coupon code.";
-
-    return;
+    deliveryCharge =
+      Number(settings.expressDelivery || 80);
 
   }
 
 
-  try{
+  if(delivery === "free"){
 
-    const snap =
-      await getDoc(
-        doc(db,"coupons",code)
-      );
-
-
-    if(!snap.exists()){
-
-      appliedCoupon = null;
-
-      message.textContent =
-        "Invalid coupon code.";
-
-      updateCheckoutSummary();
-
-      return;
-
-    }
-
-
-    const data =
-      snap.data();
-
-
-    if(
-      data.status &&
-      data.status !== "active"
-    ){
-
-      appliedCoupon = null;
-
-      message.textContent =
-        "This coupon is inactive.";
-
-      updateCheckoutSummary();
-
-      return;
-
-    }
-
-
-    const subtotal =
-      cartSubtotal();
-
-
-    let discount = 0;
-
-
-    if(data.type === "percent"){
-
-      discount =
-        subtotal *
-        Number(data.value || 0)
-        /
-        100;
-
-    }else{
-
-      discount =
-        Number(data.value || 0);
-
-    }
-
-
-    if(
-      data.maxDiscount &&
-      discount > Number(data.maxDiscount)
-    ){
-
-      discount =
-        Number(data.maxDiscount);
-
-    }
-
-
-    if(discount > subtotal){
-
-      discount = subtotal;
-
-    }
-
-
-    appliedCoupon = {
-
-      code,
-
-      discount
-
-    };
-
-
-    message.textContent =
-      `Coupon applied: ${money(discount)} off`;
-
-    message.style.color =
-      "#286331";
-
-
-    updateCheckoutSummary();
-
-
-  }catch(error){
-
-    console.error(error);
-
-    message.textContent =
-      "Could not apply coupon.";
+    deliveryCharge =
+      Number(settings.freeDelivery || 0);
 
   }
 
+
+  let platformCharge = 0;
+
+
+  if(
+    settings.platformChargeType === "percent"
+  ){
+
+    platformCharge =
+      subtotal *
+      Number(settings.platformCharge || 0) /
+      100;
+
+  }else{
+
+    platformCharge =
+      Number(settings.platformCharge || 0);
+
+  }
+
+
+  const total =
+    subtotal +
+    deliveryCharge +
+    platformCharge;
+
+
+  const box =
+    document.getElementById(
+      "checkoutSummary"
+    );
+
+
+  if(box){
+
+    box.innerHTML = `
+
+      <div class="summary-row">
+
+        <span>Subtotal</span>
+
+        <strong>
+          ${money(subtotal)}
+        </strong>
+
+      </div>
+
+      <div class="summary-row">
+
+        <span>Delivery</span>
+
+        <strong>
+          ${money(deliveryCharge)}
+        </strong>
+
+      </div>
+
+      <div class="summary-row">
+
+        <span>Platform Charge</span>
+
+        <strong>
+          ${money(platformCharge)}
+        </strong>
+
+      </div>
+
+      <div class="summary-row total">
+
+        <span>Total</span>
+
+        <strong>
+          ${money(total)}
+        </strong>
+
+      </div>
+
+    `;
+
+  }
+
+
+  return {
+
+    subtotal,
+
+    deliveryCharge,
+
+    platformCharge,
+
+    total
+
+  };
+
 };
 
-
-/* =========================
-   PLACE ORDER
-========================= */
 
 window.placeOrder = async function(){
 
   if(!currentUser){
 
-    showCheckoutAlert(
-      "Please login first.",
-      "error"
-    );
+    pendingCheckout = true;
+
+    openLogin();
 
     return;
 
@@ -2548,11 +2335,6 @@ window.placeOrder = async function(){
 
 
   if(!cart.length){
-
-    showCheckoutAlert(
-      "Your cart is empty.",
-      "error"
-    );
 
     return;
 
@@ -2560,128 +2342,40 @@ window.placeOrder = async function(){
 
 
   const name =
-    document.getElementById("checkoutName")
-      .value
-      .trim();
-
-
-  const mobile =
-    document.getElementById("checkoutMobile")
-      .value
-      .trim();
-
-
-  const district =
-    document.getElementById("checkoutDistrict")
-      .value;
+    document
+      .getElementById("checkoutName")
+      .value.trim();
 
 
   const address =
-    document.getElementById("checkoutAddress")
-      .value
-      .trim();
-
-
-  if(!name || !mobile || !district || !address){
-
-    showCheckoutAlert(
-      "Please fill in all delivery information.",
-      "error"
-    );
-
-    return;
-
-  }
+    document
+      .getElementById("checkoutAddress")
+      .value.trim();
 
 
   const deliveryType =
-    document.querySelector(
-      'input[name="delivery"]:checked'
-    )?.value
-    ||
-    "standard";
-
-
-  let deliveryCharge = 0;
-
-
-  if(deliveryType === "standard"){
-
-    deliveryCharge = standardDelivery;
-
-  }
-
-  if(deliveryType === "express"){
-
-    deliveryCharge = expressDelivery;
-
-  }
-
-  if(deliveryType === "free"){
-
-    deliveryCharge = freeDelivery;
-
-  }
-
-
-  const deliveryMethod =
-    document.getElementById(
-      "deliveryPaymentMethod"
-    ).value;
-
-
-  const deliveryTransactionId =
-    document.getElementById(
-      "deliveryTransactionId"
-    ).value.trim();
-
-
-  if(
-    deliveryPrepaidRequired
-    &&
-    deliveryCharge > 0
-  ){
-
-    if(
-      !deliveryMethod
-      ||
-      !deliveryTransactionId
-    ){
-
-      showCheckoutAlert(
-        "Please pay the delivery charge first and enter the transaction ID.",
-        "error"
-      );
-
-      return;
-
-    }
-
-  }
+    document
+      .getElementById("deliveryType")
+      .value;
 
 
   const paymentMethod =
-    document.querySelector(
-      'input[name="payment"]:checked'
-    )?.value
-    ||
-    "COD";
+    document
+      .getElementById("paymentMethod")
+      .value;
 
 
-  const productTransactionId =
-    document.getElementById(
-      "productTransactionId"
-    ).value.trim();
+  const transactionId =
+    document
+      .getElementById("transactionId")
+      ?.value
+      .trim() || "";
 
 
-  if(
-    paymentMethod !== "COD"
-    &&
-    !productTransactionId
-  ){
+  if(!name){
 
     showCheckoutAlert(
-      "Please enter the product payment transaction ID.",
+      "নাম দিন।",
       "error"
     );
 
@@ -2690,176 +2384,105 @@ window.placeOrder = async function(){
   }
 
 
-  const subtotal =
-    cartSubtotal();
+  if(!address){
 
-
-  const platform =
-    calculatePlatformCharge(subtotal);
-
-
-  const discount =
-    appliedCoupon
-    ?
-    Number(appliedCoupon.discount || 0)
-    :
-    0;
-
-
-  const total =
-    Math.max(
-      0,
-      subtotal +
-      platform +
-      deliveryCharge -
-      discount
+    showCheckoutAlert(
+      "Delivery address দিন।",
+      "error"
     );
 
+    return;
 
-  const orderItems =
-    cart.map(item => ({
-
-      productId:
-        item.productId,
-
-      productName:
-        item.productName,
-
-      variantId:
-        item.variantId,
-
-      weight:
-        item.weight,
-
-      price:
-        Number(item.price || 0),
-
-      quantity:
-        Number(item.qty || 0),
-
-      lineTotal:
-        Number(item.price || 0) *
-        Number(item.qty || 0)
-
-    }));
+  }
 
 
-  const orderData = {
+  if(
+    (
+      paymentMethod === "bkash" ||
+      paymentMethod === "nagad"
+    ) &&
+    settings.deliveryPrepaidRequired &&
+    deliveryType !== "free" &&
+    !transactionId
+  ){
 
-    customerUid:
-      currentUser.uid,
+    showCheckoutAlert(
+      "Online payment-এর Transaction ID দিন।",
+      "error"
+    );
 
-    customerName:
-      name,
+    return;
 
-    customerMobile:
-      mobile,
+  }
 
-    district:
-      district,
 
-    address:
-      address,
-
-    items:
-      orderItems,
-
-    subtotal:
-      subtotal,
-
-    platformCharge:
-      platform,
-
-    platformChargeType:
-      platformChargeType,
-
-    deliveryType:
-      deliveryType,
-
-    deliveryCharge:
-      deliveryCharge,
-
-    coupon:
-      appliedCoupon
-      ?
-      appliedCoupon.code
-      :
-      null,
-
-    couponDiscount:
-      discount,
-
-    total:
-      total,
-
-    paymentMethod:
-      paymentMethod,
-
-    productTransactionId:
-      paymentMethod === "COD"
-      ?
-      null
-      :
-      productTransactionId,
-
-    deliveryPayment: {
-
-      required:
-        deliveryPrepaidRequired
-        &&
-        deliveryCharge > 0,
-
-      method:
-        deliveryCharge > 0
-        ?
-        deliveryMethod
-        :
-        null,
-
-      transactionId:
-        deliveryCharge > 0
-        ?
-        deliveryTransactionId
-        :
-        null
-
-    },
-
-    status:
-      "pending",
-
-    paymentStatus:
-      paymentMethod === "COD"
-      ?
-      "pending"
-      :
-      "submitted",
-
-    deliveryPaymentStatus:
-      deliveryCharge > 0
-      ?
-      (
-        deliveryPrepaidRequired
-        ?
-        "submitted"
-        :
-        "not_required"
-      )
-      :
-      "not_required",
-
-    createdAt:
-      serverTimestamp()
-
-  };
+  const summary =
+    updateCheckoutSummary();
 
 
   try{
 
-    showCheckoutAlert(
-      "Placing your order...",
-      "success"
-    );
+    const orderData = {
+
+      customerUid:
+        currentUser.uid,
+
+      customerMobile:
+        currentUser.phoneNumber || "",
+
+      customerName:
+        name,
+
+      deliveryAddress:
+        address,
+
+      deliveryType:
+        deliveryType,
+
+      deliveryCharge:
+        summary.deliveryCharge,
+
+      platformCharge:
+        summary.platformCharge,
+
+      subtotal:
+        summary.subtotal,
+
+      total:
+        summary.total,
+
+      paymentMethod:
+        paymentMethod,
+
+      transactionId:
+        transactionId,
+
+      paymentStatus:
+        paymentMethod === "cod"
+          ? "pending"
+          : (
+              transactionId
+                ? "submitted"
+                : "pending"
+            ),
+
+      status:
+        "pending",
+
+      items:
+        cart.map(item => ({
+          productId:item.productId,
+          productName:item.productName,
+          variantId:item.variantId,
+          weight:item.weight,
+          price:item.price,
+          qty:item.qty
+        })),
+
+      createdAt:
+        serverTimestamp()
+
+    };
 
 
     const orderRef =
@@ -2869,81 +2492,229 @@ window.placeOrder = async function(){
       );
 
 
-    try{
-
-      await setDoc(
-        doc(
-          db,
-          "users",
-          currentUser.uid
-        ),
-        {
-
-          fullName:name,
-
-          mobile:mobile,
-
-          district:district,
-
-          address:address,
-
-          updatedAt:
-            serverTimestamp()
-
-        },
-        {
-          merge:true
-        }
-      );
-
-    }catch(profileError){
-
-      console.log(
-        "Profile save skipped:",
-        profileError
-      );
-
-    }
-
-
     cart = [];
 
     saveCart();
 
-    appliedCoupon = null;
+    updateCartCount();
 
 
-    document.getElementById(
-      "couponInput"
-    ).value = "";
-
-
-    document.getElementById(
-      "deliveryTransactionId"
-    ).value = "";
-
-
-    document.getElementById(
-      "productTransactionId"
-    ).value = "";
+    closeModal("checkoutModal");
 
 
     alert(
-      "Order placed successfully!\nOrder ID: " +
+      "Order successfully placed!\nOrder ID: " +
       orderRef.id
     );
 
 
-    closeCheckout();
-
     openOrders();
-
 
   }catch(error){
 
     console.error(error);
 
     showCheckoutAlert(
+      "Order place করা যায়নি: " +
+      error.message,
+      "error"
+    );
+
+  }
+
+};
+
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+window.openLogin = function(){
+
+  renderLoginPhone();
+
+  openModal("loginModal");
+
+};
+
+
+window.closeLogin = function(){
+
+  closeModal("loginModal");
+
+};
+
+
+function renderLoginPhone(){
+
+  document
+    .getElementById("loginContent")
+    .innerHTML = `
+
+      <div class="login-step">
+
+        <h3>
+          Login / Create Account
+        </h3>
+
+        <p>
+          First time হলে mobile number দিয়ে
+          OTP verify করে password তৈরি করুন।
+        </p>
+
+        <input
+          id="loginPhone"
+          type="tel"
+          placeholder="01XXXXXXXXX"
+          autocomplete="tel">
+
+        <div class="login-actions">
+
+          <button
+            class="primary-btn"
+            onclick="sendOTP()">
+
+            Send OTP
+
+          </button>
+
+          <button
+            class="secondary-btn"
+            onclick="renderPasswordLogin()">
+
+            Login with Password
+
+          </button>
+
+        </div>
+
+      </div>
+
+    `;
+
+}
+
+
+function renderPasswordLogin(){
+
+  document
+    .getElementById("loginContent")
+    .innerHTML = `
+
+      <div class="login-step">
+
+        <h3>
+          Password Login
+        </h3>
+
+        <input
+          id="passwordPhone"
+          type="tel"
+          placeholder="01XXXXXXXXX"
+          autocomplete="tel">
+
+        <input
+          id="loginPassword"
+          type="password"
+          placeholder="Password"
+          autocomplete="current-password">
+
+        <div class="login-actions">
+
+          <button
+            class="primary-btn"
+            onclick="passwordLogin()">
+
+            Login
+
+          </button>
+
+          <button
+            class="secondary-btn"
+            onclick="renderLoginPhone()">
+
+            Login with OTP
+
+          </button>
+
+          <button
+            class="secondary-btn"
+            onclick="renderForgotPassword()">
+
+            Forgot Password
+
+          </button>
+
+        </div>
+
+      </div>
+
+    `;
+
+}
+
+
+window.sendOTP = async function(){
+
+  const input =
+    document.getElementById(
+      "loginPhone"
+    );
+
+
+  const phone =
+    normalizePhone(
+      input?.value
+    );
+
+
+  if(!phone){
+
+    showLoginAlert(
+      "Mobile number দিন।",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  if(!/^\+8801[3-9]\d{8}$/.test(phone)){
+
+    showLoginAlert(
+      "সঠিক Bangladesh mobile number দিন।",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  try{
+
+    await setupRecaptcha();
+
+
+    confirmationResult =
+      await signInWithPhoneNumber(
+        auth,
+        phone,
+        recaptchaVerifier
+      );
+
+
+    renderOTPInput(phone);
+
+
+  }catch(error){
+
+    console.error(error);
+
+    resetRecaptcha();
+
+    showLoginAlert(
       getFirebaseError(error),
       "error"
     );
@@ -2953,24 +2724,754 @@ window.placeOrder = async function(){
 };
 
 
-function showCheckoutAlert(message,type){
+async function setupRecaptcha(){
 
-  const box =
-    document.getElementById(
-      "checkoutAlert"
+  if(recaptchaVerifier){
+
+    return;
+
+  }
+
+
+  recaptchaVerifier =
+    new RecaptchaVerifier(
+      auth,
+      "recaptcha-container",
+      {
+
+        size:"invisible",
+
+        callback: () => {
+
+          console.log(
+            "reCAPTCHA solved."
+          );
+
+        },
+
+        "expired-callback": () => {
+
+          resetRecaptcha();
+
+        }
+
+      }
     );
-
-  box.textContent = message;
-
-  box.className =
-    "alert show " + type;
 
 }
 
 
-/* =========================
+function resetRecaptcha(){
+
+  try{
+
+    if(recaptchaVerifier){
+
+      recaptchaVerifier.clear();
+
+    }
+
+  }catch(error){
+
+    console.error(error);
+
+  }
+
+  recaptchaVerifier = null;
+
+}
+
+
+function renderOTPInput(phone){
+
+  document
+    .getElementById("loginContent")
+    .innerHTML = `
+
+      <div class="login-step">
+
+        <h3>
+          Verify OTP
+        </h3>
+
+        <p>
+          OTP পাঠানো হয়েছে:
+          <strong>${escapeHtml(phone)}</strong>
+        </p>
+
+        <input
+          id="otpInput"
+          type="text"
+          inputmode="numeric"
+          maxlength="6"
+          placeholder="6 digit OTP"
+          autocomplete="one-time-code">
+
+        <div class="login-actions">
+
+          <button
+            class="primary-btn"
+            onclick="verifyOTP()">
+
+            Verify OTP
+
+          </button>
+
+          <button
+            class="secondary-btn"
+            onclick="renderLoginPhone()">
+
+            Back
+
+          </button>
+
+        </div>
+
+      </div>
+
+    `;
+
+}
+
+
+window.verifyOTP = async function(){
+
+  const otpInput =
+    document.getElementById(
+      "otpInput"
+    );
+
+
+  if(!otpInput){
+
+    return;
+
+  }
+
+
+  const otp =
+    otpInput.value.trim();
+
+
+  if(!/^\d{6}$/.test(otp)){
+
+    showLoginAlert(
+      "৬ সংখ্যার OTP দিন।",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  if(!confirmationResult){
+
+    showLoginAlert(
+      "OTP session পাওয়া যায়নি। আবার OTP নিন।",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  try{
+
+    const result =
+      await confirmationResult.confirm(
+        otp
+      );
+
+
+    currentUser =
+      result.user;
+
+
+    resetRecaptcha();
+
+
+    const userRef =
+      doc(
+        db,
+        "users",
+        currentUser.uid
+      );
+
+
+    const userSnap =
+      await getDoc(userRef);
+
+
+    if(
+      userSnap.exists() &&
+      userSnap.data().hasPassword === true
+    ){
+
+      closeLogin();
+
+
+      if(pendingCheckout){
+
+        pendingCheckout = false;
+
+        openCheckout();
+
+      }
+
+      return;
+
+    }
+
+
+    renderSetPassword();
+
+
+  }catch(error){
+
+    console.error(error);
+
+    showLoginAlert(
+      getFirebaseError(error),
+      "error"
+    );
+
+  }
+
+};
+
+
+/* =========================================================
+   FIRST TIME PASSWORD
+========================================================= */
+
+function renderSetPassword(){
+
+  document
+    .getElementById("loginContent")
+    .innerHTML = `
+
+      <div class="login-step">
+
+        <h3>
+          Create your password
+        </h3>
+
+        <p>
+          OTP verification successful.
+          এখন আপনার account-এর জন্য
+          একটি password সেট করুন।
+        </p>
+
+        <input
+          id="newPassword"
+          type="password"
+          placeholder="Create password"
+          autocomplete="new-password">
+
+        <input
+          id="confirmPassword"
+          type="password"
+          placeholder="Confirm password"
+          autocomplete="new-password">
+
+        <button
+          class="primary-btn"
+          style="width:100%;margin-top:5px;"
+          onclick="saveNewPassword()">
+
+          Create Account
+
+        </button>
+
+      </div>
+
+    `;
+
+}
+
+
+window.saveNewPassword = async function(){
+
+  const password =
+    document
+      .getElementById("newPassword")
+      ?.value
+      .trim();
+
+
+  const confirmPassword =
+    document
+      .getElementById("confirmPassword")
+      ?.value
+      .trim();
+
+
+  if(!password || !confirmPassword){
+
+    showLoginAlert(
+      "দুইটি password field পূরণ করুন।",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  if(password.length < 6){
+
+    showLoginAlert(
+      "Password কমপক্ষে ৬ অক্ষরের হতে হবে।",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  if(password !== confirmPassword){
+
+    showLoginAlert(
+      "দুইটি password একই নয়।",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  if(!currentUser){
+
+    showLoginAlert(
+      "Session পাওয়া যায়নি। আবার OTP দিয়ে চেষ্টা করুন।",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  try{
+
+    const email =
+      phoneToEmail(
+        currentUser.phoneNumber
+      );
+
+
+    const credential =
+      EmailAuthProvider.credential(
+        email,
+        password
+      );
+
+
+    await linkWithCredential(
+      currentUser,
+      credential
+    );
+
+
+    await setDoc(
+      doc(
+        db,
+        "users",
+        currentUser.uid
+      ),
+      {
+
+        uid:
+          currentUser.uid,
+
+        mobile:
+          currentUser.phoneNumber || "",
+
+        email:
+          email,
+
+        hasPassword:
+          true,
+
+        createdAt:
+          serverTimestamp(),
+
+        updatedAt:
+          serverTimestamp()
+
+      },
+      {
+        merge:true
+      }
+    );
+
+
+    showLoginAlert(
+      "Account successfully created!",
+      "success"
+    );
+
+
+    setTimeout(() => {
+
+      closeLogin();
+
+
+      if(pendingCheckout){
+
+        pendingCheckout = false;
+
+        openCheckout();
+
+      }
+
+    },800);
+
+
+  }catch(error){
+
+    console.error(error);
+
+    showLoginAlert(
+      getFirebaseError(error),
+      "error"
+    );
+
+  }
+
+};
+
+
+/* =========================================================
+   PASSWORD LOGIN
+========================================================= */
+
+window.passwordLogin = async function(){
+
+  const phone =
+    normalizePhone(
+      document
+        .getElementById("passwordPhone")
+        ?.value
+    );
+
+
+  const password =
+    document
+      .getElementById("loginPassword")
+      ?.value
+      .trim();
+
+
+  if(!phone){
+
+    showLoginAlert(
+      "Mobile number দিন।",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  if(!password){
+
+    showLoginAlert(
+      "Password দিন।",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  try{
+
+    const email =
+      phoneToEmail(phone);
+
+
+    await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+
+
+    closeLogin();
+
+
+    if(pendingCheckout){
+
+      pendingCheckout = false;
+
+      openCheckout();
+
+    }
+
+
+  }catch(error){
+
+    console.error(error);
+
+    showLoginAlert(
+      getFirebaseError(error),
+      "error"
+    );
+
+  }
+
+};
+
+
+/* =========================================================
+   FORGOT PASSWORD
+========================================================= */
+
+function renderForgotPassword(){
+
+  document
+    .getElementById("loginContent")
+    .innerHTML = `
+
+      <div class="login-step">
+
+        <h3>
+          Forgot Password
+        </h3>
+
+        <p>
+          আপনার mobile number দিয়ে OTP
+          verification শুরু করুন।
+        </p>
+
+        <input
+          id="forgotPhone"
+          type="tel"
+          placeholder="01XXXXXXXXX">
+
+        <div class="login-actions">
+
+          <button
+            class="primary-btn"
+            onclick="sendForgotOTP()">
+
+            Send OTP
+
+          </button>
+
+          <button
+            class="secondary-btn"
+            onclick="renderPasswordLogin()">
+
+            Back
+
+          </button>
+
+        </div>
+
+        <p style="
+          margin-top:15px;
+          font-size:13px;
+        ">
+
+          নিরাপদ production password reset-এর
+          জন্য পরে backend verification যুক্ত
+          করতে হবে।
+
+        </p>
+
+      </div>
+
+    `;
+
+}
+
+
+window.sendForgotOTP = async function(){
+
+  const phone =
+    normalizePhone(
+      document
+        .getElementById("forgotPhone")
+        ?.value
+    );
+
+
+  if(!/^\+8801[3-9]\d{8}$/.test(phone)){
+
+    showLoginAlert(
+      "সঠিক Bangladesh mobile number দিন।",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  try{
+
+    await setupRecaptcha();
+
+
+    confirmationResult =
+      await signInWithPhoneNumber(
+        auth,
+        phone,
+        recaptchaVerifier
+      );
+
+
+    document
+      .getElementById("loginContent")
+      .innerHTML = `
+
+        <div class="login-step">
+
+          <h3>
+            Verify OTP
+          </h3>
+
+          <p>
+            OTP পাঠানো হয়েছে:
+            ${escapeHtml(phone)}
+          </p>
+
+          <input
+            id="forgotOtp"
+            inputmode="numeric"
+            maxlength="6"
+            placeholder="6 digit OTP">
+
+          <button
+            class="primary-btn"
+            style="width:100%;"
+            onclick="verifyForgotOTP()">
+
+            Verify OTP
+
+          </button>
+
+        </div>
+
+      `;
+
+
+  }catch(error){
+
+    resetRecaptcha();
+
+    showLoginAlert(
+      getFirebaseError(error),
+      "error"
+    );
+
+  }
+
+};
+
+
+window.verifyForgotOTP = async function(){
+
+  const otp =
+    document
+      .getElementById("forgotOtp")
+      ?.value
+      .trim();
+
+
+  if(!/^\d{6}$/.test(otp)){
+
+    showLoginAlert(
+      "সঠিক ৬ digit OTP দিন।",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  try{
+
+    const result =
+      await confirmationResult.confirm(
+        otp
+      );
+
+
+    currentUser =
+      result.user;
+
+
+    resetRecaptcha();
+
+
+    document
+      .getElementById("loginContent")
+      .innerHTML = `
+
+        <div class="login-step">
+
+          <h3>
+            OTP Verified
+          </h3>
+
+          <p>
+            OTP verification successful।
+          </p>
+
+          <p style="font-size:13px;">
+            Password reset-এর secure server-side
+            flow পরবর্তী backend version-এ যুক্ত
+            করা হবে।
+          </p>
+
+          <button
+            class="primary-btn"
+            style="width:100%;"
+            onclick="renderSetPassword()">
+
+            Continue
+
+          </button>
+
+        </div>
+
+      `;
+
+
+  }catch(error){
+
+    showLoginAlert(
+      getFirebaseError(error),
+      "error"
+    );
+
+  }
+
+};
+
+
+/* =========================================================
    ACCOUNT
-========================= */
+========================================================= */
+
+window.openAccount = function(){
+
+  renderAccount();
+
+  openModal("accountModal");
+
+};
+
 
 async function renderAccount(){
 
@@ -2986,14 +3487,20 @@ async function renderAccount(){
 
       <div class="empty">
 
-        <p>You are not logged in.</p>
+        <p>
+          You are not logged in.
+        </p>
 
         <button
-          class="primary"
-          style="margin-top:15px;"
-          onclick="openLogin()"
-        >
-          Login / Create Account
+          class="primary-btn"
+          style="margin-top:12px;"
+          onclick="
+            closeModal('accountModal');
+            openLogin();
+          ">
+
+          Login
+
         </button>
 
       </div>
@@ -3005,7 +3512,7 @@ async function renderAccount(){
   }
 
 
-  let profile = {};
+  let userData = {};
 
 
   try{
@@ -3022,70 +3529,82 @@ async function renderAccount(){
 
     if(snap.exists()){
 
-      profile = snap.data();
+      userData =
+        snap.data();
 
     }
 
   }catch(error){
 
-    console.log(error);
+    console.error(error);
 
   }
 
 
   box.innerHTML = `
 
-    <div class="order-card">
+    <div class="summary">
 
-      <strong>
-        ${escapeHtml(
-          profile.fullName
-          ||
-          "NatureBite Customer"
-        )}
-      </strong>
+      <div class="summary-row">
 
-      <p style="margin-top:8px;">
-        ${escapeHtml(
-          currentUser.phoneNumber
-          ||
-          profile.mobile
-          ||
-          ""
-        )}
-      </p>
+        <span>Mobile</span>
 
-      ${
-        profile.address
-        ?
-        `<p style="margin-top:6px;">
-          ${escapeHtml(profile.address)}
-        </p>`
-        :
-        ""
-      }
+        <strong>
+          ${escapeHtml(
+            currentUser.phoneNumber || ""
+          )}
+        </strong>
+
+      </div>
+
+      <div class="summary-row">
+
+        <span>Password Login</span>
+
+        <strong>
+          ${
+            userData.hasPassword
+              ? "Enabled"
+              : "Not Set"
+          }
+        </strong>
+
+      </div>
 
     </div>
 
-    <button
-      class="secondary"
-      style="width:100%;"
-      onclick="openOrders();closeAccount();"
-    >
-      📦 My Orders
-    </button>
 
     <button
-      class="secondary"
-      style="width:100%;margin-top:8px;"
-      onclick="logoutUser()"
-    >
+      class="primary-btn"
+      style="width:100%;margin-top:15px;"
+      onclick="openOrdersFromAccount()">
+
+      My Orders
+
+    </button>
+
+
+    <button
+      class="danger-btn"
+      style="width:100%;margin-top:10px;"
+      onclick="logoutUser()">
+
       Logout
+
     </button>
 
   `;
 
 }
+
+
+window.openOrdersFromAccount = function(){
+
+  closeModal("accountModal");
+
+  openOrders();
+
+};
 
 
 window.logoutUser = async function(){
@@ -3094,24 +3613,30 @@ window.logoutUser = async function(){
 
     await signOut(auth);
 
-    closeAccount();
+    currentUser = null;
 
-    alert("Logged out successfully.");
+    closeModal("accountModal");
+
+    alert("Logout successful.");
 
   }catch(error){
 
-    console.error(error);
+    alert(
+      getFirebaseError(error)
+    );
 
   }
 
 };
 
 
-/* =========================
+/* =========================================================
    ORDERS
-========================= */
+========================================================= */
 
-async function renderOrders(){
+window.openOrders = async function(){
+
+  openModal("ordersModal");
 
   const box =
     document.getElementById(
@@ -3125,14 +3650,20 @@ async function renderOrders(){
 
       <div class="empty">
 
-        <p>Please login to see your orders.</p>
+        <p>
+          Login করুন আপনার orders দেখতে।
+        </p>
 
         <button
-          class="primary"
-          style="margin-top:15px;"
-          onclick="openLogin()"
-        >
+          class="primary-btn"
+          style="margin-top:12px;"
+          onclick="
+            closeModal('ordersModal');
+            openLogin();
+          ">
+
           Login
+
         </button>
 
       </div>
@@ -3144,10 +3675,11 @@ async function renderOrders(){
   }
 
 
-  box.innerHTML =
-    `<div class="loading">
+  box.innerHTML = `
+    <div class="empty">
       Loading orders...
-    </div>`;
+    </div>
+  `;
 
 
   try{
@@ -3173,10 +3705,11 @@ async function renderOrders(){
 
     if(snap.empty){
 
-      box.innerHTML =
-        `<div class="empty">
-          You have no orders yet.
-        </div>`;
+      box.innerHTML = `
+        <div class="empty">
+          No orders yet.
+        </div>
+      `;
 
       return;
 
@@ -3186,19 +3719,44 @@ async function renderOrders(){
     box.innerHTML = "";
 
 
-    snap.forEach(item => {
+    snap.forEach(orderSnap => {
 
-      const data =
-        item.data();
+      const order =
+        orderSnap.data();
 
 
-      const date =
-        data.createdAt?.toDate
-        ?
-        data.createdAt.toDate()
-          .toLocaleString("en-BD")
-        :
-        "Recently";
+      const items =
+        Array.isArray(order.items)
+          ? order.items
+          : [];
+
+
+      const itemsHtml =
+        items.map(item => `
+
+          <div style="
+            padding:5px 0;
+            font-size:14px;
+          ">
+
+            ${escapeHtml(
+              item.productName || ""
+            )}
+
+            ×
+            ${item.qty || 0}
+
+            ${
+              item.weight
+                ? " (" +
+                  escapeHtml(item.weight) +
+                  ")"
+                : ""
+            }
+
+          </div>
+
+        `).join("");
 
 
       const card =
@@ -3208,43 +3766,55 @@ async function renderOrders(){
         "order-card";
 
 
-      const itemsText =
-        Array.isArray(data.items)
-        ?
-        data.items.map(
-          x =>
-            `${x.productName} (${x.weight}) × ${x.quantity}`
-        ).join("<br>")
-        :
-        "";
-
-
       card.innerHTML = `
 
-        <div style="display:flex;justify-content:space-between;gap:10px;">
+        <div class="order-header">
 
           <strong>
-            Order #${escapeHtml(item.id.slice(-8))}
+            Order #${escapeHtml(
+              orderSnap.id
+                .slice(-8)
+            )}
           </strong>
 
           <span class="status">
-            ${escapeHtml(data.status || "pending")}
+            ${escapeHtml(
+              order.status || "pending"
+            )}
           </span>
 
         </div>
 
-        <div style="margin-top:10px;font-size:13px;color:#6d746c;">
-          ${date}
+
+        <div>
+          ${itemsHtml}
         </div>
 
-        <div style="margin-top:10px;line-height:1.6;">
-          ${itemsText}
-        </div>
 
-        <div style="margin-top:10px;">
-          <strong>Total:
-            ${money(data.total)}
-          </strong>
+        <div class="summary">
+
+          <div class="summary-row">
+
+            <span>Total</span>
+
+            <strong>
+              ${money(order.total)}
+            </strong>
+
+          </div>
+
+          <div class="summary-row">
+
+            <span>Payment</span>
+
+            <span>
+              ${escapeHtml(
+                order.paymentMethod || ""
+              )}
+            </span>
+
+          </div>
+
         </div>
 
       `;
@@ -3259,23 +3829,17 @@ async function renderOrders(){
 
     console.error(error);
 
-    /*
-      Firestore may require an index for
-      where(customerUid) + orderBy(createdAt).
-    */
-
     box.innerHTML = `
 
       <div class="empty">
 
-        <p>
-          Orders could not be loaded.
-        </p>
+        Orders load করা যায়নি।
 
-        <p style="margin-top:8px;font-size:13px;">
-          If Firebase asks for a Firestore index,
-          create the suggested index.
-        </p>
+        <br><br>
+
+        Firebase যদি index তৈরি করতে বলে,
+        Firebase Console-এর দেওয়া index link
+        থেকে index create করুন।
 
       </div>
 
@@ -3283,770 +3847,12 @@ async function renderOrders(){
 
   }
 
-}
-
-
-/* =========================
-   LOGIN SYSTEM
-========================= */
-
-let recaptchaVerifier = null;
-let confirmationResult = null;
-
-let loginMode = "phone";
-let loginPurpose = "login";
-
-let pendingPhone = "";
-
-
-/*
-  Hidden email generated from phone.
-  This is only used as an internal Firebase
-  Email/Password credential.
-*/
-
-function phoneToEmail(phone){
-
-  const clean =
-    String(phone || "")
-      .replace(/\D/g,"");
-
-  return (
-    "user_" +
-    clean +
-    "@naturebite.customer"
-  );
-
-}
-
-
-window.openLogin = function(purpose="login"){
-
-  loginPurpose = purpose;
-
-  renderLoginPhone();
-
-  showModal("loginModal");
-
 };
 
 
-function renderLoginPhone(){
-
-  loginMode = "phone";
-
-  document.getElementById(
-    "loginContent"
-  ).innerHTML = `
-
-    <div class="form-group">
-
-      <label>Mobile Number</label>
-
-      <input
-        id="loginPhone"
-        type="tel"
-        placeholder="01XXXXXXXXX"
-      >
-
-    </div>
-
-    <button
-      class="primary"
-      onclick="sendOTP()"
-    >
-      Send OTP
-    </button>
-
-    <div style="margin-top:14px;text-align:center;">
-
-      <button
-        class="secondary"
-        onclick="renderPasswordLogin()"
-      >
-        Login with Password
-      </button>
-
-    </div>
-
-  `;
-
-}
-
-
-window.renderPasswordLogin = function(){
-
-  loginMode = "password";
-
-  document.getElementById(
-    "loginContent"
-  ).innerHTML = `
-
-    <div class="form-group">
-
-      <label>Mobile Number</label>
-
-      <input
-        id="passwordPhone"
-        type="tel"
-        placeholder="01XXXXXXXXX"
-      >
-
-    </div>
-
-    <div class="form-group">
-
-      <label>Password</label>
-
-      <input
-        id="passwordLogin"
-        type="password"
-        placeholder="Enter password"
-      >
-
-    </div>
-
-    <button
-      class="primary"
-      onclick="passwordLogin()"
-    >
-      Login
-    </button>
-
-    <button
-      class="secondary"
-      style="width:100%;margin-top:8px;"
-      onclick="renderLoginPhone()"
-    >
-      Login with OTP
-    </button>
-
-    <button
-      class="secondary"
-      style="width:100%;margin-top:8px;"
-      onclick="renderForgotPassword()"
-    >
-      Forgot Password
-    </button>
-
-  `;
-
-};
-
-
-window.renderForgotPassword = function(){
-
-  document.getElementById(
-    "loginContent"
-  ).innerHTML = `
-
-    <p style="margin-bottom:15px;">
-      Enter your mobile number and verify with OTP
-      to continue.
-    </p>
-
-    <div class="form-group">
-
-      <label>Mobile Number</label>
-
-      <input
-        id="forgotPhone"
-        type="tel"
-        placeholder="01XXXXXXXXX"
-      >
-
-    </div>
-
-    <button
-      class="primary"
-      onclick="sendForgotOTP()"
-    >
-      Send OTP
-    </button>
-
-    <button
-      class="secondary"
-      style="width:100%;margin-top:8px;"
-      onclick="renderPasswordLogin()"
-    >
-      Back
-    </button>
-
-  `;
-
-};
-
-
-window.sendOTP = async function(){
-
-  const phone =
-    document.getElementById(
-      "loginPhone"
-    ).value.trim();
-
-
-  if(!phone){
-
-    showLoginAlert(
-      "Enter your mobile number.",
-      "error"
-    );
-
-    return;
-
-  }
-
-
-  const formatted =
-    normalizePhone(phone);
-
-
-  try{
-
-    await setupRecaptcha();
-
-
-    confirmationResult =
-      await signInWithPhoneNumber(
-        auth,
-        formatted,
-        recaptchaVerifier
-      );
-
-
-    pendingPhone = formatted;
-
-
-    renderOTPInput();
-
-
-  }catch(error){
-
-    console.error(error);
-
-    showLoginAlert(
-      getFirebaseError(error),
-      "error"
-    );
-
-    resetRecaptcha();
-
-  }
-
-};
-
-
-function renderOTPInput(){
-
-  document.getElementById(
-    "loginContent"
-  ).innerHTML = `
-
-    <p style="margin-bottom:15px;">
-      We sent an OTP to
-      <strong>${escapeHtml(pendingPhone)}</strong>
-    </p>
-
-    <div class="form-group">
-
-      <label>OTP</label>
-
-      <input
-        id="otpInput"
-        type="number"
-        inputmode="numeric"
-        placeholder="Enter 6 digit OTP"
-      >
-
-    </div>
-
-    <button
-      class="primary"
-      onclick="verifyOTP()"
-    >
-      Verify OTP
-    </button>
-
-  `;
-
-}
-
-
-window.verifyOTP = async function(){
-
-  const otp =
-    document.getElementById(
-      "otpInput"
-    ).value.trim();
-
-
-  if(!otp){
-
-    showLoginAlert(
-      "Enter the OTP.",
-      "error"
-    );
-
-    return;
-
-  }
-
-
-  try{
-
-    const result =
-      await confirmationResult.confirm(otp);
-
-
-    currentUser =
-      result.user;
-
-
-    closeLogin();
-
-
-    /*
-      First-time phone users can continue
-      with their phone account.
-    */
-
-    if(loginPurpose === "checkout"){
-
-      startCheckout();
-
-    }else{
-
-      alert("Login successful.");
-
-    }
-
-
-  }catch(error){
-
-    console.error(error);
-
-    showLoginAlert(
-      getFirebaseError(error),
-      "error"
-    );
-
-  }
-
-};
-
-
-/* =========================
-   PASSWORD LOGIN
-========================= */
-
-window.passwordLogin = async function(){
-
-  const phone =
-    document.getElementById(
-      "passwordPhone"
-    ).value.trim();
-
-
-  const password =
-    document.getElementById(
-      "passwordLogin"
-    ).value;
-
-
-  if(!phone || !password){
-
-    showLoginAlert(
-      "Enter mobile number and password.",
-      "error"
-    );
-
-    return;
-
-  }
-
-
-  try{
-
-    const email =
-      phoneToEmail(
-        normalizePhone(phone)
-      );
-
-
-    const result =
-      await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-
-
-    currentUser =
-      result.user;
-
-
-    closeLogin();
-
-
-    if(loginPurpose === "checkout"){
-
-      startCheckout();
-
-    }else{
-
-      alert("Login successful.");
-
-    }
-
-
-  }catch(error){
-
-    console.error(error);
-
-    showLoginAlert(
-      getFirebaseError(error),
-      "error"
-    );
-
-  }
-
-};
-
-
-/* =========================
-   PASSWORD LINK
-========================= */
-
-window.setAccountPassword = async function(){
-
-  if(!currentUser){
-
-    alert("Please login with OTP first.");
-
-    return;
-
-  }
-
-
-  const password =
-    document.getElementById(
-      "newPassword"
-    ).value;
-
-
-  const confirm =
-    document.getElementById(
-      "confirmPassword"
-    ).value;
-
-
-  if(!password || password.length < 6){
-
-    alert(
-      "Password must be at least 6 characters."
-    );
-
-    return;
-
-  }
-
-
-  if(password !== confirm){
-
-    alert("Passwords do not match.");
-
-    return;
-
-  }
-
-
-  try{
-
-    const credential =
-      EmailAuthProvider.credential(
-        phoneToEmail(
-          currentUser.phoneNumber
-        ),
-        password
-      );
-
-
-    await linkWithCredential(
-      currentUser,
-      credential
-    );
-
-
-    alert(
-      "Password created successfully."
-    );
-
-
-    renderAccount();
-
-
-  }catch(error){
-
-    console.error(error);
-
-    if(
-      error.code ===
-      "auth/provider-already-linked"
-    ){
-
-      alert(
-        "A password login is already linked to this account."
-      );
-
-    }else{
-
-      alert(
-        getFirebaseError(error)
-      );
-
-    }
-
-  }
-
-};
-
-
-/*
-  Forgot password:
-  Firebase client-side Email/Password accounts
-  cannot safely have their password reset only
-  by confirming phone OTP.
-
-  For a production-grade phone+password reset,
-  a trusted backend / Cloud Function is recommended.
-*/
-
-window.sendForgotOTP = async function(){
-
-  const phone =
-    document.getElementById(
-      "forgotPhone"
-    ).value.trim();
-
-
-  if(!phone){
-
-    showLoginAlert(
-      "Enter your mobile number.",
-      "error"
-    );
-
-    return;
-
-  }
-
-
-  const formatted =
-    normalizePhone(phone);
-
-
-  try{
-
-    await setupRecaptcha();
-
-
-    confirmationResult =
-      await signInWithPhoneNumber(
-        auth,
-        formatted,
-        recaptchaVerifier
-      );
-
-
-    pendingPhone = formatted;
-
-
-    document.getElementById(
-      "loginContent"
-    ).innerHTML = `
-
-      <p style="margin-bottom:15px;">
-        OTP sent to
-        <strong>${escapeHtml(formatted)}</strong>
-      </p>
-
-      <div class="form-group">
-
-        <label>OTP</label>
-
-        <input
-          id="forgotOtp"
-          type="number"
-          inputmode="numeric"
-          placeholder="Enter OTP"
-        >
-
-      </div>
-
-      <button
-        class="primary"
-        onclick="verifyForgotOTP()"
-      >
-        Verify OTP
-      </button>
-
-    `;
-
-
-  }catch(error){
-
-    console.error(error);
-
-    showLoginAlert(
-      getFirebaseError(error),
-      "error"
-    );
-
-    resetRecaptcha();
-
-  }
-
-};
-
-
-window.verifyForgotOTP = async function(){
-
-  const otp =
-    document.getElementById(
-      "forgotOtp"
-    ).value.trim();
-
-
-  try{
-
-    const result =
-      await confirmationResult.confirm(otp);
-
-
-    currentUser =
-      result.user;
-
-
-    /*
-      We deliberately do not pretend that
-      OTP verification alone securely resets
-      an existing email/password credential.
-    */
-
-    document.getElementById(
-      "loginContent"
-    ).innerHTML = `
-
-      <div class="alert show success">
-        OTP verified successfully.
-      </div>
-
-      <p style="margin-top:12px;line-height:1.6;">
-        Your phone has been verified.
-        If this account already has a password,
-        password reset requires a trusted backend
-        flow. You can continue using OTP login.
-      </p>
-
-      <button
-        class="primary"
-        style="margin-top:15px;"
-        onclick="closeLogin()"
-      >
-        Continue
-      </button>
-
-    `;
-
-
-  }catch(error){
-
-    console.error(error);
-
-    showLoginAlert(
-      getFirebaseError(error),
-      "error"
-    );
-
-  }
-
-};
-
-
-/* =========================
-   RECAPTCHA
-========================= */
-
-async function setupRecaptcha(){
-
-  if(recaptchaVerifier){
-
-    return;
-
-  }
-
-
-  recaptchaVerifier =
-    new RecaptchaVerifier(
-      auth,
-      "recaptcha-container",
-      {
-
-        size:"invisible",
-
-        callback: () => {
-          console.log("reCAPTCHA solved.");
-        },
-
-        "expired-callback": () => {
-          resetRecaptcha();
-        }
-
-      }
-    );
-
-}
-
-
-function resetRecaptcha(){
-
-  try{
-
-    if(recaptchaVerifier){
-
-      recaptchaVerifier.clear();
-
-    }
-
-  }catch(error){
-
-    console.log(error);
-
-  }
-
-  recaptchaVerifier = null;
-
-}
-
-
-function showLoginAlert(message,type){
-
-  const box =
-    document.getElementById(
-      "loginAlert"
-    );
-
-  box.textContent = message;
-
-  box.className =
-    "alert show " + type;
-
-}
-
-
-/* =========================
+/* =========================================================
    AUTH STATE
-========================= */
+========================================================= */
 
 onAuthStateChanged(
   auth,
@@ -4054,11 +3860,8 @@ onAuthStateChanged(
 
     currentUser = user;
 
-    if(user){
 
-      /*
-        Create basic user document if needed.
-      */
+    if(user){
 
       try{
 
@@ -4070,8 +3873,10 @@ onAuthStateChanged(
           ),
           {
 
+            uid:user.uid,
+
             mobile:
-              user.phoneNumber || null,
+              user.phoneNumber || "",
 
             updatedAt:
               serverTimestamp()
@@ -4084,8 +3889,8 @@ onAuthStateChanged(
 
       }catch(error){
 
-        console.log(
-          "User profile initialization:",
+        console.error(
+          "User save error:",
           error
         );
 
@@ -4097,135 +3902,13 @@ onAuthStateChanged(
 );
 
 
-/* =========================
-   PHONE FORMAT
-========================= */
-
-function normalizePhone(phone){
-
-  let value =
-    String(phone || "")
-      .trim()
-      .replace(/[\s-]/g,"");
-
-
-  if(value.startsWith("01")){
-
-    return "+880" +
-      value.substring(1);
-
-  }
-
-
-  if(value.startsWith("8801")){
-
-    return "+" + value;
-
-  }
-
-
-  if(value.startsWith("+880")){
-
-    return value;
-
-  }
-
-
-  return value;
-
-}
-
-
-/* =========================
-   ESCAPE
-========================= */
-
-function escapeHtml(value){
-
-  return String(value ?? "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
-
-}
-
-
-function escapeJs(value){
-
-  return String(value ?? "")
-    .replace(/\\/g,"\\\\")
-    .replace(/'/g,"\\'")
-    .replace(/"/g,"&quot;");
-
-}
-
-
-/* =========================
-   FIREBASE ERROR
-========================= */
-
-function getFirebaseError(error){
-
-  const code =
-    error?.code || "";
-
-
-  const messages = {
-
-    "auth/invalid-phone-number":
-      "Invalid phone number.",
-
-    "auth/too-many-requests":
-      "Too many attempts. Please try again later.",
-
-    "auth/invalid-verification-code":
-      "Invalid OTP.",
-
-    "auth/code-expired":
-      "OTP expired. Please request a new OTP.",
-
-    "auth/invalid-credential":
-      "Invalid mobile number or password.",
-
-    "auth/user-not-found":
-      "No account found with this login.",
-
-    "auth/wrong-password":
-      "Incorrect password.",
-
-    "auth/operation-not-allowed":
-      "This Firebase authentication method is not enabled.",
-
-    "auth/provider-already-linked":
-      "This login method is already linked.",
-
-    "auth/requires-recent-login":
-      "Please login again and try again.",
-
-    "auth/email-already-in-use":
-      "This account already has a password login."
-
-  };
-
-
-  return (
-    messages[code]
-    ||
-    error?.message
-    ||
-    "Something went wrong."
-  );
-
-}
-
-
-/* =========================
-   INITIALIZE
-========================= */
+/* =========================================================
+   INIT
+========================================================= */
 
 async function init(){
+
+  loadCart();
 
   updateCartCount();
 
@@ -4233,9 +3916,13 @@ async function init(){
 
   await loadCategories();
 
+  await loadProducts();
+
   await loadVariants();
 
-  await loadProducts();
+  renderCategories();
+
+  filterProducts();
 
 }
 
@@ -4245,4 +3932,4 @@ init();
 </script>
 
 </body>
-</html>
+</html>ফ

@@ -976,6 +976,8 @@ footer{
 
     <div id="loginContent"></div>
 
+    <div id="recaptcha-container"></div>
+    
   </div>
 
 </div>
@@ -3987,7 +3989,7 @@ async function setupRecaptcha(){
   recaptchaVerifier =
     new RecaptchaVerifier(
       auth,
-      "loginContent",
+      "recaptcha-container",
       {
 
         size:"invisible",

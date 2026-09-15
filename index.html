@@ -3,12 +3,11 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>NatureBite</title>
 
-<meta name="theme-color" content="#234d32">
+<meta name="theme-color" content="#285936">
 
 <style>
 
@@ -24,10 +23,7 @@ body{
   color:#26352a;
 }
 
-button,
-input,
-select,
-textarea{
+button,input,select,textarea{
   font:inherit;
 }
 
@@ -40,7 +36,7 @@ button{
   top:0;
   z-index:50;
   background:#fff;
-  border-bottom:1px solid #e6e1d7;
+  border-bottom:1px solid #e5e0d7;
 }
 
 .nav{
@@ -50,13 +46,13 @@ button{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:15px;
+  gap:10px;
 }
 
 .logo{
   font-size:25px;
   font-weight:800;
-  color:#245333;
+  color:#285936;
 }
 
 .logo span{
@@ -65,19 +61,15 @@ button{
 
 .nav-actions{
   display:flex;
-  gap:8px;
+  gap:6px;
 }
 
 .nav-btn{
   border:0;
-  background:#f1f5ef;
-  color:#245333;
-  border-radius:12px;
-  padding:9px 12px;
-}
-
-.nav-btn:hover{
-  background:#e4eee3;
+  background:#edf3eb;
+  color:#285936;
+  border-radius:11px;
+  padding:9px 10px;
 }
 
 .container{
@@ -87,56 +79,49 @@ button{
 }
 
 .hero{
-  background:linear-gradient(
-    135deg,
-    #e9f0e4,
-    #f8f1df
-  );
-  border-radius:25px;
+  background:linear-gradient(135deg,#e9f0e4,#f8f1df);
+  border-radius:24px;
   padding:40px 25px;
-  margin-bottom:25px;
+  margin-bottom:22px;
 }
 
 .hero h1{
-  color:#234d32;
   font-size:36px;
+  color:#285936;
   margin-bottom:10px;
 }
 
 .hero p{
-  color:#566257;
-  max-width:600px;
+  color:#5e695f;
   line-height:1.6;
 }
 
 .search-box{
-  display:flex;
-  gap:10px;
-  margin-bottom:20px;
+  margin-bottom:18px;
 }
 
 .search-box input{
-  flex:1;
+  width:100%;
   padding:14px;
   border:1px solid #ddd7ca;
   border-radius:13px;
-  outline:none;
   background:white;
+  outline:none;
 }
 
 .categories{
   display:flex;
   gap:8px;
   overflow-x:auto;
-  padding-bottom:8px;
-  margin-bottom:22px;
+  margin-bottom:24px;
+  padding-bottom:5px;
 }
 
 .category-btn{
   white-space:nowrap;
   border:1px solid #cbd7c7;
   background:white;
-  color:#31563b;
+  color:#285936;
   padding:9px 14px;
   border-radius:20px;
 }
@@ -147,33 +132,31 @@ button{
 }
 
 .section-title{
-  font-size:24px;
-  color:#284c31;
+  color:#285936;
   margin-bottom:15px;
 }
 
 .product-grid{
   display:grid;
-  grid-template-columns:
-    repeat(auto-fill,minmax(210px,1fr));
+  grid-template-columns:repeat(auto-fill,minmax(210px,1fr));
   gap:16px;
 }
 
 .product-card{
-  background:#fff;
-  border:1px solid #e7e2d9;
+  background:white;
+  border:1px solid #e6e1d8;
   border-radius:18px;
   overflow:hidden;
-  box-shadow:0 5px 18px rgba(0,0,0,.04);
+  box-shadow:0 4px 15px rgba(0,0,0,.04);
 }
 
 .product-image{
-  height:190px;
+  height:185px;
   background:#eee8dc;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:50px;
+  font-size:55px;
 }
 
 .product-body{
@@ -182,69 +165,68 @@ button{
 
 .product-name{
   font-weight:700;
-  font-size:17px;
   margin-bottom:7px;
 }
 
 .product-category{
-  color:#718070;
+  color:#778078;
   font-size:13px;
   margin-bottom:8px;
 }
 
 .product-price{
-  font-size:19px;
+  color:#285936;
   font-weight:800;
-  color:#245333;
-}
-
-.product-card button{
-  width:100%;
-  margin-top:12px;
+  font-size:19px;
 }
 
 .primary-btn{
+  border:0;
   background:#285936;
   color:white;
-  border:0;
   border-radius:11px;
   padding:12px 15px;
 }
 
 .primary-btn:hover{
-  background:#1e462a;
+  background:#1d4728;
 }
 
 .secondary-btn{
+  border:0;
   background:#edf3eb;
   color:#285936;
-  border:0;
   border-radius:11px;
-  padding:11px 15px;
+  padding:11px 14px;
 }
 
 .danger-btn{
-  background:#fbeaea;
-  color:#a32929;
   border:0;
-  border-radius:11px;
-  padding:10px 14px;
+  background:#fdeaea;
+  color:#a12727;
+  border-radius:9px;
+  padding:8px 10px;
+}
+
+.product-card .primary-btn{
+  width:100%;
+  margin-top:12px;
 }
 
 .modal{
   display:none;
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.48);
   z-index:100;
+  background:rgba(0,0,0,.5);
   padding:15px;
   overflow:auto;
 }
 
 .modal.show{
   display:flex;
-  align-items:center;
   justify-content:center;
+  align-items:center;
 }
 
 .modal-box{
@@ -261,13 +243,13 @@ button{
 .close{
   position:absolute;
   top:12px;
-  right:15px;
+  right:14px;
   border:0;
-  background:#f3f3f3;
+  background:#f1f1f1;
   width:34px;
   height:34px;
   border-radius:50%;
-  font-size:22px;
+  font-size:21px;
 }
 
 .modal-title{
@@ -292,10 +274,10 @@ button{
 .login-step input{
   width:100%;
   padding:12px;
-  border:1px solid #d9d4ca;
+  border:1px solid #d8d3c9;
   border-radius:10px;
   outline:none;
-  background:#fff;
+  background:white;
 }
 
 .form-group textarea{
@@ -317,7 +299,7 @@ button{
 
 .alert.error{
   background:#fdecec;
-  color:#9b2525;
+  color:#982525;
 }
 
 .alert.success{
@@ -326,7 +308,7 @@ button{
 }
 
 .login-step{
-  padding-top:8px;
+  padding-top:5px;
 }
 
 .login-step h3{
@@ -335,7 +317,7 @@ button{
 }
 
 .login-step p{
-  color:#667066;
+  color:#687068;
   line-height:1.5;
   margin-bottom:15px;
 }
@@ -348,13 +330,53 @@ button{
   display:flex;
   gap:8px;
   flex-wrap:wrap;
-  margin-top:8px;
+}
+
+.variant-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:12px 0;
+}
+
+.variant-btn{
+  border:1px solid #cdd7ca;
+  background:white;
+  border-radius:10px;
+  padding:8px 12px;
+}
+
+.variant-btn.active{
+  background:#285936;
+  color:white;
+}
+
+.summary{
+  background:#f5f7f3;
+  border-radius:13px;
+  padding:14px;
+  margin-top:14px;
+}
+
+.summary-row{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:8px;
+}
+
+.summary-row.total{
+  border-top:1px solid #ddd;
+  padding-top:10px;
+  margin-top:10px;
+  font-size:18px;
+  font-weight:800;
 }
 
 .cart-item{
   display:flex;
   justify-content:space-between;
-  gap:12px;
+  gap:10px;
   padding:13px 0;
   border-bottom:1px solid #eee;
 }
@@ -368,68 +390,30 @@ button{
 }
 
 .cart-variant{
-  font-size:13px;
   color:#777;
+  font-size:13px;
   margin-top:4px;
 }
 
 .qty-controls{
   display:flex;
   align-items:center;
-  gap:7px;
+  gap:6px;
   margin-top:8px;
+  flex-wrap:wrap;
 }
 
 .qty-controls button{
-  width:28px;
-  height:28px;
   border:0;
-  border-radius:8px;
-  background:#edf2ea;
-}
-
-.summary{
-  background:#f6f7f3;
-  padding:15px;
-  border-radius:13px;
-  margin-top:15px;
-}
-
-.summary-row{
-  display:flex;
-  justify-content:space-between;
-  margin-bottom:8px;
-}
-
-.summary-row.total{
-  font-size:19px;
-  font-weight:800;
-  border-top:1px solid #ddd;
-  padding-top:10px;
-  margin-top:10px;
-}
-
-.variant-list{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-  margin:12px 0;
-}
-
-.variant-btn{
-  border:1px solid #cfd8cc;
-  background:white;
-  border-radius:10px;
-  padding:8px 12px;
-}
-
-.variant-btn.active{
-  background:#285936;
-  color:white;
+  background:#edf3eb;
+  color:#285936;
+  border-radius:7px;
+  min-width:28px;
+  min-height:28px;
 }
 
 .order-card{
-  border:1px solid #e5e1d8;
+  border:1px solid #e3dfd6;
   border-radius:14px;
   padding:14px;
   margin-bottom:12px;
@@ -443,48 +427,65 @@ button{
 }
 
 .status{
-  padding:5px 9px;
-  background:#e9f4e9;
+  background:#e8f4e9;
   color:#285936;
-  border-radius:15px;
+  border-radius:20px;
+  padding:5px 9px;
   font-size:12px;
 }
 
 .empty{
   text-align:center;
-  padding:35px 10px;
-  color:#7b817a;
-}
-
-.footer{
-  margin-top:50px;
-  background:#244b30;
-  color:#fff;
-  text-align:center;
-  padding:30px 20px;
-}
-
-#recaptcha-container{
-  min-height:1px;
+  padding:30px 10px;
+  color:#777f77;
 }
 
 .hidden{
   display:none!important;
 }
 
+.footer{
+  background:#244b30;
+  color:white;
+  text-align:center;
+  padding:30px 20px;
+  margin-top:45px;
+}
+
+#recaptcha-container{
+  min-height:1px;
+}
+
 @media(max-width:600px){
+
+  .nav{
+    padding:11px;
+  }
+
+  .logo{
+    font-size:21px;
+  }
+
+  .nav-btn{
+    padding:8px;
+    font-size:12px;
+  }
 
   .hero h1{
     font-size:29px;
   }
 
+  .container{
+    padding:14px;
+  }
+
   .product-grid{
-    grid-template-columns:
-      repeat(2,minmax(0,1fr));
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px;
   }
 
   .product-image{
-    height:145px;
+    height:140px;
   }
 
   .product-body{
@@ -492,16 +493,17 @@ button{
   }
 
   .product-name{
-    font-size:15px;
+    font-size:14px;
   }
 
   .product-price{
-    font-size:17px;
+    font-size:16px;
   }
 
   .modal-box{
     padding:18px;
   }
+
 }
 
 </style>
@@ -509,6 +511,7 @@ button{
 </head>
 
 <body>
+
 
 <header class="header">
 
@@ -523,8 +526,7 @@ button{
       <button
         class="nav-btn"
         onclick="openCart()">
-        🛒 Cart
-        <span id="cartCount">0</span>
+        🛒 <span id="cartCount">0</span>
       </button>
 
       <button
@@ -548,48 +550,48 @@ button{
 
 <main class="container">
 
-  <section class="hero">
 
-    <h1>
-      Healthy food, naturally.
-    </h1>
+<section class="hero">
 
-    <p>
-      Discover delicious and healthy food products
-      from NatureBite.
-    </p>
+  <h1>
+    Healthy food, naturally.
+  </h1>
 
-  </section>
+  <p>
+    Discover delicious and healthy food products
+    from NatureBite.
+  </p>
 
-
-  <div class="search-box">
-
-    <input
-      id="searchInput"
-      type="search"
-      placeholder="Search products..."
-      oninput="filterProducts()">
-
-  </div>
+</section>
 
 
-  <div
-    id="categoryList"
-    class="categories">
+<div class="search-box">
 
-  </div>
+  <input
+    id="searchInput"
+    type="search"
+    placeholder="Search products..."
+    oninput="filterProducts()">
+
+</div>
 
 
-  <h2 class="section-title">
-    Our Products
-  </h2>
+<div
+  id="categoryList"
+  class="categories">
+</div>
 
 
-  <div
-    id="productGrid"
-    class="product-grid">
+<h2 class="section-title">
+  Our Products
+</h2>
 
-  </div>
+
+<div
+  id="productGrid"
+  class="product-grid">
+</div>
+
 
 </main>
 
@@ -598,14 +600,14 @@ button{
 
   <h3>NatureBite</h3>
 
-  <p style="margin-top:8px;">
+  <p style="margin-top:7px;">
     Healthy choices. Better everyday.
   </p>
 
 </footer>
 
 
-<!-- PRODUCT MODAL -->
+<!-- PRODUCT -->
 
 <div
   id="productModal"
@@ -625,16 +627,14 @@ button{
       Product
     </h2>
 
-    <div
-      id="productModalContent">
-    </div>
+    <div id="productModalContent"></div>
 
   </div>
 
 </div>
 
 
-<!-- CART MODAL -->
+<!-- CART -->
 
 <div
   id="cartModal"
@@ -659,7 +659,7 @@ button{
 </div>
 
 
-<!-- CHECKOUT MODAL -->
+<!-- CHECKOUT -->
 
 <div
   id="checkoutModal"
@@ -689,7 +689,7 @@ button{
 </div>
 
 
-<!-- ACCOUNT MODAL -->
+<!-- ACCOUNT -->
 
 <div
   id="accountModal"
@@ -714,7 +714,7 @@ button{
 </div>
 
 
-<!-- ORDERS MODAL -->
+<!-- ORDERS -->
 
 <div
   id="ordersModal"
@@ -739,7 +739,7 @@ button{
 </div>
 
 
-<!-- LOGIN MODAL -->
+<!-- LOGIN -->
 
 <div
   id="loginModal"
@@ -764,11 +764,7 @@ button{
 
     <div id="loginContent"></div>
 
-    <!-- IMPORTANT:
-         This element must stay EMPTY.
-         Firebase reCAPTCHA uses this container.
-    -->
-
+    <!-- MUST REMAIN EMPTY -->
     <div id="recaptcha-container"></div>
 
   </div>
@@ -778,9 +774,15 @@ button{
 
 <script type="module">
 
+
+/* =========================================================
+   FIREBASE IMPORT
+========================================================= */
+
 import {
   initializeApp
-} from
+}
+from
 "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 
 
@@ -793,7 +795,8 @@ import {
   EmailAuthProvider,
   signOut,
   onAuthStateChanged
-} from
+}
+from
 "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
 
 
@@ -807,20 +810,20 @@ import {
   addDoc,
   query,
   where,
-  orderBy,
   serverTimestamp
-} from
+}
+from
 "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
 
 /* =========================================================
-   FIREBASE
+   FIREBASE CONFIG
 ========================================================= */
 
 const firebaseConfig = {
 
   apiKey:
-    "AIzaSyCBaUWZflbj0RVfdyl1vZCB3SYD42vkI_0",
+    "AIzaSyCBaUWZflbj0RVfdyl1vZCB3SYD42vkI0",
 
   authDomain:
     "naturebite-c5d88.firebaseapp.com",
@@ -853,7 +856,7 @@ const db =
 
 
 /* =========================================================
-   GLOBAL VARIABLES
+   GLOBAL
 ========================================================= */
 
 let currentUser = null;
@@ -880,17 +883,17 @@ let pendingCheckout = false;
 
 let settings = {
 
-  platformCharge: 5,
+  platformCharge:5,
 
-  platformChargeType: "fixed",
+  platformChargeType:"fixed",
 
-  standardDelivery: 60,
+  standardDelivery:60,
 
-  expressDelivery: 80,
+  expressDelivery:80,
 
-  freeDelivery: 0,
+  freeDelivery:0,
 
-  deliveryPrepaidRequired: true
+  deliveryPrepaidRequired:true
 
 };
 
@@ -903,9 +906,9 @@ function money(value){
 
   return "৳" +
     Number(value || 0)
-      .toLocaleString("en-BD", {
-        maximumFractionDigits: 2
-      });
+    .toLocaleString("en-BD",{
+      maximumFractionDigits:2
+    });
 
 }
 
@@ -914,14 +917,17 @@ function normalizePhone(phone){
 
   let value =
     String(phone || "")
-      .trim()
-      .replace(/\s+/g,"");
+    .trim()
+    .replace(/\s+/g,"");
+
 
   if(value.startsWith("01")){
 
-    return "+880" + value.substring(1);
+    return "+880" +
+      value.substring(1);
 
   }
+
 
   if(value.startsWith("8801")){
 
@@ -929,11 +935,6 @@ function normalizePhone(phone){
 
   }
 
-  if(value.startsWith("+880")){
-
-    return value;
-
-  }
 
   return value;
 
@@ -944,7 +945,8 @@ function phoneToEmail(phone){
 
   const digits =
     normalizePhone(phone)
-      .replace(/\D/g,"");
+    .replace(/\D/g,"");
+
 
   return "user_" +
     digits +
@@ -953,14 +955,37 @@ function phoneToEmail(phone){
 }
 
 
+function escapeHtml(value){
+
+  return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+function escapeAttr(value){
+
+  return String(value ?? "")
+    .replace(/\\/g,"\\\\")
+    .replace(/'/g,"\\'");
+
+}
+
+
 function showLoginAlert(message,type="error"){
 
-  const alert =
-    document.getElementById("loginAlert");
+  const el =
+    document.getElementById(
+      "loginAlert"
+    );
 
-  alert.textContent = message;
+  el.textContent = message;
 
-  alert.className =
+  el.className =
     "alert show " + type;
 
 }
@@ -968,12 +993,14 @@ function showLoginAlert(message,type="error"){
 
 function showCheckoutAlert(message,type="error"){
 
-  const alert =
-    document.getElementById("checkoutAlert");
+  const el =
+    document.getElementById(
+      "checkoutAlert"
+    );
 
-  alert.textContent = message;
+  el.textContent = message;
 
-  alert.className =
+  el.className =
     "alert show " + type;
 
 }
@@ -981,7 +1008,11 @@ function showCheckoutAlert(message,type="error"){
 
 function getFirebaseError(error){
 
-  const code = error?.code || "";
+  console.error(error);
+
+  const code =
+    error?.code || "";
+
 
   const messages = {
 
@@ -1019,9 +1050,16 @@ function getFirebaseError(error){
       "Internet connection সমস্যা হয়েছে।",
 
     "auth/quota-exceeded":
-      "OTP service limit অতিক্রম করেছে। পরে আবার চেষ্টা করুন।"
+      "OTP limit শেষ হয়েছে। পরে চেষ্টা করুন।",
+
+    "auth/operation-not-allowed":
+      "Firebase Console-এ এই login method Enable করা নেই।",
+
+    "permission-denied":
+      "Firebase permission denied। Firestore Rules check করুন।"
 
   };
+
 
   return messages[code] ||
     error?.message ||
@@ -1034,6 +1072,15 @@ function getFirebaseError(error){
    MODAL
 ========================================================= */
 
+function openModal(id){
+
+  document
+    .getElementById(id)
+    .classList.add("show");
+
+}
+
+
 window.closeModal = function(id){
 
   document
@@ -1043,13 +1090,11 @@ window.closeModal = function(id){
 };
 
 
-function openModal(id){
+window.closeLogin = function(){
 
-  document
-    .getElementById(id)
-    .classList.add("show");
+  closeModal("loginModal");
 
-}
+};
 
 
 /* =========================================================
@@ -1065,6 +1110,7 @@ async function loadSettings(){
         doc(db,"settings","platform")
       );
 
+
     if(snap.exists()){
 
       settings = {
@@ -1077,7 +1123,7 @@ async function loadSettings(){
   }catch(error){
 
     console.error(
-      "Settings error:",
+      "Settings error",
       error
     );
 
@@ -1099,11 +1145,15 @@ async function loadProducts(){
         collection(db,"products")
       );
 
+
     products = [];
+
 
     snap.forEach(item => {
 
-      const data = item.data();
+      const data =
+        item.data();
+
 
       if(data.status !== "inactive"){
 
@@ -1136,7 +1186,9 @@ async function loadVariants(){
         collection(db,"product_variants")
       );
 
+
     variants = [];
+
 
     snap.forEach(item => {
 
@@ -1167,11 +1219,15 @@ async function loadCategories(){
         collection(db,"categories")
       );
 
+
     categories = [];
+
 
     snap.forEach(item => {
 
-      const data = item.data();
+      const data =
+        item.data();
+
 
       if(data.status !== "inactive"){
 
@@ -1185,6 +1241,7 @@ async function loadCategories(){
       }
 
     });
+
 
     categories.sort(
       (a,b) =>
@@ -1202,7 +1259,7 @@ async function loadCategories(){
 
 
 /* =========================================================
-   CATEGORY UI
+   CATEGORY
 ========================================================= */
 
 function renderCategories(){
@@ -1212,20 +1269,25 @@ function renderCategories(){
       "categoryList"
     );
 
+
   box.innerHTML = "";
+
 
   const all =
     document.createElement("button");
+
 
   all.className =
     "category-btn " +
     (
       selectedCategory === "All"
-        ? "active"
-        : ""
+      ? "active"
+      : ""
     );
 
+
   all.textContent = "All";
+
 
   all.onclick = () => {
 
@@ -1237,6 +1299,7 @@ function renderCategories(){
 
   };
 
+
   box.appendChild(all);
 
 
@@ -1245,16 +1308,19 @@ function renderCategories(){
     const btn =
       document.createElement("button");
 
+
     btn.className =
       "category-btn " +
       (
         selectedCategory === category.name
-          ? "active"
-          : ""
+        ? "active"
+        : ""
       );
+
 
     btn.textContent =
       category.name;
+
 
     btn.onclick = () => {
 
@@ -1267,6 +1333,7 @@ function renderCategories(){
 
     };
 
+
     box.appendChild(btn);
 
   });
@@ -1275,7 +1342,7 @@ function renderCategories(){
 
 
 /* =========================================================
-   PRODUCT UI
+   PRODUCTS UI
 ========================================================= */
 
 window.filterProducts = function(){
@@ -1288,15 +1355,15 @@ window.filterProducts = function(){
       .toLowerCase();
 
 
-  const filtered =
+  const result =
     products.filter(product => {
 
-      const matchCategory =
+      const categoryMatch =
         selectedCategory === "All" ||
         product.category === selectedCategory;
 
 
-      const matchSearch =
+      const searchMatch =
         !search ||
         String(product.name || "")
           .toLowerCase()
@@ -1306,13 +1373,13 @@ window.filterProducts = function(){
           .includes(search);
 
 
-      return matchCategory &&
-             matchSearch;
+      return categoryMatch &&
+             searchMatch;
 
     });
 
 
-  renderProducts(filtered);
+  renderProducts(result);
 
 };
 
@@ -1320,9 +1387,9 @@ window.filterProducts = function(){
 function getProductVariants(productId){
 
   return variants.filter(
-    variant =>
-      variant.productId === productId &&
-      variant.status !== "inactive"
+    v =>
+      v.productId === productId &&
+      v.status !== "inactive"
   );
 
 }
@@ -1334,6 +1401,7 @@ function renderProducts(list){
     document.getElementById(
       "productGrid"
     );
+
 
   grid.innerHTML = "";
 
@@ -1354,7 +1422,10 @@ function renderProducts(list){
   list.forEach(product => {
 
     const productVariants =
-      getProductVariants(product.id);
+      getProductVariants(
+        product.id
+      );
+
 
     const first =
       productVariants[0];
@@ -1362,6 +1433,7 @@ function renderProducts(list){
 
     const card =
       document.createElement("div");
+
 
     card.className =
       "product-card";
@@ -1384,16 +1456,20 @@ function renderProducts(list){
         </div>
 
         <div class="product-price">
+
           ${
             first
-              ? money(first.price)
-              : "Price unavailable"
+            ? money(first.price)
+            : "Price unavailable"
           }
+
         </div>
 
         <button
           class="primary-btn"
-          onclick="openProduct('${escapeAttr(product.id)}')">
+          onclick="
+            openProduct('${escapeAttr(product.id)}')
+          ">
 
           View Product
 
@@ -1411,29 +1487,8 @@ function renderProducts(list){
 }
 
 
-function escapeHtml(value){
-
-  return String(value ?? "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
-
-}
-
-
-function escapeAttr(value){
-
-  return String(value ?? "")
-    .replace(/\\/g,"\\\\")
-    .replace(/'/g,"\\'");
-
-}
-
-
 /* =========================================================
-   PRODUCT DETAILS
+   PRODUCT DETAIL
 ========================================================= */
 
 window.openProduct = function(productId){
@@ -1443,17 +1498,22 @@ window.openProduct = function(productId){
       p => p.id === productId
     );
 
+
   if(!selectedProduct){
+
     return;
+
   }
 
 
-  const productVariants =
-    getProductVariants(productId);
+  const list =
+    getProductVariants(
+      productId
+    );
 
 
   selectedVariant =
-    productVariants[0] || null;
+    list[0] || null;
 
 
   document
@@ -1465,6 +1525,7 @@ window.openProduct = function(productId){
 
 
   renderProductDetails();
+
 
   openModal("productModal");
 
@@ -1479,7 +1540,7 @@ function renderProductDetails(){
     );
 
 
-  const productVariants =
+  const list =
     getProductVariants(
       selectedProduct.id
     );
@@ -1487,17 +1548,16 @@ function renderProductDetails(){
 
   box.innerHTML = `
 
-    <div
-      style="
-        background:#eee8dc;
-        height:220px;
-        border-radius:15px;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        font-size:65px;
-        margin-bottom:15px;
-      ">
+    <div style="
+      height:210px;
+      background:#eee8dc;
+      border-radius:15px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:65px;
+      margin-bottom:15px;
+    ">
 
       ${selectedProduct.emoji || "🌿"}
 
@@ -1507,7 +1567,6 @@ function renderProductDetails(){
     <p style="
       color:#666;
       line-height:1.6;
-      margin-bottom:15px;
     ">
 
       ${escapeHtml(
@@ -1517,7 +1576,7 @@ function renderProductDetails(){
     </p>
 
 
-    <h4>
+    <h4 style="margin-top:15px;">
       Choose variant
     </h4>
 
@@ -1525,35 +1584,25 @@ function renderProductDetails(){
     <div class="variant-list">
 
       ${
-        productVariants.length
-          ? productVariants.map(
-              variant => `
+        list.map(v => `
 
-                <button
-                  class="
-                    variant-btn
-                    ${
-                      selectedVariant?.id === variant.id
-                        ? "active"
-                        : ""
-                    }
-                  "
-                  onclick="
-                    selectVariant('${escapeAttr(variant.id)}')
-                  ">
+          <button
+            class="variant-btn ${
+              selectedVariant?.id === v.id
+              ? "active"
+              : ""
+            }"
+            onclick="
+              selectVariant('${escapeAttr(v.id)}')
+            ">
 
-                  ${escapeHtml(
-                    variant.weight || ""
-                  )}
+            ${escapeHtml(v.weight || "")}
+            -
+            ${money(v.price)}
 
-                  -
-                  ${money(variant.price)}
+          </button>
 
-                </button>
-
-              `
-            ).join("")
-          : "<p>No variant available.</p>"
+        `).join("")
       }
 
     </div>
@@ -1561,47 +1610,45 @@ function renderProductDetails(){
 
     ${
       selectedVariant
-        ? `
+      ? `
 
-          <div class="summary">
+        <div class="summary">
 
-            <div class="summary-row">
+          <div class="summary-row">
 
-              <span>Price</span>
+            <span>Price</span>
 
-              <strong>
-                ${money(
-                  selectedVariant.price
-                )}
-              </strong>
-
-            </div>
-
-            <div class="summary-row">
-
-              <span>Stock</span>
-
-              <span>
-                ${Number(
-                  selectedVariant.stock || 0
-                )}
-              </span>
-
-            </div>
+            <strong>
+              ${money(selectedVariant.price)}
+            </strong>
 
           </div>
 
-          <button
-            class="primary-btn"
-            style="width:100%;margin-top:12px;"
-            onclick="addSelectedToCart()">
+          <div class="summary-row">
 
-            Add to Cart
+            <span>Stock</span>
 
-          </button>
+            <strong>
+              ${Number(
+                selectedVariant.stock || 0
+              )}
+            </strong>
 
-        `
-        : ""
+          </div>
+
+        </div>
+
+        <button
+          class="primary-btn"
+          style="width:100%;margin-top:12px;"
+          onclick="addSelectedToCart()">
+
+          Add to Cart
+
+        </button>
+
+      `
+      : ""
     }
 
   `;
@@ -1609,12 +1656,13 @@ function renderProductDetails(){
 }
 
 
-window.selectVariant = function(variantId){
+window.selectVariant = function(id){
 
   selectedVariant =
     variants.find(
-      v => v.id === variantId
+      v => v.id === id
     ) || null;
+
 
   renderProductDetails();
 
@@ -1635,29 +1683,17 @@ window.addSelectedToCart = function(){
     Number(selectedVariant.stock || 0) <= 0
   ){
 
-    alert("এই variant বর্তমানে stock out.");
+    alert("এই variant stock out.");
 
     return;
 
   }
 
 
-  addToCart(
-    selectedProduct,
-    selectedVariant
-  );
-
-  closeModal("productModal");
-
-};
-
-
-function addToCart(product,variant){
-
   const existing =
     cart.find(
       item =>
-        item.variantId === variant.id
+        item.variantId === selectedVariant.id
     );
 
 
@@ -1669,15 +1705,17 @@ function addToCart(product,variant){
 
     cart.push({
 
-      productId:product.id,
+      productId:selectedProduct.id,
 
-      productName:product.name,
+      productName:selectedProduct.name,
 
-      variantId:variant.id,
+      variantId:selectedVariant.id,
 
-      weight:variant.weight || "",
+      weight:selectedVariant.weight || "",
 
-      price:Number(variant.price || 0),
+      price:Number(
+        selectedVariant.price || 0
+      ),
 
       qty:1
 
@@ -1690,22 +1728,14 @@ function addToCart(product,variant){
 
   updateCartCount();
 
-}
+  closeModal("productModal");
+
+};
 
 
 /* =========================================================
    CART
 ========================================================= */
-
-function saveCart(){
-
-  localStorage.setItem(
-    "naturebite_cart",
-    JSON.stringify(cart)
-  );
-
-}
-
 
 function loadCart(){
 
@@ -1717,6 +1747,7 @@ function loadCart(){
           "naturebite_cart"
         ) || "[]"
       );
+
 
     if(!Array.isArray(cart)){
 
@@ -1733,6 +1764,16 @@ function loadCart(){
 }
 
 
+function saveCart(){
+
+  localStorage.setItem(
+    "naturebite_cart",
+    JSON.stringify(cart)
+  );
+
+}
+
+
 function updateCartCount(){
 
   const count =
@@ -1745,7 +1786,8 @@ function updateCartCount(){
 
   document
     .getElementById("cartCount")
-    .textContent = count;
+    .textContent =
+      count;
 
 }
 
@@ -1783,12 +1825,13 @@ function renderCart(){
   let subtotal = 0;
 
 
-  const items =
+  const html =
     cart.map((item,index) => {
 
       const total =
         Number(item.price || 0) *
         Number(item.qty || 0);
+
 
       subtotal += total;
 
@@ -1805,7 +1848,8 @@ function renderCart(){
 
             <div class="cart-variant">
               ${escapeHtml(item.weight)}
-              · ${money(item.price)}
+              ·
+              ${money(item.price)}
             </div>
 
             <div class="qty-controls">
@@ -1826,8 +1870,12 @@ function renderCart(){
 
               <button
                 class="danger-btn"
-                onclick="removeCartItem(${index})">
+                onclick="
+                  removeCartItem(${index})
+                ">
+
                 Remove
+
               </button>
 
             </div>
@@ -1847,7 +1895,7 @@ function renderCart(){
 
   box.innerHTML = `
 
-    ${items}
+    ${html}
 
     <div class="summary">
 
@@ -1880,7 +1928,9 @@ function renderCart(){
 window.changeQty = function(index,change){
 
   if(!cart[index]){
+
     return;
+
   }
 
 
@@ -1920,7 +1970,7 @@ window.removeCartItem = function(index){
    CHECKOUT
 ========================================================= */
 
-function cartSubtotal(){
+function getCartSubtotal(){
 
   return cart.reduce(
     (sum,item) =>
@@ -1990,35 +2040,11 @@ function renderCheckout(){
     );
 
 
-  const subtotal =
-    cartSubtotal();
-
-
-  const standard =
-    Number(
-      settings.standardDelivery || 60
-    );
-
-
-  const express =
-    Number(
-      settings.expressDelivery || 80
-    );
-
-
-  const free =
-    Number(
-      settings.freeDelivery || 0
-    );
-
-
   box.innerHTML = `
 
     <div class="form-group">
 
-      <label>
-        Full Name
-      </label>
+      <label>Full Name</label>
 
       <input
         id="checkoutName"
@@ -2029,13 +2055,11 @@ function renderCheckout(){
 
     <div class="form-group">
 
-      <label>
-        Mobile
-      </label>
+      <label>Mobile</label>
 
       <input
         value="${escapeHtml(
-          currentUser?.phoneNumber || ""
+          currentUser.phoneNumber || ""
         )}"
         readonly>
 
@@ -2044,9 +2068,7 @@ function renderCheckout(){
 
     <div class="form-group">
 
-      <label>
-        Delivery Address
-      </label>
+      <label>Delivery Address</label>
 
       <textarea
         id="checkoutAddress"
@@ -2058,24 +2080,26 @@ function renderCheckout(){
 
     <div class="form-group">
 
-      <label>
-        Delivery Type
-      </label>
+      <label>Delivery Type</label>
 
       <select
         id="deliveryType"
         onchange="updateCheckoutSummary()">
 
         <option value="standard">
-          Standard - ${money(standard)}
+          Standard - ${money(
+            settings.standardDelivery
+          )}
         </option>
 
         <option value="express">
-          Express - ${money(express)}
+          Express - ${money(
+            settings.expressDelivery
+          )}
         </option>
 
         <option value="free">
-          Free Delivery - ${money(free)}
+          Free Delivery
         </option>
 
       </select>
@@ -2085,9 +2109,7 @@ function renderCheckout(){
 
     <div class="form-group">
 
-      <label>
-        Payment Method
-      </label>
+      <label>Payment Method</label>
 
       <select
         id="paymentMethod"
@@ -2126,17 +2148,6 @@ function renderCheckout(){
 
       </div>
 
-      <p style="
-        font-size:13px;
-        color:#777;
-        margin-bottom:10px;
-      ">
-
-        Payment number/admin payment details
-        will be connected from the Admin system later.
-
-      </p>
-
     </div>
 
 
@@ -2166,9 +2177,11 @@ function renderCheckout(){
 window.togglePaymentInfo = function(){
 
   const method =
-    document.getElementById(
-      "paymentMethod"
-    ).value;
+    document
+      .getElementById(
+        "paymentMethod"
+      )
+      .value;
 
 
   const box =
@@ -2195,32 +2208,41 @@ window.togglePaymentInfo = function(){
 
 window.updateCheckoutSummary = function(){
 
-  const delivery =
-    document.getElementById(
-      "deliveryType"
-    )?.value || "standard";
+  const deliveryType =
+    document
+      .getElementById(
+        "deliveryType"
+      )
+      ?.value ||
+      "standard";
 
 
   const subtotal =
-    cartSubtotal();
+    getCartSubtotal();
 
 
   let deliveryCharge =
-    Number(settings.standardDelivery || 60);
+    Number(
+      settings.standardDelivery || 60
+    );
 
 
-  if(delivery === "express"){
+  if(deliveryType === "express"){
 
     deliveryCharge =
-      Number(settings.expressDelivery || 80);
+      Number(
+        settings.expressDelivery || 80
+      );
 
   }
 
 
-  if(delivery === "free"){
+  if(deliveryType === "free"){
 
     deliveryCharge =
-      Number(settings.freeDelivery || 0);
+      Number(
+        settings.freeDelivery || 0
+      );
 
   }
 
@@ -2229,18 +2251,23 @@ window.updateCheckoutSummary = function(){
 
 
   if(
-    settings.platformChargeType === "percent"
+    settings.platformChargeType ===
+    "percent"
   ){
 
     platformCharge =
       subtotal *
-      Number(settings.platformCharge || 0) /
+      Number(
+        settings.platformCharge || 0
+      ) /
       100;
 
   }else{
 
     platformCharge =
-      Number(settings.platformCharge || 0);
+      Number(
+        settings.platformCharge || 0
+      );
 
   }
 
@@ -2307,15 +2334,10 @@ window.updateCheckoutSummary = function(){
 
 
   return {
-
     subtotal,
-
     deliveryCharge,
-
     platformCharge,
-
     total
-
   };
 
 };
@@ -2336,6 +2358,8 @@ window.placeOrder = async function(){
 
   if(!cart.length){
 
+    alert("Cart is empty.");
+
     return;
 
   }
@@ -2344,13 +2368,15 @@ window.placeOrder = async function(){
   const name =
     document
       .getElementById("checkoutName")
-      .value.trim();
+      .value
+      .trim();
 
 
   const address =
     document
       .getElementById("checkoutAddress")
-      .value.trim();
+      .value
+      .trim();
 
 
   const deliveryType =
@@ -2375,8 +2401,7 @@ window.placeOrder = async function(){
   if(!name){
 
     showCheckoutAlert(
-      "নাম দিন।",
-      "error"
+      "নাম দিন।"
     );
 
     return;
@@ -2387,8 +2412,7 @@ window.placeOrder = async function(){
   if(!address){
 
     showCheckoutAlert(
-      "Delivery address দিন।",
-      "error"
+      "Delivery address দিন।"
     );
 
     return;
@@ -2397,18 +2421,17 @@ window.placeOrder = async function(){
 
 
   if(
+    settings.deliveryPrepaidRequired &&
+    deliveryType !== "free" &&
     (
       paymentMethod === "bkash" ||
       paymentMethod === "nagad"
     ) &&
-    settings.deliveryPrepaidRequired &&
-    deliveryType !== "free" &&
     !transactionId
   ){
 
     showCheckoutAlert(
-      "Online payment-এর Transaction ID দিন।",
-      "error"
+      "Transaction ID দিন।"
     );
 
     return;
@@ -2459,24 +2482,31 @@ window.placeOrder = async function(){
 
       paymentStatus:
         paymentMethod === "cod"
-          ? "pending"
-          : (
-              transactionId
-                ? "submitted"
-                : "pending"
-            ),
+        ? "pending"
+        : (
+            transactionId
+            ? "submitted"
+            : "pending"
+          ),
 
       status:
         "pending",
 
       items:
         cart.map(item => ({
+
           productId:item.productId,
+
           productName:item.productName,
+
           variantId:item.variantId,
+
           weight:item.weight,
+
           price:item.price,
+
           qty:item.qty
+
         })),
 
       createdAt:
@@ -2485,7 +2515,7 @@ window.placeOrder = async function(){
     };
 
 
-    const orderRef =
+    const ref =
       await addDoc(
         collection(db,"orders"),
         orderData
@@ -2498,13 +2528,12 @@ window.placeOrder = async function(){
 
     updateCartCount();
 
-
     closeModal("checkoutModal");
 
 
     alert(
-      "Order successfully placed!\nOrder ID: " +
-      orderRef.id
+      "Order successfully placed!\n\nOrder ID:\n" +
+      ref.id
     );
 
 
@@ -2512,12 +2541,8 @@ window.placeOrder = async function(){
 
   }catch(error){
 
-    console.error(error);
-
     showCheckoutAlert(
-      "Order place করা যায়নি: " +
-      error.message,
-      "error"
+      getFirebaseError(error)
     );
 
   }
@@ -2538,17 +2563,12 @@ window.openLogin = function(){
 };
 
 
-window.closeLogin = function(){
-
-  closeModal("loginModal");
-
-};
-
-
 function renderLoginPhone(){
 
   document
-    .getElementById("loginContent")
+    .getElementById(
+      "loginContent"
+    )
     .innerHTML = `
 
       <div class="login-step">
@@ -2558,8 +2578,8 @@ function renderLoginPhone(){
         </h3>
 
         <p>
-          First time হলে mobile number দিয়ে
-          OTP verify করে password তৈরি করুন।
+          প্রথমবার হলে OTP verify করে
+          password তৈরি করুন।
         </p>
 
         <input
@@ -2595,16 +2615,18 @@ function renderLoginPhone(){
 }
 
 
-function renderPasswordLogin(){
+window.renderPasswordLogin = function(){
 
   document
-    .getElementById("loginContent")
+    .getElementById(
+      "loginContent"
+    )
     .innerHTML = `
 
       <div class="login-step">
 
         <h3>
-          Password Login
+          Login with Password
         </h3>
 
         <input
@@ -2651,40 +2673,33 @@ function renderPasswordLogin(){
 
     `;
 
-}
+};
 
+
+/* =========================================================
+   OTP
+========================================================= */
 
 window.sendOTP = async function(){
 
-  const input =
-    document.getElementById(
-      "loginPhone"
-    );
+  const raw =
+    document
+      .getElementById(
+        "loginPhone"
+      )
+      ?.value;
 
 
   const phone =
-    normalizePhone(
-      input?.value
-    );
+    normalizePhone(raw);
 
 
-  if(!phone){
-
-    showLoginAlert(
-      "Mobile number দিন।",
-      "error"
-    );
-
-    return;
-
-  }
-
-
-  if(!/^\+8801[3-9]\d{8}$/.test(phone)){
+  if(
+    !/^\+8801[3-9]\d{8}$/.test(phone)
+  ){
 
     showLoginAlert(
-      "সঠিক Bangladesh mobile number দিন।",
-      "error"
+      "সঠিক Bangladesh mobile number দিন।"
     );
 
     return;
@@ -2707,16 +2722,12 @@ window.sendOTP = async function(){
 
     renderOTPInput(phone);
 
-
   }catch(error){
-
-    console.error(error);
 
     resetRecaptcha();
 
     showLoginAlert(
-      getFirebaseError(error),
-      "error"
+      getFirebaseError(error)
     );
 
   }
@@ -2741,15 +2752,15 @@ async function setupRecaptcha(){
 
         size:"invisible",
 
-        callback: () => {
+        callback:() => {
 
           console.log(
-            "reCAPTCHA solved."
+            "reCAPTCHA solved"
           );
 
         },
 
-        "expired-callback": () => {
+        "expired-callback":() => {
 
           resetRecaptcha();
 
@@ -2777,6 +2788,7 @@ function resetRecaptcha(){
 
   }
 
+
   recaptchaVerifier = null;
 
 }
@@ -2785,7 +2797,9 @@ function resetRecaptcha(){
 function renderOTPInput(phone){
 
   document
-    .getElementById("loginContent")
+    .getElementById(
+      "loginContent"
+    )
     .innerHTML = `
 
       <div class="login-step">
@@ -2795,8 +2809,10 @@ function renderOTPInput(phone){
         </h3>
 
         <p>
-          OTP পাঠানো হয়েছে:
-          <strong>${escapeHtml(phone)}</strong>
+          OTP sent to:
+          <strong>
+            ${escapeHtml(phone)}
+          </strong>
         </p>
 
         <input
@@ -2836,28 +2852,19 @@ function renderOTPInput(phone){
 
 window.verifyOTP = async function(){
 
-  const otpInput =
-    document.getElementById(
-      "otpInput"
-    );
-
-
-  if(!otpInput){
-
-    return;
-
-  }
-
-
   const otp =
-    otpInput.value.trim();
+    document
+      .getElementById(
+        "otpInput"
+      )
+      ?.value
+      .trim();
 
 
   if(!/^\d{6}$/.test(otp)){
 
     showLoginAlert(
-      "৬ সংখ্যার OTP দিন।",
-      "error"
+      "৬ digit OTP দিন।"
     );
 
     return;
@@ -2868,8 +2875,7 @@ window.verifyOTP = async function(){
   if(!confirmationResult){
 
     showLoginAlert(
-      "OTP session পাওয়া যায়নি। আবার OTP নিন।",
-      "error"
+      "OTP session পাওয়া যায়নি। আবার OTP নিন।"
     );
 
     return;
@@ -2892,22 +2898,39 @@ window.verifyOTP = async function(){
     resetRecaptcha();
 
 
-    const userRef =
-      doc(
-        db,
-        "users",
-        currentUser.uid
+    /*
+      IMPORTANT:
+      Existing account-এর password provider
+      already linked আছে কিনা check করছি.
+    */
+
+    const hasPasswordProvider =
+      currentUser.providerData.some(
+        provider =>
+          provider.providerId ===
+          "password"
       );
 
 
-    const userSnap =
-      await getDoc(userRef);
+    if(hasPasswordProvider){
 
+      await setDoc(
+        doc(
+          db,
+          "users",
+          currentUser.uid
+        ),
+        {
+          uid:currentUser.uid,
+          mobile:currentUser.phoneNumber || "",
+          hasPassword:true,
+          updatedAt:serverTimestamp()
+        },
+        {
+          merge:true
+        }
+      );
 
-    if(
-      userSnap.exists() &&
-      userSnap.data().hasPassword === true
-    ){
 
       closeLogin();
 
@@ -2920,6 +2943,7 @@ window.verifyOTP = async function(){
 
       }
 
+
       return;
 
     }
@@ -2927,14 +2951,10 @@ window.verifyOTP = async function(){
 
     renderSetPassword();
 
-
   }catch(error){
 
-    console.error(error);
-
     showLoginAlert(
-      getFirebaseError(error),
-      "error"
+      getFirebaseError(error)
     );
 
   }
@@ -2943,25 +2963,26 @@ window.verifyOTP = async function(){
 
 
 /* =========================================================
-   FIRST TIME PASSWORD
+   FIRST PASSWORD SET
 ========================================================= */
 
 function renderSetPassword(){
 
   document
-    .getElementById("loginContent")
+    .getElementById(
+      "loginContent"
+    )
     .innerHTML = `
 
       <div class="login-step">
 
         <h3>
-          Create your password
+          Create Password
         </h3>
 
         <p>
-          OTP verification successful.
-          এখন আপনার account-এর জন্য
-          একটি password সেট করুন।
+          OTP verification successful।
+          এখন আপনার account-এর password তৈরি করুন।
         </p>
 
         <input
@@ -2978,7 +2999,7 @@ function renderSetPassword(){
 
         <button
           class="primary-btn"
-          style="width:100%;margin-top:5px;"
+          style="width:100%;"
           onclick="saveNewPassword()">
 
           Create Account
@@ -2996,23 +3017,27 @@ window.saveNewPassword = async function(){
 
   const password =
     document
-      .getElementById("newPassword")
+      .getElementById(
+        "newPassword"
+      )
       ?.value
       .trim();
 
 
   const confirmPassword =
     document
-      .getElementById("confirmPassword")
+      .getElementById(
+        "confirmPassword"
+      )
       ?.value
       .trim();
 
 
-  if(!password || !confirmPassword){
+  if(!password ||
+     !confirmPassword){
 
     showLoginAlert(
-      "দুইটি password field পূরণ করুন।",
-      "error"
+      "দুইটি password field পূরণ করুন।"
     );
 
     return;
@@ -3023,8 +3048,7 @@ window.saveNewPassword = async function(){
   if(password.length < 6){
 
     showLoginAlert(
-      "Password কমপক্ষে ৬ অক্ষরের হতে হবে।",
-      "error"
+      "Password কমপক্ষে ৬ অক্ষরের হতে হবে।"
     );
 
     return;
@@ -3035,8 +3059,7 @@ window.saveNewPassword = async function(){
   if(password !== confirmPassword){
 
     showLoginAlert(
-      "দুইটি password একই নয়।",
-      "error"
+      "দুইটি password একই নয়।"
     );
 
     return;
@@ -3047,8 +3070,7 @@ window.saveNewPassword = async function(){
   if(!currentUser){
 
     showLoginAlert(
-      "Session পাওয়া যায়নি। আবার OTP দিয়ে চেষ্টা করুন।",
-      "error"
+      "User session পাওয়া যায়নি।"
     );
 
     return;
@@ -3129,16 +3151,46 @@ window.saveNewPassword = async function(){
 
       }
 
-    },800);
+    },700);
 
 
   }catch(error){
 
-    console.error(error);
+    /*
+      যদি পুরোনো account-এ password already linked
+      থাকে, তখন নতুন করে link করার চেষ্টা করবে না।
+    */
+
+    if(
+      error.code ===
+      "auth/provider-already-linked"
+    ){
+
+      await setDoc(
+        doc(
+          db,
+          "users",
+          currentUser.uid
+        ),
+        {
+          hasPassword:true,
+          updatedAt:serverTimestamp()
+        },
+        {
+          merge:true
+        }
+      );
+
+
+      closeLogin();
+
+      return;
+
+    }
+
 
     showLoginAlert(
-      getFirebaseError(error),
-      "error"
+      getFirebaseError(error)
     );
 
   }
@@ -3155,23 +3207,28 @@ window.passwordLogin = async function(){
   const phone =
     normalizePhone(
       document
-        .getElementById("passwordPhone")
+        .getElementById(
+          "passwordPhone"
+        )
         ?.value
     );
 
 
   const password =
     document
-      .getElementById("loginPassword")
+      .getElementById(
+        "loginPassword"
+      )
       ?.value
       .trim();
 
 
-  if(!phone){
+  if(
+    !/^\+8801[3-9]\d{8}$/.test(phone)
+  ){
 
     showLoginAlert(
-      "Mobile number দিন।",
-      "error"
+      "সঠিক Bangladesh mobile number দিন।"
     );
 
     return;
@@ -3182,8 +3239,7 @@ window.passwordLogin = async function(){
   if(!password){
 
     showLoginAlert(
-      "Password দিন।",
-      "error"
+      "Password দিন।"
     );
 
     return;
@@ -3192,6 +3248,14 @@ window.passwordLogin = async function(){
 
 
   try{
+
+    /*
+      Phone -> internal email
+      example:
+      017xxxxxxxx
+      becomes:
+      user_88017xxxxxxxx@naturebite.customer
+    */
 
     const email =
       phoneToEmail(phone);
@@ -3203,6 +3267,11 @@ window.passwordLogin = async function(){
       password
     );
 
+
+    /*
+      Firebase successful login হলে
+      currentUser automatically update হবে.
+    */
 
     closeLogin();
 
@@ -3218,11 +3287,8 @@ window.passwordLogin = async function(){
 
   }catch(error){
 
-    console.error(error);
-
     showLoginAlert(
-      getFirebaseError(error),
-      "error"
+      getFirebaseError(error)
     );
 
   }
@@ -3234,10 +3300,12 @@ window.passwordLogin = async function(){
    FORGOT PASSWORD
 ========================================================= */
 
-function renderForgotPassword(){
+window.renderForgotPassword = function(){
 
   document
-    .getElementById("loginContent")
+    .getElementById(
+      "loginContent"
+    )
     .innerHTML = `
 
       <div class="login-step">
@@ -3247,8 +3315,7 @@ function renderForgotPassword(){
         </h3>
 
         <p>
-          আপনার mobile number দিয়ে OTP
-          verification শুরু করুন।
+          Mobile number দিয়ে OTP verification করুন।
         </p>
 
         <input
@@ -3276,22 +3343,11 @@ function renderForgotPassword(){
 
         </div>
 
-        <p style="
-          margin-top:15px;
-          font-size:13px;
-        ">
-
-          নিরাপদ production password reset-এর
-          জন্য পরে backend verification যুক্ত
-          করতে হবে।
-
-        </p>
-
       </div>
 
     `;
 
-}
+};
 
 
 window.sendForgotOTP = async function(){
@@ -3299,16 +3355,19 @@ window.sendForgotOTP = async function(){
   const phone =
     normalizePhone(
       document
-        .getElementById("forgotPhone")
+        .getElementById(
+          "forgotPhone"
+        )
         ?.value
     );
 
 
-  if(!/^\+8801[3-9]\d{8}$/.test(phone)){
+  if(
+    !/^\+8801[3-9]\d{8}$/.test(phone)
+  ){
 
     showLoginAlert(
-      "সঠিক Bangladesh mobile number দিন।",
-      "error"
+      "সঠিক Bangladesh mobile number দিন।"
     );
 
     return;
@@ -3330,7 +3389,9 @@ window.sendForgotOTP = async function(){
 
 
     document
-      .getElementById("loginContent")
+      .getElementById(
+        "loginContent"
+      )
       .innerHTML = `
 
         <div class="login-step">
@@ -3338,11 +3399,6 @@ window.sendForgotOTP = async function(){
           <h3>
             Verify OTP
           </h3>
-
-          <p>
-            OTP পাঠানো হয়েছে:
-            ${escapeHtml(phone)}
-          </p>
 
           <input
             id="forgotOtp"
@@ -3363,14 +3419,12 @@ window.sendForgotOTP = async function(){
 
       `;
 
-
   }catch(error){
 
     resetRecaptcha();
 
     showLoginAlert(
-      getFirebaseError(error),
-      "error"
+      getFirebaseError(error)
     );
 
   }
@@ -3382,7 +3436,9 @@ window.verifyForgotOTP = async function(){
 
   const otp =
     document
-      .getElementById("forgotOtp")
+      .getElementById(
+        "forgotOtp"
+      )
       ?.value
       .trim();
 
@@ -3390,8 +3446,7 @@ window.verifyForgotOTP = async function(){
   if(!/^\d{6}$/.test(otp)){
 
     showLoginAlert(
-      "সঠিক ৬ digit OTP দিন।",
-      "error"
+      "৬ digit OTP দিন।"
     );
 
     return;
@@ -3414,45 +3469,22 @@ window.verifyForgotOTP = async function(){
     resetRecaptcha();
 
 
-    document
-      .getElementById("loginContent")
-      .innerHTML = `
+    /*
+      IMPORTANT:
+      এখানে নতুন password সরাসরি reset করা হচ্ছে না।
+      Secure production password-reset backend পরে
+      যুক্ত করা হবে।
+    */
 
-        <div class="login-step">
-
-          <h3>
-            OTP Verified
-          </h3>
-
-          <p>
-            OTP verification successful।
-          </p>
-
-          <p style="font-size:13px;">
-            Password reset-এর secure server-side
-            flow পরবর্তী backend version-এ যুক্ত
-            করা হবে।
-          </p>
-
-          <button
-            class="primary-btn"
-            style="width:100%;"
-            onclick="renderSetPassword()">
-
-            Continue
-
-          </button>
-
-        </div>
-
-      `;
-
+    showLoginAlert(
+      "OTP verified. Secure password reset flow-এর জন্য backend প্রয়োজন।",
+      "success"
+    );
 
   }catch(error){
 
     showLoginAlert(
-      getFirebaseError(error),
-      "error"
+      getFirebaseError(error)
     );
 
   }
@@ -3488,7 +3520,7 @@ async function renderAccount(){
       <div class="empty">
 
         <p>
-          You are not logged in.
+          আপনি login করেননি।
         </p>
 
         <button
@@ -3564,8 +3596,8 @@ async function renderAccount(){
         <strong>
           ${
             userData.hasPassword
-              ? "Enabled"
-              : "Not Set"
+            ? "Enabled"
+            : "Not Set"
           }
         </strong>
 
@@ -3576,8 +3608,11 @@ async function renderAccount(){
 
     <button
       class="primary-btn"
-      style="width:100%;margin-top:15px;"
-      onclick="openOrdersFromAccount()">
+      style="width:100%;margin-top:14px;"
+      onclick="
+        closeModal('accountModal');
+        openOrders();
+      ">
 
       My Orders
 
@@ -3596,15 +3631,6 @@ async function renderAccount(){
   `;
 
 }
-
-
-window.openOrdersFromAccount = function(){
-
-  closeModal("accountModal");
-
-  openOrders();
-
-};
 
 
 window.logoutUser = async function(){
@@ -3632,11 +3658,15 @@ window.logoutUser = async function(){
 
 /* =========================================================
    ORDERS
+   IMPORTANT FIX:
+   NO orderBy()
+   NO COMPOSITE INDEX REQUIRED
 ========================================================= */
 
 window.openOrders = async function(){
 
   openModal("ordersModal");
+
 
   const box =
     document.getElementById(
@@ -3651,7 +3681,7 @@ window.openOrders = async function(){
       <div class="empty">
 
         <p>
-          Login করুন আপনার orders দেখতে।
+          আপনার orders দেখতে Login করুন।
         </p>
 
         <button
@@ -3676,13 +3706,21 @@ window.openOrders = async function(){
 
 
   box.innerHTML = `
+
     <div class="empty">
       Loading orders...
     </div>
+
   `;
 
 
   try{
+
+    /*
+      এখানে শুধু customerUid দিয়ে query হচ্ছে।
+      orderBy নেই।
+      তাই composite index লাগবে না।
+    */
 
     const q =
       query(
@@ -3691,10 +3729,6 @@ window.openOrders = async function(){
           "customerUid",
           "==",
           currentUser.uid
-        ),
-        orderBy(
-          "createdAt",
-          "desc"
         )
       );
 
@@ -3706,9 +3740,13 @@ window.openOrders = async function(){
     if(snap.empty){
 
       box.innerHTML = `
+
         <div class="empty">
-          No orders yet.
+
+          এখনো কোনো order নেই।
+
         </div>
+
       `;
 
       return;
@@ -3716,26 +3754,74 @@ window.openOrders = async function(){
     }
 
 
-    box.innerHTML = "";
+    const orders = [];
 
 
     snap.forEach(orderSnap => {
 
-      const order =
-        orderSnap.data();
+      orders.push({
+
+        id:orderSnap.id,
+
+        ...orderSnap.data()
+
+      });
+
+    });
+
+
+    /*
+      Client-side sorting.
+      Firebase index প্রয়োজন নেই।
+    */
+
+    orders.sort(
+      (a,b) => {
+
+        const aTime =
+          a.createdAt?.seconds
+          ? a.createdAt.seconds
+          : 0;
+
+
+        const bTime =
+          b.createdAt?.seconds
+          ? b.createdAt.seconds
+          : 0;
+
+
+        return bTime - aTime;
+
+      }
+    );
+
+
+    box.innerHTML = "";
+
+
+    orders.forEach(order => {
+
+      const card =
+        document.createElement(
+          "div"
+        );
+
+
+      card.className =
+        "order-card";
 
 
       const items =
         Array.isArray(order.items)
-          ? order.items
-          : [];
+        ? order.items
+        : [];
 
 
-      const itemsHtml =
+      const itemHtml =
         items.map(item => `
 
           <div style="
-            padding:5px 0;
+            padding:4px 0;
             font-size:14px;
           ">
 
@@ -3744,26 +3830,21 @@ window.openOrders = async function(){
             )}
 
             ×
-            ${item.qty || 0}
+
+            ${Number(
+              item.qty || 0
+            )}
 
             ${
               item.weight
-                ? " (" +
-                  escapeHtml(item.weight) +
-                  ")"
-                : ""
+              ? " - " +
+                escapeHtml(item.weight)
+              : ""
             }
 
           </div>
 
         `).join("");
-
-
-      const card =
-        document.createElement("div");
-
-      card.className =
-        "order-card";
 
 
       card.innerHTML = `
@@ -3772,8 +3853,7 @@ window.openOrders = async function(){
 
           <strong>
             Order #${escapeHtml(
-              orderSnap.id
-                .slice(-8)
+              order.id.slice(-8)
             )}
           </strong>
 
@@ -3786,9 +3866,7 @@ window.openOrders = async function(){
         </div>
 
 
-        <div>
-          ${itemsHtml}
-        </div>
+        ${itemHtml}
 
 
         <div class="summary">
@@ -3803,6 +3881,7 @@ window.openOrders = async function(){
 
           </div>
 
+
           <div class="summary-row">
 
             <span>Payment</span>
@@ -3810,6 +3889,19 @@ window.openOrders = async function(){
             <span>
               ${escapeHtml(
                 order.paymentMethod || ""
+              )}
+            </span>
+
+          </div>
+
+
+          <div class="summary-row">
+
+            <span>Delivery</span>
+
+            <span>
+              ${escapeHtml(
+                order.deliveryType || ""
               )}
             </span>
 
@@ -3827,19 +3919,33 @@ window.openOrders = async function(){
 
   }catch(error){
 
-    console.error(error);
+    console.error(
+      "ORDER ERROR:",
+      error
+    );
+
 
     box.innerHTML = `
 
       <div class="empty">
 
-        Orders load করা যায়নি।
+        <strong>
+          Orders load করা যায়নি।
+        </strong>
 
         <br><br>
 
-        Firebase যদি index তৈরি করতে বলে,
-        Firebase Console-এর দেওয়া index link
-        থেকে index create করুন।
+        ${
+          error?.code ===
+          "permission-denied"
+
+          ? "Firestore Rules-এ orders read permission check করুন।"
+
+          : escapeHtml(
+              error?.message ||
+              "Unknown Firebase error"
+            )
+        }
 
       </div>
 
@@ -3861,40 +3967,71 @@ onAuthStateChanged(
     currentUser = user;
 
 
-    if(user){
+    if(!user){
 
-      try{
+      return;
 
-        await setDoc(
-          doc(
-            db,
-            "users",
-            user.uid
-          ),
-          {
+    }
 
-            uid:user.uid,
 
-            mobile:
-              user.phoneNumber || "",
+    try{
 
-            updatedAt:
-              serverTimestamp()
-
-          },
-          {
-            merge:true
-          }
+      const userRef =
+        doc(
+          db,
+          "users",
+          user.uid
         );
 
-      }catch(error){
 
-        console.error(
-          "User save error:",
-          error
+      const existing =
+        await getDoc(userRef);
+
+
+      /*
+        Check Firebase provider directly.
+      */
+
+      const hasPassword =
+        user.providerData.some(
+          p =>
+            p.providerId ===
+            "password"
         );
 
-      }
+
+      await setDoc(
+        userRef,
+        {
+
+          uid:
+            user.uid,
+
+          mobile:
+            user.phoneNumber || "",
+
+          hasPassword:
+            hasPassword ||
+            (
+              existing.exists() &&
+              existing.data().hasPassword === true
+            ),
+
+          updatedAt:
+            serverTimestamp()
+
+        },
+        {
+          merge:true
+        }
+      );
+
+    }catch(error){
+
+      console.error(
+        "User sync error:",
+        error
+      );
 
     }
 
@@ -3932,4 +4069,4 @@ init();
 </script>
 
 </body>
-</html>ফ
+</html>ন

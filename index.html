@@ -1,1 +1,4504 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#2E7D32">
+<title>Nature Bite</title>
 
+<style>
+:root{
+  --green:#2E7D32;
+  --green2:#388E3C;
+  --sage:#A5C18E;
+  --cream:#F5F2E8;
+  --brown:#5D4037;
+  --white:#fff;
+  --red:#d32f2f;
+  --gold:#d9a441;
+  --border:#e2e2e2;
+  --shadow:0 4px 18px rgba(0,0,0,.08);
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,"Noto Sans Bengali",sans-serif;
+  background:#f7f7f3;
+  color:#222;
+  padding-bottom:75px;
+}
+
+button,input,select,textarea{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.hidden{
+  display:none!important;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:var(--white);
+  border-bottom:1px solid var(--border);
+  box-shadow:0 2px 10px rgba(0,0,0,.05);
+}
+
+.header-inner{
+  max-width:1100px;
+  margin:auto;
+  padding:12px 15px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.logo{
+  flex:1;
+  color:var(--green);
+  font-weight:800;
+  font-size:22px;
+}
+
+.logo span{
+  color:var(--brown);
+}
+
+.icon-btn{
+  width:42px;
+  height:42px;
+  border:0;
+  border-radius:50%;
+  background:#f1f5ee;
+  color:var(--green);
+  font-size:19px;
+  position:relative;
+}
+
+.badge{
+  position:absolute;
+  top:-3px;
+  right:-2px;
+  background:var(--red);
+  color:#fff;
+  font-size:10px;
+  min-width:18px;
+  height:18px;
+  border-radius:20px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:18px 14px;
+}
+
+.hero{
+  background:linear-gradient(135deg,#eaf3e3,#fffdf5);
+  border-radius:22px;
+  padding:28px 20px;
+  margin-bottom:20px;
+}
+
+.hero h1{
+  color:var(--green);
+  font-size:30px;
+  margin-bottom:8px;
+}
+
+.hero p{
+  color:#666;
+  line-height:1.6;
+}
+
+.hero-btn{
+  margin-top:16px;
+  border:0;
+  background:var(--green);
+  color:#fff;
+  padding:12px 20px;
+  border-radius:12px;
+  font-weight:bold;
+}
+
+.section-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin:20px 0 12px;
+}
+
+.section-title h2{
+  font-size:20px;
+  color:var(--brown);
+}
+
+.search-box{
+  display:flex;
+  gap:8px;
+  margin-bottom:12px;
+}
+
+.search-box input{
+  flex:1;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:12px;
+  outline:none;
+  background:#fff;
+}
+
+.filters{
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  padding-bottom:6px;
+}
+
+.filters select{
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:9px;
+  background:#fff;
+  min-width:130px;
+}
+
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+.card{
+  background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+
+.product-image{
+  height:150px;
+  background:#edf3e8;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:50px;
+}
+
+.product-info{
+  padding:12px;
+}
+
+.product-info h3{
+  font-size:16px;
+  margin-bottom:5px;
+}
+
+.category{
+  color:#777;
+  font-size:12px;
+  margin-bottom:7px;
+}
+
+.price{
+  font-size:18px;
+  color:var(--green);
+  font-weight:bold;
+}
+
+.old-price{
+  color:#999;
+  text-decoration:line-through;
+  font-size:12px;
+  margin-left:5px;
+}
+
+.stock{
+  font-size:12px;
+  margin-top:5px;
+}
+
+.in-stock{
+  color:var(--green);
+}
+
+.low-stock{
+  color:#e67e22;
+}
+
+.out-stock{
+  color:var(--red);
+}
+
+.card-actions{
+  display:flex;
+  gap:7px;
+  margin-top:10px;
+}
+
+.primary-btn,
+.secondary-btn,
+.danger-btn{
+  border:0;
+  padding:10px 12px;
+  border-radius:10px;
+  font-weight:bold;
+}
+
+.primary-btn{
+  background:var(--green);
+  color:#fff;
+  flex:1;
+}
+
+.secondary-btn{
+  background:#eef4eb;
+  color:var(--green);
+}
+
+.danger-btn{
+  background:#ffebee;
+  color:var(--red);
+}
+
+.empty{
+  text-align:center;
+  background:#fff;
+  padding:35px 20px;
+  border-radius:16px;
+  color:#777;
+}
+
+.bottom-nav{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  height:65px;
+  background:#fff;
+  border-top:1px solid var(--border);
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  z-index:200;
+}
+
+.bottom-nav button{
+  border:0;
+  background:none;
+  color:#777;
+  font-size:11px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:3px;
+}
+
+.bottom-nav button.active{
+  color:var(--green);
+  font-weight:bold;
+}
+
+.page{
+  display:none;
+}
+
+.page.active{
+  display:block;
+}
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.5);
+  z-index:500;
+  display:none;
+  align-items:flex-end;
+  justify-content:center;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-box{
+  width:100%;
+  max-width:600px;
+  max-height:92vh;
+  overflow-y:auto;
+  background:#fff;
+  border-radius:22px 22px 0 0;
+  padding:20px;
+  animation:slideUp .2s ease;
+}
+
+@keyframes slideUp{
+  from{transform:translateY(50px);opacity:0}
+  to{transform:translateY(0);opacity:1}
+}
+
+.modal-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:18px;
+}
+
+.close{
+  border:0;
+  background:#eee;
+  width:35px;
+  height:35px;
+  border-radius:50%;
+}
+
+.form-group{
+  margin-bottom:13px;
+}
+
+.form-group label{
+  display:block;
+  font-size:13px;
+  font-weight:bold;
+  margin-bottom:6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+  width:100%;
+  padding:12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  outline:none;
+}
+
+.form-group textarea{
+  min-height:90px;
+  resize:vertical;
+}
+
+.full-btn{
+  width:100%;
+  padding:13px;
+  border:0;
+  border-radius:12px;
+  background:var(--green);
+  color:#fff;
+  font-weight:bold;
+  margin-top:5px;
+}
+
+.link-btn{
+  border:0;
+  background:none;
+  color:var(--green);
+  margin-top:12px;
+}
+
+.auth-step{
+  display:none;
+}
+
+.auth-step.active{
+  display:block;
+}
+
+.auth-note{
+  background:#f1f7ed;
+  padding:12px;
+  border-radius:10px;
+  font-size:13px;
+  line-height:1.5;
+  margin-bottom:15px;
+}
+
+.payment-option{
+  border:2px solid #ddd;
+  padding:13px;
+  border-radius:12px;
+  margin-bottom:10px;
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.payment-option.selected{
+  border-color:var(--green);
+  background:#f2f8ef;
+}
+
+.payment-box{
+  background:#f7f9f4;
+  padding:14px;
+  border-radius:13px;
+  margin-top:12px;
+}
+
+.payment-number{
+  font-size:20px;
+  font-weight:bold;
+  color:var(--green);
+  margin:7px 0;
+}
+
+.amount{
+  font-size:20px;
+  font-weight:bold;
+  color:var(--brown);
+}
+
+.summary{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px;
+  margin-bottom:15px;
+}
+
+.summary-row{
+  display:flex;
+  justify-content:space-between;
+  margin:8px 0;
+}
+
+.summary-total{
+  border-top:1px solid var(--border);
+  padding-top:10px;
+  font-weight:bold;
+  font-size:18px;
+}
+
+.cart-item{
+  display:flex;
+  gap:10px;
+  background:#fff;
+  padding:12px;
+  margin-bottom:10px;
+  border-radius:14px;
+  box-shadow:var(--shadow);
+}
+
+.cart-icon{
+  width:65px;
+  height:65px;
+  border-radius:12px;
+  background:#eef4e9;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+}
+
+.cart-info{
+  flex:1;
+}
+
+.qty{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:7px;
+}
+
+.qty button{
+  width:28px;
+  height:28px;
+  border:0;
+  border-radius:7px;
+  background:#eaf1e7;
+  color:var(--green);
+}
+
+.order-card{
+  background:#fff;
+  border-radius:15px;
+  padding:15px;
+  margin-bottom:12px;
+  box-shadow:var(--shadow);
+}
+
+.order-top{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.status{
+  display:inline-block;
+  padding:5px 8px;
+  border-radius:20px;
+  background:#edf5e9;
+  color:var(--green);
+  font-size:11px;
+}
+
+.profile-card{
+  background:linear-gradient(135deg,#2e7d32,#5d4037);
+  color:#fff;
+  border-radius:20px;
+  padding:25px;
+  margin-bottom:15px;
+}
+
+.profile-card h2{
+  margin-bottom:5px;
+}
+
+.menu-list{
+  background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+
+.menu-item{
+  padding:15px;
+  border-bottom:1px solid #eee;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:#fff;
+  width:100%;
+  border-left:0;
+  border-right:0;
+  border-top:0;
+  text-align:left;
+}
+
+.menu-item:last-child{
+  border-bottom:0;
+}
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:80px;
+  transform:translateX(-50%) translateY(20px);
+  background:#222;
+  color:#fff;
+  padding:12px 18px;
+  border-radius:10px;
+  opacity:0;
+  pointer-events:none;
+  transition:.25s;
+  z-index:1000;
+  max-width:90%;
+  text-align:center;
+}
+
+.toast.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+
+.loading{
+  padding:30px;
+  text-align:center;
+  color:#777;
+}
+
+@media(min-width:700px){
+  .product-grid{
+    grid-template-columns:repeat(4,1fr);
+  }
+
+  .modal{
+    align-items:center;
+  }
+
+  .modal-box{
+    border-radius:20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">Nature <span>Bite</span></div>
+
+    <button class="icon-btn" onclick="showPage('wishlist')">
+      ♡
+      <span id="wishBadge" class="badge hidden">0</span>
+    </button>
+
+    <button class="icon-btn" onclick="showPage('cart')">
+      🛒
+      <span id="cartBadge" class="badge hidden">0</span>
+    </button>
+  </div>
+</header>
+
+<main class="container">
+
+<!-- HOME -->
+<section id="homePage" class="page active">
+
+  <div class="hero">
+    <h1>Healthy food,<br>naturally better.</h1>
+    <p>
+      Nature Bite-এর স্বাস্থ্যকর খাবার আপনার প্রতিদিনের জীবনে
+      সহজ, পরিচ্ছন্ন ও প্রাকৃতিক খাবারের অভিজ্ঞতা দিতে তৈরি।
+    </p>
+
+    <button class="hero-btn" onclick="showPage('shop')">
+      Shop Now →
+    </button>
+  </div>
+
+  <div class="section-title">
+    <h2>Popular Products</h2>
+    <button class="link-btn" onclick="showPage('shop')">See All</button>
+  </div>
+
+  <div id="homeProducts" class="product-grid">
+    <div class="loading">Products loading...</div>
+  </div>
+
+</section>
+
+
+<!-- SHOP -->
+<section id="shopPage" class="page">
+
+  <div class="section-title">
+    <h2>Shop</h2>
+  </div>
+
+  <div class="search-box">
+    <input
+      id="searchInput"
+      type="search"
+      placeholder="Search products..."
+      oninput="renderProducts()"
+    >
+  </div>
+
+  <div class="filters">
+    <select id="categoryFilter" onchange="renderProducts()">
+      <option value="">All Categories</option>
+      <option value="Healthy Snacks">Healthy Snacks</option>
+      <option value="Kids Special Foods">Kids Special Foods</option>
+      <option value="Diabetic/Keto-Friendly Products">
+        Diabetic/Keto-Friendly Products
+      </option>
+      <option value="Instant Mix Items">Instant Mix Items</option>
+    </select>
+
+    <select id="sortFilter" onchange="renderProducts()">
+      <option value="newest">Newest</option>
+      <option value="priceLow">Price Low → High</option>
+      <option value="priceHigh">Price High → Low</option>
+      <option value="rating">Highest Rated</option>
+    </select>
+  </div>
+
+  <br>
+
+  <div id="shopProducts" class="product-grid"></div>
+
+</section>
+
+
+<!-- CART -->
+<section id="cartPage" class="page">
+
+  <div class="section-title">
+    <h2>My Cart</h2>
+  </div>
+
+  <div id="cartContainer"></div>
+
+</section>
+
+
+<!-- CHECKOUT -->
+<section id="checkoutPage" class="page">
+
+  <div class="section-title">
+    <h2>Checkout</h2>
+  </div>
+
+  <div id="checkoutContainer"></div>
+
+</section>
+
+
+<!-- ORDERS -->
+<section id="ordersPage" class="page">
+
+  <div class="section-title">
+    <h2>My Orders</h2>
+  </div>
+
+  <div id="ordersContainer">
+    <div class="loading">Loading orders...</div>
+  </div>
+
+</section>
+
+
+<!-- WISHLIST -->
+<section id="wishlistPage" class="page">
+
+  <div class="section-title">
+    <h2>Wishlist</h2>
+  </div>
+
+  <div id="wishlistContainer"></div>
+
+</section>
+
+
+<!-- OFFERS -->
+<section id="offersPage" class="page">
+
+  <div class="section-title">
+    <h2>Offers</h2>
+  </div>
+
+  <div class="empty">
+    🎁 Offers and coupons will appear here.
+  </div>
+
+</section>
+
+
+<!-- ACCOUNT -->
+<section id="accountPage" class="page">
+
+  <div id="accountContent"></div>
+
+</section>
+
+</main>
+
+
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav">
+
+  <button id="navHome" class="active" onclick="showPage('home')">
+    🏠
+    <span>Home</span>
+  </button>
+
+  <button id="navShop" onclick="showPage('shop')">
+    🛍️
+    <span>Shop</span>
+  </button>
+
+  <button id="navCart" onclick="showPage('cart')">
+    🛒
+    <span>Cart</span>
+  </button>
+
+  <button id="navOrders" onclick="showPage('orders')">
+    📦
+    <span>Orders</span>
+  </button>
+
+  <button id="navAccount" onclick="showPage('account')">
+    👤
+    <span>Account</span>
+  </button>
+
+</nav>
+
+
+<!-- PRODUCT MODAL -->
+<div id="productModal" class="modal">
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+      <h2 id="modalProductName">Product</h2>
+      <button class="close" onclick="closeModal('productModal')">×</button>
+    </div>
+
+    <div id="productModalContent"></div>
+
+  </div>
+
+</div>
+
+
+<!-- AUTH MODAL -->
+<div id="authModal" class="modal">
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+      <h2>Nature Bite Account</h2>
+      <button class="close" onclick="closeModal('authModal')">×</button>
+    </div>
+
+
+    <!-- LOGIN -->
+    <div id="loginStep" class="auth-step active">
+
+      <div class="auth-note">
+        Mobile number দিয়ে আপনার Nature Bite account-এ login করুন।
+      </div>
+
+      <div class="form-group">
+        <label>Mobile Number</label>
+        <input
+          id="loginMobile"
+          type="tel"
+          placeholder="01XXXXXXXXX"
+        >
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+        <input
+          id="loginPassword"
+          type="password"
+          placeholder="Password"
+        >
+      </div>
+
+      <button class="full-btn" onclick="loginWithPhonePassword()">
+        Login
+      </button>
+
+      <button class="link-btn" onclick="showAuthStep('registerStep')">
+        নতুন account তৈরি করুন
+      </button>
+
+      <button class="link-btn" onclick="showAuthStep('forgotStep')">
+        Forgot Password?
+      </button>
+
+    </div>
+
+
+    <!-- REGISTER -->
+    <div id="registerStep" class="auth-step">
+
+      <div class="auth-note">
+        প্রথমে আপনার mobile number-এ OTP যাবে।
+        OTP verify করার পর password সেট করতে পারবেন।
+      </div>
+
+      <div class="form-group">
+        <label>Mobile Number</label>
+        <input
+          id="registerMobile"
+          type="tel"
+          placeholder="01XXXXXXXXX"
+        >
+      </div>
+
+      <div id="registerRecaptcha"></div>
+
+      <button class="full-btn" onclick="sendRegisterOTP()">
+        Send OTP
+      </button>
+
+      <div id="registerOtpArea" class="hidden">
+
+        <div class="form-group">
+          <label>OTP</label>
+          <input
+            id="registerOTP"
+            type="text"
+            inputmode="numeric"
+            maxlength="6"
+            placeholder="6 digit OTP"
+          >
+        </div>
+
+        <button class="full-btn" onclick="verifyRegisterOTP()">
+          Verify OTP
+        </button>
+
+      </div>
+
+      <button class="link-btn" onclick="showAuthStep('loginStep')">
+        ← Login
+      </button>
+
+    </div>
+
+
+    <!-- SET PASSWORD -->
+    <div id="passwordStep" class="auth-step">
+
+      <div class="auth-note">
+        Account তৈরি হয়েছে। এখন আপনার login password সেট করুন।
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+        <input
+          id="newPassword"
+          type="password"
+          placeholder="কমপক্ষে 6 characters"
+        >
+      </div>
+
+      <div class="form-group">
+        <label>Confirm Password</label>
+        <input
+          id="confirmPassword"
+          type="password"
+          placeholder="Password আবার লিখুন"
+        >
+      </div>
+
+      <button class="full-btn" onclick="finishRegistration()">
+        Create Account
+      </button>
+
+    </div>
+
+
+    <!-- FORGOT -->
+    <div id="forgotStep" class="auth-step">
+
+      <div class="auth-note">
+        Mobile number verify করার জন্য OTP পাঠানো হবে।
+        OTP verify হওয়ার পর নতুন password সেট করতে পারবেন।
+      </div>
+
+      <div class="form-group">
+        <label>Mobile Number</label>
+        <input
+          id="forgotMobile"
+          type="tel"
+          placeholder="01XXXXXXXXX"
+        >
+      </div>
+
+      <div id="forgotRecaptcha"></div>
+
+      <button class="full-btn" onclick="sendForgotOTP()">
+        Send OTP
+      </button>
+
+      <div id="forgotOtpArea" class="hidden">
+
+        <div class="form-group">
+          <label>OTP</label>
+          <input
+            id="forgotOTP"
+            type="text"
+            inputmode="numeric"
+            maxlength="6"
+            placeholder="6 digit OTP"
+          >
+        </div>
+
+        <button class="full-btn" onclick="verifyForgotOTP()">
+          Verify OTP
+        </button>
+
+      </div>
+
+      <button class="link-btn" onclick="showAuthStep('loginStep')">
+        ← Login
+      </button>
+
+    </div>
+
+
+    <!-- RESET PASSWORD -->
+    <div id="resetPasswordStep" class="auth-step">
+
+      <div class="auth-note">
+        OTP verified. এখন নতুন password দিন।
+      </div>
+
+      <div class="form-group">
+        <label>New Password</label>
+        <input
+          id="resetPassword"
+          type="password"
+          placeholder="New Password"
+        >
+      </div>
+
+      <div class="form-group">
+        <label>Confirm Password</label>
+        <input
+          id="resetPasswordConfirm"
+          type="password"
+          placeholder="Confirm Password"
+        >
+      </div>
+
+      <button class="full-btn" onclick="finishPasswordReset()">
+        Reset Password
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- PROFILE MODAL -->
+<div id="profileModal" class="modal">
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+      <h2>Edit Profile</h2>
+      <button class="close" onclick="closeModal('profileModal')">×</button>
+    </div>
+
+    <div class="form-group">
+      <label>Name</label>
+      <input id="profileName" type="text">
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input id="profileEmail" type="email">
+    </div>
+
+    <div class="form-group">
+      <label>Address</label>
+      <textarea id="profileAddress"></textarea>
+    </div>
+
+    <button class="full-btn" onclick="saveProfile()">
+      Save Profile
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- SUPPORT MODAL -->
+<div id="supportModal" class="modal">
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+      <h2>Support</h2>
+      <button class="close" onclick="closeModal('supportModal')">×</button>
+    </div>
+
+    <div class="form-group">
+      <label>Issue Type</label>
+      <select id="supportCategory">
+        <option>General</option>
+        <option>Order</option>
+        <option>Payment</option>
+        <option>Delivery</option>
+        <option>Cancel</option>
+        <option>Refund</option>
+        <option>Damaged Product</option>
+        <option>Wrong Product</option>
+        <option>Other</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Message</label>
+      <textarea
+        id="supportMessage"
+        placeholder="আপনার সমস্যা লিখুন..."
+      ></textarea>
+    </div>
+
+    <button class="full-btn" onclick="createSupportTicket()">
+      Submit Ticket
+    </button>
+
+  </div>
+
+</div>
+
+
+<div id="toast" class="toast"></div>
+
+
+<!-- FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+
+
+<script>
+
+/* =========================================================
+   FIREBASE CONFIG
+   নিজের Firebase Web App config এখানে বসান
+========================================================= */
+
+const firebaseConfig = {
+
+  apiKey: "AIzaSyAHkf-TowBU4Lw-PJCxMKzdTbknRLLpPds",
+
+  authDomain: "nature-bite.firebaseapp.com",
+
+  projectId: "nature-bite",
+
+  storageBucket: "nature-bite.firebasestorage.app",
+
+  messagingSenderId: "651000838958",
+
+  appId: "1:651000838958:web:1d59655ce567cd873758bf"
+
+};
+
+
+/* =========================================================
+   INITIALIZE FIREBASE
+========================================================= */
+
+firebase.initializeApp(firebaseConfig);
+
+const auth = firebase.auth();
+
+const db = firebase.firestore();
+
+
+/* =========================================================
+   PAYMENT SETTINGS
+   পরবর্তীতে Admin Panel থেকে Firestore দিয়ে নিয়ন্ত্রণ করা যাবে
+========================================================= */
+
+let PAYMENT_SETTINGS = {
+
+  bkashNumber: "01XXXXXXXXX",
+
+  nagadNumber: "01XXXXXXXXX",
+
+  deliveryCharge: 60,
+
+  platformCharge: 0,
+
+  freeDelivery: false,
+
+  deliveryOnlyEnabled: true,
+
+  fullPaymentEnabled: true
+
+};
+
+
+/* =========================================================
+   GLOBAL VARIABLES
+========================================================= */
+
+let currentUser = null;
+
+let products = [];
+
+let cart = JSON.parse(localStorage.getItem("naturebite_cart") || "[]");
+
+let wishlist = JSON.parse(
+  localStorage.getItem("naturebite_wishlist") || "[]"
+);
+
+let selectedProduct = null;
+
+let verificationId = null;
+
+let forgotVerificationId = null;
+
+let registerPhone = "";
+
+let forgotPhone = "";
+
+let pendingProfile = null;
+
+
+/* =========================================================
+   UTILITY
+========================================================= */
+
+function toast(message){
+
+  const el = document.getElementById("toast");
+
+  el.textContent = message;
+
+  el.classList.add("show");
+
+  setTimeout(() => {
+
+    el.classList.remove("show");
+
+  },3000);
+
+}
+
+
+function money(value){
+
+  return "৳" + Number(value || 0).toLocaleString("en-BD");
+
+}
+
+
+function normalizePhone(phone){
+
+  phone = String(phone || "").replace(/\s+/g,"");
+
+  if(phone.startsWith("+880")){
+
+    return "0" + phone.substring(4);
+
+  }
+
+  if(phone.startsWith("880")){
+
+    return "0" + phone.substring(3);
+
+  }
+
+  return phone;
+
+}
+
+
+function phoneToAuthEmail(phone){
+
+  const normalized = normalizePhone(phone);
+
+  return normalized.replace(/\D/g,"") + "@naturebite.local";
+
+}
+
+
+function validBangladeshPhone(phone){
+
+  return /^01[3-9]\d{8}$/.test(
+    normalizePhone(phone)
+  );
+
+}
+
+
+function saveLocal(){
+
+  localStorage.setItem(
+    "naturebite_cart",
+    JSON.stringify(cart)
+  );
+
+  localStorage.setItem(
+    "naturebite_wishlist",
+    JSON.stringify(wishlist)
+  );
+
+  updateBadges();
+
+}
+
+
+function updateBadges(){
+
+  const cartCount = cart.reduce(
+    (sum,item) => sum + Number(item.qty || 0),
+    0
+  );
+
+  const cartBadge = document.getElementById("cartBadge");
+
+  if(cartCount){
+
+    cartBadge.textContent = cartCount;
+
+    cartBadge.classList.remove("hidden");
+
+  }else{
+
+    cartBadge.classList.add("hidden");
+
+  }
+
+
+  const wishBadge =
+    document.getElementById("wishBadge");
+
+  if(wishlist.length){
+
+    wishBadge.textContent = wishlist.length;
+
+    wishBadge.classList.remove("hidden");
+
+  }else{
+
+    wishBadge.classList.add("hidden");
+
+  }
+
+}
+
+
+function closeModal(id){
+
+  document
+    .getElementById(id)
+    .classList.remove("show");
+
+}
+
+
+function openModal(id){
+
+  document
+    .getElementById(id)
+    .classList.add("show");
+
+}
+
+
+/* =========================================================
+   PAGE NAVIGATION
+========================================================= */
+
+function showPage(page){
+
+  document
+    .querySelectorAll(".page")
+    .forEach(el => el.classList.remove("active"));
+
+  const target =
+    document.getElementById(page + "Page");
+
+  if(target){
+
+    target.classList.add("active");
+
+  }
+
+
+  document
+    .querySelectorAll(".bottom-nav button")
+    .forEach(btn => btn.classList.remove("active"));
+
+
+  const navMap = {
+
+    home:"navHome",
+
+    shop:"navShop",
+
+    cart:"navCart",
+
+    orders:"navOrders",
+
+    account:"navAccount"
+
+  };
+
+
+  if(navMap[page]){
+
+    document
+      .getElementById(navMap[page])
+      .classList.add("active");
+
+  }
+
+
+  if(page === "cart"){
+
+    renderCart();
+
+  }
+
+  if(page === "checkout"){
+
+    renderCheckout();
+
+  }
+
+  if(page === "orders"){
+
+    loadOrders();
+
+  }
+
+  if(page === "wishlist"){
+
+    renderWishlist();
+
+  }
+
+  if(page === "account"){
+
+    renderAccount();
+
+  }
+
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* =========================================================
+   FIREBASE SETTINGS
+========================================================= */
+
+async function loadPaymentSettings(){
+
+  try{
+
+    const snap =
+      await db.collection("settings")
+      .doc("payment")
+      .get();
+
+    if(snap.exists){
+
+      PAYMENT_SETTINGS = {
+
+        ...PAYMENT_SETTINGS,
+
+        ...snap.data()
+
+      };
+
+    }
+
+  }catch(error){
+
+    console.log(
+      "Payment settings not loaded:",
+      error
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   PRODUCTS
+========================================================= */
+
+async function loadProducts(){
+
+  try{
+
+    const snap =
+      await db.collection("products")
+      .where("active","==",true)
+      .get();
+
+    products = [];
+
+    snap.forEach(doc => {
+
+      products.push({
+
+        id:doc.id,
+
+        ...doc.data()
+
+      });
+
+    });
+
+
+    products.sort(
+      (a,b) =>
+        Number(b.createdAt?.seconds || 0) -
+        Number(a.createdAt?.seconds || 0)
+    );
+
+
+  }catch(error){
+
+    console.error(error);
+
+    /*
+      Demo fallback.
+      Firebase products না থাকলে website blank হবে না।
+    */
+
+    products = [
+
+      {
+        id:"demo-granola",
+        name:"NutriBite Granola Bar",
+        category:"Healthy Snacks",
+        price:80,
+        oldPrice:100,
+        stock:20,
+        unit:"30g",
+        emoji:"🥜",
+        description:
+          "Oats, nuts, dates and natural ingredients দিয়ে তৈরি healthy snack.",
+        active:true,
+        rating:4.8
+      },
+
+      {
+        id:"demo-porridge",
+        name:"NatureMix Instant Porridge",
+        category:"Instant Mix Items",
+        price:350,
+        stock:15,
+        unit:"500g",
+        emoji:"🥣",
+        description:
+          "সহজে প্রস্তুত করা যায় এমন nutritious instant porridge.",
+        active:true,
+        rating:4.7
+      },
+
+      {
+        id:"demo-snacks",
+        name:"DiabCare Roasted Snacks",
+        category:"Diabetic/Keto-Friendly Products",
+        price:420,
+        stock:12,
+        unit:"500g",
+        emoji:"🌰",
+        description:
+          "Roasted nuts and seeds based healthy snack mix.",
+        active:true,
+        rating:4.6
+      },
+
+      {
+        id:"demo-energy",
+        name:"Peanut Energy Bite",
+        category:"Healthy Snacks",
+        price:120,
+        stock:30,
+        unit:"6 pcs",
+        emoji:"🍯",
+        description:
+          "Peanut based energy bites for quick healthy snacking.",
+        active:true,
+        rating:4.7
+      }
+
+    ];
+
+  }
+
+
+  renderProducts();
+
+  renderHomeProducts();
+
+}
+
+
+/* =========================================================
+   PRODUCT RENDER
+========================================================= */
+
+function productMatchesSearch(product){
+
+  const q =
+    document
+      .getElementById("searchInput")
+      ?.value
+      .toLowerCase()
+      .trim() || "";
+
+  if(!q) return true;
+
+  const text = [
+
+    product.name,
+
+    product.category,
+
+    product.unit,
+
+    product.description,
+
+    ...(product.keywords || [])
+
+  ]
+  .join(" ")
+  .toLowerCase();
+
+  return text.includes(q);
+
+}
+
+
+function renderProducts(){
+
+  const container =
+    document.getElementById("shopProducts");
+
+  if(!container) return;
+
+
+  let list =
+    products.filter(productMatchesSearch);
+
+
+  const category =
+    document.getElementById("categoryFilter")
+    ?.value || "";
+
+
+  if(category){
+
+    list =
+      list.filter(
+        p => p.category === category
+      );
+
+  }
+
+
+  const sort =
+    document.getElementById("sortFilter")
+    ?.value || "newest";
+
+
+  if(sort === "priceLow"){
+
+    list.sort(
+      (a,b) => Number(a.price) - Number(b.price)
+    );
+
+  }
+
+  if(sort === "priceHigh"){
+
+    list.sort(
+      (a,b) => Number(b.price) - Number(a.price)
+    );
+
+  }
+
+  if(sort === "rating"){
+
+    list.sort(
+      (a,b) =>
+        Number(b.rating || 0) -
+        Number(a.rating || 0)
+    );
+
+  }
+
+
+  if(!list.length){
+
+    container.innerHTML = `
+      <div class="empty" style="grid-column:1/-1">
+        কোনো product পাওয়া যায়নি।
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  container.innerHTML =
+    list.map(productCard).join("");
+
+}
+
+
+function renderHomeProducts(){
+
+  const container =
+    document.getElementById("homeProducts");
+
+  if(!container) return;
+
+  const list = products.slice(0,4);
+
+  container.innerHTML =
+    list.map(productCard).join("");
+
+}
+
+
+function productCard(product){
+
+  const stock =
+    Number(product.stock || 0);
+
+
+  let stockHTML = "";
+
+  if(stock <= 0){
+
+    stockHTML =
+      `<div class="stock out-stock">
+        Out of Stock
+      </div>`;
+
+  }else if(stock <= 5){
+
+    stockHTML =
+      `<div class="stock low-stock">
+        Only a few left
+      </div>`;
+
+  }else{
+
+    stockHTML =
+      `<div class="stock in-stock">
+        Available
+      </div>`;
+
+  }
+
+
+  const wished =
+    wishlist.includes(product.id);
+
+
+  return `
+
+    <div class="card">
+
+      <div
+        class="product-image"
+        onclick="openProduct('${product.id}')"
+      >
+        ${product.image
+          ? `<img
+              src="${escapeHTML(product.image)}"
+              style="width:100%;height:100%;object-fit:cover"
+            >`
+          : (product.emoji || "🥗")
+        }
+      </div>
+
+      <div class="product-info">
+
+        <h3>${escapeHTML(product.name || "Product")}</h3>
+
+        <div class="category">
+          ${escapeHTML(product.category || "")}
+          ${product.unit ? " • " + escapeHTML(product.unit) : ""}
+        </div>
+
+        <div class="price">
+          ${money(product.price)}
+
+          ${
+            product.oldPrice
+            ? `<span class="old-price">
+                ${money(product.oldPrice)}
+              </span>`
+            : ""
+          }
+        </div>
+
+        ${stockHTML}
+
+        <div class="card-actions">
+
+          <button
+            class="secondary-btn"
+            onclick="toggleWishlist('${product.id}')"
+          >
+            ${wished ? "♥" : "♡"}
+          </button>
+
+          <button
+            class="primary-btn"
+            ${stock <= 0 ? "disabled" : ""}
+            onclick="addToCart('${product.id}')"
+          >
+            Add
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+  `;
+
+}
+
+
+function escapeHTML(value){
+
+  return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================================================
+   PRODUCT DETAILS
+========================================================= */
+
+function openProduct(id){
+
+  const product =
+    products.find(p => p.id === id);
+
+  if(!product) return;
+
+  selectedProduct = product;
+
+  document.getElementById(
+    "modalProductName"
+  ).textContent = product.name;
+
+
+  const stock =
+    Number(product.stock || 0);
+
+
+  document.getElementById(
+    "productModalContent"
+  ).innerHTML = `
+
+    <div
+      class="product-image"
+      style="height:220px;margin-bottom:15px"
+    >
+      ${
+        product.image
+        ? `<img
+            src="${escapeHTML(product.image)}"
+            style="width:100%;height:100%;object-fit:cover"
+          >`
+        : (product.emoji || "🥗")
+      }
+    </div>
+
+    <p style="color:#777;line-height:1.6;margin-bottom:12px">
+      ${escapeHTML(product.description || "Healthy Nature Bite product.")}
+    </p>
+
+    <div class="price">
+      ${money(product.price)}
+    </div>
+
+    <div style="margin:10px 0">
+      ${stock > 0
+        ? `<span class="stock in-stock">Available: ${stock}</span>`
+        : `<span class="stock out-stock">Out of Stock</span>`
+      }
+    </div>
+
+    <button
+      class="full-btn"
+      ${stock <= 0 ? "disabled" : ""}
+      onclick="addToCart('${product.id}');closeModal('productModal')"
+    >
+      Add to Cart
+    </button>
+
+  `;
+
+
+  openModal("productModal");
+
+}
+
+
+/* =========================================================
+   CART
+========================================================= */
+
+function addToCart(id){
+
+  const product =
+    products.find(p => p.id === id);
+
+  if(!product){
+
+    toast("Product পাওয়া যায়নি।");
+
+    return;
+
+  }
+
+
+  const stock =
+    Number(product.stock || 0);
+
+
+  if(stock <= 0){
+
+    toast("এই product এখন out of stock.");
+
+    return;
+
+  }
+
+
+  const existing =
+    cart.find(item => item.id === id);
+
+
+  if(existing){
+
+    if(existing.qty >= stock){
+
+      toast("Available stock-এর বেশি নেওয়া যাবে না.");
+
+      return;
+
+    }
+
+    existing.qty++;
+
+  }else{
+
+    cart.push({
+
+      id:product.id,
+
+      name:product.name,
+
+      price:Number(product.price || 0),
+
+      qty:1,
+
+      stock:stock,
+
+      unit:product.unit || "",
+
+      emoji:product.emoji || "🥗"
+
+    });
+
+  }
+
+
+  saveLocal();
+
+  toast("Cart-এ product যোগ হয়েছে।");
+
+}
+
+
+function changeQty(id, amount){
+
+  const item =
+    cart.find(x => x.id === id);
+
+  if(!item) return;
+
+
+  item.qty += amount;
+
+
+  if(item.qty <= 0){
+
+    cart =
+      cart.filter(x => x.id !== id);
+
+  }
+
+
+  if(item.qty > item.stock){
+
+    item.qty = item.stock;
+
+    toast("Stock limit reached.");
+
+  }
+
+
+  saveLocal();
+
+  renderCart();
+
+}
+
+
+function removeFromCart(id){
+
+  cart =
+    cart.filter(x => x.id !== id);
+
+  saveLocal();
+
+  renderCart();
+
+  toast("Cart থেকে remove হয়েছে।");
+
+}
+
+
+function cartTotal(){
+
+  return cart.reduce(
+    (sum,item) =>
+      sum +
+      Number(item.price) *
+      Number(item.qty),
+    0
+  );
+
+}
+
+
+function renderCart(){
+
+  const container =
+    document.getElementById("cartContainer");
+
+  if(!container) return;
+
+
+  if(!cart.length){
+
+    container.innerHTML = `
+
+      <div class="empty">
+
+        <div style="font-size:45px">🛒</div>
+
+        <h3>আপনার cart খালি</h3>
+
+        <p style="margin:8px 0 15px">
+          কিছু healthy product যোগ করুন।
+        </p>
+
+        <button
+          class="primary-btn"
+          onclick="showPage('shop')"
+        >
+          Shop Now
+        </button>
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  let html = "";
+
+
+  cart.forEach(item => {
+
+    html += `
+
+      <div class="cart-item">
+
+        <div class="cart-icon">
+          ${item.emoji || "🥗"}
+        </div>
+
+        <div class="cart-info">
+
+          <strong>
+            ${escapeHTML(item.name)}
+          </strong>
+
+          <div class="price">
+            ${money(item.price)}
+          </div>
+
+          <div class="qty">
+
+            <button
+              onclick="changeQty('${item.id}',-1)"
+            >−</button>
+
+            <strong>${item.qty}</strong>
+
+            <button
+              onclick="changeQty('${item.id}',1)"
+            >+</button>
+
+            <button
+              class="danger-btn"
+              onclick="removeFromCart('${item.id}')"
+            >
+              Remove
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+    `;
+
+  });
+
+
+  const subtotal = cartTotal();
+
+
+  html += `
+
+    <div class="summary">
+
+      <div class="summary-row">
+        <span>Product Total</span>
+        <strong>${money(subtotal)}</strong>
+      </div>
+
+      <button
+        class="full-btn"
+        onclick="goCheckout()"
+      >
+        Proceed to Checkout
+      </button>
+
+    </div>
+  `;
+
+
+  container.innerHTML = html;
+
+}
+
+
+/* =========================================================
+   CHECKOUT
+========================================================= */
+
+function goCheckout(){
+
+  if(!cart.length){
+
+    toast("Cart খালি।");
+
+    return;
+
+  }
+
+
+  if(!currentUser){
+
+    toast("Order করার আগে login করুন।");
+
+    openModal("authModal");
+
+    showAuthStep("loginStep");
+
+    return;
+
+  }
+
+
+  showPage("checkout");
+
+}
+
+
+function calculateDelivery(){
+
+  if(PAYMENT_SETTINGS.freeDelivery){
+
+    return 0;
+
+  }
+
+  return Number(
+    PAYMENT_SETTINGS.deliveryCharge || 0
+  );
+
+}
+
+
+function calculatePlatformCharge(){
+
+  return Number(
+    PAYMENT_SETTINGS.platformCharge || 0
+  );
+
+}
+
+
+function renderCheckout(){
+
+  const container =
+    document.getElementById("checkoutContainer");
+
+  if(!container) return;
+
+
+  if(!cart.length){
+
+    container.innerHTML =
+      `<div class="empty">Cart খালি।</div>`;
+
+    return;
+
+  }
+
+
+  const subtotal = cartTotal();
+
+  const delivery = calculateDelivery();
+
+  const platform = calculatePlatformCharge();
+
+  const total =
+    subtotal +
+    delivery +
+    platform;
+
+
+  container.innerHTML = `
+
+    <div class="summary">
+
+      <h3 style="margin-bottom:10px">
+        Order Summary
+      </h3>
+
+      <div class="summary-row">
+        <span>Product Total</span>
+        <strong>${money(subtotal)}</strong>
+      </div>
+
+      <div class="summary-row">
+        <span>Delivery Charge</span>
+        <strong>
+          ${
+            delivery === 0
+            ? "FREE"
+            : money(delivery)
+          }
+        </strong>
+      </div>
+
+      <div class="summary-row">
+        <span>Platform Charge</span>
+        <strong>${money(platform)}</strong>
+      </div>
+
+      <div class="summary-row summary-total">
+        <span>Total</span>
+        <strong>${money(total)}</strong>
+      </div>
+
+    </div>
+
+
+    <div class="summary">
+
+      <h3 style="margin-bottom:12px">
+        Delivery Information
+      </h3>
+
+      <div class="form-group">
+        <label>Name</label>
+        <input
+          id="orderName"
+          value="${escapeHTML(
+            pendingProfile?.name || ""
+          )}"
+          placeholder="আপনার নাম"
+        >
+      </div>
+
+      <div class="form-group">
+        <label>Mobile Number</label>
+        <input
+          id="orderMobile"
+          value="${escapeHTML(
+            normalizePhone(
+              currentUser?.phoneNumber || ""
+            )
+          )}"
+          readonly
+        >
+      </div>
+
+      <div class="form-group">
+        <label>Delivery Address</label>
+        <textarea
+          id="orderAddress"
+          placeholder="সম্পূর্ণ delivery address"
+        ></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Address Type</label>
+
+        <select id="addressType">
+          <option>Home</option>
+          <option>Office</option>
+          <option>Other</option>
+        </select>
+
+      </div>
+
+    </div>
+
+
+    <div class="summary">
+
+      <h3 style="margin-bottom:12px">
+        Payment Method
+      </h3>
+
+      <div
+        id="paymentDeliveryOnly"
+        class="payment-option"
+        onclick="selectPayment('delivery')"
+      >
+        <input
+          type="radio"
+          name="paymentMethod"
+          value="delivery"
+          checked
+        >
+        <div>
+          <strong>Delivery Charge Only</strong>
+          <div style="font-size:12px;color:#777">
+            আগে শুধু delivery charge Send Money করুন
+          </div>
+        </div>
+      </div>
+
+
+      <div
+        id="paymentFull"
+        class="payment-option"
+        onclick="selectPayment('full')"
+      >
+        <input
+          type="radio"
+          name="paymentMethod"
+          value="full"
+        >
+        <div>
+          <strong>Full Order Payment</strong>
+          <div style="font-size:12px;color:#777">
+            সম্পূর্ণ order amount আগে Send Money করুন
+          </div>
+        </div>
+      </div>
+
+
+      <div id="paymentInstructions"
+           class="payment-box">
+
+        <div>
+          bKash / Nagad থেকে
+          <strong>Send Money</strong>
+          করুন।
+        </div>
+
+        <div
+          id="receiverLabel"
+          style="margin-top:10px"
+        >
+          bKash Number
+        </div>
+
+        <div
+          id="receiverNumber"
+          class="payment-number"
+        >
+          ${escapeHTML(
+            PAYMENT_SETTINGS.bkashNumber
+          )}
+        </div>
+
+        <div>
+          Send Money Amount:
+        </div>
+
+        <div
+          id="paymentAmount"
+          class="amount"
+        >
+          ${money(delivery)}
+        </div>
+
+        <br>
+
+        <div class="form-group">
+
+          <label>Payment Type</label>
+
+          <select id="paymentProvider">
+            <option value="bKash">bKash</option>
+            <option value="Nagad">Nagad</option>
+          </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Sender Mobile Number
+          </label>
+
+          <input
+            id="senderMobile"
+            type="tel"
+            placeholder="যে নম্বর থেকে Send Money করেছেন"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Transaction ID
+          </label>
+
+          <input
+            id="transactionId"
+            type="text"
+            placeholder="Transaction ID"
+          >
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <button
+      id="submitOrderBtn"
+      class="full-btn"
+      onclick="submitOrder()"
+    >
+      Place Order
+    </button>
+
+  `;
+
+
+  window.selectedPayment = "delivery";
+
+
+  updatePaymentUI();
+
+}
+
+
+function selectPayment(type){
+
+  window.selectedPayment = type;
+
+  updatePaymentUI();
+
+}
+
+
+function updatePaymentUI(){
+
+  const delivery =
+    calculateDelivery();
+
+  const platform =
+    calculatePlatformCharge();
+
+  const subtotal =
+    cartTotal();
+
+  const fullTotal =
+    subtotal +
+    delivery +
+    platform;
+
+
+  const amount =
+    window.selectedPayment === "full"
+    ? fullTotal
+    : delivery;
+
+
+  const paymentAmount =
+    document.getElementById("paymentAmount");
+
+
+  if(paymentAmount){
+
+    paymentAmount.textContent =
+      money(amount);
+
+  }
+
+
+  const deliveryOption =
+    document.getElementById(
+      "paymentDeliveryOnly"
+    );
+
+  const fullOption =
+    document.getElementById(
+      "paymentFull"
+    );
+
+
+  deliveryOption?.classList.toggle(
+    "selected",
+    window.selectedPayment === "delivery"
+  );
+
+  fullOption?.classList.toggle(
+    "selected",
+    window.selectedPayment === "full"
+  );
+
+
+  if(
+    !PAYMENT_SETTINGS.deliveryOnlyEnabled ||
+    PAYMENT_SETTINGS.freeDelivery
+  ){
+
+    deliveryOption?.classList.add("hidden");
+
+    window.selectedPayment = "full";
+
+  }
+
+
+  if(!PAYMENT_SETTINGS.fullPaymentEnabled){
+
+    fullOption?.classList.add("hidden");
+
+  }
+
+
+  const provider =
+    document.getElementById(
+      "paymentProvider"
+    );
+
+
+  if(provider){
+
+    provider.onchange = updateReceiver;
+
+  }
+
+
+  updateReceiver();
+
+}
+
+
+function updateReceiver(){
+
+  const provider =
+    document.getElementById(
+      "paymentProvider"
+    )?.value || "bKash";
+
+
+  const number =
+    provider === "Nagad"
+    ? PAYMENT_SETTINGS.nagadNumber
+    : PAYMENT_SETTINGS.bkashNumber;
+
+
+  const label =
+    document.getElementById(
+      "receiverLabel"
+    );
+
+
+  const receiver =
+    document.getElementById(
+      "receiverNumber"
+    );
+
+
+  if(label){
+
+    label.textContent =
+      provider + " Number";
+
+  }
+
+
+  if(receiver){
+
+    receiver.textContent =
+      number || "01XXXXXXXXX";
+
+  }
+
+}
+
+
+/* =========================================================
+   PLACE ORDER
+========================================================= */
+
+async function submitOrder(){
+
+  if(!currentUser){
+
+    toast("প্রথমে login করুন।");
+
+    openModal("authModal");
+
+    return;
+
+  }
+
+
+  if(!cart.length){
+
+    toast("Cart খালি।");
+
+    return;
+
+  }
+
+
+  const name =
+    document.getElementById(
+      "orderName"
+    )?.value.trim();
+
+
+  const address =
+    document.getElementById(
+      "orderAddress"
+    )?.value.trim();
+
+
+  const addressType =
+    document.getElementById(
+      "addressType"
+    )?.value;
+
+
+  const senderMobile =
+    document.getElementById(
+      "senderMobile"
+    )?.value.trim();
+
+
+  const transactionId =
+    document.getElementById(
+      "transactionId"
+    )?.value.trim();
+
+
+  const provider =
+    document.getElementById(
+      "paymentProvider"
+    )?.value;
+
+
+  if(!name){
+
+    toast("আপনার নাম দিন।");
+
+    return;
+
+  }
+
+
+  if(!address){
+
+    toast("Delivery address দিন।");
+
+    return;
+
+  }
+
+
+  if(!senderMobile){
+
+    toast("Sender mobile number দিন।");
+
+    return;
+
+  }
+
+
+  if(!transactionId){
+
+    toast("Transaction ID দিন।");
+
+    return;
+
+  }
+
+
+  const subtotal = cartTotal();
+
+  const delivery = calculateDelivery();
+
+  const platform = calculatePlatformCharge();
+
+  const total =
+    subtotal +
+    delivery +
+    platform;
+
+
+  const paymentAmount =
+    window.selectedPayment === "full"
+    ? total
+    : delivery;
+
+
+  if(paymentAmount <= 0){
+
+    toast(
+      "Payment amount 0 হতে পারে না।"
+    );
+
+    return;
+
+  }
+
+
+  const btn =
+    document.getElementById(
+      "submitOrderBtn"
+    );
+
+
+  btn.disabled = true;
+
+  btn.textContent = "Saving Order...";
+
+
+  try{
+
+    const orderItems =
+      cart.map(item => ({
+
+        productId:item.id,
+
+        name:item.name,
+
+        price:Number(item.price),
+
+        quantity:Number(item.qty),
+
+        unit:item.unit || ""
+
+      }));
+
+
+    const orderData = {
+
+      customerId:currentUser.uid,
+
+      customerName:name,
+
+      customerPhone:
+        normalizePhone(
+          currentUser.phoneNumber || ""
+        ),
+
+      address:address,
+
+      addressType:addressType,
+
+      items:orderItems,
+
+      productTotal:subtotal,
+
+      deliveryCharge:delivery,
+
+      platformCharge:platform,
+
+      total:total,
+
+      paymentMethod:
+        window.selectedPayment,
+
+      paymentProvider:provider,
+
+      paymentReceiver:
+        provider === "Nagad"
+        ? PAYMENT_SETTINGS.nagadNumber
+        : PAYMENT_SETTINGS.bkashNumber,
+
+      paymentAmount:paymentAmount,
+
+      senderMobile:senderMobile,
+
+      transactionId:transactionId,
+
+      paymentStatus:"pending",
+
+      orderStatus:"Order Placed",
+
+      createdAt:
+        firebase.firestore.FieldValue.serverTimestamp(),
+
+      updatedAt:
+        firebase.firestore.FieldValue.serverTimestamp()
+
+    };
+
+
+    const docRef =
+      await db.collection("orders")
+      .add(orderData);
+
+
+    /*
+      Customer profile/address save
+    */
+
+    await db.collection("customers")
+      .doc(currentUser.uid)
+      .set({
+
+        uid:currentUser.uid,
+
+        name:name,
+
+        phone:
+          normalizePhone(
+            currentUser.phoneNumber || ""
+          ),
+
+        address:address,
+
+        addressType:addressType,
+
+        updatedAt:
+          firebase.firestore.FieldValue.serverTimestamp()
+
+      },{
+        merge:true
+      });
+
+
+    cart = [];
+
+    saveLocal();
+
+
+    toast(
+      "Order successfully placed!"
+    );
+
+
+    showPage("orders");
+
+    loadOrders();
+
+
+  }catch(error){
+
+    console.error(
+      "ORDER SAVE ERROR:",
+      error
+    );
+
+
+    toast(
+      "Order server-এ save হয়নি: " +
+      (error.message || "Unknown error")
+    );
+
+
+  }finally{
+
+    btn.disabled = false;
+
+    btn.textContent = "Place Order";
+
+  }
+
+}
+
+
+/* =========================================================
+   ORDERS
+========================================================= */
+
+async function loadOrders(){
+
+  const container =
+    document.getElementById(
+      "ordersContainer"
+    );
+
+  if(!container) return;
+
+
+  if(!currentUser){
+
+    container.innerHTML = `
+
+      <div class="empty">
+
+        <h3>Login Required</h3>
+
+        <p style="margin:10px 0">
+          আপনার order দেখতে login করুন।
+        </p>
+
+        <button
+          class="primary-btn"
+          onclick="openAuth()"
+        >
+          Login
+        </button>
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  container.innerHTML =
+    `<div class="loading">
+      Orders loading...
+    </div>`;
+
+
+  try{
+
+    const snap =
+      await db.collection("orders")
+      .where(
+        "customerId",
+        "==",
+        currentUser.uid
+      )
+      .get();
+
+
+    const orders = [];
+
+    snap.forEach(doc => {
+
+      orders.push({
+
+        id:doc.id,
+
+        ...doc.data()
+
+      });
+
+    });
+
+
+    orders.sort(
+      (a,b) =>
+        Number(
+          b.createdAt?.seconds || 0
+        ) -
+        Number(
+          a.createdAt?.seconds || 0
+        )
+    );
+
+
+    if(!orders.length){
+
+      container.innerHTML = `
+
+        <div class="empty">
+
+          <div style="font-size:45px">
+            📦
+          </div>
+
+          <h3>No Orders Yet</h3>
+
+          <p style="margin:8px 0 15px">
+            আপনার প্রথম order করুন।
+          </p>
+
+          <button
+            class="primary-btn"
+            onclick="showPage('shop')"
+          >
+            Shop Now
+          </button>
+
+        </div>
+
+      `;
+
+      return;
+
+    }
+
+
+    container.innerHTML =
+      orders.map(orderCard).join("");
+
+
+  }catch(error){
+
+    console.error(error);
+
+    container.innerHTML = `
+
+      <div class="empty">
+
+        Orders load করা যায়নি।
+
+        <br><br>
+
+        ${escapeHTML(error.message)}
+
+      </div>
+
+    `;
+
+  }
+
+}
+
+
+function orderCard(order){
+
+  const date =
+    order.createdAt?.toDate
+    ? order.createdAt.toDate()
+      .toLocaleString("en-BD")
+    : "Processing...";
+
+
+  const itemCount =
+    (order.items || []).reduce(
+      (sum,item) =>
+        sum + Number(item.quantity || 0),
+      0
+    );
+
+
+  return `
+
+    <div class="order-card">
+
+      <div class="order-top">
+
+        <div>
+
+          <strong>
+            Order #${escapeHTML(order.id.slice(-8))}
+          </strong>
+
+          <div style="font-size:12px;color:#777;margin-top:4px">
+            ${date}
+          </div>
+
+        </div>
+
+        <span class="status">
+          ${escapeHTML(order.orderStatus || "Order Placed")}
+        </span>
+
+      </div>
+
+
+      <div style="margin-top:12px">
+
+        ${itemCount} item(s)
+
+        <br>
+
+        <strong>
+          Total: ${money(order.total)}
+        </strong>
+
+      </div>
+
+
+      <div style="margin-top:12px">
+
+        <strong>Payment:</strong>
+        ${escapeHTML(order.paymentStatus || "pending")}
+
+      </div>
+
+
+      <div style="margin-top:12px">
+
+        <button
+          class="secondary-btn"
+          onclick="viewOrder('${order.id}')"
+        >
+          View Details
+        </button>
+
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+async function viewOrder(id){
+
+  try{
+
+    const snap =
+      await db.collection("orders")
+      .doc(id)
+      .get();
+
+
+    if(!snap.exists){
+
+      toast("Order পাওয়া যায়নি।");
+
+      return;
+
+    }
+
+
+    const order = {
+
+      id:snap.id,
+
+      ...snap.data()
+
+    };
+
+
+    let itemsHTML = "";
+
+    (order.items || []).forEach(item => {
+
+      itemsHTML += `
+
+        <div
+          style="
+            padding:8px 0;
+            border-bottom:1px solid #eee
+          "
+        >
+
+          ${escapeHTML(item.name)}
+
+          × ${item.quantity}
+
+          — ${money(
+            Number(item.price) *
+            Number(item.quantity)
+          )}
+
+        </div>
+
+      `;
+
+    });
+
+
+    document.getElementById(
+      "productModalContent"
+    ).innerHTML = `
+
+      <div class="summary">
+
+        <strong>
+          Order #${escapeHTML(order.id)}
+        </strong>
+
+        <p style="margin-top:8px">
+          Status:
+          <strong>
+            ${escapeHTML(order.orderStatus || "")}
+          </strong>
+        </p>
+
+        <p style="margin-top:5px">
+          Payment:
+          ${escapeHTML(order.paymentStatus || "")}
+        </p>
+
+      </div>
+
+
+      <div class="summary">
+
+        <h3>Items</h3>
+
+        ${itemsHTML}
+
+      </div>
+
+
+      <div class="summary">
+
+        <div class="summary-row">
+          <span>Product Total</span>
+          <strong>${money(order.productTotal)}</strong>
+        </div>
+
+        <div class="summary-row">
+          <span>Delivery</span>
+          <strong>${money(order.deliveryCharge)}</strong>
+        </div>
+
+        <div class="summary-row">
+          <span>Platform</span>
+          <strong>${money(order.platformCharge)}</strong>
+        </div>
+
+        <div class="summary-row summary-total">
+          <span>Total</span>
+          <strong>${money(order.total)}</strong>
+        </div>
+
+      </div>
+
+      <div class="summary">
+
+        <h3>Delivery</h3>
+
+        <p style="margin-top:8px">
+          ${escapeHTML(order.customerName || "")}
+        </p>
+
+        <p style="margin-top:5px">
+          ${escapeHTML(order.customerPhone || "")}
+        </p>
+
+        <p style="margin-top:5px">
+          ${escapeHTML(order.address || "")}
+        </p>
+
+      </div>
+
+    `;
+
+
+    document.getElementById(
+      "modalProductName"
+    ).textContent = "Order Details";
+
+
+    openModal("productModal");
+
+
+  }catch(error){
+
+    toast(error.message);
+
+  }
+
+}
+
+
+/* =========================================================
+   WISHLIST
+========================================================= */
+
+function toggleWishlist(id){
+
+  if(wishlist.includes(id)){
+
+    wishlist =
+      wishlist.filter(x => x !== id);
+
+    toast("Wishlist থেকে remove হয়েছে।");
+
+  }else{
+
+    wishlist.push(id);
+
+    toast("Wishlist-এ যোগ হয়েছে।");
+
+  }
+
+
+  saveLocal();
+
+  renderProducts();
+
+  renderHomeProducts();
+
+}
+
+
+function renderWishlist(){
+
+  const container =
+    document.getElementById(
+      "wishlistContainer"
+    );
+
+  if(!container) return;
+
+
+  const list =
+    products.filter(
+      p => wishlist.includes(p.id)
+    );
+
+
+  if(!list.length){
+
+    container.innerHTML = `
+
+      <div class="empty">
+
+        <div style="font-size:45px">
+          ♡
+        </div>
+
+        <h3>Wishlist Empty</h3>
+
+        <p>
+          আপনার পছন্দের product এখানে রাখুন।
+        </p>
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  container.innerHTML =
+    list.map(productCard).join("");
+
+}
+
+
+/* =========================================================
+   AUTH
+========================================================= */
+
+function openAuth(){
+
+  openModal("authModal");
+
+  showAuthStep("loginStep");
+
+}
+
+
+function showAuthStep(id){
+
+  document
+    .querySelectorAll(".auth-step")
+    .forEach(
+      el => el.classList.remove("active")
+    );
+
+
+  document
+    .getElementById(id)
+    ?.classList.add("active");
+
+}
+
+
+async function sendRegisterOTP(){
+
+  const phone =
+    normalizePhone(
+      document.getElementById(
+        "registerMobile"
+      ).value
+    );
+
+
+  if(!validBangladeshPhone(phone)){
+
+    toast(
+      "সঠিক Bangladesh mobile number দিন।"
+    );
+
+    return;
+
+  }
+
+
+  try{
+
+    if(!window.registerRecaptcha){
+
+      window.registerRecaptcha =
+        new firebase.auth.RecaptchaVerifier(
+          "registerRecaptcha",
+          {
+            size:"normal"
+          }
+        );
+
+    }
+
+
+    const confirmation =
+      await auth.signInWithPhoneNumber(
+        "+88" + phone,
+        window.registerRecaptcha
+      );
+
+
+    verificationId =
+      confirmation.verificationId;
+
+
+    window.registerConfirmation =
+      confirmation;
+
+
+    registerPhone = phone;
+
+
+    document
+      .getElementById(
+        "registerOtpArea"
+      )
+      .classList.remove("hidden");
+
+
+    toast("OTP পাঠানো হয়েছে।");
+
+
+  }catch(error){
+
+    console.error(error);
+
+    toast(
+      error.message ||
+      "OTP পাঠানো যায়নি।"
+    );
+
+  }
+
+}
+
+
+async function verifyRegisterOTP(){
+
+  const otp =
+    document.getElementById(
+      "registerOTP"
+    ).value.trim();
+
+
+  if(otp.length !== 6){
+
+    toast("6 digit OTP দিন।");
+
+    return;
+
+  }
+
+
+  try{
+
+    const result =
+      await window.registerConfirmation
+      .confirm(otp);
+
+
+    const user =
+      result.user;
+
+
+    currentUser = user;
+
+
+    /*
+      Existing account হলে password link
+      করার চেষ্টা করার আগে account state check করা হচ্ছে।
+    */
+
+    showAuthStep("passwordStep");
+
+
+    toast(
+      "Mobile verified successfully!"
+    );
+
+
+  }catch(error){
+
+    console.error(error);
+
+    toast(
+      "OTP সঠিক নয় বা expired."
+    );
+
+  }
+
+}
+
+
+async function finishRegistration(){
+
+  const password =
+    document.getElementById(
+      "newPassword"
+    ).value;
+
+
+  const confirm =
+    document.getElementById(
+      "confirmPassword"
+    ).value;
+
+
+  if(password.length < 6){
+
+    toast(
+      "Password কমপক্ষে 6 characters হতে হবে।"
+    );
+
+    return;
+
+  }
+
+
+  if(password !== confirm){
+
+    toast("Password মিলছে না।");
+
+    return;
+
+  }
+
+
+  if(!currentUser){
+
+    toast("Authentication session পাওয়া যায়নি।");
+
+    return;
+
+  }
+
+
+  try{
+
+    const email =
+      phoneToAuthEmail(
+        registerPhone
+      );
+
+
+    const credential =
+      firebase.auth.EmailAuthProvider
+      .credential(
+        email,
+        password
+      );
+
+
+    /*
+      Phone Auth user-এর সাথে password credential link
+    */
+
+    await currentUser.linkWithCredential(
+      credential
+    );
+
+
+    await db.collection("customers")
+      .doc(currentUser.uid)
+      .set({
+
+        uid:currentUser.uid,
+
+        phone:registerPhone,
+
+        name:"",
+
+        email:"",
+
+        address:"",
+
+        createdAt:
+          firebase.firestore.FieldValue.serverTimestamp(),
+
+        updatedAt:
+          firebase.firestore.FieldValue.serverTimestamp()
+
+      },{
+        merge:true
+      });
+
+
+    toast(
+      "Account successfully created!"
+    );
+
+
+    closeModal("authModal");
+
+    renderAccount();
+
+
+  }catch(error){
+
+    console.error(error);
+
+    /*
+      যদি credential already linked থাকে,
+      session থেকে customer profile তৈরি করা।
+    */
+
+    if(
+      error.code ===
+      "auth/provider-already-linked"
+    ){
+
+      try{
+
+        await db.collection("customers")
+          .doc(currentUser.uid)
+          .set({
+
+            uid:currentUser.uid,
+
+            phone:registerPhone,
+
+            updatedAt:
+              firebase.firestore.FieldValue.serverTimestamp()
+
+          },{
+            merge:true
+          });
+
+
+        closeModal("authModal");
+
+        toast("Account ready.");
+
+      }catch(e){
+
+        toast(e.message);
+
+      }
+
+      return;
+
+    }
+
+
+    toast(
+      error.message ||
+      "Account তৈরি করা যায়নি।"
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+async function loginWithPhonePassword(){
+
+  const phone =
+    normalizePhone(
+      document.getElementById(
+        "loginMobile"
+      ).value
+    );
+
+
+  const password =
+    document.getElementById(
+      "loginPassword"
+    ).value;
+
+
+  if(!validBangladeshPhone(phone)){
+
+    toast("সঠিক mobile number দিন।");
+
+    return;
+
+  }
+
+
+  if(!password){
+
+    toast("Password দিন।");
+
+    return;
+
+  }
+
+
+  try{
+
+    const email =
+      phoneToAuthEmail(phone);
+
+
+    await auth.signInWithEmailAndPassword(
+      email,
+      password
+    );
+
+
+    toast("Login successful!");
+
+    closeModal("authModal");
+
+    showPage("account");
+
+
+  }catch(error){
+
+    console.error(error);
+
+    toast(
+      "Mobile number বা password সঠিক নয়।"
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   FORGOT PASSWORD
+========================================================= */
+
+async function sendForgotOTP(){
+
+  const phone =
+    normalizePhone(
+      document.getElementById(
+        "forgotMobile"
+      ).value
+    );
+
+
+  if(!validBangladeshPhone(phone)){
+
+    toast("সঠিক mobile number দিন।");
+
+    return;
+
+  }
+
+
+  try{
+
+    if(!window.forgotRecaptcha){
+
+      window.forgotRecaptcha =
+        new firebase.auth.RecaptchaVerifier(
+          "forgotRecaptcha",
+          {
+            size:"normal"
+          }
+        );
+
+    }
+
+
+    const confirmation =
+      await auth.signInWithPhoneNumber(
+        "+88" + phone,
+        window.forgotRecaptcha
+      );
+
+
+    window.forgotConfirmation =
+      confirmation;
+
+
+    forgotPhone = phone;
+
+
+    document
+      .getElementById(
+        "forgotOtpArea"
+      )
+      .classList.remove("hidden");
+
+
+    toast("OTP পাঠানো হয়েছে।");
+
+
+  }catch(error){
+
+    console.error(error);
+
+    toast(
+      error.message ||
+      "OTP পাঠানো যায়নি।"
+    );
+
+  }
+
+}
+
+
+async function verifyForgotOTP(){
+
+  const otp =
+    document.getElementById(
+      "forgotOTP"
+    ).value.trim();
+
+
+  if(otp.length !== 6){
+
+    toast("6 digit OTP দিন।");
+
+    return;
+
+  }
+
+
+  try{
+
+    const result =
+      await window.forgotConfirmation
+      .confirm(otp);
+
+
+    currentUser =
+      result.user;
+
+
+    showAuthStep(
+      "resetPasswordStep"
+    );
+
+
+    toast("OTP verified.");
+
+  }catch(error){
+
+    console.error(error);
+
+    toast(
+      "OTP সঠিক নয় বা expired."
+    );
+
+  }
+
+}
+
+
+async function finishPasswordReset(){
+
+  const password =
+    document.getElementById(
+      "resetPassword"
+    ).value;
+
+
+  const confirm =
+    document.getElementById(
+      "resetPasswordConfirm"
+    ).value;
+
+
+  if(password.length < 6){
+
+    toast(
+      "Password কমপক্ষে 6 characters হতে হবে।"
+    );
+
+    return;
+
+  }
+
+
+  if(password !== confirm){
+
+    toast("Password মিলছে না।");
+
+    return;
+
+  }
+
+
+  if(!currentUser){
+
+    toast("Session পাওয়া যায়নি।");
+
+    return;
+
+  }
+
+
+  try{
+
+    const email =
+      phoneToAuthEmail(
+        forgotPhone
+      );
+
+
+    /*
+      Phone verified session থেকে
+      নতুন password credential তৈরি/লিংক করা।
+    */
+
+    const credential =
+      firebase.auth.EmailAuthProvider
+      .credential(
+        email,
+        password
+      );
+
+
+    try{
+
+      await currentUser.linkWithCredential(
+        credential
+      );
+
+    }catch(linkError){
+
+      if(
+        linkError.code ===
+        "auth/provider-already-linked"
+      ){
+
+        await currentUser.updatePassword(
+          password
+        );
+
+      }else{
+
+        throw linkError;
+
+      }
+
+    }
+
+
+    toast(
+      "Password successfully changed."
+    );
+
+
+    closeModal("authModal");
+
+    showPage("account");
+
+
+  }catch(error){
+
+    console.error(error);
+
+    toast(
+      error.message ||
+      "Password reset করা যায়নি।"
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   AUTH STATE
+========================================================= */
+
+auth.onAuthStateChanged(
+  async user => {
+
+    currentUser = user || null;
+
+
+    if(user){
+
+      try{
+
+        const snap =
+          await db.collection("customers")
+          .doc(user.uid)
+          .get();
+
+
+        if(snap.exists){
+
+          pendingProfile =
+            snap.data();
+
+        }
+
+      }catch(error){
+
+        console.log(error);
+
+      }
+
+    }else{
+
+      pendingProfile = null;
+
+    }
+
+
+    renderAccount();
+
+  }
+);
+
+
+/* =========================================================
+   ACCOUNT
+========================================================= */
+
+async function renderAccount(){
+
+  const container =
+    document.getElementById(
+      "accountContent"
+    );
+
+  if(!container) return;
+
+
+  if(!currentUser){
+
+    container.innerHTML = `
+
+      <div class="profile-card">
+
+        <h2>Welcome to Nature Bite</h2>
+
+        <p>
+          আপনার account থেকে order,
+          wishlist এবং profile manage করুন।
+        </p>
+
+        <button
+          class="hero-btn"
+          onclick="openAuth()"
+        >
+          Login / Register
+        </button>
+
+      </div>
+
+      <div class="menu-list">
+
+        <button
+          class="menu-item"
+          onclick="showPage('offers')"
+        >
+          🎁 Offers
+          <span>›</span>
+        </button>
+
+        <button
+          class="menu-item"
+          onclick="openModal('supportModal')"
+        >
+          💬 Support
+          <span>›</span>
+        </button>
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  let profile = pendingProfile || {};
+
+
+  try{
+
+    const snap =
+      await db.collection("customers")
+      .doc(currentUser.uid)
+      .get();
+
+
+    if(snap.exists){
+
+      profile = snap.data();
+
+      pendingProfile = profile;
+
+    }
+
+  }catch(error){
+
+    console.log(error);
+
+  }
+
+
+  container.innerHTML = `
+
+    <div class="profile-card">
+
+      <h2>
+        ${escapeHTML(
+          profile.name ||
+          "Nature Bite Customer"
+        )}
+      </h2>
+
+      <p>
+        ${escapeHTML(
+          profile.phone ||
+          currentUser.phoneNumber ||
+          ""
+        )}
+      </p>
+
+    </div>
+
+
+    <div class="menu-list">
+
+      <button
+        class="menu-item"
+        onclick="editProfile()"
+      >
+        👤 Edit Profile
+        <span>›</span>
+      </button>
+
+      <button
+        class="menu-item"
+        onclick="showPage('orders')"
+      >
+        📦 My Orders
+        <span>›</span>
+      </button>
+
+      <button
+        class="menu-item"
+        onclick="showPage('wishlist')"
+      >
+        ♡ Wishlist
+        <span>›</span>
+      </button>
+
+      <button
+        class="menu-item"
+        onclick="showPage('offers')"
+      >
+        🎁 Offers & Coupons
+        <span>›</span>
+      </button>
+
+      <button
+        class="menu-item"
+        onclick="openModal('supportModal')"
+      >
+        💬 Support
+        <span>›</span>
+      </button>
+
+      <button
+        class="menu-item"
+        onclick="logout()"
+        style="color:#d32f2f"
+      >
+        🚪 Logout
+        <span>›</span>
+      </button>
+
+    </div>
+
+  `;
+
+}
+
+
+function editProfile(){
+
+  const profile =
+    pendingProfile || {};
+
+
+  document.getElementById(
+    "profileName"
+  ).value =
+    profile.name || "";
+
+
+  document.getElementById(
+    "profileEmail"
+  ).value =
+    profile.email || "";
+
+
+  document.getElementById(
+    "profileAddress"
+  ).value =
+    profile.address || "";
+
+
+  openModal("profileModal");
+
+}
+
+
+async function saveProfile(){
+
+  if(!currentUser){
+
+    toast("Login করুন।");
+
+    return;
+
+  }
+
+
+  const name =
+    document.getElementById(
+      "profileName"
+    ).value.trim();
+
+
+  const email =
+    document.getElementById(
+      "profileEmail"
+    ).value.trim();
+
+
+  const address =
+    document.getElementById(
+      "profileAddress"
+    ).value.trim();
+
+
+  try{
+
+    await db.collection("customers")
+      .doc(currentUser.uid)
+      .set({
+
+        uid:currentUser.uid,
+
+        name:name,
+
+        email:email,
+
+        address:address,
+
+        phone:
+          normalizePhone(
+            currentUser.phoneNumber || ""
+          ),
+
+        updatedAt:
+          firebase.firestore.FieldValue.serverTimestamp()
+
+      },{
+        merge:true
+      });
+
+
+    pendingProfile = {
+
+      ...(pendingProfile || {}),
+
+      name,
+
+      email,
+
+      address
+
+    };
+
+
+    closeModal("profileModal");
+
+    renderAccount();
+
+    toast("Profile updated.");
+
+  }catch(error){
+
+    console.error(error);
+
+    toast(
+      "Profile save হয়নি: " +
+      error.message
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   SUPPORT
+========================================================= */
+
+async function createSupportTicket(){
+
+  if(!currentUser){
+
+    toast("Support ticket-এর জন্য login করুন।");
+
+    return;
+
+  }
+
+
+  const category =
+    document.getElementById(
+      "supportCategory"
+    ).value;
+
+
+  const message =
+    document.getElementById(
+      "supportMessage"
+    ).value.trim();
+
+
+  if(!message){
+
+    toast("Message লিখুন।");
+
+    return;
+
+  }
+
+
+  try{
+
+    const ref =
+      await db.collection("supportTickets")
+      .add({
+
+        customerId:currentUser.uid,
+
+        customerPhone:
+          normalizePhone(
+            currentUser.phoneNumber || ""
+          ),
+
+        category:category,
+
+        message:message,
+
+        status:"Open",
+
+        createdAt:
+          firebase.firestore.FieldValue.serverTimestamp(),
+
+        updatedAt:
+          firebase.firestore.FieldValue.serverTimestamp()
+
+      });
+
+
+    closeModal("supportModal");
+
+    document.getElementById(
+      "supportMessage"
+    ).value = "";
+
+
+    toast(
+      "Ticket created: " +
+      ref.id.slice(-8)
+    );
+
+  }catch(error){
+
+    console.error(error);
+
+    toast(
+      "Ticket create হয়নি: " +
+      error.message
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+async function logout(){
+
+  try{
+
+    await auth.signOut();
+
+    cart = [];
+
+    /*
+      চাইলে cart localStorage রাখা যায়।
+      এখানে security-এর জন্য local cart clear করা হচ্ছে।
+    */
+
+    saveLocal();
+
+    showPage("home");
+
+    toast("Logged out.");
+
+  }catch(error){
+
+    toast(error.message);
+
+  }
+
+}
+
+
+/* =========================================================
+   INITIAL LOAD
+========================================================= */
+
+async function init(){
+
+  updateBadges();
+
+  await loadPaymentSettings();
+
+  await loadProducts();
+
+  renderCart();
+
+}
+
+
+init();
+
+</script>
+
+</body>
+</html>
